@@ -4,10 +4,9 @@
 
 class SodaMachine : public VendingMachine {
 
-  SodaMachine() {
-    
-  }
-
-}
+public:
+  SodaMachine();
+  ~SodaMachine();
+};
 
 #endif //SODA_MACHINE_H

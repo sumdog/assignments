@@ -20,7 +20,7 @@ public:
   double emptyMoneyTray();
 
 protected:
-  Item *items;
+  Item **items;
 
 private:
   double total_money;
