@@ -86,7 +86,11 @@ void* CServer::serverThread(void* cserver) {
   char *input = new char[BUFFER_SIZE];
   char *retval= new char[BUFFER_SIZE];
   
-  recv(server->fd,input,BUFFER_SIZE,0);
+  //open our stream
+  FILE *stream = fdopen(server->fd,"r+");
+  
+  //read user request
+  fgets(input,BUFFER_SIZE,stream);
 
   command_t *cmd = server->server->parseCommand(input);
 
@@ -94,13 +98,14 @@ void* CServer::serverThread(void* cserver) {
   retval,server->server->processRequest(cmd,retval);
 
   //send user buffer
-  server->server->sendAll(server->fd,retval);
-  
+  fputs(retval,stream);
+
   //clean up our mess
+  fclose(stream);
   close(server->fd);
   
-  //delete[] input, retval;
-  //delete server;
+  delete[] input, retval;
+  delete server;
   pthread_exit(0);
 }
 
@@ -129,7 +134,6 @@ void CServer::runService() {
       //we've got a connection, now start a thread
       pthread_t sock_thread;
       long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(serverThread), (void*) info);
-      //serverThread((void*)info);
     }
     else {
       printf("%d\n",sockfd);
@@ -141,7 +145,6 @@ void CServer::runService() {
 
 
 void CServer::registerService(char* host, unsigned short port) {
-
   //who am i
   char me[100];
   gethostname(&me[0],100);
@@ -169,7 +172,12 @@ void CServer::registerService(char* host, unsigned short port) {
     //send our registration data
     char regdata[BUFFER_SIZE];
     sprintf(regdata,"R:%s:%s:%d\n",name,me,this->port);
-    sendAll(sockfd,regdata);
+    
+    FILE *stream = fdopen(sfd,"w");
+    fputs(regdata,stream);
+    //sendAll(sockfd,regdata);
+    
+    fclose(stream);
     close(sfd);
   }
 }

@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
       strcpy(rname,p);
       p = strtok(NULL,":");
       rport = atol(p);
-      delete temp;
+      delete[] temp;
       break;
     }
     }

@@ -153,7 +153,6 @@ short socketConnect(char *host,unsigned short port,char *sendbuf,char *recievebu
   }
 
   //send request
-  printf("--%s--\n",sendbuf);
   if( fputs(sendbuf,nstream) == EOF) {
     fclose(nstream);
     close(sockfd);
@@ -185,7 +184,7 @@ short serviceLookup(cmd_t *cmd, ns_t *ns){
   //setup I/O buffers
   char sndbuf[BUFFER];
   char recbuf[BUFFER];
-  sprintf(sndbuf,"L:%s\n\n",cmd->service);  
+  sprintf(sndbuf,"L:%s\n",cmd->service);  
  
   //send/recieve information from service
   short c = socketConnect(ns->nshost,ns->nsport,&sndbuf[0],&recbuf[0],BUFFER);
