@@ -29,9 +29,10 @@ ns_t* getNameserver(char *file);
 
 short serviceLookup(cmd_t *cmd, ns_t *ns);
 
-void runCommand(cmd_t *cmd, char *output, long bufsize);
+short runCommand(cmd_t *cmd, char *output, long bufsize);
 
 void freeNameserver(ns_t *t);
 
+short socketConnect(char *host,unsigned short port,char *sendbuf,char *recievebuf, long rbufsize);
 
 #endif /** CLIENT_H */

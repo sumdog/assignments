@@ -48,7 +48,10 @@ int main(int argc,char **argv) {
       printf("Error: Could Not Connect to Nameserver\n");
       break;
     case -3:
-      printf("Error: Invalid Response from Nameserver\n");
+      printf("Error: I/O Failure with Nameservice\n");
+      break;
+    case -4:
+      printf("Error: Invalid Response from Nameservice\n");
       break;
    }
 

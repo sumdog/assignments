@@ -122,20 +122,20 @@ cmd_t* promptUser(){
   return retval;
 }
 
-//Return 0 on success
-//       -1 on invalid nameserver hostname
-//       -2 could not connect to server
-//       -3 error during lookup
-short serviceLookup(cmd_t *cmd, ns_t *ns){
 
+//Return 0 on success
+//       -1 = invalid hostname
+//       -2 = cound not connect
+//       -3 = I/O error
+short socketConnect(char *host,unsigned short port,char *sendbuf,char *recievebuf, long rbufsize) {
   //get host
-  struct hostent *hostname = gethostbyname(ns->nshost);
+  struct hostent *hostname = gethostbyname(host);
   if(hostname == NULL) { return -1; }
 
   //connection struct
   struct sockaddr_in nameserver;
   nameserver.sin_family = AF_INET;
-  nameserver.sin_port   = htons(ns->nsport);
+  nameserver.sin_port   = htons(port);
   nameserver.sin_addr   = *((struct in_addr*)hostname->h_addr);
   memset(nameserver.sin_zero,'\0',8);
 
@@ -147,37 +147,69 @@ short serviceLookup(cmd_t *cmd, ns_t *ns){
   
   //open file stream;
   FILE *nstream = fdopen(sockfd,"r+");
-  if(ns == NULL) { 
+  if(nstream == NULL) { 
     close(sockfd); 
     return -3;
   }
 
   //send request
-  char sndbuf[BUFFER];
-  sprintf(sndbuf,"L:%s\n\n",cmd->service);
-  if( fputs(&sndbuf[0],nstream) == EOF) {
+  if( fputs(sendbuf,nstream) == EOF) {
     fclose(nstream);
     close(sockfd);
     return -3;
   }
 
   //get response
-  char buf[BUFFER];
-  if( fgets(&buf[0],BUFFER,nstream) == NULL ) {
+  if( fgets(recievebuf,rbufsize,nstream) == NULL ) {
     fclose(nstream);
     close(sockfd);
     return -3;
   }
 
-  //parse response
-  printf("%s\n",&buf[0]);
-
-
-  //cleanup
+  //close the conncetion (we're done with it)
   fclose(nstream);
   close(sockfd);
+  return 0;
+
 }
 
-void runCommand(cmd_t *cmd, char *output, long bufsize){}
+//Return 0 on success
+//       -1 on invalid nameserver hostname
+//       -2 could not connect to server
+//       -3 error during lookup
+//       -4 invalid data from nameserver
+//       -5 unknown service
+short serviceLookup(cmd_t *cmd, ns_t *ns){
+
+  //setup I/O buffers
+  char sndbuf[BUFFER];
+  char recbuf[BUFFER];
+  sprintf(sndbuf,"L:%s\n\n",cmd->service);  
+ 
+  //send/recieve information from service
+  short c = socketConnect(ns->nshost,ns->nsport,&sndbuf[0],&recbuf[0],BUFFER);
+  if(c != 0) { return c; } //error
+
+  //parse response
+  char *i = strtok(recbuf,":\n"); //hostname
+  if( i == NULL ) { return -4; }
+  cmd->host = malloc(sizeof(char*)*strlen(i));
+  strcpy(cmd->host,i);
+  i = strtok(NULL,":\n"); //port
+  if( i == NULL ) {return -4;}
+  cmd->port = (unsigned short) atol(i);
+
+  printf("\nS:  P:  --\n",cmd->host,cmd->port);
+
+  //cleanup
+  return 0; 
+}
+
+
+short runCommand(cmd_t *cmd, char *output, long bufsize){
+
+
+
+}
 
 
