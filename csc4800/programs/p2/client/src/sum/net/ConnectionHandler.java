@@ -103,12 +103,11 @@ public class ConnectionHandler {
         }
         
         //process ACK
-        StringTokenizer toke = new StringTokenizer(ack,":");
-        char acktype = toke.nextToken().charAt(0);
-        retval = new String[toke.countTokens()];
-        int i = 0;
-        for(String s = toke.nextToken(); toke.hasMoreElements(); s = toke.nextToken(), i++) {
-            retval[i] = s;
+        String[] ackparts = ack.split(":");
+        char acktype = ackparts[0].charAt(0);
+        retval = new String[ackparts.length-1];
+        for(int i=1; i<ackparts.length; i++) {        
+            retval[i-1] = ackparts[i];
         }
         return new ConnectionAck(acktype,retval);
     }

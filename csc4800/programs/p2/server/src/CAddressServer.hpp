@@ -27,6 +27,7 @@ private:
   pthread_mutex_t lock;
   bool isNumeric(char *s);
   bool isAlpha(char *s, bool spaces);
+  bool isAlphaNumeric(char *s);
 public:
   CAddressServer(unsigned short port, long backlog);
   ~CAddressServer();

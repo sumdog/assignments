@@ -26,6 +26,15 @@ bool CAddressServer::isNumeric(char *s) {
   return true;
 }
 
+bool CAddressServer::isAlphaNumeric(char *s) {
+  char i;
+  int j;
+  for(i = *s, j = strlen(s); j > 0; i = *(++s), j--) {
+    if(!isalnum(i) && !isspace(i)) { return false; }
+  }
+  return true;
+}
+
 bool CAddressServer::isAlpha(char *s,bool spaces=false) {
   char i;
   int j;
@@ -43,7 +52,7 @@ bool CAddressServer::isAlpha(char *s,bool spaces=false) {
 bool CAddressServer::processRequest(command_t *t, char* retval) {
 
   bool errflg = false;
-  string errstr("");
+  string errstr("E:");
 
   switch(t->type) {
   case GET_SOC_SEC_NO: {
@@ -162,46 +171,47 @@ bool CAddressServer::processRequest(command_t *t, char* retval) {
     }
     
     if(!isAlpha(t->argv[0])) {
-      errstr += "E:Invalid Last Name\n";
+      errstr += "Invalid Last Name:";
       errflg = true;
     }
     
     if(!isAlpha(t->argv[1])) {
-      errstr += "E:Invalid First Name\n";
+      errstr += "Invalid First Name:";
       errflg = true;
     }
 
     if(!isNumeric(t->argv[2]) || strlen(t->argv[2])!=9 ) {
-      errstr += "E:Invalid Social Security Number\n";
+      errstr += "Invalid Social Security Number:";
       errflg = true;
     }
 
-    if(!isAlpha(t->argv[3],true)) {
-      errstr += "E:Invalid Street Name\n";
+    if(!isAlphaNumeric(t->argv[3])) {
+      errstr += "Invalid Street Name:";
       errflg = true;
     }
 
     if(!isNumeric(t->argv[4])) {
-      errstr += "E:Invalid House Number\n";
+      errstr += "Invalid House Number:";
       errflg = true;
     }
 
     if(!isAlpha(t->argv[5])) {
-      errstr += "E:Invalid City\n";
+      errstr += "Invalid City:";
       errflg = true;
     }
     
     if(!isAlpha(t->argv[6]) || strlen(t->argv[6]) != 2) {
-      errstr += "E:Invalid State Abbreviation\n";
+      errstr += "Invalid State Abbreviation:";
       errflg = true;
     }
 
     if(!isNumeric(t->argv[7]) || strlen(t->argv[7]) != 5 )  {
-      errstr += "E:Invalid Zip Code\n";
+      errstr += "Invalid Zip Code:";
       errflg = true;
     }
 
     if(errflg) {
+      errstr += "\n";
       strcpy(retval,errstr.c_str());
       return true;
     }

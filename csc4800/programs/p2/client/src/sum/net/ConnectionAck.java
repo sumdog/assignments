@@ -38,13 +38,17 @@ public class ConnectionAck {
      * displays a message dialog containing ack information for user
      */
     public void displayMessageDialog() {
+    	String msg = "";
+    	for(int x=0; x<messages.length; x++) {
+    		msg += messages[x] + "\n";
+    	}
         switch(acktype) {
             case ACK:
-                JOptionPane.showMessageDialog(new JFrame(),messages[0],
+                JOptionPane.showMessageDialog(new JFrame(),msg,
                         "Server Message",JOptionPane.INFORMATION_MESSAGE);
                 break;
             case ERROR:
-                JOptionPane.showMessageDialog(new JFrame(),messages[0],
+                JOptionPane.showMessageDialog(new JFrame(),msg,
                         "Error",JOptionPane.ERROR_MESSAGE);
                 break;
             default:
