@@ -1,0 +1,27 @@
+CSC4800 - Oct 6
+Midterm Exam week from today
+Operating System stuff
+What is distributed computing?
+Syncronization (locks/semaphores)
+  semaphores - has acount
+  0 - block
+  >0 - decrement and go on
+  mutex (locked - true/false)
+  if locked, blocks until free
+  mutex is a special instaneof semaphore
+If code is on test, apis will be listed
+Chapters 1 - 4
+Networking
+   Internet
+   Packet Switched
+   Protocol
+   TCP
+   Protocol Stack
+   Class A,B,C addresses
+
+Submission program:
+   http://lisa.csc.tntech.edu/cgi-bin/start.cgi
+(lisa, not www, because Eric and Marc are stupid and don't know how to setup DNS/Apachee/Kerberos correctly cause they're dumb fucks)
+
+Future of Peer to Peer
+  virtual meeting room
