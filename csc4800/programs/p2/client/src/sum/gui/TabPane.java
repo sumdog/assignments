@@ -5,11 +5,13 @@ package sum.gui;
 import sum.net.ConnectionAck;
 import sum.net.ConnectionHandler;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JComboBox;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -24,6 +26,7 @@ class TabPane extends JTabbedPane implements ActionListener {
 	private JTextField insssn3, insssn2, insssn4, inslname, insfname, inshousenum, insstreet,
 		inscity, insstate, inszip, qssn, listlname;
 	private JButton listgo, qgo, insadd;
+	private JComboBox qfield;
 	
 	private ConnectionHandler socket;
 	
@@ -93,9 +96,15 @@ class TabPane extends JTabbedPane implements ActionListener {
 				});
 			}
 		});
+		qfield = new JComboBox();
 		addTab("Query",new JPanel(){
 			{
-				
+				setLayout(new BorderLayout());
+				add(new JPanel(){
+					{
+						
+					}
+				},BorderLayout.NORTH);
 			}
 		});
 		addTab("List", new JPanel(){
@@ -113,7 +122,17 @@ class TabPane extends JTabbedPane implements ActionListener {
 			String[] query = { inslname.getText(), insfname.getText(), insssn3.getText()+insssn2.getText()+insssn4.getText(), insstreet.getText(), inshousenum.getText(), inscity.getText(), insstate.getText(), inszip.getText() };
 			ConnectionAck a = socket.sendQuery(ConnectionHandler.ADD_PERSON,query);
 			if(a.acktype == ConnectionAck.ACK) {
-				/* TODO clear all fields */
+				//clear our fields
+				insssn3.setText("");
+				insssn2.setText("");
+				insssn4.setText("");
+				inslname.setText("");
+				insfname.setText("");
+				inshousenum.setText("");
+				insstreet.setText("");
+				inscity.setText("");
+				insstate.setText("");
+				inszip.setText("");
 			}
 			a.displayMessageDialog();
 		}	
