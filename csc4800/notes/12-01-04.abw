@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.11" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Wed Dec  1 09:21:00 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal">Lua</p>
+<p style="Normal">examples from (</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">&gt; print(2+2)</p>
+<p style="Normal">4</p>
+<p style="Normal">&gt; print(3/4)</p>
+<p style="Normal">0.75</p>
+<p style="Normal">&gt; x = 20</p>
+<p style="Normal">&gt; print(x)</p>
+<p style="Normal">20</p>
+<p style="Normal">&gt;print("I am " .. x .. " years old")</p>
+<p style="Normal">I am 20 years old</p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c props="font-weight:bold"></c><c props="font-weight:bold">File</c>: printme.lua</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">function printme(msg)</p>
+<p style="Normal">   print("My message:" .. msg)</p>
+<p style="Normal">end</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">printme("Hello")</p>
+<p style="Normal"></p>
+<p style="Normal">---EOF</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Special value: <c props="font-weight:bold">nil </c><c props="font-weight:normal"> (null)</c></p>
+<p style="Normal"><c props="font-weight:normal"></c></p>
+</section>
+</abiword>
