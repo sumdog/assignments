@@ -133,7 +133,7 @@ public class Can {
                     //int current = 0;
                     if( calcindex != 0 ) {
                       //previous = nodes[x][y][z].getTemp(calcindex % 3);
-                      pindex = calcindex % 3;
+                      pindex = calcindex ;
                       cindex = (calcindex+1) % 3;
                       //current = (calcindex+1) % 3;
                     }
@@ -219,7 +219,7 @@ public class Can {
                         //nodes[x][y][z].setTemp(current,previous+9000);
                     }
                     else {
-                        nodes[x][y][z].setTemp(cindex,nodes[x][y][z].getTemp(pindex));
+                        nodes[x][y][z].setTemp(cindex,nodes[x][y][z].getTemp(pindex % 3));
                     }
                     
                 }
@@ -233,8 +233,7 @@ public class Can {
         
         //if(y == -1) { y = this.y-1; }
         //if(y == this.y) { y = 0; }
-        
-        return nodes[x][y][z].getTemp(calcindex);
+        return nodes[x][y][z].getTemp(calcindex  % 3);
     }
     /*
      * T(x,y,z,t+ti)=((ti*(k1+k2)*(x+0.5)*(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/(x*(xspace^2)*(p1*c1+p2*c2)))+TARRAY(x,y,z,t)
@@ -248,7 +247,8 @@ public class Can {
                 //(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/((x+0.5)*(Math.pow(xspacing,2))*
                 //(k1.DENSITY*k1.SPECIFICHEAT+k2.DENSITY*k2.SPECIFICHEAT)))+TARRAY(x,y,z,t);
         
-        return (TARRAY(x+1,y,z,t));
+        //System.out.println("X: " + x + " y: " +y + " z: " +z);
+        return (TARRAY(1,y,z,t));
         
     }
     

@@ -20,7 +20,7 @@ public class MainWindow extends JFrame {
     
     public MainWindow(Can c) {
         super("Noah's Can");
-        setSize(1000,260);
+        setSize(1000,600);
         setTitle("Noah's Can");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
