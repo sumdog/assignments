@@ -194,12 +194,31 @@ p1CalSet* p1performCalculations(p1DataSet *data) {
 
   //loop for calculations
   for( a=&(data->seta[0]), i=data->sizea ; i > 0  ; i--, a++) {
+    //add current a to union
+    *un = *a;
+    calset->union_size++;
+    un++;
+    //loop to go through set b
     for( b=&(data->setb[0]), j=data->sizeb; j > 0 ; j--, b++  ) {
+      //stuff that should only be executed once 
+      if( j == 1 ) { 
+	*un = *b;   //union
+	calset->union_size++;
+	un++;
+      }
       if( *a == *b ) { 
 	//intersection
 	*ir = *a;
 	ir++;
 	calset->inter_size++;
+	break; 
+      }
+      //if an intersection was found, we'll break out
+      //of the for loop before this statement
+      if( j == 1) {
+	*su = *a;  //subtraction of A - B
+	calset->sub_size++;
+	su++;
       }
     }//end setb forloop
   }//end seta forloop
