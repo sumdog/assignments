@@ -1,0 +1,7 @@
+Script started on Mon Apr 28 03:36:31 2003
+]0;skhanna@br20612:~/class-working/csc3400-program4/MemoryError[skhanna@br20612 MemoryError]$ g++ -o main m_error.cxx
+]0;skhanna@br20612:~/class-working/csc3400-program4/MemoryError[skhanna@br20612 MemoryError]$ ./main
+Out of Memory
+]0;skhanna@br20612:~/class-working/csc3400-program4/MemoryError[skhanna@br20612 MemoryError]$ exit
+
+Script done on Mon Apr 28 03:37:40 2003

@@ -1,0 +1,89 @@
+Script started on Mon Apr 28 03:33:13 2003
+]0;skhanna@br20612:~/class-working/csc3400-program4/StudentInformation[skhanna@br20612 StudentInformation]$ g++ -o main Info.cpp Studetn  ntDatabase.cpp mm ain.cpp
+]0;skhanna@br20612:~/class-working/csc3400-program4/StudentInformation[skhanna@br20612 StudentInformation]$ ./main
+Name of Database File:
+test1.dat
+(? for help)>>>?
+Help Menu
+--------------------
+? - Help Menu
+a - Add/Change Record
+d - Delete Record
+l - List record
+r - List all records
+q - Quit
+(? for help)>>>a
+Record Number:0
+First Name:David
+Last Name:Barber
+Middle Initial:L
+Birthday (Month, 1-12):12
+Birthday (Day, 1-31):24
+Birthday (Year, 0000-9999):1987
+Social Security Number:443234565
+Grade Point Average:3.75
+(? for help)>>>a
+Record Number:1
+First Name:Daniel
+Last Name:Johnson
+Middle Initial:K
+Birthday (Month, 1-12):05
+Birthday (Day, 1-31):23
+Birthday (Year, 0000-9999):1987
+Social Security Number:887453423
+Grade Point Average:2.45
+(? for help)>>>n a
+Record Number:10
+First Name:Jamie
+Last Name:Johnson
+Middle Initial:K
+Birthday (Month, 1-12):12
+Birthday (Day, 1-31):24
+Birthday (Year, 0000-9999):1957
+Social Security Number:887434543
+Grade Point Average:2.98
+(? for help)>>>l
+Index of Record to read: 1
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+              Daniel K              Johnson 05/23/1987 887453423 2.45
+(? for help)>>>l
+Index of Record to read: 10
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+               Jamie K              Johnson 12/24/1957 887434543 2.98
+(? for help)>>>l
+Index of Record to read: 7
+Invalid Record ID
+(? for help)>>>r
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+               David L               Barber 12/24/1987 443234565 3.75
+              Daniel K              Johnson 05/23/1987 887453423 2.45
+               Jamie K              Johnson 12/24/1957 887434543 2.98
+(? for help)>>>d
+Index of Record to delete: 3
+Invalid Record ID
+(? for help)>>>d
+Index of Record to delete: 0
+Record Deleted
+(? for help)>>>r
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+              Daniel K              Johnson 05/23/1987 887453423 2.45
+               Jamie K              Johnson 12/24/1957 887434543 2.98
+(? for help)>>>d
+Index of Record to delete: 10
+Record Deleted
+(? for help)>>>r
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+              Daniel K              Johnson 05/23/1987 887453423 2.45
+(? for help)>>>d
+Index of Record to delete: 12
+Invalid Record ID
+(? for help)>>>d
+Index of Record to delete: 2
+Invalid Record ID
+(? for help)>>>r
+----------First Name-M------------Last Name---Birthday-------SSN--GPA
+              Daniel K              Johnson 05/23/1987 887453423 2.45
+(? for help)>>>q
+]0;skhanna@br20612:~/class-working/csc3400-program4/StudentInformation[skhanna@br20612 StudentInformation]$ exit
+
+Script done on Mon Apr 28 03:35:12 2003
