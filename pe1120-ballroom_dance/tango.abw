@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.5" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Tue Apr  6 14:36:58 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" props="text-align:right">Sumit Khanna</p>
+<p style="Normal" props="font-weight:bold"><c props="font-weight:bold">Tango</c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal">A. History</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; margin-left:36pt">The story of Tango as told is that it started with the gauchos of Argentina. They wore chaps that had hardened from the foam and sweat of the horses body. Hence to gauchos walked with knees flexed. They would go to the crowded night clubs and ask the local girls to dance. Since the gaucho hadn't showered, the lady would dance in the crook of the man's right arm, holding her head back. Her right hand was held low on his left hip, close to his pocket, looking for a payment for dancing with him. The man danced in a curving fashion because the floor was small with round tables, so he danced around and between them.</p>
+<p style="Normal">B. Description of Dance</p>
+<p style="Normal">	Long, Long, quick quick Long (1 2 3&amp;4)</p>
+<p style="Normal">D. Music </p>
+<p style="Normal" props="margin-left:36pt">1. Song: (almost every track is a tango)</p>
+<p style="Normal" props="margin-left:36pt">2. CD: Waking Life Sound Track</p>
+<p style="Normal" props="margin-left:36pt">3. Rating: 8.6</p>
+<p style="Normal">E. Movement</p>
+<p style="Normal">	Elegant. Smooth. Sensual. </p>
+<p style="Normal">F. Attire</p>
+<p style="Normal">	Formal. Dresses with high slits.</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Sources</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">http://www.centralhome.com/ballroomcountry/argentino_tango.htm</p>
+</section>
+</abiword>
