@@ -30,6 +30,7 @@ typedef struct p1CalSetStruct {
   unsigned short sub_size;     ///<Size of Subtraction
 } p1CalSet;
 
+
 /**\fn p1DataSet* p1createSet(unsigned short max)
  *\brief creates a data set
  *\param max Maximum size of the datasets
@@ -37,22 +38,30 @@ typedef struct p1CalSetStruct {
  *\see void p1deleteSet(p1DataSet* set)
  */
 p1DataSet* p1createSet(unsigned short max);
+
+
 /**\fn void p1deleteSet(p1DataSet* set)
  *\brief will free the memory allocated to a dataset pointer
  *\param set a dataset allocated using p1createSet function
  *\see p1DataSet* p1createSet(unsigned short max)
  */
 void p1deleteSet(p1DataSet* set);
+
+
 /** \fn void p1populateSet(p1DataSet *set);
  *  \brief populates data sets with user input
  *  \param data struct with perallocated memory
  */
 void p1populateSet(p1DataSet *set);
+
+
 /** \fn void p1printElements(p1DataSet *data)
  *  \brief prints the data set to standard out
  *  \param data dataset to print
  */
 void p1printElements(p1DataSet *data);
+
+
 /**
  *\fn short p1checkDups(long *set, long check, unsigned short size);
  *\brief checks for duplicates in an array
@@ -62,3 +71,29 @@ void p1printElements(p1DataSet *data);
  *\return -1 if a duplicate is found, 0 otherwise
  */
 short p1checkDups(long *set, long check, unsigned short size);
+
+/**
+ *\fn p1CalSet* performCalculations(p1DataSet *data)
+ *\brief performs set calculations on the dataset
+ *\param data dataset to perfrom calculations on
+ *\return a struct containing the results of the calculations
+ */
+p1CalSet* p1performCalculations(p1DataSet *data);
+
+
+/**
+ *\fn void p1destroyCalculations(p1CalSet *data)
+ *\brief will free memory allocated to a calculation struct
+ *\param data dataset to destory
+ */
+void p1destroyCalculations(p1CalSet *data);
+
+/**
+ *\fn p1removeElement(long *set, long check, unsigned short size)
+ *\breif removes an element from a set
+ *\param set the set to remove the element from
+ *\param check element to remove
+ *\param size the size of the set
+ *\return 0 if element was removed, -1 if element wasn't found
+ */
+short p1removeElement(long *set, long check, unsigned short size);

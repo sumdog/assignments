@@ -46,6 +46,8 @@ void p1populateSet(p1DataSet *set) {
     printf("\n<num a>:<num b>");
     printf("\nexample:");
     printf("\n3:4");
+    printf("\nTo delete, using a '!' symbol like so:");
+    printf("\n!3:!4");
     printf("\nUse end of file (^D) to exit\n");
 
     }
@@ -73,25 +75,38 @@ void p1populateSet(p1DataSet *set) {
       long curnum = atol(token);
       switch(count) {
       case 2:
-	if( p1checkDups(set->seta,curnum,set->sizea) ) {
-	  fprintf(stderr,"Duplicate Element in Set A: %d\n",curnum);
-	} else {
+	if( *token == '!' && *(token+sizeof(char)) != '\0' ) {
+	  //delete token
+	  if ( !p1removeElement(set->seta, atol(*(token+sizeof(char))) , set->sizea) ) 
+	    { fprintf(stderr,"Warning: %d is not an element\n",*(token+sizeof(char))); }
+	}
+	else if( *token == '!' ) {
+	  fprintf(stderr,"Warning: removal flag used without valid number");
+	}
+	else if( p1checkDups(set->seta,curnum,set->sizea) ) {
+	  fprintf(stderr,"Warning: duplicate element in aet A: %d\n",curnum);
+	} 
+	else {
 	  *a = curnum;
 	  set->sizea++;
 	  a++;
 	}
 	break;
       case 1:
-	if( p1checkDups(set->setb,curnum,set->sizeb) ) {
-	  fprintf(stderr,"Duplicate Element in Set B: %d\n",curnum);
-	} else {
+	if( *token == '!' ) {
+	  //delete token
+	}
+	else if( p1checkDups(set->setb,curnum,set->sizeb) ) {
+	  fprintf(stderr,"Warning: duplicate blement in set B: %d\n",curnum);
+	} 
+	else {
 	  *b = atol(token);
 	  set->sizeb++;
 	  b++;
 	}
 	break;
       default:
-	fprintf(stderr,"Invalid Element: %d\n",curnum);
+	fprintf(stderr,"Invalid element: %d\n",curnum);
       }
       count--;
       token = strtok( NULL, ":\n" );
@@ -143,12 +158,49 @@ short p1checkDups(long *set, long check, unsigned short size) {
 }
 
 
-p1CalSet* performCalculations(p1DataSet *data) {
+p1CalSet* p1performCalculations(p1DataSet *data) {
   //setup our return struct
   p1CalSet *calset = (p1CalSet*) malloc(sizeof(p1CalSet));
-  long datasize = data->sizea > data->sizeb ? data->sizea : data->sizeb;
-  calset->set_union = (long*) malloc(sizeof(  datasize ));
+  calset->set_union    = (long*) malloc(sizeof(long) * data->sizea + data->sizeb);
+  calset->intersection = (long*) malloc(sizeof(long) *
+					data->sizea > data->sizeb ? 
+					data->sizea : data->sizeb  
+					);
+  calset->subtract     = (long*) malloc(sizeof(long) * data->sizea);
+  
 
   //setup some set pointers
   
+}
+
+void p1destroyCalculations(p1CalSet *data) {
+  free( data->set_union    );
+  free( data->subtract     );
+  free( data->intersection );
+  free( data );
+}
+
+/**
+ *\fn p1removeElement(long *set, long check, unsigned short size)
+ *This function will find the first occurance of the check element
+ *and remove it from the array. The other elements will be shifted
+ *down and the last element will be changed to a zero.
+ */
+short p1removeElement(long *set, long check, unsigned short size) {
+  long *x, found;
+  for( x=&set[0], found=0; size > 0; x++, size--) {
+    if( *x = check ) {
+      found = 1;
+    }
+    if( found == 1 && size != 1) {
+      long *temp = x;
+      *x = *(++temp);
+    }
+  }//end loop
+  if( found != 0 ) {
+    return 0;
+  }
+  else {
+    return -1;
+  }
 }
