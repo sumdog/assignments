@@ -39,7 +39,7 @@
   </target>
     
   <target name="jar_applet" depends="compile_applet">
-    <jar destfile="./RMIApplet.jar" basedir="${sbin}" />
+    <jar destfile="./RMIApplet.jar" basedir="${abin}" />
   </target>
 
   <target name="all" depends="jar_server,jar_applet" />
