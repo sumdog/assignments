@@ -1,0 +1,52 @@
+Exam Review
+
+Exam is comprehensive (review first exam)
+
+1) OS principles of networking
+2) RMI
+   a) How it works, marshalling, rmiregistry
+3) DSM
+   a) Sequential Concistency
+   b) Release consistancy (lazy, egar)
+   c) How it works, efficency concerns
+4) HTTP
+   a) How it works
+   b) Presistant connections
+   c) Pipelining
+5) Webserver
+   a) In-server / Out-server (In-process/Out of Process) Technologies
+      1) In-server: Rivet, mod_python, mod_perl, mod_lua, php
+      2) Out of server: CGI based perl, python, etc.
+6) Language
+   a) lua, python, tcl,
+   b) difference in programming model between PHP and other scripting
+      languages when using CGI
+
+No mobile agents on exam!
+
+
+
+Exam is all multiple choice (all that apply)
+Except for three fill in the blank
+No question  on the test that will have all multiple choice options as correct
+
+Lua
+------
+
+for i=1,10 do 
+  print(i)
+end
+
+t={1,2,3}
+t[1]
+
+(array index starts at 1, not 0)
+
+for i in t do
+  print(i)
+end
+
+while i < 50 do
+  print(i)
+  i = i+1
+end
