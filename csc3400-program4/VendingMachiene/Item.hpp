@@ -12,7 +12,7 @@ public:
   Item(double price, std::string name);
   ~Item();
   double getPrice();
-
+  std::string getName();
 };
 
 

@@ -14,4 +14,6 @@ double Item::getPrice() {
   return price;
 }
 
-
+std::string Item::getName() {
+  return *name;
+}
