@@ -1,48 +1,18 @@
 /*
  * Created on Sep 8, 2003
- *
- * To change the template for this generated file go to
- * Window>Preferences>Java>Code Generation>Code and Comments
+ * Sumit Khanna
  */
 package sum.tree;
 
-/**
- * @author skhanna
- *
- * To change the template for this generated type comment go to
- * Window>Preferences>Java>Code Generation>Code and Comments
- */
+//This Class contains Static Functions for
+//determining Herestics
 public class Herestic {
 
-	int[][] goal;
-
-	public Herestic(int[][] goal)
+	//given the current and the goal arrays, this function 
+	//determins the Mahatten Distace between the two
+	public static int getMahattenDistance(int[][] current, int[][] goal)
 	{
-		this.goal = new int[goal.length][goal.length];
-		for(int x=0;x<goal.length;x++)
-			for(int y=0;y<goal.length;y++)
-				this.goal[x][y] = goal[x][y]; 
-	}
-	
-	public double getDirectDistance(int[][] current)
-	{
-		double distance = 0;
-		
-		for(int x=0;x<goal.length;x++)
-			for(int y=0;y<goal.length;y++)
-			{
-				int gl = goal[x][y];
-				Location t = getLocation(gl, current);
-				if(t == null) { /* thorow some type of exception */ }
-				distance += Math.sqrt(Math.pow(x-t.x,2) + Math.pow(y-t.y,2));
-			}
-		
-		return distance;
-	}
-	
-	public double getMahattenDistance(int[][] current)
-	{
-		double distance = 0;
+		int distance = 0;
 
 		for(int x=0;x<goal.length;x++)
 			for(int y=0;y<goal.length;y++)
@@ -56,7 +26,21 @@ public class Herestic {
 		return distance;
 	}
 	
-	private Location getLocation(int a, int[][] current)
+	//given the current and the goal arrays, this function
+	//determins the Tiles Out Of Place between the two
+	public static int getTilesOutOfPlace(int[][] current, int[][] goal)
+	{
+		int distance = 0;
+		
+		for(int x=0;x<goal.length;x++)
+			for(int y=0;y<goal.length;y++)
+				if(current[x][y] != goal[x][y]) {distance++;}
+		
+		return distance;
+	}
+	
+	//Private function used to pass location values
+	private static Location getLocation(int a, int[][] current)
 	{
 		for(int x=0;x<current.length;x++)
 			for(int y=0;y<current.length;y++)
@@ -67,6 +51,7 @@ public class Herestic {
 
 }
 
+//simple class used from the static getLocation funciton above
 class Location {
 	public int x;
 	public int y;	

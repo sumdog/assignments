@@ -4,33 +4,35 @@ import java.util.Stack;
 
 /*
  * Created on Sep 7, 2003
- *
- * To change the template for this generated file go to
- * Window>Preferences>Java>Code Generation>Code and Comments
  */
 
-/**
- * @author skhanna
- *
- * To change the template for this generated type comment go to
- * Window>Preferences>Java>Code Generation>Code and Comments
- */
-public class State {
+//This Class represents a given state of the problem
+public class State implements Comparable{
 
+	//the plate is a matrix representation of the grid puzzle problem
 	private int[][] plate;
 	
+	//parent to this state (null if root)
 	private State parent;
 	
+	//depth we're at (controled by state expansion logic in this class)
 	private int depth;
 	
+	//size of plate
 	private int size;
 	
+	//herestic weight (controlled externally by Search class using Herestic static functions)
+	private int herestic;
+	
+	//Constructs a state given the following plate, parent node and current depth
+	//  The inital state should have a parent of null and a depth of 0
 	public State(int[][] plate, State parent, int depth) 
 	{	
 		//initalize class
 		this.plate = plate;
 		this.depth = depth;
 		this.parent = parent;
+		herestic = 0;
 		
 		if(plate[0].length != plate.length) {
 			/*throw new Exception("Plate must be a square");*/
@@ -40,11 +42,38 @@ public class State {
 		size = plate.length;
 	}
 	
+	//set the heristic using external herestic function
+	public void setHerestic(int w)
+	{ this.herestic = w; }
+	
+	//reurns the herestic
+	public int getHerestic()
+	{ return herestic;	}
+	
+	//compares objects based on Herestic for entry into Priority queue
+	public int compareTo(Object o) 
+	{
+		if(!(o instanceof State)) 
+		{
+			return -1;
+		}
+		else 
+		{
+			return herestic - ((State)o).getHerestic(); 
+		}
+	}
+	
 	public int getSize() 
 	{ return size; }
 	
 	public int[][] getPlate()
 	{ return plate; }
+	
+	public int getDepth() 
+	{ return depth;	}
+	
+	public State getParent()
+	{ return parent; }
 	
 	public State[] expandState()
 	{
@@ -158,4 +187,11 @@ public class State {
 		return retval;
 	}
 
+	public boolean equals(Object o)
+	{
+			for(int x=0; x<size; x++)
+			  for(int y=0; y<size; y++)
+				if(((State)o).getPlate()[x][y] != plate[x][y]) { return false; }
+			return true;
+	}
 }
