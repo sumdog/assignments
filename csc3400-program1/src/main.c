@@ -15,6 +15,9 @@ void usage() {
   printf("3 [-a] string1 [-b] string2 -- Takes in two strings\n");
   printf("  and makes a copy of the first one as well as comparing\n");
   printf("  the first one to the second one.\n");
+  printf("4 [-e] element -- Take in a long (32-bit) integer element\n");
+  printf("  and performs a binary search on {-5 -1 0 12 48 62 102 112}\n");
+  printf("  for the element index.\n");
   printf("5 [-s] string -- Takes a String and determines\n");
   printf("  if it is a palindrome while ignoring spaces, \n");
   printf("  punctuation, and all ASCII values between 65 and 122.\n");
@@ -30,8 +33,9 @@ int main(int argc, char** argv) {
   int op, prob=0, p6type=-1;
   double p6n = -1;
   char *p5 = NULL, *a = NULL, *b = NULL;
+  unsigned long p4, p4flag=-1;
 
-  while( (op = getopt(argc,argv,"t:n:s:a:b:")) != -1) {
+  while( (op = getopt(argc,argv,"t:n:s:a:b:e:")) != -1) {
     switch(op) {
       //type for prob 6
     case 't':
@@ -52,6 +56,10 @@ int main(int argc, char** argv) {
     case 'b':
       b = (char*) malloc(sizeof(char)*(strlen(optarg)));
       strcpy(b,optarg);
+      break;
+    case 'e':
+      p4flag = 1;
+      p4 = atol(optarg);
       break;
     case ':':
       usage();
@@ -102,8 +110,16 @@ int main(int argc, char** argv) {
       runProblemThree(a,b);
       free(a);
       free(b);
-      break;
     }
+    break;
+  case 4:
+    if( p4flag == -1 ) {
+      usage();
+    }
+    else {
+      runProblemFour(p4);
+    }
+    break;
   default:
     usage();
   }

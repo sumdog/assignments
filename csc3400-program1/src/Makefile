@@ -8,9 +8,9 @@ CFLAGS =
 
 main: problems.o
 	$(CC) -I$(INCLUDE) -c main.c
-	$(CC) -I$(INCLUDE) main.o problems.o prob1.o prob2.o prob3.o prob5.o prob6.o -o main
+	$(CC) -I$(INCLUDE) main.o problems.o prob1.o prob2.o prob3.o prob4.o prob5.o prob6.o -o main
 
-problems.o: prob1.o prob2.o prob3.o prob5.o prob6.o 
+problems.o: prob1.o prob2.o prob3.o prob4.o prob5.o prob6.o 
 	$(CC) -I$(INCLUDE) $(CFLAGS) -c problems.c
 
 prob1.o: 
@@ -27,6 +27,8 @@ prob5.o:
 
 prob6.o: 
 	$(CC) -I$(INCLUDE) $(CFLAGS) -c prob6.c
+prob4.o:
+	$(CC) -I$(INCLUDE) $(CFLAGS) -c prob4.c
 
 clean:
 	rm *.o

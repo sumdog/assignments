@@ -6,14 +6,14 @@
 #include "prob1.h"
 #include "prob2.h"
 #include "prob3.h"
+#include "prob4.h"
 #include "prob5.h"
 #include "prob6.h"
+
 #include <string.h>
 #include <stdlib.h>
-/**\def MAX_ONE
- *maximum input value for problem one
- */
-#define MAX_ONE 100 
+#include <stdio.h>
+
 
 /** \fn void runPRobOne()
  *This function will ask the user for input for integer sets a and b
@@ -100,4 +100,18 @@ void runProblemThree(char *s1, char *s2) {
   printf("\nString 1: %s\tMemory Address: %p",s1,s1);
   printf("\nCopy    : %s\tMemory Address: %p",copy,copy);
   printf("\n");
+}
+
+/**\fn void runProblemFour(long element)
+ *Looks for an element in the predefined array ARRAY_FOUR
+ */
+void runProblemFour(long element) {
+  long array[] = ARRAY_FOUR;
+  unsigned long result = p4binary_search(array, 0, LENGTH_FOUR, element);
+  if(result == -1) {
+    printf("Element %d not found in array: {-5 -1 0 12 48 62 102 112}\n",element);
+  }
+  else {
+    printf("Element %d is at index %d in array: {-5 -1 0 12 48 62 102 112}\n",element,result);
+  }
 }
