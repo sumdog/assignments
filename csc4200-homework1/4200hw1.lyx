@@ -1,0 +1,229 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass article
+\language english
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\papersize letterpaper
+\paperpackage a4
+\use_geometry 1
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Homework and Midterm Review
+\newline 
+ CSC4200/5200 
+\layout Standard
+
+
+\series bold 
+Due: March 18, 2003
+\layout Enumerate
+
+TCP/IP is the protocol suite for the current Internet.
+ 
+\layout Enumerate
+
+Why is layering used to describe and engineer network software?
+\begin_deeper 
+\layout Enumerate
+
+Layering naturally categorizes the functionality of hierarchical protocol
+ suites into modules, or 
+\emph on 
+layers
+\emph default 
+, that help define standards and ease engineering and maintenance.
+ 
+\end_deeper 
+\layout Enumerate
+
+Which of the following are layers in the TCP/IP suite?
+\begin_deeper 
+\layout Enumerate
+
+Physical 
+\layout Enumerate
+
+Network 
+\layout Enumerate
+
+Transport 
+\layout Enumerate
+
+Link 
+\layout Enumerate
+
+Application
+\end_deeper 
+\layout Enumerate
+
+As a data packet moves from the lower to the upper layers, headers are subtracte
+d.
+\layout Enumerate
+
+What is the main function of the transport layer?
+\begin_deeper 
+\layout Enumerate
+
+process-to-process delivery
+\end_deeper 
+\layout Enumerate
+
+Which of the following is an application layer service?
+\begin_deeper 
+\layout Enumerate
+
+all of the above 
+\end_deeper 
+\layout Enumerate
+
+Which layer is responsible for each of the following?
+\begin_deeper 
+\layout Enumerate
+
+route determination : Link
+\layout Enumerate
+
+flow control and reliability : Transport
+\layout Enumerate
+
+interface to the outside world : Network
+\layout Enumerate
+
+point-to-point data transfer : Application
+\layout Enumerate
+
+transfering bits down the wire : Physical 
+\end_deeper 
+\layout Enumerate
+
+Suppose transmission channels become virtually error free.
+ Is the data link layer still needed? Why? 
+\begin_deeper 
+\layout Enumerate
+
+undone bob
+\end_deeper 
+\layout Enumerate
+
+Why is the transport layer not present inside the network? 
+\begin_deeper 
+\layout Enumerate
+
+The transport layer is simply a means of receiving information and sending
+ it to the right process/program.
+ It sends and receives data in packets, and in certain conditions (e.g.
+ the transport protocol is TCP) it will even check to make sure all the
+ packets arrive completely and in order.
+ It can even request resends of bad packets, but it doesn't exist within
+ the network.
+ It simply passes segments of data to the lower layers to transport it.
+ The lower layers have no knowledge of what processes each segment belong
+ to, they're just given a destination to ship them too.
+ Likewise, the transport layer has no knowledge of how the lower layers
+ will break apart or ship the data, they just monitor what's sent back to
+ them to make sure the data gets sent correctly.
+ 
+\end_deeper 
+\layout Enumerate
+
+Suppose a data link layer provides reliable delivery from one hop to the
+ next.
+ Is this sufficient to provide reliable delivery between hosts? why or why
+ not? 
+\begin_deeper 
+\layout Enumerate
+
+bob2
+\end_deeper 
+\layout Enumerate
+
+Why do HTTP, FTP, and SMTP run over TCP rather than UDP? 
+\begin_deeper 
+\layout Enumerate
+
+HTTP, FTP and SMTP all require that the data sent via their respective protocols
+ be complete and error-free on the other end.
+ TCP provides some internal abstraction under which packet checksums and
+ checks for packet loss are performed, which ensure that the stream given
+ to the application is exactly what the application on the other end of
+ the connection is sending.
+ UDP doesn't provide much error checking.
+ The only thing that you're guaranteed of with UDP is that if you receive
+ a packet, it's error-free (via an internal checksum within the UDP protocol).
+ UDP is useful if you need data to be transmitted fast and you don't care
+ if you lose packets.
+ An example is a heat sensor in a reactor.
+ The sensor could be setup to transmit UDP packets that have a temperate
+ and a time-stamp and nothing else.
+ If a few packets get dropped, it doesn't really matter as long as you have
+ a fairly recent temperature reading.HTTP, FTP, and SMTP don't necessarily
+ have to be fast (they must transmit data timely, but not at the expense
+ of lost data), so TCP is a much better option.
+\end_deeper 
+\layout Enumerate
+
+Describe the following (tell what they do):
+\begin_deeper 
+\layout Enumerate
+
+Hub - Repeats all the information that's sent into it from any given connection
+ to ever other connection that's plugged into it.
+ (Broadcast repeating)
+\layout Enumerate
+
+Bridge - A Bridge is smarter than a Hub and is closely related to a Switch.
+ A bridge doesn't just blindly repeat everything that's sent to it.
+ It actually works across the link-layer and is intelligent enough that
+ when it receives a frame, it notes the MAC address of sender.
+ When a frame comes in for that sender, it will send it only to the sender
+ and not broadcast it to the rest of the machines.
+ 
+\layout Enumerate
+
+Router - A Router is the smartest of the three devices mentioned here.
+ It actually analyzes data on the Network layer to determine where to ship
+ data.
+ Routers are like Bridges except that they have the additional ability of
+ sending data across WANs or Wide Area Networks.
+ If a router receives a packet destined for a location outside the local
+ network, a router will send that packet off to another router that can
+ get it closer to its destination.
+ Routers can be very complicated and receives tables, graph theory, etc.
+ to determine the shortest path across a WAN to ship a packet.
+ Routers can also talk to each other to update their tables so that they'll
+ continually be able to determine the shortest paths and avoid network congestio
+n.
+\end_deeper 
+\layout Enumerate
+
+Answer the following questions from the book in chapter 2 under Review Questions
+: (9), (11), (12), (13), (16), (17) 
+\layout Enumerate
+
+Solve problems (6) and (7) from the 
+\series bold 
+Problems
+\series default 
+ section in chapter 2.
+\the_end
