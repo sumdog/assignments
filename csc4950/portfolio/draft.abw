@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" version="2.0.11" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="lang:en-US; dom-dir:ltr">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Mon Nov 29 06:41:23 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal">What is Computer Science?</p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Edsger Dijkstra once said, "Computer science is no more about computers than astronomy is about telescopes." When people learn that I'm a computer science major, they immediately assume that I must be a living knowledge of wealth about computers and surely would be willing to help them fix their spy-ware riddled home computers. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Usually they're first surprise in my unwillingness to work on Windows computers as all my personal machines run either Linux or FreeBSD, and their second is when I recite the above mentioned Dijkstra quote and inform them that Computer Science doesn't have a lot to do with the computer. The computer is simply a tool for which computer scientists use to explore the stars.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The field of Computer Science is about problem solving. It's a vast field that encompasses everything from end-user application development to data-mining to decision tree analysis. It involves taking a problem and using computers to either find a solution or narrow down the domain in order to find the most likely solution. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Examples of Computer Science at work</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Computer Science doesn't deal directly with hardware. Although many Computer Science majors can easily assemble computers of various architectures, it's not something that's addressed in most college programs. Dealing with integrated circuits and microprocessors is usually found in the field of Computer Engineering. However there is some overlap. There are </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Ganges</p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c>Ganges is a simple project repository useful for keeping track of class projects. It's web based, written in PHP and is designed to use an LDAP server for authentication. Students can look through previous years projects to learn from other students and to also expand upon their previous work.</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">[screen shots]</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">I designed Ganges for a professor so I could be exempt from CSC 350 (Introduction to Linux). It was intended to be used for the Software Engineering classes which required semester long projects. Creating a central project repository would allow students to view other students projects and gain ideas for their own or expand upon other projects to improve them.</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Release History</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Ganges was used within the department and has no public releases, however it is stored within my CVS repository.  </p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Stimpy</p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c>Red Hat Lab Cluster Install</p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c>Isszy Image Sorter</p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Iszzy Image Sorter is a simple sorting program written in Java that makes it easy to sort a directory of JPEGS or GIFs into respective folders. It's great for sorting a large collection of photos like those taken from a digital camera, pulled from a scanner or downloaded off the Internet.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">[screen shots]</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">I wrote Isszy for myself as a side project to deal with my increasing large collection of photos which remained in one large folder because I didn't enjoy sorting them individually. A class mate of mine took the program and made his own branch. Eventually after running into several problems with the program, I made a complete rewrite from scratch. The rewritten version was my first attempt at using Java packages and embedding an entire application into a single Jar file. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Release History</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Isszy 2.0 (Rewrite)</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Isszy v.5 Beta</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Isszy v.4 Beta</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Isszy v.3 Beta</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal"><c></c>GraphMapper </p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Graph Mapper is a Java application that can be used to plot vertices and edges using basic graph theory. It handles both directed and undirected graphs as well as weighted and unweighted graphs. It can perform Breadth First Searches, Depth First Searches, and it can find the shortest path between two vertices.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">[screen shots]</c><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">I originally made GraphMapper in my CSC 202 (Data Structures) class. I added enough functionally beyond the original assignment that I went ahead and released it as a standalone application. </c><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">Release History</c><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">GraphMapper Version 1.5 (current)</c><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">GraphMapper Version 1.0</c><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+</section>
+</abiword>
