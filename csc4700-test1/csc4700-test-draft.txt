@@ -1,0 +1,6 @@
+There are several advantages of Obecjt Orientated design. With an OOD model, you can create projects with very independent modules which lead to reusuable code, easier maintainablity, a tracable mechanism for fault detection 
+
+
+Extreme Programming is a name given to a new unique style of programming and development. On of the interesting aspects of it is the fact that the customer is present during the entire developemnt process (perferably in person or at the least on a video phone). Their interaction is expected in the programming process and it leads to a better understanding of the customer's needs by the programmers while giving the custom an idea of how the application works and how programmers go about solving a problem.
+
+Another interesting aspect is the fact that two programers may, at a given time, work on the exact same piece of code together. In theory, this reduces the ammount of trivial logic errors and syntax mistakes. 
