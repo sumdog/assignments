@@ -3,15 +3,16 @@
 #include <iostream>
 using std::cout;
 using std::cerr;
+using std::endl;
 #include <errno.h>
 #include <unistd.h>
 
 
 void usage() {
-  cout << "\nCSC4200-program1\n\nUsage: main -[c:s:n] <options> [-p] <port> [-i] <interface>\n\n";
-  cout << "\t[-s] <service_name> -- Starts a service\n";
-  cout << "\n";
-  exit(2);
+  cerr << "\nCSC4200-program1\n\nUsage: main -[c:s:n] <options> [-p] <port> [-i] <interface>\n\n";
+  cerr << "\t[-s] <service_name> -- Starts a service\n";
+  cerr << "\n";
+  exit(1);
 }
 
 int main(int argc, char **argv) {
@@ -26,12 +27,14 @@ int main(int argc, char **argv) {
   iface[0] = '\0'; 
   sname[0] = '\0';
   CServer *service = NULL;
+  bool fser=false, fclient=false, fname=false;
 
   //parse command line arguments
   while( (op = getopt(argc,argv,"s:p:i:")) != -1) {
     switch(op) {
     case 's': //service to run
       strcpy(sname, optarg);
+      fser=true;
       break;
     case 'p': //port to use
       port = (unsigned short) atol(optarg);
@@ -40,6 +43,10 @@ int main(int argc, char **argv) {
       strcpy(iface, optarg);
       break;
     }
+  }
+
+  if(fser==true && fclient==false && fname==false) {
+    
   }
 
   /*
