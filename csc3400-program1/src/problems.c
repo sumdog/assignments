@@ -5,9 +5,11 @@
 #include "problems.h"
 #include "prob1.h"
 #include "prob2.h"
+#include "prob3.h"
 #include "prob5.h"
 #include "prob6.h"
 #include <string.h>
+#include <stdlib.h>
 /**\def MAX_ONE
  *maximum input value for problem one
  */
@@ -68,4 +70,34 @@ short runProblemFive(char *s) {
  */
 void runProblemTwo(){
   p2sales();
+}
+
+
+/**
+ *\fn void runProblemThree(char* s1, char* s2)
+ *This function will take in the two strings
+ *and makes a copy of s1 and then compares s1 to
+ *s2.
+ */
+void runProblemThree(char *s1, char *s2) {
+
+  short compare = p3strcmp(s1,s2);
+
+  char *copy = (char*) malloc(sizeof(char));
+  p3strcpy(copy, s1);
+
+  if(compare == 0 ){
+    printf("%s and %s are equal",s1,s2);
+  }
+  else if(compare > 0) {
+    printf("%s is greater than %s",s1,s2);
+
+  }
+  else if(compare < 0) {
+    printf("%s is less than %s",s1,s2);
+  }
+
+  printf("\nString 1: %s\tMemory Address: %p",s1,s1);
+  printf("\nCopy    : %s\tMemory Address: %p",copy,copy);
+  printf("\n");
 }

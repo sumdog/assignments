@@ -24,3 +24,10 @@ short runProblemFive(char *s);
  *\brief solves problem two
  */
 void runProblemTwo();
+
+/**\fn void runProblemThree(char* s1, char* s2)
+ *\brief tests to see if problem two works.
+ *\param s1 string one (to copy)
+ *\param s2 string two (to compare)
+ */
+void runProblemThree(char* s1, char* s2);
