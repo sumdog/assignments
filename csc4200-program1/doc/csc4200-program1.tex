@@ -5,20 +5,82 @@
 \begin{document}
 \maketitle
 \section{Intorduction}
-This is some general information about the program
+\paragraph{}This is a client server program for my CSC 4700 networking class. It consists of three parts: A client, a name-server and a series of services. The client and services both talk to the name-service.  The services register themselves with the name-service and the clients can then lookup services by their names.
 
 \section{Implementation}
-This is how I implemented the program
+\paragraph{}The way I implemented this project was with two programs. The first program was written in C++ for the services. I created a base server class and then extended it for each of the individual service (including the name-service).  You run the same program with different command line parameters to run the different services.
+\paragraph{}The client was written in C. It provides a command line interface to type in commands. When a user types in a command, the client checks the name-server to find the appropriate address and port for the service, then contacts the service, issues the command and prints the response for the user.
 
 \section{Compiling}
-This how how your build my program
+Compiling this program is very simply. Simply uncompress the archive, go into the source directory and run the makefile like so:
+\\\\
+tar xvfz csc4700-program1.tar.gz\\
+cd csc4700-program1/src\\
+make all\\
+\\\\
+You can also choose to type ``make server'' or ``make client'' if you only need to compile the server or the client. 
 
 \section{Usage}
-This is how to use the program
+\paragraph{}The client must have a file containing the host and port of the name-server to run. You can specify a specific file with the -f option or it will look for the default configuration file ``\$HOME/.4200p1rc'' where \$HOME is the user's home directory. The format of the configuration file is as follows: the first line contains the hostname of the name-server and the second line contains the port. All other lines are ignored. 
+\paragraph{}The server take the ``-s'' argument followed by the name of a service. For a list of services, simply run the server without any arguments and it will give you a list. Use ``-p'' to indicate the port the server runs on. To have the service register with a name-service, you may pass it with ``-f'' and a filename or if no file name is specified, it will look for the configuration file in the default location just as the client. You may also register the service without a file using ``-r'' and passing it a hostname and port separated by a colon.  Registration is not required, but without it the service is not accessible to a client.
+\\
+\\
+\emph{Example usage:}\\
+\\
+./server -s ping -p 5543 -f\\
+\\\
+This starts the ping service on port 5543 and looks for the name-server in a file in the default location.\\
+\\
+./server -s pal -p 4000 -f test.ini\\
+\\
+This start the palindrome service on port 4000 and looks for the name-server information in a file called ``test.ini'' in the current working directory.\\
+\\
+./server -s insult -p 999 -r localhost:7250\\
+\\
+This starts the insult service on port 999 and registers it with the name-server on the local machine at port 7250.\\
+
+
+\section{Service Commands}
+After the services are registered with the name-server and the client knows the name server's location, you're now ready to begin sending commands. Here is a list of commands for each service:\\
+\\
+\subsection{Ping}
+Command: ping ping\\
+Returns: A ``pong''\\
+\\
+\subsection{Insult}
+Command: insult insult\\
+Returns: a random insult\footnote{Disclaimer: This is just a joke service I came up with at 2am. It's not intended to be offensive. I'm not insulting any particular person, professor, student or random homeless person. I'm not making fun at you, it's just that I'm just really that pathetic.}\\
+ \\
+\\
+\subsection{Palindrome}
+Command: palindrome test \textless word\textgreater\\
+Returns: Indicates if the word the user sends in a Palindrome\footnote{A Palindrome is a word that can be spelled backwards and still remain the same word. Example: bob}\\
+\\
+\section{Sample Output}
+The following is some sample Input and Output for how to run these programs.\\
+\\
+echo -e ``localhost$\backslash$n7250'' \textgreater test.ini\\
+./server -s name -p 7250 \&\\
+./server -s ping -p 9000 -f thost \&\\
+./server -s pal -p 5285 -f thost \&\\
+./server -s insult -p 9001 -f thost \&\\
+\\
+./client -f thost\\
+CSC 4200 Networking Program \#1 Client\\
+ Sumit Khanna -- \(Interactive Mode\)\\
+\textgreater\textgreater\textgreater ping ping\\
+Response: Pong!\\
+\textgreater\textgreater\textgreater insult insult\\
+Response: You're a loser.\\
+\textgreater\textgreater\textgreater palindrome test abbbcccbbba\\
+Response: abbbcccbbba is a Palindrome\\
+\textgreater\textgreater\textgreater palindrome test abgheta\\
+Response: abgheta is not a Palindrome\\
+\textgreater\textgreater\textgreater \^D\footnote{This is intended to be a literal Ctrl-D to indicate end-of-file.}\\
+Goodbye\\
 
 \section{Conclusions}
-
-
+\paragraph{}From this program I've learned a great deal about Posix standard threads, BSD Sockets and writing in C and C++. The API used for sockets is much more low-level than several scripting languages I've used such as TCL/TK, but is about even in complexity to Java's blocking socket API.
 
 
 \end{document}
