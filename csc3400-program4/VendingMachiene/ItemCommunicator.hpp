@@ -1,3 +1,8 @@
+/*******
+ *
+ * This is an abstract class used for communication
+ * between buttons and the main window
+ */
 #ifndef ITEMCOMM_H
 #define ITEMCOMM_H
 
