@@ -17,7 +17,8 @@ public class Main {
 
 	public static void main(String[] args) {
         Graph bnet = XMLParser.XMLParse(new File("bn.xml"));
-	
+	   System.out.println(bnet);
+       
        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
        String input;
        try { input = reader.readLine(); } catch (IOException e) { input=null; System.err.println("Fatal Error"); System.exit(5); }
