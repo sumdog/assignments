@@ -1,0 +1,1 @@
+#include "MoneyDialog.hpp"

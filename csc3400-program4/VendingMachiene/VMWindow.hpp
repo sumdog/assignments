@@ -8,12 +8,14 @@
 #include <gtkmm/box.h>
 #include <gtkmm/image.h>
 #include "VendingMachine.hpp"
+#include "ItemCommunicator.hpp"
 
-class VMWindow : public Gtk::Window {
+class VMWindow : public Gtk::Window , public ItemComm {
 
 public:
   VMWindow(VendingMachine m);
   ~VMWindow();
+  double buyItem(double price);
 
 private:
   Gtk::VPaned *p_top_bottom;
@@ -21,8 +23,10 @@ private:
   Gtk::Button *b_coin;
   Gtk::Label  *l_money;
   Gtk::VBox   *bx_buttons;
+  Gtk::VBox   *bx_items;
   Gtk::Image  *img_logo;
-
+  void insertMoney();
+  double money;
 };
 
 

@@ -1,6 +1,13 @@
 #include "SodaMachine.hpp"
 #include "Soda.hpp"
 
+/**
+ *SodaMachine() -- constructs a soda machine
+ *
+ *  extends a VendingMachine and fills its
+ *  items** with various Soda items such as
+ *  Sprite, Coke and Water
+ */
 SodaMachine::SodaMachine() {
   Item **temp = new (Item*)[3];
   temp[0] = new Coke();
@@ -9,8 +16,16 @@ SodaMachine::SodaMachine() {
   
   items->items = &temp[0];
   items->num_items = 3;
+
+  image = "coke.jpg";
 }
 
+/**
+ *~SodaMachie() -- deconstructs a soda machine
+ *
+ *  frees memeory allocated to soda machine
+ *  and it's items (sodas).
+ */
 SodaMachine::~SodaMachine() {
   
   Item **temp = items->items;
