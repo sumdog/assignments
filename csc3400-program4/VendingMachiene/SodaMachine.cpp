@@ -2,16 +2,22 @@
 #include "Soda.hpp"
 
 SodaMachine::SodaMachine() {
-  items = new (Item*)[3];
-  items[0] = new Coke();
-  items[1] = new Sprite();
-  items[2] = new Water();
+  Item **temp = new (Item*)[3];
+  temp[0] = new Coke();
+  temp[1] = new Sprite();
+  temp[2] = new Water();
+  
+  items->items = &temp[0];
+  items->num_items = 3;
 }
 
 SodaMachine::~SodaMachine() {
-  delete items[2];
-  delete items[1];
-  delete items[0];
-  delete[] items;
+  
+  Item **temp = items->items;
+
+  delete temp[2];
+  delete temp[1];
+  delete temp[0];
+  delete[] items->items;
 
 }

@@ -15,7 +15,10 @@ public:
   std::string getName();
 };
 
-
+typedef struct {
+  Item **items;
+  unsigned long num_items;
+} items_t;
 
 
 #endif /* ITEM_H */

@@ -1,6 +1,6 @@
 #include "VMWindow.hpp"
 
-VMWindow::VMWindow() {
+VMWindow::VMWindow(VendingMachine m) {
 
   //setup components
   p_left_right = new Gtk::HPaned();
@@ -20,6 +20,12 @@ VMWindow::VMWindow() {
   //setup first split pane
   add(*p_top_bottom);
   p_left_right->add1(*p_left_right);
+
+  //setup item buttons
+  items_t itm = m.getItems();
+  for(unsigned long x=0; x<itm.num_items; x++) {
+    
+  } 
 
   //setup second pane
   bx_buttons->pack_start(*l_money);

@@ -2,9 +2,14 @@
 
 VendingMachine::VendingMachine() {
 
+  items = new items_t;
   total_money = 0;
   current_money = 0;
 
+}
+
+VendingMachine::~VendingMachine() {
+  delete items;
 }
 
 void VendingMachine::insertCoin(money m) {
@@ -41,4 +46,8 @@ double VendingMachine::emptyMoneyTray() {
   double temp = total_money;
   total_money = 0;
   return temp;
+}
+
+items_t VendingMachine::getItems() {
+  return *items;
 }

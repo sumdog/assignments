@@ -7,12 +7,13 @@
 #include <gtkmm/label.h>
 #include <gtkmm/box.h>
 #include <gtkmm/image.h>
+#include "VendingMachine.hpp"
 
 class VMWindow : public Gtk::Window {
 
 public:
-  VMWindow();
-  virtual ~VMWindow();
+  VMWindow(VendingMachine m);
+  ~VMWindow();
 
 private:
   Gtk::VPaned *p_top_bottom;
