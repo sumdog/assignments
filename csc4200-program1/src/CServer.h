@@ -13,7 +13,7 @@ class CServer {
 
 
  public:
-  CServer(char* hostname, unsigned short port, long backlog);
+  CServer(char* ip, unsigned short port, long backlog);
   ~CServer();
   void runService();
   virtual char* processRequest(char *arg, unsigned short argc, char **argv);
@@ -21,8 +21,10 @@ class CServer {
 
 
 typedef struct serverinfo {
-  socklen_t *sin_size;
+  socklen_t sin_size;
   long fd; 
   CServer *server;
 } serverinfo_t;
+
+
 

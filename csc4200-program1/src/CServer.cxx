@@ -6,10 +6,9 @@
 #include "except/EServer.h"
 #include <pthread.h>
 #include "unistd.h"
+#include <string.h>
 
-//using std::cout;
-
-CServer::CServer(char* hostname, unsigned short port, long backlog) {
+CServer::CServer(char* ip, unsigned short port, long backlog) {
 
   //setup class variables
   local_addr = new sockaddr_in;
@@ -36,12 +35,23 @@ char* CServer::processRequest(char *arg, unsigned short argc, char **argv) {
 }
 
 void* CServer::server_thread(void* cserver) {
+
   //get our server information
   serverinfo_t *server = (serverinfo_t*) cserver;
+  
+  //buffer return data
+  char retval[256]; 
 
- 
-  //kill ourself
+  //process request and copy it into buffer
+  strcpy(retval,server->server->processRequest(NULL,0,NULL));
+
+  //send user buffer
+  send(server->fd,retval,strlen(retval),0);
+
+
+  //clean up our mess
   close(server->fd);
+  delete server;
   pthread_exit(0);
 }
 
@@ -51,8 +61,6 @@ void CServer::runService() {
   if( bind(sockfd,(struct sockaddr*) local_addr,sizeof(struct sockaddr)) != 0 ){
     throw EServer("Could Not Bind to Port");
   }
-
-  //cout << "here";
 
   //listen to port
   if( listen(sockfd, backlog) != 0) {
@@ -65,11 +73,13 @@ void CServer::runService() {
     info->server = this;
 
     //start blocking 
-    long remotefd = accept(sockfd,(struct sockaddr*) &remote_addr,info->sin_size);
+    info->fd = accept(sockfd,(struct sockaddr*) &remote_addr,&(info->sin_size));
     
     //we've got a connection, now start a thread
     pthread_t sock_thread;
-    long res = pthread_create(&sock_thread, NULL, &server_thread, (void *)info);
+    long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(server_thread), (void*) info);
   }
 
 }
+
+
