@@ -1,5 +1,7 @@
 #include "CINumber.h"
-
+#include <iostream>
+using std::cout;
+using std::endl;
 
 /** CINumber Constructor
  *  PARAM: real - real part of complex number
@@ -58,7 +60,13 @@ CINumber CINumber::operator*(CINumber num) {
 
 }
 
-
+/** (==)operator - will test to see if two CINumbers are equal
+ *  PARAM:     CINumber num - number to test for equality
+ *  RETURNS:   bool indicating if CINumbers are equal
+ *
+ *  ALGORITHM: Compares the real and imaginary fields
+ *             of the two classes
+ */
 bool CINumber::operator==(CINumber num) {
   
   if(this->real_part == num.real_part && this->i_part == num.i_part) {
@@ -69,6 +77,22 @@ bool CINumber::operator==(CINumber num) {
 
 }
 
+/** (!=)operator - will test to see if two CINumbers are not equal
+ *  PARAM:     CINumber num - number to test for inequality
+ *  RETURNS:   bool indicating if CINumbers are not equal
+ *
+ *  ALGORITHM: Returns the negation of ==operator
+ */
 bool CINumber::operator!=(CINumber num) {
   return !( *this == num );
+}
+
+/** printNumber() - will print the number to standard out
+ *  PARAM:     none
+ *  RETURNS:   none
+ *  ALGORITHM: outputs real and i parts in the format a + bi to
+ *             standard out using the cout objects and newline
+ */
+void CINumber::printNumber() {
+  cout << this->real_part << " + " << this->i_part << "i"  << endl;
 }

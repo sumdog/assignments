@@ -11,6 +11,7 @@ class CINumber {
   CINumber operator*(CINumber num);
   bool     operator==(CINumber num);
   bool     operator!=(CINumber num);
+  void     printNumber();
 
  private:
   long real_part;
