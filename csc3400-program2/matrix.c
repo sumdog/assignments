@@ -17,7 +17,7 @@ matrix_t* createMatrix(char *name, unsigned short rows, unsigned short cols) {
   m->matrix = malloc(sizeof(double*)*cols);
 
   //alocate memory for each columu
-  for(x=0,i=(m->matrix) ; x<rows ; x++, i++) {
+  for(x=0,i=(m->matrix) ; x<cols ; x++, i++) {
     *i = malloc(sizeof(double)*rows);
   }
 
@@ -35,9 +35,9 @@ void fillMatrix(matrix_t *matrix) {
 
   printf("\nPlease enter values for Matrix: %s\n",matrix->name);
 
-  for(x=0,i=matrix->matrix; x < matrix->cols; x++,i++) {
-    for(y=0,j=*i; y < matrix->rows; y++, j++) {
-      printf("Col: %d, Row: %d\n",x+1,y+1);
+  for(x=0,i=matrix->matrix; x < matrix->rows; x++,i++) {
+    for(y=0,j=*i; y < matrix->cols; y++, j++) {
+      printf("Col: %d, Row: %d\n",y+1,x+1);
       fgets(buf,BUFSIZE,stdin);
       *j = atof(buf);
     }
@@ -51,8 +51,8 @@ void printMatrix(matrix_t *matrix) {
 
   printf("\nMatrix: %s\n",matrix->name);
 
-  for(x=0,i=matrix->matrix; x < matrix->cols; x++,i++) {
-    for(y=0,j=*i; y < matrix->rows; y++, j++) {
+  for(x=0,i=matrix->matrix; x < matrix->rows; x++,i++) {
+    for(y=0,j=*i; y < matrix->cols; y++, j++) {
       printf("%lf\t",*j);
     }
     printf("\n");

@@ -2,7 +2,7 @@
 
 int main() {
   
-  matrix_t *test = createMatrix("Bob",3,4);
+  matrix_t *test = createMatrix("Bob",2,4);
   fillMatrix(test);
   printMatrix(test);
   deleteMatrix(test);
