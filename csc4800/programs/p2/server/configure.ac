@@ -15,6 +15,7 @@ AC_PROG_CPP
 
 # Checks for header files.
 AC_CHECK_HEADERS([netdb.h sys/socket.h unistd.h])
+AC_CHECK_HEADER(pthread.h)
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
