@@ -1,0 +1,17 @@
+Sumit Khanna
+Program #1 CSC4200 - Networking
+
+To compile, go into source and type "make all"
+
+cd src &&
+make all
+
+This will make a client and server executable named
+"client" and "server".
+
+Run the server without any command line arguments
+for a list of options.
+
+See the tex document located in "docs" for
+more information on how to use the client in 
+conjunction with the services

@@ -13,13 +13,15 @@
 #define CMD_REQ 'R'
 #define CMD_LOK 'L'
 
-
+//struct used to hold "commands"
+//the client sends
 typedef struct command {
   char type;
   short argc;
   char **argv;
 } command_t;
 
+//CServer is the base class for all services
 class CServer {
 
  private:
@@ -34,8 +36,9 @@ class CServer {
   void deleteCommand(command_t *t);
 
  protected:
+  //function overridden by each service to handle a given request
   virtual void processRequest(command_t *t, char *retval);
-  char name[NAME_SIZE];
+  char name[NAME_SIZE]; //<Service name (to send to name server)
  
 
  public:
@@ -45,10 +48,12 @@ class CServer {
   void registerService(char* host, unsigned short port);
 };
 
+//information that needs to be passed
+//to the server thread
 typedef struct serverinfo {
-  socklen_t sin_size;
-  long fd; 
-  CServer *server;
+  socklen_t sin_size; //<size given during accept call
+  long fd;            //<file discriptor to current connection
+  CServer *server;    //<server object (needed for processRequest())
 } serverinfo_t;
 
 
