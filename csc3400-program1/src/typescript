@@ -1,0 +1,1264 @@
+Script started on Wed Feb 19 14:58:41 2003
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat main.c
+#include "problems.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void usage() {
+  printf("\nCSC 3400: Program 1\n");
+  printf("\nUsage: program1 [1-6] <program flags>\n");
+  printf("\nPrograms\n--------\n");
+  printf("1 Takes input from standard in to form\n");
+  printf("  two sets and preform calculations on them\n");
+  printf("2 Take input from standard in to form a two dimensional\n");
+  printf("  array that holds sales information.\n");
+  printf("3 [-a] string1 [-b] string2 -- Takes in two strings\n");
+  printf("  and makes a copy of the first one as well as comparing\n");
+  printf("  the first one to the second one.\n");
+  printf("4 [-e] element -- Take in a long (32-bit) integer element\n");
+  printf("  and performs a binary search on {-5 -1 0 12 48 62 102 112}\n");
+  printf("  for the element index.\n");
+  printf("5 [-s] string -- Takes a String and determines\n");
+  printf("  if it is a palindrome while ignoring spaces, \n");
+  printf("  punctuation, and all ASCII values between 65 and 122.\n");
+  printf("6 [-n] [n] [-t] [1-2] -- Calculates the fibonacci\n");
+  printf("  sequence of n using a 32-bit integer for '-t 1'\n");
+  printf("  and a double for '-t 2'\n");
+  printf("\n");
+  exit(2);
+}
+
+int main(int argc, char** argv) {
+  
+  int op, prob=0, p6type=-1;
+  double p6n = -1;
+  char *p5 = NULL, *a = NULL, *b = NULL;
+  unsigned long p4, p4flag=-1;
+
+  while( (op = getopt(argc,argv,"t:n:s:a:b:e:")) != -1) {
+    switch(op) {
+      //type for prob 6
+    case 't':
+      p6type = atoi(optarg);
+      break;
+      //number to cal for prob 6
+    case 'n':
+      p6n = atof(optarg);
+      break;
+    case 's':
+      p5      = (char*) malloc(sizeof(char)*(strlen(optarg)));
+      strcpy(p5, optarg);
+      break;
+    case 'a':
+      a = (char*) malloc(sizeof(char)*(strlen(optarg)));
+      strcpy(a,optarg);
+      break;
+    case 'b':
+      b = (char*) malloc(sizeof(char)*(strlen(optarg)));
+      strcpy(b,optarg);
+      break;
+    case 'e':
+      p4flag = 1;
+      p4 = atol(optarg);
+      break;
+    case ':':
+      usage();
+    case '?':
+      usage();
+    }
+  }
+  
+  //figure out which program to run
+  if( optind < argc ) {
+    prob = atoi( argv[optind] );
+  }
+
+  switch(prob) {
+  case 1:
+    runProblemOne();
+    break;
+  case 5:
+    if(p5 == NULL) {
+      usage(); 
+    }
+    else {
+      if(runProblemFive(p5) == 1) {
+	printf("Input is a Palindrome\n");
+      }
+      else {
+	printf("Input is not a Palindrome\n");
+      }
+      free(p5);
+      break;
+    }
+  case 6:
+    if(p6n > 0 && (p6type == 1 || p6type == 2)  ) {
+      runProblemSix( p6n, p6type );
+    }
+    else {
+      usage();
+    }
+    break;
+  case 2:
+    runProblemTwo();
+    break;
+  case 3:
+    if(a == NULL || b == NULL) { //no command line args
+      usage();
+    }
+    else {
+      runProblemThree(a,b);
+      free(a);
+      free(b);
+    }
+    break;
+  case 4:
+    if( p4flag == -1 ) {
+      usage();
+    }
+    else {
+      runProblemFour(p4);
+    }
+    break;
+  default:
+    usage();
+  }
+  exit(0);
+}//end main()
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat main.c      prob1.c h
+/**\file prob1.h
+ *This file includes the function and struct definitions 
+ *needed to perform problem 1.
+ */
+#include <stdio.h>
+#include <unistd.h>
+
+/**\struct p1DataSet
+ * \brief Type used to hold data for Sets a and b
+ */
+typedef struct p1DataSetStruct {
+  long *seta;  ///<Pointer to Integer Set A
+  long *setb;  ///<Pointer to Integer Set B
+  unsigned short sizea, sizeb; ///<The current size of the set(s)
+  unsigned short maxsize;      ///<The Maximum size of the set(s)
+} p1DataSet;
+
+/**\struct p1CalSet
+ * \brief A struct to hold the calculations from a set operation
+ * This struct holds the results from combining to sets that
+ * are held in a p1DataSet struct.
+ * \see p1DataSet
+ */
+typedef struct p1CalSetStruct {
+  long *set_union;             ///<Union of two sets (A and B)
+  unsigned short union_size;   ///<Size of Union
+  long *intersection;          ///<Intersection of two sets (A or B)
+  unsigned short inter_size;   ///<Size of Intersection
+  long *subtract;              ///<Subtraction of two sets (A but not B)
+  unsigned short sub_size;     ///<Size of Subtraction
+} p1CalSet;
+
+
+/**\fn p1DataSet* p1createSet(unsigned short max)
+ *\brief creates a data set
+ *\param max Maximum size of the datasets
+ *\return a pointer to a memory allocated dataset
+ *\see void p1deleteSet(p1DataSet* set)
+ */
+p1DataSet* p1createSet(unsigned short max);
+
+
+/**\fn void p1deleteSet(p1DataSet* set)
+ *\brief will free the memory allocated to a dataset pointer
+ *\param set a dataset allocated using p1createSet function
+ *\see p1DataSet* p1createSet(unsigned short max)
+ */
+void p1deleteSet(p1DataSet* set);
+
+
+/** \fn void p1populateSet(p1DataSet *set);
+ *  \brief populates data sets with user input
+ *  \param data struct with perallocated memory
+ */
+void p1populateSet(p1DataSet *set);
+
+
+/** \fn void p1printElements(p1DataSet *data)
+ *  \brief prints the data set to standard out
+ *  \param data dataset to print
+ */
+void p1printElements(p1DataSet *data);
+
+
+/**
+ *\fn short p1checkDups(long *set, long check, unsigned short size);
+ *\brief checks for duplicates in an array
+ *\param set a pointer to a set of interger data
+ *\param check the element to check for duplicates of
+ *\param size the size of the array allocated to set
+ *\return -1 if duplicate found, 0 otherwise
+ */
+short p1checkDups(long *set, long check, unsigned short size);
+
+/**
+ *\fn p1CalSet* performCalculations(p1DataSet *data)
+ *\brief performs set calculations on the dataset
+ *\param data dataset to perfrom calculations on
+ *\return a struct containing the results of the calculations
+ */
+p1CalSet* p1performCalculations(p1DataSet *data);
+
+
+/**
+ *\fn void p1destroyCalculations(p1CalSet *data)
+ *\brief will free memory allocated to a calculation struct
+ *\param data dataset to destory
+ */
+void p1destroyCalculations(p1CalSet *data);
+
+/**
+ *\fn short p1removeElement(long *set, long check, unsigned short size)
+ *\breif removes an element from a set
+ *\param set the set to remove the element from
+ *\param check element to remove
+ *\param size the size of the set
+ *\return 0 if element was removed, -1 if element wasn't found
+ */
+short p1removeElement(long *set, long check, unsigned short size);
+
+/**
+ *\fn void p1printResults(p1CalSet *result)
+ *\breif displays calculations performed on a set
+ *\param result struct that contains set calculations
+ *\param data struct containing original sets
+ */
+void p1printResults(p1DataSet *data, p1CalSet *result);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ \cat prob1.h c
+/**\file prob1.c
+ *Functions for problem 1
+ */
+#include "prob1.h"
+#include <limits.h>
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+
+/**\fn p1DataSet* p1createSet(unsigned short max)
+ * This function allocates memory for a data struct that
+ * holds two sets of data, each with a maximum capicty max.
+ */
+p1DataSet* p1createSet(unsigned short max) {
+  p1DataSet *data = (p1DataSet*) malloc(sizeof(p1DataSet));
+  data->seta = (long*) malloc(sizeof(long)*max);
+  data->setb = (long*) malloc(sizeof(long)*max);
+  data->sizea = 0;
+  data->sizeb = 0;
+  data->maxsize = max;
+
+  return data;
+}
+
+/**\fn void p1deleteSet(p1DataSet* set)
+ *This function deallocates memory previously allocated 
+ *for the given dataset struct
+ */
+void p1deleteSet(p1DataSet* set) {
+  free(set->seta);
+  free(set->setb);
+  free(set);
+}
+
+/**\fn void p1populateSet(p1DataSet *set)
+ *This will ask the user for input (and prompt them in 
+ *interactive mode), check for duplicates and if no duplicates
+ *exist, it wil place the user input into the dataset.
+ *The user inputs data in the format "<itema>:<itemb>"
+ */
+void p1populateSet(p1DataSet *set) {
+  
+  //print instructions if in interactive mode
+  if(isatty(fileno(stdin))) {
+    printf("\nEnter two numbers in the following format:");
+    printf("\n<num a>:<num b>");
+    printf("\nexample:");
+    printf("\n3:4");
+    printf("\nTo delete, use a '!' symbol like so:");
+    printf("\n!3:!4");
+    printf("\nUse end of file (^D) to exit\n");
+
+    }
+  
+  //setup counters and initial array pointers
+  unsigned int count = set->maxsize;
+  long *a = &(set->seta[0]);
+  long *b = &(set->setb[0]);
+
+
+  //determine the maximum string length imput size
+  //for a long on this operating system/arch
+  char buf[256];
+  sprintf(buf,"%d",LONG_MAX);
+  unsigned long inputsize = strlen(buf);
+
+
+  //while we haven't reached EOF or the counter is > 0,
+  //read in stuff into our buffer
+  //(buffer size acomidates 2 inputs plus the '-' between them 
+  while( (count != 0) && (fgets(buf,inputsize*2 + 1,stdin)!=NULL) )  {
+    char *token = strtok(buf,":\n");
+    short count = 2;
+    while(token) {
+      long curnum = atol(token);
+      switch(count) {
+      case 2:
+	if( *token == '!' && *(++token) != '\0' ) {
+	  //delete token
+	  if ( p1removeElement(set->seta, atol(token) , set->sizea) == -1 ) { 
+	    fprintf(stderr,"Warning: Could not remove %s. Not an element in set A\n",token); 
+	  }
+	  else {
+	    set->sizea--;
+	  } 
+	}
+	else if( *token == '\0' ) {
+	  fprintf(stderr,"Warning: removal flag used in set a without valid number\n");
+	}
+	else if( p1checkDups(set->seta,curnum,set->sizea) ) {
+	  fprintf(stderr,"Warning: duplicate element in set A: %d\n",curnum);
+	} 
+	else {
+	  *a = curnum;
+	  set->sizea++;
+	  a++;
+	}
+	break;
+      case 1:
+	
+	if( *token == '!' && *(++token) != '\0' ) {
+	  //delete token
+	  if ( p1removeElement(set->setb, atol(token) , set->sizeb) == -1 ) {
+	    fprintf(stderr,"Warning: Could not remove %s. Not an element in set B\n",token); 
+	  }
+	  else {
+	    set->sizeb--;
+	  }
+	  
+	}
+	else if( *token == '\0' ) {
+	  fprintf(stderr,"Warning: removal flag used in set a without valid number\n");
+	}
+	else if( p1checkDups(set->setb,curnum,set->sizeb) ) {
+	  fprintf(stderr,"Warning: duplicate blement in set B: %d\n",curnum);
+	} 
+	else {
+	  *b = atol(token);
+	  set->sizeb++;
+	  b++;
+	}
+	break;
+      default:
+	fprintf(stderr,"Invalid element: %d\n",curnum);
+      }
+      count--;
+      token = strtok( NULL, ":\n" );
+    }//end per line while loop
+  }//end entire input while loop
+}//end populateSet Function
+
+/**
+ * \fn void p1printElements(p1DataSet *data)
+ * This function is mainly a debuging function that 
+ * will print out all the elements so the programmer
+ * can make sure the datastructer is storing them correctly.
+ */
+void p1printElements(p1DataSet *data) {
+  unsigned short a = data->sizea, b=data->sizeb;
+  long *pa = &(data->seta[0]), *pb = &(data->setb[0]);
+
+  printf("A:B\n");
+
+  while( a > 0 || b > 0 ) {
+    if(a > 0) {
+      printf ("%d", *pa);
+      pa++;
+      a--;
+    }
+    printf(" : ");
+    if(b > 0) {
+      printf("%d", *pb);
+      pb++;
+      b--;
+    }
+    printf("\n");
+  }//end while
+}//end printElements function
+
+/**
+ *\fn short p1checkDups(long *set, long check, unsigned short size)
+ *This is an internal function used by several of the other functions and 
+ *is not designed to be called independently.
+ */
+short p1checkDups(long *set, long check, unsigned short size) {
+  long *x;
+  for( x=&set[0]; size > 0; x++, size-- ) {
+    if(*x == check) {
+      return -1;
+    }
+  }
+  return 0;
+}
+
+/**
+ *\fn p1CalSet* p1performCalculations(p1DataSet *data)
+ *Calculates the union, intersection and subtraction of two sets
+ */
+p1CalSet* p1performCalculations(p1DataSet *data) {
+  //setup our return struct
+  p1CalSet *calset = (p1CalSet*) malloc(sizeof(p1CalSet));
+  calset->set_union    = (long*) malloc(sizeof(long) * data->sizea + data->sizeb);
+  calset->intersection = (long*) malloc(sizeof(long) *
+					data->sizea > data->sizeb ? 
+					data->sizea : data->sizeb  
+					);
+  calset->subtract     = (long*) malloc(sizeof(long) * data->sizea);
+  calset->union_size = 0;
+  calset->inter_size = 0;
+  calset->sub_size   = 0;
+
+  //setup some set pointers
+  long *un = &(calset->set_union[0]);
+  long *ir = &(calset->intersection[0]);
+  long *su = &(calset->subtract[0]);
+  long *a, *b, i, j;
+
+  //loop for calculations
+  for( a=&(data->seta[0]), i=data->sizea ; i > 0  ; i--, a++) {
+    //add current a to union
+    *un = *a;
+    calset->union_size++;
+    un++;
+    //loop to go through set b
+    for( b=&(data->setb[0]), j=data->sizeb; j > 0 ; j--, b++  ) {
+      //stuff that should only be executed once 
+      if( i == 1 ) {
+	if( p1checkDups(&(calset->set_union[0]),*b,calset->union_size) == 0 ) { //avoid duplicate elemtns in union
+	  *un = *b;   //union
+	  calset->union_size++;
+	  un++;
+	}
+      }
+      if( *a == *b ) { 
+	//intersection
+	*ir = *a;
+	ir++;
+	calset->inter_size++;
+	break; 
+      }
+      //if an intersection was found, we'll break out
+      //of the for loop before this statement
+      if( j == 1) {
+	*su = *a;  //subtraction of A - B
+	calset->sub_size++;
+	su++;
+      }
+    }//end setb forloop
+  }//end seta forloop
+
+  return calset;
+}
+
+/** \fn void p1destroyCalculations(p1CalSet *data)
+ *Frees memory allocated to a calculation struct
+ */
+void p1destroyCalculations(p1CalSet *data) {
+  free( data->set_union    );
+  free( data->subtract     );
+  free( data->intersection );
+  free( data );
+}
+
+/**
+ *\fn short p1removeElement(long *set, long check, unsigned short size)
+ *This function will find the first occurance of the check element
+ *and remove it from the array. The other elements will be shifted
+ *down and the last element will be changed to a zero.
+ */
+short p1removeElement(long *set, long check, unsigned short size) {
+  long *x, found;
+  for( x=&set[0], found=0; size > 0; x++, size--) {
+    if( *x == check ) {
+      found = 1;
+    }
+    if( found == 1 && size != 1) {
+      long *temp = x;
+      *x = *(++temp);
+    }
+  }//end loop
+  if( found != 0 ) {
+    return 0;
+  }
+  else {
+    return -1;
+  }
+}
+
+/**
+ *\fn void p1printResults(p1DataSet *data, p1CalSet *result)
+ *Prints the union, intersection, subtraction of sets A and B
+ *and tells the user if the sets are disjoined or if one is a 
+ *sub/super set of the other.
+ */
+void p1printResults(p1DataSet *data, p1CalSet *result) {
+  
+  long *x;            //array pointer
+  unsigned short y;   //array size counter (for loops)
+
+  printf("-----------------Data Sets-----------------");
+
+  printf("\nSet A: \n {");
+  for(x=&(data->seta[0]),y=data->sizea ; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nSet B: \n {");
+  for(x=&(data->setb[0]),y=data->sizeb ; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nCardinality for A: %d", data->sizea);
+  printf("\nCardinality for B: %d", data->sizeb);
+
+  printf("\n-------Calculation for Sets A and B--------");
+  
+  printf("\nA union B :\n {");
+  for(x=&(result->set_union[0]),y=result->union_size ; y > 0; y--, x++) {
+    printf(" %d",*x);
+  }
+  printf(" }");
+
+  printf("\nA intersect B: \n {");
+  for(x=&(result->intersection[0]),y=result->inter_size; y > 0; y--, x++) {
+    printf(" %d",*x);
+  }
+  printf(" }");
+  
+  printf("\nA subtract B:  \n {");
+  for(x=&(result->subtract[0]),y=result->sub_size; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nCardinality for A union     B: %d", result->union_size);
+  printf("\nCardinality for A intersect B: %d", result->inter_size);
+  printf("\nCardinality for A subtract  B: %d", result->sub_size);
+
+  if( result->inter_size == 0 ) {
+    printf("\nA and B are disjoined sets");
+  }
+  else {
+    if( result->inter_size == data->sizeb ) {
+      printf("\nA is a superset of B");
+      printf("\nB is a subset   of A");
+    }
+    if( result->inter_size == data->sizea) {
+      printf("\nA is a subset of B");
+      printf("\nB is a superset of A");
+    }
+  }
+  printf("\n");
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob1.c   2.h
+/**\file prob2.h
+ *This file contains funciton prototype for problem 2
+ */
+
+/**\fn void p2sales()
+ *\brief Solves problem two
+ */
+void p2sales();
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob2.h c
+/**\file prob2.c
+ *Contains function to solve problem two
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include "prob2.h"
+
+/** \fn p2sales()
+ *This function will take in user input
+ *and create a table to calculate sales total for
+ *4 salesmen and 5 products
+ */
+void p2sales() {
+  //input buffer
+  char buf[10];
+  //storage for sales data
+  double sales[4][5];
+  //storage for token
+  char *token;
+  //counters
+  unsigned long i,j;
+
+  //init array
+  for(i=0;i<4;i++) {
+    for(j=0;j<5;j++) {
+      sales[i][j]=0;
+    }
+  }
+  
+  //instructions for user in interactive mode
+  if(isatty(fileno(stdin))) {
+    printf("\nEnter data in this format:");
+    printf("\n<sales-person>:<product>:<price>");
+    printf("\n(1-4):(1-5):9999.99");
+    printf("\nUse EOF (^D) to exit\n");
+  }
+
+  //input loop
+  while( fgets(buf,10,stdin) != NULL ) {
+    token = strtok(buf,":\n");
+    short count = 3;
+    //validation and storage flags
+    double v1=-1, v2=-1, v3=-1;
+    while( count > 0  ) {
+      //convert token to number
+      double num = atof(token);
+      switch(count) {
+      case 3:
+	if(num < 1 || num > 4) {
+	  fprintf(stderr,"Warning: Invalid salesman\n");
+	}
+	else {
+	  v1=num;
+	}
+	break;
+      case 2:
+	if(num <1 || num > 5) {
+	  fprintf(stderr,"Warning: Invalid Item\n");
+	}
+	else {
+	  v2=num;
+	}
+	break;
+      case 1:
+	if(num < 0) {
+	  fprintf(stderr,"Warning: Invalid Price\n");
+	}
+	else {
+	  v3=num;
+	}
+	break;
+      default:
+	fprintf(stderr,"Warning: invalid token\n");
+      }
+      count--;
+      token = strtok(NULL,":\n");
+    }//end token loop
+    
+    //if elements are valid, add them to array
+    if( v1 > -1 && v2 > -1 && v3 > -1 ) {
+      sales[(short)v1-1][(short)v2-1] = sales[(short)v1-1][(short)v2-1] + v3;
+    }
+  }//end input loop
+
+  //totals
+  double ts[4] = { 0,0,0,0 };
+  double tp[5] = { 0,0,0,0,0 };
+
+  printf("\nProducts\t\t1\t\t2\t\t3\t\t4\t\t5\ttotal");
+  for(i=0; i<4; i++) { //outer salesmen loop
+    printf("\nSalesman %d:\t", i+1 ) ;
+    for(j=0; j<5; j++) { //inner product loop
+      printf("%lf\t",sales[i][j]);
+      //totals
+      ts[i] += sales[i][j];
+      tp[j] += sales[i][j];
+      //end of this row, print total
+      if(j==4) {
+	printf("%lf",ts[i]);
+      }
+    }
+  }
+  printf("\nTotals:\t\t%lf\t%lf\t%lf\t%lf\t%lf\n",tp[0],tp[1],tp[2],tp[3],tp[4]);
+  printf("\n");
+}//end function
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob2.c   3.h
+/** \file prob3.h
+ *Function prototypes for problem 3
+ */
+
+/**
+ *\fn short p3strcmp(const char *a, const char *b)
+ *\brief compares two strings
+ *\param a string to compare from
+ *\param b string to compare to
+ *\return 0 if equal, -1 if less than, 1 if greater than
+ */
+short p3strcmp(const char *a, const char *b);
+
+/**
+ *\fn void p3strcpy(char *to, char *from)
+ *\param to pointer to copy strng into
+ *\param from pointer to copy string from
+ */
+void p3strcpy(char *to, char *from);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob3.h c
+/**\file prob3.c
+ *Functions for problem 3: homebrewn 
+ *string comparison and copy function
+ */
+#include "prob3.h"
+
+/**
+ *\fn short p3strcmp(const char *a, const char *b)
+ *Compares string a to string b
+ */
+short p3strcmp(const char *a, const char *b) {
+  short retval = 0;
+  while( 1 ) {
+    if(*a == '\0' && *b == '\0') { //equal string and length
+      retval = 0;
+      break;
+    }
+    if(*a == '\0' && *b != '\0') { //b is shorter than a
+      retval -1;
+      break;
+    }
+    if(*a != '\0' && *b == '\0') {
+      retval = 1;
+      break;
+    }
+    if(*a < *b ) {
+      retval = 1; 
+      break;
+    }
+    if(*b < *a ) {
+      retval = -1;
+      break;
+    }
+    if( *a == *b ) { //go to the next char
+      a++;
+      b++;
+    }
+  }
+  return retval;
+}
+
+/**
+ *\fn void p3strcpy(char *to, char *from)
+ *Copies a string from one pointer into another.
+ *Make sure you have memory allocated for both pointers.
+ */
+void p3strcpy(char *to, char *from) {
+  //while there's still more to copy
+  while(*from != '\0') {
+    *to = *from;
+    to++;
+    from++;
+  }
+  //null terminate the string
+  *to++ = '\0';
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob3.c   4.h
+/**\file prob4.h
+ *Function prototypes for problem #4
+ */
+
+/**\fn unsigned long p4binary_search(long array[], unsigned long start, unsigned long end, long key)
+ *\brief Performed a binary search of a sorted array
+ *\param array Integer array to be searched
+ *\param start Where to start searching in array
+ *\param end Where to end searching in array
+ *\param key element to search for
+ *\return index of array where element exists or -1 if not found
+ */
+unsigned long p4binary_search(long array[], unsigned long start, unsigned long end, long key);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob4.h c
+/**\file prob4.c
+ *This file contains the functions to perform
+ *a binary search of a sorted array.
+ */
+
+
+/**\fn unsigned long p4binary_search(long array[], unsigned long start, unsigned long end)
+ *Performes a binary search of a sorted long (32-bit) integer array) recursivly
+ */
+unsigned long p4binary_search(long array[], unsigned long start, unsigned long end, long key) {
+
+  unsigned long mid = start+((end-start)/2);
+
+  //base cases
+  if( array[mid] == key ) //element found at mid
+    { return mid; }
+  //  else if ( array[start] == key) //element right in front of mid
+  //  { return start; }
+  else if ( array[end] == key)
+    { return end; }
+  else if (mid == end || mid == start) //no such element
+    { return -1; }
+  //recursive cases
+  if(array[mid] > key) {
+    return p4binary_search(array, start, mid-1, key);
+  }
+  else {
+    return p4binary_search(array,mid+1, end, key);
+  }
+
+  //failsafe (you should not get here!!!)
+  return -2; //something went wrong
+
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob4.c   5.h
+/**\file prob5.h
+ *Thie file contains the prototypes for
+ *problem 5
+ */
+
+/**\fn p5testPalindrome(char* s)
+ *\brief Tests to see if a string is a palindrome
+ *\return 1 if true, 0 if false
+ */
+short p5testPalindrome(char* s);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob5.h c
+/**\file prob5.c
+ *This file contains the functions needed
+ *for problem 5, the palindrome test. This test will
+ *also remove all spaces an puncuation (ASCII values
+ *between 65 and 122).
+ */
+#include "prob5.h"
+#include <string.h>
+
+/**\fn short p5testPalindrome(char* s)
+ *Checks to see if null terminated string is
+ *a palindrone. Also skips over puncuation
+ *and invalid characters (ASCII 0 to 65 and
+ *122 to 127).
+ */
+short p5testPalindrome(char* s) {
+    printf("");
+  //loops to check the beginng and end
+  //for "bad char" (spaces, puncuation, etc)
+  while(1) {
+    if ( ((int) *s) < 65 || ((int) *s) > 122 ) {
+      s++;
+    }
+    else {
+      break;
+    }
+  }
+  while(1) {
+    if( strlen(s) == 1 ) {
+      break;
+    }
+    else if ( ((int) s[strlen(s)-1]) < 65 || ((int) s[strlen(s)-1]) > 122 ) {
+      s[strlen(s)-1] = '\0';
+    }
+    else {
+      break;
+    }
+  }
+  if( strlen(s) <= 1) { //base case
+    return 1;
+  }
+  else if( *s == s[strlen(s)-1]) {
+    s[strlen(s)-1] = '\0';
+    s++;
+    //start recursive calls
+    return p5testPalindrome(s);
+  }
+  else { //did not reach base case
+    return 0;
+  }
+  
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob5.c   6.h
+/** \file prob6.h
+ *This file contains prototype
+ *used for problem 6.
+ */
+
+/**\fn long p6fib(double num)
+ * \breif calculates the fibonacci sequence for a given index
+ * \param num element to calculate the fibonacci sequence of
+ * \return the fibonacci element at index n
+ */
+long p6fib(double num);
+
+/**\fn doublep6doublefib(double num)
+ * \breif calculates the fibonacci sequence for a given index
+ * \param num element to calculate the fibonacci sequence of
+ * \return the fibonacci element at index n
+ */
+double p6doublefib(double num);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat prob6.h c
+/**
+ *\file prob6.c
+ *This file contains the functions used
+ *for problem 6, calculation of the fibonacci sequence
+ */
+#include "prob6.h"
+
+/**
+ *\fn long p6fib(double num)
+ *This function calculates element n in the 
+ *fibonacci sequence using a long 32-bit signed
+ *integer to store its data.
+ */
+long p6fib(double num) {
+
+  long total, prev, swap; 
+  double cur;
+
+  for(cur=0,total=0 ; cur < num; cur++ ) {
+    if( cur == 0 ) {
+      total = 1; 
+      prev  = 0;
+    }
+    else {
+      swap = total;
+      total = total + prev;
+      prev = swap;
+    }
+      
+  }
+
+  return total;
+}
+
+/**
+ *\fn double p6doublefib(double num)
+ *This function calculates element n in the
+ *fibonacci sequence using a double to store
+ *its data.
+ */
+double p6doublefib(double num) {
+
+  double total, cur, prev, swap; 
+
+  for(cur=0,total=0 ; cur < num; cur++ ) {
+    if( cur == 0 ) {
+      total = 1; 
+      prev  = 0;
+    }
+    else {
+      swap = total;
+      total = total + prev;
+      prev = swap;
+    }
+  }
+  return total;
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat problems.h
+/**\file problems.h
+ *Prototypes and definitions for testing
+ *various problems.
+ */
+
+/**\def MAX_ONE
+ *maximum input value for problem one
+ */
+#define MAX_ONE 100 
+/**\def ARRAY_FOUR
+ *predefined array for problem 4 = {-5 -1 0 12 48 62 102 112}
+ */
+#define ARRAY_FOUR {-5, -1, 0, 12, 48, 62, 102, 112}
+/**\def LENGTH_FOUR
+ *length of ARRAY_FOUR
+ */
+#define LENGTH_FOUR 7 
+
+
+/**
+ *\fn void runProbOne()
+ *\brief solves problem one
+ */
+void runProblemOne();
+
+/**
+ *\fn void runProblemSix( double n , short type)
+ *\brief solves problem six
+ *\param n index of fibonacci number to produce
+ *\param type 1 to store data in 32-bit integer, 2 for double
+ */
+void runProblemSix( double n , short type);
+
+/**\fn short runProblemFive(char *s)
+ *\brief solves problem five
+ *\param s string to evaluate
+ *\return 1 if true, 0 if false
+ */
+short runProblemFive(char *s);
+
+/**
+ *\fn void runProblemTwo()
+ *\brief solves problem two
+ */
+void runProblemTwo();
+
+/**\fn void runProblemThree(char* s1, char* s2)
+ *\brief tests to see if problem two works.
+ *\param s1 string one (to copy)
+ *\param s2 string two (to compare)
+ */
+void runProblemThree(char* s1, char* s2);
+
+/**\fn void runProblemFour(long element)
+ *\brief tests to see if problem four works
+ *\param element element to look for
+ */
+void runProblemFour(long element);
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ cat problems.h c
+/**\file problems.c
+ *This file has all the master functions needed
+ *to perform each problem.
+ */
+#include "problems.h"
+#include "prob1.h"
+#include "prob2.h"
+#include "prob3.h"
+#include "prob4.h"
+#include "prob5.h"
+#include "prob6.h"
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+
+/** \fn void runPRobOne()
+ *This function will ask the user for input for integer sets a and b
+ *until MAX_ONE is reached and then calculate the union, intersection
+ *and difference of the two sets and print the output.
+ */
+void runProblemOne() {
+
+  p1DataSet *data = p1createSet(MAX_ONE);
+  p1populateSet(data);
+  p1CalSet *cal = p1performCalculations(data);
+  p1printResults(data,cal);
+  p1deleteSet(data);
+
+}
+
+/**\fn void runProblemSix( double n , short type)
+ *This function can calculate a number in the fibonacci
+ *sequence given an index and a data storage type
+ */
+void runProblemSix( double n , short type) {
+
+  //counter
+  double x;
+  
+  //runs sequences (1 = integer, 2=double)
+  if(type == 1) {
+    printf("fibonacci (32-bit integer)\n");
+    for(x=0 ; x < n; x++) {
+      printf("%d\n", p6fib(x));
+    }
+  }
+  else if (type == 2) {
+    printf("fibonacci (double)\n");
+    for(x=0 ; x < n; x++) {
+      printf("%lf\n", p6doublefib(x));
+    }
+  }
+}
+
+
+/**\fn short runProblemFive(char *s)
+ *This function determines if the given string
+ *is a palindrome (a word that is the same spelled
+ *backwards). A single letter IS a palindrome.
+ */ 
+short runProblemFive(char *s) {
+  return p5testPalindrome(s);
+}
+
+/**\fn void runProblemTwo()
+ *This function takes user input and calculates
+ *sales totals.
+ */
+void runProblemTwo(){
+  p2sales();
+}
+
+
+/**
+ *\fn void runProblemThree(char* s1, char* s2)
+ *This function will take in the two strings
+ *and makes a copy of s1 and then compares s1 to
+ *s2.
+ */
+void runProblemThree(char *s1, char *s2) {
+
+  short compare = p3strcmp(s1,s2);
+
+  char *copy = (char*) malloc(sizeof(char));
+  p3strcpy(copy, s1);
+
+  if(compare == 0 ){
+    printf("%s and %s are equal",s1,s2);
+  }
+  else if(compare > 0) {
+    printf("%s is greater than %s",s1,s2);
+
+  }
+  else if(compare < 0) {
+    printf("%s is less than %s",s1,s2);
+  }
+
+  printf("\nString 1: %s\tMemory Address: %p",s1,s1);
+  printf("\nCopy    : %s\tMemory Address: %p",copy,copy);
+  printf("\n");
+}
+
+/**\fn void runProblemFour(long element)
+ *Looks for an element in the predefined array ARRAY_FOUR
+ */
+void runProblemFour(long element) {
+  long array[] = ARRAY_FOUR;
+  unsigned long result = p4binary_search(array, 0, LENGTH_FOUR, element);
+  if(result == -1) {
+    printf("Element %d not found in array: {-5 -1 0 12 48 62 102 112}\n",element);
+  }
+  else {
+    printf("Element %d is at index %d in array: {-5 -1 0 12 48 62 102 112}\n",element,result);
+  }
+}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ make all
+gcc -I.  -c prob1.c
+gcc -I.  -c prob2.c
+gcc -I.  -c prob3.c
+gcc -I.  -c prob4.c
+gcc -I.  -c prob5.c
+gcc -I.  -c prob6.c
+gcc -I.  -c problems.c
+gcc -I. -c main.c
+gcc -I. main.o problems.o prob1.o prob2.o prob3.o prob4.o prob5.o prob6.o -o main
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 
+
+CSC 3400: Program 1
+
+Usage: program1 [1-6] <program flags>
+
+Programs
+--------
+1 Takes input from standard in to form
+  two sets and preform calculations on them
+2 Take input from standard in to form a two dimensional
+  array that holds sales information.
+3 [-a] string1 [-b] string2 -- Takes in two strings
+  and makes a copy of the first one as well as comparing
+  the first one to the second one.
+4 [-e] element -- Take in a long (32-bit) integer element
+  and performs a binary search on {-5 -1 0 12 48 62 102 112}
+  for the element index.
+5 [-s] string -- Takes a String and determines
+  if it is a palindrome while ignoring spaces, 
+  punctuation, and all ASCII values between 65 and 122.
+6 [-n] [n] [-t] [1-2] -- Calculates the fibonacci
+  sequence of n using a 32-bit integer for '-t 1'
+  and a double for '-t 2'
+
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 1
+
+Enter two numbers in the following format:
+<num a>:<num b>
+example:
+3:4
+To delete, use a '!' symbol like so:
+!3:!4
+Use end of file (^D) to exit
+5:6
+7:3
+!5:3 4
+7:3
+Warning: duplicate element in set A: 7
+Warning: duplicate blement in set B: 3
+13:23
+33:12
+-----------------Data Sets-----------------
+Set A: 
+ { 7 7 13 }
+Set B: 
+ { 6 3 4 23 12 }
+Cardinality for A: 3
+Cardinality for B: 5
+-------Calculation for Sets A and B--------
+A union B :
+ { 7 7 13 6 3 4 23 12 }
+A intersect B: 
+ { }
+A subtract B:  
+ { 7 7 13 }
+Cardinality for A union     B: 8
+Cardinality for A intersect B: 0
+Cardinality for A subtract  B: 3
+A and B are disjoined sets
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 1 2
+
+Enter data in this format:
+<sales-person>:<product>:<price>
+(1-4):(1-5):9999.99
+Use EOF (^D) to exit
+2:3:12.3
+1:3:4
+2:3:18
+1:4:27.5
+2:4:11.3
+2:4:13.7
+2:1:11
+
+Products		1		2		3		4		5	total
+Salesman 1:	0.000000	0.000000	4.000000	27.500000	0.000000	31.500000
+Salesman 2:	11.000000	0.000000	30.300000	25.000000	0.000000	66.300000
+Salesman 3:	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
+Salesman 4:	0.000000	0.000000	0.000000	0.000000	0.000000	0.000000
+Totals:		11.000000	0.000000	34.300000	52.500000	0.000000
+
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 2 3 -a stra    foo -b bar
+foo is less than bar
+String 1: foo	Memory Address: 0x804b160
+Copy    : foo	Memory Address: 0x804b180
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 3 -a foo -b bar               4 -e 47 8
+Element 48 is at index 4 in array: {-5 -1 0 12 48 62 102 112}
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 5 -s abbbba[1@c
+Input is a Palindrome
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 5 -s abbcbba            6 -n 12 -t 1
+fibonacci (32-bit integer)
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ ./main 6 -n 12 -t 1       12 -t 2
+fibonacci (double)
+0.000000
+1.000000
+1.000000
+2.000000
+3.000000
+5.000000
+8.000000
+13.000000
+21.000000
+34.000000
+55.000000
+89.000000
+]0;skhanna@br20613:~/class-working/csc3400-program1/src[skhanna@br20613 src]$ exit
+
+Script done on Wed Feb 19 15:02:33 2003
