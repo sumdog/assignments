@@ -19,7 +19,7 @@ Testing
 
 Foundations
 
-The most notable thing to notice about Mozilla and the Apache is that there is no "Mozilla" produce or "Apache" produce. There is the "Apache HTTP Daemon" and the "Mozilla Web Browser." Why should sementatics matter? Although these groups started to support one product, they've grown into huge open source foundations. Apache has several projects under the Apache name including Ant (java build utility) and Tomcat (java servlet engine). Mozilla's sub projects include scaled down version of their web browser and mail clients.
+The most notable thing to notice about Mozilla and the Apache is that there is no "Mozilla" product or "Apache" product. There is the "Apache HTTP Daemon" and the "Mozilla Web Browser." Why should sementatics matter? Although these groups started to support one product, they've grown into huge open source foundations. Apache has several projects under the Apache name including Ant (java build utility) and Tomcat (java servlet engine). Mozilla's sub projects include scaled down version of their web browser and mail clients.
 
 Browsing both orginizations websites will show you massive lists of projects, subprojects, branches of current projects and project proposals. These originizations aren't nesceserally centered around one project anymore, but have branced into making all kinds of new tools to help better support open souce software development and the free software community.
 
