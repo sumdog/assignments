@@ -6,13 +6,14 @@
 #include "CNameServer.h"
 #include "CPalServer.h"
 #include "CPingServer.h"
+#include "CInsultServer.h"
 #include <iostream>
 using std::cout;
 using std::cerr;
 using std::endl;
 #include <unistd.h>
 #include <string>
-
+#include "client.h"
 
 void usage() {
   cerr << "\nCSC4200-program1\n\nUsage: main -[c:s] <options>\n\n";
@@ -21,6 +22,7 @@ void usage() {
   cerr << "\t               name -- Starts a name service\n";
   cerr << "\t                pal -- Starts a Palindrome testing service\n";
   cerr << "\t               ping -- Starts a ping service              \n";
+  cerr << "\t             insult -- Starts an insulting service        \n";
   cerr << "\t                                                          \n";
   cerr << "\t          <options> -- [-p] port [-r] nameserver          \n";
   cerr << "\t                       port to listen on                  \n";
@@ -43,7 +45,7 @@ int main(int argc, char **argv) {
   bool fser=false, fclient=false;
 
   //parse command line arguments
-  while( (op = getopt(argc,argv,"s:p:h:r:")) != -1) {
+  while( (op = getopt(argc,argv,"s:p:r:f:c")) != -1) {
     switch(op) {
     case 's': //service to run
       sname = new char[strlen(optarg)];
@@ -93,6 +95,9 @@ int main(int argc, char **argv) {
       }
       else if( strcmp(sname,"ping") == 0) {
 	server = new CPingServer(port,BACKLOG);
+      }
+      else if( strcmp(sname,"insult") == 0) {
+	server = new CInsultServer(port,BACKLOG);
       }
       else {
 	cerr << "\nUnknown Service\n";

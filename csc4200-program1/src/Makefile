@@ -1,8 +1,8 @@
-all: main
-
-CC = gcc
+all: server client
 
 CXX = g++
+
+CC = gcc
 
 LIBS = -lpthread
 
@@ -10,20 +10,29 @@ INCLUDE = -I. -I./except -I./services
 
 CFLAGS =
 
-main: exceptions server nameserver palserver pingserver
+server: exceptions cserver nameserver palserver pingserver insults 
 	$(CXX) $(INCLUDE) -c main.cxx
-	$(CXX) $(INCLUDE) $(LIBS) main.o CPalServer.o CPingServer.o CServer.o CNameServer.o ERegister.o EServer.o -o main
+	$(CXX) $(INCLUDE) $(LIBS) main.o CPalServer.o CInsultServer.o CPingServer.o CServer.o CNameServer.o ERegister.o EServer.o -o server 
 
-server: exceptions
+client: clientlib
+	$(CC) $(INCLUDE) -c main.c
+	$(CC) $(INCLUDE) -o client main.o client.o
+clientlib:
+	$(CC) $(INCLUDE) -c client.c
+
+cserver: exceptions
 	$(CXX) -c $(INCLUDE) CServer.cxx
 
-nameserver: server
+insults: cserver
+	$(CXX) -c $(INCLUDE) services/CInsultServer.cxx
+
+nameserver: cserver
 	$(CXX) -c $(INCLUDE) services/CNameServer.cxx
 
-palserver: server
+palserver: cserver
 	$(CXX) -c $(INCLUDE) services/CPalServer.cxx
 
-pingserver: server
+pingserver: cserver
 	$(CXX) -c $(INCLUDE) services/CPingServer.cxx
 
 exceptions:
@@ -32,4 +41,5 @@ exceptions:
 
 clean:
 	rm *.o
-	rm main 
+	rm server
+	rm client 

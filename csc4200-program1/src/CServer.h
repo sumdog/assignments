@@ -32,10 +32,12 @@ class CServer {
   static void* serverThread(void* cserver);
   command_t* parseCommand(char *cmd);
   void deleteCommand(command_t *t);
+  bool sendAll(long fd, char* buffer);
 
  protected:
   virtual void processRequest(command_t *t, char *retval);
   char name[NAME_SIZE];
+ 
 
  public:
   CServer(unsigned short port, long backlog);

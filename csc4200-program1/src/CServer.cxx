@@ -36,7 +36,7 @@ CServer::~CServer() {
 }
 
 void CServer::processRequest(command_t *t, char* retval) {
-  strcpy(retval,"Override this method to implement\n");
+  strcpy(retval,"A:Override this method to implement\n");
 }
 
 void CServer::deleteCommand(command_t *t) {
@@ -94,7 +94,7 @@ void* CServer::serverThread(void* cserver) {
   retval,server->server->processRequest(cmd,retval);
 
   //send user buffer
-  send(server->fd,retval,strlen(retval),0);
+  server->server->sendAll(server->fd,retval);
   
   //clean up our mess
   close(server->fd);
@@ -167,7 +167,26 @@ void CServer::registerService(char* host, unsigned short port) {
     //send our registration data
     char regdata[BUFFER_SIZE];
     sprintf(regdata,"R:%s:%s:%d\n",name,me,this->port);
-    send(sockfd,regdata,strlen(regdata),0);
+    sendAll(sockfd,regdata);
     close(sockfd);
   }
+}
+
+
+bool CServer::sendAll(long fd, char* buffer) {
+
+  //here, we'll makre sure all our data is sent
+  long total = 0;    
+  long length = strlen(buffer);
+  long bytesleft = length;
+  long n;
+
+        while(total < length) {
+            n = send(fd, buffer+total, bytesleft, 0);
+            if (n == -1) { break; }
+            total += n;
+            bytesleft -= n;
+        }
+
+        return (n == -1) ? false : true; 
 }
