@@ -22,13 +22,36 @@ public class PRow {
         pset = new Vector();
         pvalue = new Vector();
     }
-
+    
+ 
     public void addSet(PSet p) {
         pset.add(p);
     }
     
     public void addVal(PValue v) {
         pvalue.add(v);
+    }
+    
+    public float correctRow(Vector pvarvalset,  String val) {
+        int count = 0;
+        for(int y=0; y< pset.size(); y++) {
+            for( int w=0; w < pvarvalset.size(); w++) {
+                PVarValSet v = ((PVarValSet)pvarvalset.elementAt(w));
+                PSet p = (PSet)pset.elementAt(y);
+                if(  v.name.equals(p.name) && v.val.equals(p.val)) {
+                    count++;
+                }
+            }
+        }
+        if(count != pset.size()) { return -1; }
+        
+        for(int x=0; x < pvalue.size(); x++) {
+            PValue v = (PValue)pvalue.elementAt(x);
+            if(v.val.equals(val)) { return v.f; }
+        }
+        
+        //should NOT get here
+        return -1;
     }
     
     public String toString() {

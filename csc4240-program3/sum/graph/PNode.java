@@ -41,6 +41,16 @@ public class PNode {
         rows.add(r);
     }
     
+    public float getProbablity(Vector pvarvalset, String val) {
+        for(int x=0; x<rows.size(); x++) {
+            PRow r = (PRow) rows.elementAt(x);
+            float prob = r.correctRow(pvarvalset, val);
+            if(prob != -1) { return prob; }
+        }
+        return -1;
+    }
+    
+    public boolean equals(Object o) { return ((PNode)o).getName().equals(name); }
     
     public String getName() { return name; }
     
@@ -53,10 +63,10 @@ public class PNode {
             if(x != bools.length-1) { retval += ","; }
         }
         retval += "}>\n";
-        /*
+        
         for(int x=0; x<rows.size(); x++) {
             retval += "\n"+rows.elementAt(x);
-        }*/
+        }
         return retval;
     }
 }
