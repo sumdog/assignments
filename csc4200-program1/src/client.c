@@ -191,15 +191,16 @@ short serviceLookup(cmd_t *cmd, ns_t *ns){
   if(c != 0) { return c; } //error
 
   //parse response
-  char *i = strtok(recbuf,":\n"); //hostname
-  if( i == NULL ) { return -4; }
-  cmd->host = malloc(sizeof(char*)*strlen(i));
+  char *i = strtok(&recbuf[0],":\n"); //response type
+  if(i == NULL) { return -4; }
+  if(strcmp(i,"A") != 0) { return -5; }
+  i = strtok(NULL,":\n"); //hostname
+  if(i == NULL) { return -4; }
+  cmd->host = malloc(sizeof(char)*strlen(i));
   strcpy(cmd->host,i);
   i = strtok(NULL,":\n"); //port
-  if( i == NULL ) {return -4;}
+  if(i == NULL) { return -4; }
   cmd->port = (unsigned short) atol(i);
-
-  printf("\nS:  P:  --\n",cmd->host,cmd->port);
 
   //cleanup
   return 0; 

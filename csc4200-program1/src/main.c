@@ -9,6 +9,7 @@ int main(int argc,char **argv) {
   char *config = NULL, op;
   ns_t *nameserver;
   cmd_t *command;
+  char output[BUFFER];
 
   //command line arguments
   while( (op = getopt(argc,argv,"f:")) != -1) {
@@ -40,6 +41,10 @@ int main(int argc,char **argv) {
     //lookup service
     switch(serviceLookup(command,nameserver)) {
     case 0: //successful connect to name service
+      switch(runCommand(command,&output[BUFFER],BUFFER)) {
+      case 0: //successfuly response from service
+	break;
+      }
       break;
     case -1:
       printf("Error: Invalid Nameserver\n");
@@ -52,6 +57,9 @@ int main(int argc,char **argv) {
       break;
     case -4:
       printf("Error: Invalid Response from Nameservice\n");
+      break;
+    case -5:
+      printf("Error: Unknown Service\n");
       break;
    }
 
