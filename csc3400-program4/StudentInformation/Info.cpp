@@ -1,13 +1,28 @@
 #include "Info.hpp"
 #include <stdio.h>
 
-StudentName::StudentName(string *first, string *last, char mi) {
+//---------------Begin Name Implementation----------------
+
+/**************************************************
+ *Name() - constructor
+ *
+ *PARAMS:     first and last name as string objects
+ *            and a middle initial
+ **************************************************/
+
+Name::Name(string *first, string *last, char mi) {
   this->first = new string(*first);
   this->last = new string(*last);
   this->mi - mi;
 }
 
-StudentName::~StudentName() {
+/************************************************
+ *~Name() - deconstructor
+ *
+ *          Frees memeory allocated for
+ *          first and last name
+ ************************************************/
+Name::~Name() {
   delete first;
   delete last;
 }
@@ -27,7 +42,7 @@ StudentName::~StudentName() {
  *
  *    (x == spaces)
  ************************************************/
-string StudentName::getName() {
+string Name::getName() {
   
   const char *f_ptr = first->c_str(), *l_ptr = last->c_str();
 
@@ -37,3 +52,5 @@ string StudentName::getName() {
 
   return string(retval);
 }
+
+//--------end Name class-------------------------------

@@ -3,10 +3,10 @@
 #include <string>
 using std::string;
 
-class StudentName {
+class Name {
 public:
-  StudentName(string *first, string *last, char mi);
-  ~StudentName();
+  Name(string *first, string *last, char mi);
+  ~Name();
   string getName();
 private:
   string *first;
@@ -14,21 +14,38 @@ private:
   char mi;
 };
 
-class Birthday {
+class Date {
 public:
-  Birthday(unsigned short month, unsigned short day, unsigned short year);
+  Date(unsigned short month, unsigned short day, unsigned short year);
 private:
   unsigned short month, day, year;
 
 };
 
-class Info {
+class Person {
 
 public:
-  StudentName *name;
+  Person(Name name, Date birthday);
+  ~Person();
+  Name getName();
+  void setName(Name*);
+  Date getBirthday();
+  void setBirthday(Date*);
+  virtual string createRecord();
+
 private:
-  
+  Name *name;  
+  Date *birthday;
 };
+
+
+class Student : public Person {
+  
+public:
+  Student(Name name, Date birthday, 
+
+};
+
 
 
 #endif //INFO_H
