@@ -1,0 +1,11 @@
+Chapter 3)
+
+1) They will simply be the opposite ports. source=y and dest=x. The source and destination are always relative to the computer who's sending.
+
+4) 
+
+a) False. Host B will attempt to piggyback an ACK onto a packet in its queue that's intended for host A. If it searches its queue and can't find another packet that's destined for that host, it will simply send a new packet which only contains the ACK
+
+b) False. The reciever has a buffer used to pull packets together in the correct order. Say packets 1, 2, 3, 7 and 8 come it. It will ship 1, 2 and 3 up to the application as soon as they come in becasue they're in order. 7 will be buffered unitl packets 4, 5 and 6 come in at which time packets 4 through 8 will be sent to the application layer. The buffer is of a fixed size. The amount of free space in the buffer is known as the RcvWindow and will, of course, change and the buffer is filled and emptied. It's important not to confused the RcvWindow, which is just an indicator on how full a host's buffer is, with the actual Buffer which is a static allocation of memory (non-changing).
+
+c)
