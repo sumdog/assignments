@@ -10,9 +10,12 @@ proc createObject {oname} {
     namespace eval $oname {
 	variable thisComputer ""
 	variable logfile [pwd]/taggame.log
+	variable shield
+
 	proc wakeup {} {
 	    after idle [this]::playGame
-}
+	}
+
 	proc playGame {} {
 	    set others [::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
 			    ::Spackle::Portal::who]
@@ -40,7 +43,8 @@ set otherinterp $aothers($name)
 	    set waitTime [expr {int (rand()*3000) + 2000}]
 	    #set waitTime 5000
 	    after $waitTime [this]::moveOn
-}
+	}
+
 	proc moveOn {} {
 	    variable computers
 	    variable thisComputer
@@ -65,13 +69,22 @@ set otherinterp $aothers($name)
 	    ::Spackle::AgentSrvr::die
 	    ::Spackle::Portal::phase [this] [this] $machine
 	}
+
+	proc setShield {s} {
+	    variable shield
+	    set shield $s
+	}
+	    
+
 	proc setMachines {mList} {
 	    variable computers
 	    set computers $mList
 	}
+
 	proc this {} {
 	    return [namespace current]
 	}
+
 	proc logit {msg} {
 	    variable thisComputer
 	    variable logfile
@@ -81,23 +94,33 @@ set otherinterp $aothers($name)
 		close $fd
 	    }
 	}
+
 	proc tag {} {
-	    ::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
-		::Spackle::Portal::unregisterMe [this]
-	    logit "[this]: tagged, I'm out"
-	    after 1000 {::Spackle::AgentSrvr::die}
+	    variable shield
+	    set shield [expr $shield - 1]
+	    puts $shield
+	    if { [expr $shield > 0] } {
+		logit "[this]: Shields down to $shield"
+	    } else {
+		::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
+		    ::Spackle::Portal::unregisterMe [this]
+		logit "[this]: Shields down! I'm out"
+		after 1000 {::Spackle::AgentSrvr::die}
+	    }
 	}
     }
 }
 proc main {} {
     # argv 1 is number of tag objects, rest if list of machines
-    set computers [lrange $::argv 1 end]
-    set count [lindex $::argv 0]
+    set computers [lrange $::argv 2 end]
+    set count [lindex $::argv 1]
+    set shield [lindex $::argv 0]
     set fd [open [pwd]/taggame.log "w"]
     close $fd
     for {set k 0} {$k < $count} {incr k} {
 	createObject ::tagobject$k
 	::tagobject${k}::setMachines $computers
+	::tagobject${k}::setShield $shield
 	set size [llength $computers]
 	set which [expr {int (rand()*$size)}]
 	set machine [lindex $computers $which]
