@@ -1,0 +1,18 @@
+#!/usr/bin/tclsh
+
+if {$argc != 1} {
+  puts "usage: $argv0 <mac_pfx>"
+  exit
+}
+puts "#define [lindex $argv 0] \\"
+while {[gets stdin line] > -1} {
+	regsub -all {\\} $line {\\\\} newline
+  regsub -all {\"} $newline {\\"} nline 
+  puts "        \"$nline\\n\"\\"
+  
+}
+
+puts "        \"\""
+    
+
+
