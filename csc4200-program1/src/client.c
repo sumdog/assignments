@@ -4,7 +4,7 @@
 #include <string.h>
 #include <malloc.h>
 
-void runClient(char *config) {
+ns_t* getNameserver(char *config) {
 
   //variables we need
   char *cfg = malloc(sizeof(char)*BUFFER);
@@ -60,14 +60,15 @@ void runClient(char *config) {
   //clean up our mallocing
   free(temp);
   free(cfg);
+
+  //return nameserver struct
+  return ns;
 }
 
 
 void freeCommand(cmd_t *t){}
 
 cmd_t* promptUser(){}
-
-ns_t* getNameserver(char *file){}
 
 short serviceLookup(cmd_t *cmd, ns_t *ns){}
 

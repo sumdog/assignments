@@ -32,7 +32,5 @@ short serviceLookup(cmd_t *cmd, ns_t *ns);
 void runCommand(cmd_t *cmd, char *output, long bufsize);
 
 
-void runClient(char *config);
-
 
 #endif /** CLIENT_H */

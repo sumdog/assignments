@@ -15,6 +15,6 @@ int main(int argc,char **argv) {
     }
   }
   
-  runClient(config);
+  getNameserver(config);
 
 }
