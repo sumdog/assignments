@@ -1,0 +1,74 @@
+Cobol Program 1 - Hume
+Sumit Khanna
+
+
+Sample Data (check.dat)
+
+Good           Sumit     111101405231982 21 8     212   1232B
+Good           Alexander 231403309041921082125 657100  81266A
+Bad            N$ame     111101405231982 21 8     212   1232B
+Bad            Acct      0A0001405231982 21 8     212   1232B
+Bad            Sum       111101205231982 21 8     212   1232B
+Bad            B-month   111101413121892111 8     212   1232B
+Bad            B-day     1111014126A1982021 8     212   1232B
+Bad            B-year    11110141213?005 -2 8     212   1232B
+Bad            balance   111101405231982 21 8    1000-  3000B
+Good           balance   111101405231982 21 8    1000-    10B
+Good           Credit-A  111101405231982 21125   1000-    10A
+Good           Credit-C  111101405231982 21 2    1000-    10C
+Bad            Credit-A  111101405231982 21 25   1000-    10A
+Good           Credit-D  111101405231982 21 25   1000-    10D
+Good           Sumit     111101405231982 21 8     212   1232B
+Good           Alexander 231403309041921082125 657100  81266A
+Bad            N$ame     111101405231982 21 8     212   1232B
+Bad            Acct      0A0001405231982 21 8     212   1232B
+Bad            Sum       111101205231982 21 8     212   1232B
+Bad            B-month   111101413121892111 8     212   1232B
+Bad            B-day     1111014126A1982021 8     212   1232B
+Bad            B-year    11110141213?005 -2 8     212   1232B
+Bad            balance   111101405231982 21 8    1000-  3000B
+Good           balance   111101405231982 21 8    1000-    10B
+Good           Credit-A  111101405231982 21125   1000-    10A
+Good           Credit-C  111101405231982 21 2    1000-    10C
+Bad            Credit-A  111101405231982 21 25   1000-    10A
+Good           Credit-D  111101405231982 21 25   1000-    10D
+
+
+Valid Output (valid.out)
+  1.   Good           Sumit     111101405231982 21 8     212   1232B
+  2.   Good           Alexander 231403309041921082125 657100  81266A
+  3.   Good           balance   111101405231982 21 8    1000-    10B
+  4.   Good           Credit-A  111101405231982 21125   1000-    10A
+  5.   Good           Credit-C  111101405231982 21 2    1000-    10C
+  6.   Good           Credit-D  111101405231982 21 25   1000-    10D
+  1.   Good           Sumit     111101405231982 21 8     212   1232B
+  2.   Good           Alexander 231403309041921082125 657100  81266A
+  3.   Good           balance   111101405231982 21 8    1000-    10B
+  4.   Good           Credit-A  111101405231982 21125   1000-    10A
+  5.   Good           Credit-C  111101405231982 21 2    1000-    10C
+  6.   Good           Credit-D  111101405231982 21 25   1000-    10D
+
+
+Errors (exception.out)
+
+ 1.   Bad            N$ame     111101405231982 21 8     212   1232B
+          3  Name contains invalid characters
+  2.   Bad            Acct      0A0001405231982 21 8     212   1232B
+          4  Acct Num/acct Sum not numeric
+  3.   Bad            Sum       111101205231982 21 8     212   1232B
+          5  Check sum test fails
+  4.   Bad            B-month   111101413121892111 8     212   1232B
+          7  Birthdate not in range
+  5.   Bad            B-day     1111014126A1982021 8     212   1232B
+          6  Birthdate/age not numeric
+  6.   Bad            B-year    11110141213?005 -2 8     212   1232B
+          6  Birthdate/age not numeric
+  7.   Bad            balance   111101405231982 21 8    1000-  3000B
+          13 Interest amount too large
+  8.   Bad            Credit-A  111101405231982 21 25   1000-    10A
+          11 Discount & credit rate: no match
+
+Location of Executable
+
+Gemini: USER:[SK5259.COBOL]
+File  : prog1.exe

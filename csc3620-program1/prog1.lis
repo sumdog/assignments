@@ -1,0 +1,516 @@
+                                Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 1
+                                                                28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	      1 *****************************************************************
+	      2 *                                                               
+	      3 *  Program #1 for Hume's File Processing Class
+	      4 *
+	      5 *  Compiled and tested with tinycobol for Linux 
+	      6 *   and Compaq Cobol on VMS
+	      7 *
+	      8 *  Name: Sumit Khanna
+	      9 *  
+	     10 *                                                               
+	     11 *****************************************************************
+	     12 
+	     13 identification division.
+	     14 
+	     15 program-id.   check-data.
+	     16 author.       Sumit Khanna.
+	     17 
+	     18 environment division.
+	     19 
+	     20 configuration section.
+	     21 source-computer. GNU-Linux-IA32.
+	     22 
+	     23 input-output section.
+	     24 file-control.
+	     25     select input-file      assign to "check.dat".
+	     26     select valid-file      assign to "valid.out".
+	     27     select exception-file  assign to "exception.out".
+	     28 
+	     29 data division.
+	     30 
+	     31 file section.
+	     32 
+	     33 fd  input-file
+	     34         record contains 61 characters.
+	     35 01  input-line              pic x(61).
+	     36 
+	     37 fd  valid-file
+	     38         record contains 80 characters.
+	     39 01  valid-report-line       pic x(80).
+	     40 
+	     41 fd  exception-file
+	     42         record contains 80 characters.
+	     43 01  exception-report-line   pic x(80).
+	     44 
+	     45 working-storage section.
+	     46 
+	     47 01  input-record-in.
+	     48     05  name-in.
+	     49         10  last-name-in            pic x(15).
+	     50         10  first-name-in           pic x(10).
+	     51     05  acct-num-in                 pic 9(4).
+	     52     05  acct-sum-in                 pic 9(3).
+	     53     05  birthdate-in.
+	     54         10  month-in                pic 9(2).
+	     55         10  day-in                  pic 9(2).
+	     56         10  year-in                 pic 9(4).
+	     57     05  age-in                      pic 9(3).
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 2
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	     58     05  discount-rate-in            pic v999.
+	     59     05  balance-in                  pic 9(5)v99.
+	     60     05  balance-sign-in             pic x(1).
+	     61     05  interest-in                 pic 9(4)v99.
+	     62     05  credit-rating-in            pic x(1).
+	     63 
+	     64 01  file-eof-flags.
+	     65     05  input-file-flag             pic x(1)   value "N".
+	     66         88  end-of-input-file                  value "Y".
+	     67 
+	     68 01  error-message-area.
+	     69     05  err-msg-1  pic x(35) value "1  Last name missing               ".
+	     70     05  err-msg-2  pic x(35) value "2  Acct number field missing       ".
+	     71     05  err-msg-3  pic x(35) value "3  Name contains invalid characters".
+	     72     05  err-msg-4  pic x(35) value "4  Acct Num/acct Sum not numeric   ".
+	     73     05  err-msg-5  pic x(35) value "5  Check sum test fails            ".
+	     74     05  err-msg-6  pic x(35) value "6  Birthdate/age not numeric       ".
+	     75     05  err-msg-7  pic x(35) value "7  Birthdate not in range          ".
+	     76     05  err-msg-8  pic x(35) value "8  Age test fails                  ".
+	     77     05  err-msg-9  pic x(35) value "9  Credit rating invalid           ".
+	     78     05  err-msg-10 pic x(35) value "10 Discount rate not numeric       ".
+	     79     05  err-msg-11 pic x(35) value "11 Discount & credit rate: no match".
+	     80     05  err-msg-12 pic x(35) value "12 Balance/interest not numeric    ".
+	     81     05  err-msg-13 pic x(35) value "13 Interest amount too large       ".
+	     82 
+	     83 01  report-control-variables.
+	     84     05  error-detected-flag          pic x(1).
+	     85         88  error-has-been-detected            value "Y".
+	     86         88  no-error-detected                  value "N".
+	     87 
+	     88     05  exception-record-count      pic 9(3) value zero.
+	     89     05  valid-record-count          pic 9(3) value zero.
+	     90     05  exception-line-count        pic 9(2) value zero.
+	     91     05  valid-line-count            pic 9(2) value zero.
+	     92     05  max-exception-line-count    pic 9(2) value 66.
+	     93     05  max-valid-line-count        pic 9(2) value 66.
+	     94 
+	     95 01  report-line-templates.
+	     96     05  record-echo-line.
+	     97         10  record-count-out        pic zz9.
+	     98         10  filler                  pic x(4) value ".   ".
+	     99         10  record-echo-out         pic x(61).
+	    100 
+	    101     05  error-msg-line.
+	    102         10  filler                  pic x(10) value spaces.
+	    103         10  err-msg-out             pic x(35).
+	    104 
+	    105 *    05  exception-file-header.
+	    106 
+	    107 *    05  exception-page-header.
+	    108 
+	    109 *    05  valid-file-header.
+	    110 
+	    111 *    05  valid-page-header.
+	    112 
+	    113 *    05  exception-file-footer.
+	    114 
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 3
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    115 *    05  valid-file-footer.
+	    116 
+	    117 *variables for check #3
+	    118 01 check-3-variables.
+	    119      05 name-test-area       pic x(25).
+	    120      05 name-letter-area redefines name-test-area.
+	    121         10  name-char        pic x(1) occurs 25 times.
+	    122      05 next-name-char       pic x(1).
+	    123         88 valid-name-char   value "A" through "Z", "a" through "z", " ", "'", "-".
+	    124      05 name-char-index      pic S9(3) comp.
+	    125      05 valid-name-flag      pic x(1).
+	    126         88 invalid-name      value "N".
+	    127 *end check #3 vars
+	    128 
+	    129 *variables for check #5
+	    130 01 check-5-variables.
+	    131      05 acct-num-check    pic 9(4).
+	    132      05 acct-num-area redefines acct-num-check.
+	    133         10 acct-digit     pic 9(1) occurs 4 times.
+	    134      05 acct-sum-check    pic 9(3).
+	    135      05 digit-index       pic S9(3) comp.
+	    136 *end check #5 vars
+	    137 
+	    138 *variables for check #6
+	    139 01 check-6-variables.
+	    140     05  birthdate-in-test.
+	    141         10  month-in-test                pic 9(2).
+	    142         10  day-in-test                  pic 9(2).
+	    143         10  year-in-test                 pic 9(4).
+	    144     05  age-in-test                      pic 9(3).
+	    145 *end check #6 vars
+	    146 
+	    147 *variables for check #9
+	    148 01 check-9-variables.
+	    149     05 credit-char-test                  pic x(1).
+	    150        88 credit-a                       value "A".
+	    151        88 credit-b                       value "B".
+	    152        88 credit-c                       value "C".
+	    153        88 credit-d                       value "D".
+	    154        88 credit-char-valid              value "A" through "D".
+	    155     05 check-9-flag                      pic x(1).
+	    156        88 check-9-valid                  value "Y".
+	    157 *end check #9 vars
+	    158 
+	    159 *variables for check #10
+	    160 01 check-10-variables.
+	    161     05 discount-rate-test                pic v999.
+	    162     05 check-10-flag                     pic x(1).
+	    163        88 check-10-valid                 value "Y".
+	    164 *end check #10 vars
+	    165 
+	    166 *variables for check #11
+	    167 01 check-11-variables.
+	    168     05 discount-value                    pic v999.
+	    169        88 discount-a                     value .125.
+	    170        88 discount-b                     value .08.
+	    171        88 discount-c                     value .02.
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 4
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    172    05 check-11-flag                      pic x(1).
+	    173        88 check-11-valid                 value "Y".
+	    174 *end check #11 vars
+	    175 
+	    176 *variables for check #12
+	    177 01 check-12-variables.
+	    178     05 interest-test                pic 9(4)v99.
+	    179     05 balance-test                 pic 9(5)v99.
+	    180 *end check #12 vars
+	    181 
+	    182 *variables for check #13
+	    183 01 check-13-variables.
+	    184     05 balance-ten                  pic 9(5)v99.
+	    185 *env check #13 vars     
+	    186 
+	    187 
+	    188 procedure division.
+	    189 
+	    190 100-main  section.
+	    191 
+	    192 100-main-line-para.
+	    193     open input  input-file.
+	    194     open output valid-file.
+	    195     open output exception-file.
+	    196 
+	    197 *    perform 150-valid-file-header-para.
+	    198 *    perform 150-exception-file-header-para.
+	    199 
+	    200     read input-file into input-record-in
+	    201          at end move "Y" to input-file-flag.
+	    202     perform  200-process-input-record-para until end-of-input-file.
+	    203 
+	    204 *    perform 150-valid-file-footer-para.
+	    205 *    perform 150-exception-file-footer-para.
+	    206 
+	    207     close input-file.
+	    208     close valid-file.
+	    209     close exception-file.
+	    210 
+	    211     stop run.
+	    212 
+	    213 110-reset-flags-para.
+	    214     move "N" to check-9-flag.
+	    215     move "N" to check-10-flag.
+	    216     move "N" to check-11-flag.
+	    217 
+	    218 200-process-input-record-para.
+	    219 *    move all "N" to error-check-flags.
+	    220     perform 110-reset-flags-para.
+	    221     move "N" to error-detected-flag.
+	    222     move input-record-in to record-echo-out.
+	    223 
+	    224     perform 300-check-1-para.
+	    225 
+	    226     perform 300-check-2-para.
+	    227 
+	    228 ******  All other checks are performed here *****
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 5
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    229 
+	    230     perform 300-check-3-para.
+	    231 
+	    232     perform 300-check-4-para.
+	    233 
+	    234 *check 4, if true, will call check 5
+	    235 
+	    236     perform 300-check-6-para.
+	    237 
+	    238 * check 6, if true, will call checks 7&8
+	    239 
+	    240     perform 300-check-9-para.
+	    241 
+	    242     perform 300-check-10-para.
+	    243 
+	    244     if check-9-valid and check-10-valid then
+	    245          perform 300-check-11-para.
+	    246 
+	    247     perform 300-check-12-para.
+	    248 
+	    249     if no-error-detected then
+	    250          perform 400-valid-record-echo-para.
+	    251 
+	    252     read input-file into input-record-in
+	    253          at end move "Y" to input-file-flag.
+	    254 
+	    255 * CHECK to see if last name exists
+	    256 300-check-1-para.
+	    257     if last-name-in = spaces then
+	    258         move  err-msg-1 to err-msg-out
+	    259         perform 400-err-msg-para.
+	    260 
+	    261 *CHECK to see if account number exists
+	    262 300-check-2-para.
+	    263     if acct-num-in = spaces then
+	    264         move err-msg-2 to err-msg-out
+	    265         perform 400-err-msg-para.
+	    266 
+	    267 *PRE split name into an array of chars - call CHECK 3a
+	    268 300-check-3-para.
+	    269     move name-in to name-test-area.
+	    270     move "Y" to valid-name-flag.
+	    271     perform 305-check-3a-para varying name-char-index from 1 by 1 
+	    272       until name-char-index > 25 OR invalid-name.
+	    273 
+	    274     if invalid-name then
+	    275        move err-msg-3 to err-msg-out
+	    276        perform 400-err-msg-para.
+	    277 
+	    278 *CHECK if each char in array is an A-Z, a-z, ', space or -
+	    279 305-check-3a-para.
+	    280     move name-char(name-char-index) to next-name-char.
+	    281     if not valid-name-char then move "N" to valid-name-flag.
+	    282 
+	    283 *CHECK if account number and checksum are numberic - call CHECK 5
+	    284 300-check-4-para.
+	    285     if  (acct-num-in is not numeric or  acct-sum-in is not numeric) then
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 6
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    286              move err-msg-4 to err-msg-out
+	    287              perform  400-err-msg-para
+	    288     else
+	    289              perform 300-check-5-para.
+	    290 
+	    291 *PRE split account number checksum into an array - call CHECK 5a - check result
+	    292 300-check-5-para.
+	    293     move acct-num-in to acct-num-check.
+	    294     move zero to acct-sum-check.
+	    295     perform 305-check-5a-para varying digit-index from 1 by 1 until digit-index > 4.
+	    296    
+	    297     if acct-sum-check not equal acct-sum-in then
+	    298          move err-msg-5 to err-msg-out
+	    299          perform 400-err-msg-para.
+	    300 
+	    301 *CHECK adds up digits using check-sum algrothym for check in CHECK 5
+	    302 305-check-5a-para.
+	    303     compute acct-sum-check = acct-sum-check + (6 - digit-index) * acct-digit(digit-index).
+	    304 
+	    305 *CHECK replace spaces by zeros and check if age and birthdate are numberic - call CHECK 7&8
+	    306 300-check-6-para.
+	    307     move birthdate-in to birthdate-in-test.
+	    308     move age-in to age-in-test.
+	    309 
+	    310     inspect birthdate-in-test replacing all spaces by zeros.
+	    311     inspect age-in-test       replacing all spaces by zeros.
+	    312 
+	    313     if( birthdate-in-test is numeric and age-in-test is numeric) then
+	    314        perform 300-check-7-para
+	    315        perform 300-check-8-para
+	    316     else
+	    317        move err-msg-6 to err-msg-out
+	    318        perform 400-err-msg-para.
+	    319     
+	    320 *CHECK to see if m/d/y range and age is valid
+	    321 300-check-7-para.
+	    322      if not ( month-in-test >= 1 and month-in-test <= 12 and
+	    323           day-in-test >= 1 and day-in-test <= 31     and
+	    324           year-in-test <= 2001 ) then
+	    325        move err-msg-7 to err-msg-out
+	    326        perform 400-err-msg-para.
+	    327 
+	    328 *CHECK to see if age is correct
+	    329 300-check-8-para.
+	    330      if ( age-in-test not equal to 2003 - year-in-test ) then
+	    331           move err-msg-8 to err-msg-out
+	    332           perform 400-err-msg-para.
+	    333 
+	    334 *CHECK to see if credit rating is valid
+	    335 300-check-9-para.
+	    336      move credit-rating-in to credit-char-test.
+	    337      if ( not credit-char-valid ) then
+	    338           move "N" to check-9-flag
+	    339           move err-msg-9 to err-msg-out
+	    340           perform 400-err-msg-para
+	    341      else
+	    342           move "Y" to check-9-flag.
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 7
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    343 
+	    344 *CHECK to see if discount rate is numeric
+	    345 300-check-10-para.
+	    346      move discount-rate-in to discount-rate-test.
+	    347      inspect discount-rate-test replacing all spaces by zeros.
+	    348      if not discount-rate-test is numeric then
+	    349         move "N" to check-10-flag
+	    350        move err-msg-10 to err-msg-out
+	    351         perform 400-err-msg-para
+	    352      else
+	    353         move "Y" to check-10-flag.
+	    354 
+	    355 *CHECK to see if discount rating (replaced with zeros) corsponds with credit rating
+	    356 300-check-11-para.
+	    357     move discount-rate-test to discount-value.
+	    358 
+	    359     if (credit-a and discount-a) or
+	    360        (credit-b and discount-b) or
+	    361        (credit-c and discount-c) or
+	    362        (credit-d and discount-value is numeric) then
+	    363      move "Y" to check-11-flag
+	    364     else
+	    365       move err-msg-11 to err-msg-out
+	    366       perform 400-err-msg-para.
+	    367 
+	    368 *CHECK to see if Balance and Interest fields are numeric - call CHECK 13
+	    369 300-check-12-para.
+	    370     move interest-in to interest-test.
+	    371     move balance-in  to balance-test.
+	    372     
+	    373     inspect interest-test replacing all spaces by zeros.
+	    374     inspect balance-test  replacing all spaces by zeros.
+	    375 
+	    376     if( interest-test is numeric and balance-test is numeric ) then
+	    377         perform 300-check-13-para
+	    378     else
+	    379         move err-msg-12 to err-msg-out
+	    380         perform 400-err-msg-para.
+	    381 
+	    382 *CHECK if bal-sign argument is valid
+	    383 300-check-13-para.
+	    384     multiply .1 by balance-test giving balance-ten.
+	    385 
+	    386     if balance-sign-in = '-'  and interest-test > balance-test then
+	    387        move err-msg-13 to err-msg-out
+	    388        perform 400-err-msg-para.
+	    389 
+	    390 400-err-msg-para.
+	    391     if no-error-detected then perform 400-exception-record-echo-para.
+	    392     write exception-report-line from error-msg-line
+	    393                                 after advancing 1 line.
+	    394 
+	    395     add 1 to exception-line-count.
+	    396 *    if (exception-line-count > max-exception-line-count) then
+	    397 *         move zero to exception-line-count
+	    398 *         write exception-report-line from exception-page-header
+	    399 *                                after advancing page.
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 8
+0                                                               28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+	    400 
+	    401 
+	    402 400-exception-record-echo-para.
+	    403     add 1 to exception-record-count.
+	    404     move exception-record-count to record-count-out.
+	    405     write exception-report-line from record-echo-line
+	    406                                 after advancing 2 lines.
+	    407     move "Y" to error-detected-flag.
+	    408     add 2 to exception-line-count.
+	    409 *    if (exception-line-count > max-exception-line-count) then
+	    410 *         move zero to exception-line-count
+	    411 *         write exception-report-line from exception-page-header
+	    412 *                                after advancing page.
+	    413 
+	    414 400-valid-record-echo-para.
+	    415     add 1 to valid-record-count.
+	    416     move valid-record-count to record-count-out.
+	    417     write valid-report-line from record-echo-line
+	    418                                 after advancing 2 lines.
+	    419     add 2 to valid-line-count.
+	    420 *    if (valid-line-count > max-valid-line-count) then
+	    421 *         move zero to valid-line-count
+	    422 *         write valid-report-line from valid-page-header
+	    423 *                                after advancing page.
+	    424 
+	    425 
+
+CHECK-DATA                      Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 9
+0                               Program Section Summary         28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+
+
+PROGRAM SECTION INDEX
+
+   Index  Name                               Bytes     Alignment  Attributes
+   -----  -------------------------------  ----------  ---------  -------------------------------------------------------------
+       1  $CODE$                                 5792  OCTA    4    PIC    CON    REL    LCL    SHR    EXE   NORD  NOWRT  NOVEC  
+       2  $LOCAL$                                6304  OCTA    4  NOPIC    CON    REL    LCL  NOSHR  NOEXE     RD    WRT  NOVEC  
+       3  $LINK$                                 1008  OCTA    4  NOPIC    CON    REL    LCL  NOSHR  NOEXE     RD  NOWRT  NOVEC  
+       7  COB$NAMES_____2                          48  OCTA    4    PIC    CON    REL    LCL  NOSHR  NOEXE     RD    WRT  NOVEC  
+
+
+
+DIAGNOSTICS SUMMARY
+
+       Informationals       3 (suppressed)
+       ----------------------
+       Total                3
+
+                                Source Listing                  28-JAN-2003 10:48:50  Compaq COBOL V2.6-1060            Page 10
+                                Compilation Summary             28-JAN-2003 09:20:20  USER:[SK5259.COBOL]PROG1.COB;9
+
+
+
+COMMAND QUALIFIERS
+
+   COBOL 
+
+      /NOALIGNMENT                                                   /NOINCLUDE                                                  
+      /NOANALYSIS_DATA                                               /LIST                                                       
+      /NOANSI_FORMAT                                                 /NOMACHINE_CODE                                             
+      /NOAUDIT                                                       /NOMAP                                                      
+      /CHECK = (NOPERFORM, NOBOUNDS, NODECIMAL, NODUPLICATE_KEYS)    /MATH_INTERMEDIATE = FLOAT                                  
+      /NOCONDITIONALS                                                /NATIONALITY = US                                           
+      /NOCONVERT = LEADING_BLANKS                                    /OBJECT                                                     
+      /NOCOPY_LIST                                                   /OPTIMIZE = LEVEL=4                                         
+      /NOCROSS_REFERENCE                                             /RESERVED_WORDS = (XOPEN, NOFOREIGN_EXTENSIONS)             
+      /DEBUG = (NOSYMBOLS, TRACEBACK)                                /NOSEPARATE_COMPILATION                                     
+      /NODEPENDENCY_DATA                                             /NOSEQUENCE_CHECK                                           
+      /NODIAGNOSTICS                                                 /STANDARD = (NOXOPEN, NOSYNTAX, NOV3, 85, NOMIA)            
+      /NOFIPS                                                        /NOTIE                                                      
+      /NOFLAGGER                                                     /NOTRUNCATE                                                 
+      /FLOAT = D_FLOAT                                               /VFC                                                        
+      /GRANULARITY = QUAD                                            /WARNINGS = (NOINFORMATION, OTHER)                          
+         
+
+
+COMPILATION STATISTICS
+
+  CPU time:          0.56 seconds
+  Elapsed time:      8.25 seconds
+  Pagefaults:         705
+  I/O Count:           81
+  Source lines:       425
+
+  45535 lines per CPU minute.
