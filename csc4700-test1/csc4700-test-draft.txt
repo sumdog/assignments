@@ -1,6 +1,15 @@
-There are several advantages of Obecjt Orientated design. With an OOD model, you can create projects with very independent modules which lead to reusuable code, easier maintainablity, a tracable mechanism for fault detection 
+There are several advantages of Obecjt Orientated design. With an OOD model, you can create projects with very independent modules which lead to reusuable code, easier maintainablity, a tracable mechanism for fault detection, encapsulation, etc.
+
+Let's take a look at encapsulation. To fully appericate this, you'd have to look at the old days of programming with procedudes and structures. The idea was that a programmer shouldn't need things to be hidden from him/her since they're smart enough to understand it, unlike the end user who lots of stuff needs to be hidden from. There was no concept of a "private" field. To abstract data, programmers would distribute libraries and .h files to go with them. Even then, there'd often be parts in the documentation that said "Do not modify this struct directly. Only modify it via the following functions." Some programmers may decide to violate those rules anyway, tricking the libraries into doing what they want and it may work, until the author releases a new version of their library.
+
+Encapsulation allows your classes to have private members and be self contained. The idea is that the programer who may be using your class is almost like a user. You keep things abstracted and hide things they don't need to worry about which reduces the chances of your module breaking and forces the other programers to adhear to the rules of how your class operates.
+
+Another advantage is that well documented object orientated designs can lead to code-reuse. If programmers are taught to adhear to a company documentation standard, an OO approach to solving the problem could lead to reuse of those existing modules years later. 
 
 
 Extreme Programming is a name given to a new unique style of programming and development. On of the interesting aspects of it is the fact that the customer is present during the entire developemnt process (perferably in person or at the least on a video phone). Their interaction is expected in the programming process and it leads to a better understanding of the customer's needs by the programmers while giving the custom an idea of how the application works and how programmers go about solving a problem.
 
 Another interesting aspect is the fact that two programers may, at a given time, work on the exact same piece of code together. In theory, this reduces the ammount of trivial logic errors and syntax mistakes. 
+-----
+
+A Democratic Software Developemnt Team is one where there isn't nesceserally a chief programmer. The team decideds collectily on design desicions and assigning tasks to programmers.

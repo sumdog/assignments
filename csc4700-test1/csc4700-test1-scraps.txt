@@ -18,7 +18,9 @@ Class Diagrams are useful tools for trying to break down the problem/project int
 
 Sequence Diagrams
 
+Sequence Diagrams are used to indicate how and when individual classes will communicate with each other. They're composed of squares lining the top of the page representing classes. Dotted lines are then drawn down from them. When the object is instantiated, the dotted line turns into a solid line. It turns back into a dotted line when that object is deleted (some classes will have a solid line throughout the program). Arrows are drawn beteen the solid segments to indicate events.
 
+These diagrams are useful to see how classes communicate between each other and to keep track of events. 
 
 7)
 One example of a non-exucution testing technique is called a "Code Walkthough," during which a team of programms will look at your code (e.g. on an overhead) and step through each class, subroutiene and method during which time they may ask questions, call out mistakes and scrutunize your code. Although it can be very helpful way to examine code, it's not always the best for the pride of the programmer who's doing the walk-through.
@@ -36,9 +38,37 @@ An example of a disadvantage to code reuse is the the fact that often times, a p
 
 Spirial Desing) The Spirial design follows the stages of the waterfall, but in contrast, the design starts very rough and becomes more detailed over time (http://asd-www.larc.nasa.gov/barkstrom/public/The_Standard_Waterfall_Model_For_Systems_Development.htm)
 
-Incremental Model) 
-With the Incremental model, after each cycle, you will have a completed product. The idea behind the Incremental Model is to start with the most basic design requirments and with each successive build, incorporate more of what's required. This has several advantages. Each phase is a "mini-waterfall," maintance is implemented directly into the model (each new increment can be though of as maintaing the previous build), and you development team could stop early if the end consumer is satified with the end product of one of the cycles. 
+At the end of each phase, the customer will have something to evaluate (not nesceserally a usable project or even a prototype). This type of design is primirally used for risk analysis since the customer is so involved at the end of each phase, it should pervent misunderstanding by the programmers, the use of unfeasible architecture, etc. This model forces the team to ask the question "Should we continue" at the end of each cycle. 
 
-The disadvantages include having lots of proto-types you'll have to throw away from the early cycles and no clear rational for starting a new phase. 
+An example of where you may want to use this is if you have a project with high goals and a limited budget. Say you're a goverment agency which needs to design a new missle guidance system. You could give someone a research grant and they come back to you at each stage of developemnt so you can decide weather to contine their funding or if the cost/risk is too high to continue.
+
+Incremental Model) 
+With the Incremental model, after each cycle, you will have a completed product. The idea behind the Incremental Model is to start with the most basic design requirments and with each successive build, incorporate more of what's required. This has several advantages. Each phase is a "mini-waterfall," maintance is implemented directly into the model (each new increment can be though of as maintaing the previous build), and you development team could stop early if the end consumer is satified with the end product of one of the cycles. (gatech)
+
+The disadvantages include having lots of proto-types you'll have to throw away from the early cycles and no clear rational for starting a new phase.
+
+A good use of an Incremental Model is say that you want to get a piece of software out before a group of people for immediate testing, use and feedback. With an Incremental Model, you could contine to push out new, usable programs and get immediate feedback on it in order to start the next phase. 
 
 http://www.cc.gatech.edu/computing/SW_Eng/people/Faculty/Colin.Potts/Courses/3302/1-08-mgt/sld011.htm
+
+
+
+Waterfall Model)
+
+The waterfall model is composed of a serise of stages: Requirments, Specifications, High-level design, Detailed Design, Implementation, Testing, Maintenance. Some companies give different names to these stages which can be confusing but unimportant. When a developement team moves from one stage to the next, they go back, make sure they have everything they need from that phase, and then continue on.
+
+Your development is treated like water in a waterfall: once you go on down to the next fall, you can't easily go back up. The advantage of this is being able to nail things down along the way and making sure your complete and satisified with one phase before moving on to the next. However there are disadvantages. Feedback isn't very encourage in this model and since all delivery is done at the end with only documentation avaiable along the way, it's a poor way to see visible progress. (gatech)
+
+An example of when you might use the waterfall model is if you're designing a web portal for the Computer Science department of Tennessee Tech. It allows the class to clearly define and settle on requirments, concepts and base designs before moving on into tetoirty we could get into a mess in without clearly defined documentation.
+
+
+
+---
+Testing should be performed at every stage of the waterfall model before moving on to the next phase. Sometimes testing may just mean testing concepts or making sure you have all your requirments, but going on to a new phase and then having to backtrack into an old phase can be costly and should be avoided. The only phase that doesn't require testing is maintances as it is a continual phase of testing and fixing for the rest of the life of the product. 
+
+
+
+
+
+
+
