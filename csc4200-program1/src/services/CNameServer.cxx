@@ -1,25 +1,12 @@
 #include "CNameServer.h"
 #include <cctype>
 #include <string>
+#include <stdio.h>
 
 CNameServer::CNameServer(char* ip, unsigned short port, long backlog) : CServer(ip,port,backlog) {
 
   servicemap = new servicemap_t();
- 
-  /* 
-  service_t a, b;
- 
-  servicemap->insert( make_pair ( string("Bob"),a) );
 
-  servicemap_t::iterator it = servicemap->find( "Bob" );
-
-  if( it == servicemap->end() ) {
-    //not found
-  }
-  else {
-    b = it->second;
-  }
-  */
 }
 
 void CNameServer::processRequest(command_t *t, char* retval) {
@@ -38,15 +25,18 @@ void CNameServer::processRequest(command_t *t, char* retval) {
     if(t->argc == 1) {
       //parse single argument
       strcpy(sname,*(t->argv));
-      
+      //trim the f#$%@ing new line off the string
+      sname[strlen(sname)-2] = '\0';
+
       //lookup entry
-      servicemap_t::iterator it = servicemap->find(string(sname));
-      if( it == servicemap->end() ) {
+      service_t *t = (*servicemap)[sname];
+
+      if( t == NULL ) {
 	strcpy(retval,"E:Unknown Serivce\n");
       }
       else {
-	service_t *s = it->second;
-	sprintf(retval,"A:%s:%d",s->host,s->port);
+	sprintf(retval,"A:%s:%d",t->host,t->port);
+
       }
     }
     else {
@@ -61,7 +51,7 @@ void CNameServer::processRequest(command_t *t, char* retval) {
       strcpy(sname,*v++);
       strcpy(shost,*v++);
       sport = (unsigned short) atol( *v );
-      
+
       //make struct for storage in map
       service_t *current = new service_t;
       current->host = new char[strlen(shost)];
@@ -69,8 +59,8 @@ void CNameServer::processRequest(command_t *t, char* retval) {
       current->port = sport;
 
       //store it in the map (tree data structure)
-      servicemap->insert( make_pair ( string(sname),current) );
-      
+      (*servicemap)[sname] = current;
+
       //return value
       strcpy(retval,"A:SUCCESS\n");
     }

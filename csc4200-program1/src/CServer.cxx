@@ -40,9 +40,9 @@ void CServer::deleteCommand(command_t *t) {
   char **i;
   short x;
   for(x=0, i=t->argv;  x<t->argc;   x++,i++) {
-    delete *i;
+    delete[] *i;
   }
-  delete t->argv;
+  delete[] t->argv;
   
   //delete struct
   delete t;
@@ -75,43 +75,29 @@ command_t* CServer::parseCommand(char *cmd) {
 }
 
 void* CServer::serverThread(void* cserver) {
-  std::cout << "\nServer Thread\n";
-
+  
   //get our server information
   serverinfo_t *server = (serverinfo_t*) cserver;
   
-  //open our file discriptor
-  FILE *filesocket = fdopen(server->fd,"r+");
-
-
-  //buffer for data
   char *input = new char[BUFFER_SIZE];
-  char *retval= new char[BUFFER_SIZE]; 
+  char *retval= new char[BUFFER_SIZE];
+  
+  recv(server->fd,input,BUFFER_SIZE,0);
 
-  std::cout << "\nquarter way though\n";
-
-  //read a command
-  fgets(input,BUFFER_SIZE,filesocket);
-
-  std::cout << "\nhafl way through\n";
-
-  //parse the command into a struct
   command_t *cmd = server->server->parseCommand(input);
 
   //process request and copy it into buffer
-  std::cout << 1 << std::endl;
   retval,server->server->processRequest(cmd,retval);
-  std::cout << 2 << std::endl;
 
   //send user buffer
-  fputs(retval,filesocket);
-
+  send(server->fd,retval,strlen(retval),0);
+  
   //clean up our mess
-  fclose(filesocket);
   close(server->fd);
-  server->server->deleteCommand(cmd);
-  delete server, input, retval;
-  std::cout << "\nFinished Cleaning Up\n";
+  
+  //server->server->deleteCommand(cmd);
+  //delete[] input, retval;
+  //delete server;
   pthread_exit(0);
 }
 
@@ -134,10 +120,15 @@ void CServer::runService() {
 
     //start blocking 
     info->fd = accept(sockfd,(struct sockaddr*) &remote_addr,&(info->sin_size));
-    
-    //we've got a connection, now start a thread
-    pthread_t sock_thread;
-    long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(serverThread), (void*) info);
+ 
+    if(info->fd != -1) { 
+      //we've got a connection, now start a thread
+      pthread_t sock_thread;
+      long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(serverThread), (void*) info);
+    }
+    else {
+      throw EServer(std::string("Accept Call Failed"));
+    }
   }
 
 }

@@ -9,7 +9,7 @@ using std::map;
 typedef struct service {
   char *host;
   unsigned short port;
-} service_t;
+  } service_t;
 
 //strongly type our specific template
 typedef map<string,service_t*> servicemap_t;
