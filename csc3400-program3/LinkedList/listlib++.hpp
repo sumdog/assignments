@@ -17,9 +17,7 @@ public:
 private:
   list_t *list;
   
-protected:
-
-}
+};
 
 
 
