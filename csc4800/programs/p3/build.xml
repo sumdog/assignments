@@ -1,4 +1,4 @@
-<project name="csc4800p3" default="all" basedir=".">
+<project name="csc4800p3" default="jar" basedir=".">
 
   <!--globals-->
   <property name="src" value="./src" />
@@ -19,6 +19,7 @@
   </target>
 
   <!--compile all source files-->
+  <!--
   <target name="compile_applet" depends="init">
     <mkdir dir="${abin}"  />
     <javac srcdir="${src}" destdir="${abin}" debug="off" optimize="on"
@@ -33,7 +34,7 @@
     />
     <rmic base="${sbin}" classname="sum.net.RemoteObject" verify="true" />
   </target>
-
+  -->
   <!--clean up compiled class files-->
   <target name="clean">
     <delete dir="${sbin}" />
@@ -44,7 +45,7 @@
     <delete file="RMIApplet.jar" />
     <delete file="RMI.jar" />
   </target>
-
+<!--
   <target name="jar_server" depends="compile_server">
     <jar destfile="./RMIServer.jar" basedir="${sbin}" manifest="./s_manifest.txt" />
   </target>
@@ -52,7 +53,7 @@
   <target name="jar_applet" depends="compile_applet">
     <jar destfile="./RMIApplet.jar" basedir="${abin}"  />
   </target>
-
+-->
   <target name="compile" depends="init">
       <mkdir dir="${bin}" />
       <javac srcdir="${src}" destdir="${bin}" debug="off" optimize="on" />
@@ -62,7 +63,5 @@
   <target name="jar" depends="compile">
     <jar destfile="./RMI.jar" basedir="${bin}" manifest="./s_manifest.txt" />
   </target>
-
-  <target name="all" depends="jar_server,jar_applet" />
 
 </project>

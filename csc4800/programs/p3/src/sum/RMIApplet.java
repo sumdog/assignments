@@ -18,6 +18,8 @@ public class RMIApplet extends Applet {
 	RemoteEcho robj;
 	
 	public void init() {
+
+			System.err.println(getCodeBase().getHost());
 		try {
 			robj = (RemoteEcho)Naming.lookup("//" + getCodeBase().getHost() + "/EchoServer");
 			this.add(new ClientPanel(robj));

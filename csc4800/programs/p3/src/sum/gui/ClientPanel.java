@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 import sum.net.RemoteEcho;
 /**
@@ -49,7 +51,7 @@ public class ClientPanel extends JPanel implements ActionListener {
 				reply.setText(robj.echoString(input.getText()));
 			}
 			catch(Exception ex){
-				//TODO: Error communicating with server message
+				JOptionPane.showMessageDialog(new JFrame(),"Error Communicating with Server","RMI Error",JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

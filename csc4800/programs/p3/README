@@ -1,0 +1,39 @@
+CSC 3400/4800 Program #3  - Sumit Khanna
+
+This program is a 'hello world' type program for Java RMI
+
+What you'll need:
+ A Java 1.4 Implementation (blackdown, sun, IBM, etc.)
+ Apache Ant (to build)
+
+
+Quick Instructions for the impatient:
+
+To Compile:
+  ant
+
+To Run:
+  cp java.policy ~/.java.policy  (!Warning insecure)
+  ./runrmiserver.sh
+  java -jar RMI.jar
+  appletviewer index.html  (appletviewer may be replaced with a web browser)
+
+
+Description of source files:
+   CVS             -  CVS version files
+   build.xml       -  Apache Ant Build File (similar to a Makefile)
+   index.html      -  Used to view the RMI Client through a web browser
+   java.policy     -  An insecure java policy file
+   runrmiserver.sh -  Runs the RMI Registry with approipate class paths
+   s_manifest.txt  -  Manifest file for the jar process
+   src             -  Program Source Code
+
+Description of binary files:
+   RMI.jar         -  The class files for the RMIServer, RMIApplet and stubs for the RMI Registry
+
+Software Versions:
+ant-1.5.4-r2
+blackdown-jdk-1.4.2
+
+Testing:
+This program runs perfectly using the procedure listed above on a local machine
