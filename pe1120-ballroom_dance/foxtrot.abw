@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" version="2.0.2" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="lang:en-US; dom-dir:ltr">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Mon Jan 26 12:23:17 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" props="text-align:right">Sumit Khanna</p>
+<p style="Normal" props="text-align:right">Ballroom Dance</p>
+<p style="Normal" props="text-align:left; font-weight:bold; font-size:16pt"><c props="font-weight:bold; font-size:16pt">Foxtrot</c></p>
+<p style="Normal" props="text-align:left; font-weight:bold; font-size:16pt"><c props="font-weight:bold; font-size:16pt"></c></p>
+<p style="Normal" props="text-align:left">A. History</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">In 1914, the New York theater was being converted to a movie house. They began to add extra vaudeville acts between shows and for one of the acts, they asked for actor Harry Fox to put on a dancing act. During a part of his act, Fox would trot to ragtime music and many people referred to it as "Fox's Trot." </p>
+<p style="Normal" props="text-align:left">B. Description of Dance</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">Foxtrot is characterized by long, gliding and perfectly smooth steps. There is also a brushing action associated with the foxtrot.</p>
+<p style="Normal" props="text-align:left">C. Technical Specification</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">1. style: American Smooth; smooth progressive dance characterized by long steps</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">2. basic rhythm: slow</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">3. music style: slow, medium and fast tempo</p>
+<p style="Normal" props="text-align:left">D. Music</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">1. song title: In The End by Linkin Park</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">2. CD:  Hybrid Theory</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">3. rating: 7 / 10</p>
+<p style="Normal" props="text-align:left">E. Movement</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">Magic Step, 4 (2 slow, 2 fast)</p>
+<p style="Normal" props="text-align:left">F. Attire</p>
+<p style="Normal" props="text-align:left; margin-left:36pt">1920's dress attire</p>
+<p style="Normal" props="text-align:left">G. Dance Position</p>
+<p style="Normal" props="text-align:left">	closed</p>
+<p style="Normal" props="text-align:left"><c></c></p>
+<p style="Normal" props="text-align:left">Sources</p>
+<p style="Normal" props="text-align:left">http://www.2leftfeet.com/foxtrot/</p>
+<p style="Normal" props="text-align:left">http://music.dancenantucket.org/music/list_songs.phtml?style=21</p>
+</section>
+</abiword>
