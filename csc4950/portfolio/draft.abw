@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
-<abiword template="false" styles="unlocked" version="2.0.11" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="lang:en-US; dom-dir:ltr">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.11" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
 <!-- ======================================================================== -->
 <!-- This file is an AbiWord document.                                        -->
 <!-- AbiWord is a free, Open Source word processor.                           -->
@@ -11,25 +11,27 @@
 <metadata>
 <m key="dc.format">application/x-abiword</m>
 <m key="abiword.generator">AbiWord</m>
-<m key="abiword.date_last_changed">Mon Nov 29 06:41:23 2004</m>
+<m key="abiword.date_last_changed">Mon Nov 29 13:37:51 2004</m>
 </metadata>
 <styles>
-<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
 </styles>
 <pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
 <section props="page-margin-footer:0.5in; page-margin-header:0.5in">
 <p style="Normal">What is Computer Science?</p>
 <p style="Normal"><c></c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Edsger Dijkstra once said, "Computer science is no more about computers than astronomy is about telescopes." When people learn that I'm a computer science major, they immediately assume that I must be a living knowledge of wealth about computers and surely would be willing to help them fix their spy-ware riddled home computers. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Edsger Dijkstra once said, "Computer science is no more about computers than astronomy is about telescopes." When people learn that I'm a computer science major, they immediately assume that I must be a living knowledge of wealth about computers and surely would be willing to help them fix their spy-ware riddled home computers. Usually they're surprised when I recite the above mentioned Dijkstra quote and inform them that Computer Science doesn't have a lot to do with the computer. The computer is simply a tool for which computer scientists use to explore the stars.</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Usually they're first surprise in my unwillingness to work on Windows computers as all my personal machines run either Linux or FreeBSD, and their second is when I recite the above mentioned Dijkstra quote and inform them that Computer Science doesn't have a lot to do with the computer. The computer is simply a tool for which computer scientists use to explore the stars.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The field of Computer Science is about problem solving. It's a vast field that encompasses everything from end-user application development to data-mining to decision tree analysis. It involves taking a problem and using computers to either find a solution or narrow down the domain in order to find the most likely solution. Examples include biomedical informatics, traffic simulation, statical analysis, project management, etc.</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">The field of Computer Science is about problem solving. It's a vast field that encompasses everything from end-user application development to data-mining to decision tree analysis. It involves taking a problem and using computers to either find a solution or narrow down the domain in order to find the most likely solution. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Computer Science doesn't deal directly with hardware. Although many Computer Science majors can easily assemble computers of various architectures, it's not something that's addressed in most college programs. Dealing with integrated circuits and microprocessors is usually found in the field of Computer Engineering. However there is some overlap. Computer Science majors are required to take assembly and architecture courses while Computer Engineers are often required to take software engineering and programming courses. In the field, the two often work together, one designing the hardware, for example let's say a video card, while the other designs the software to complement it, say the video card drivers.</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Examples of Computer Science at work</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Computer Science doesn't deal directly with hardware. Although many Computer Science majors can easily assemble computers of various architectures, it's not something that's addressed in most college programs. Dealing with integrated circuits and microprocessors is usually found in the field of Computer Engineering. However there is some overlap. There are </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Why am I interested in Computer Science?</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Like many people in my major, I played a lot of video games as a kid. My father introduced me to a 286 when I was the third grade. By my freshman year in high school, I was dual booting between Windows95 and Slackware Linux.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">As I started taking classes in my major, I realized that there is much more to programming than game design. A lot of </p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal"><c></c></p>
