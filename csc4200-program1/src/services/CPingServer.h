@@ -1,5 +1,5 @@
 #ifndef CPING_H
-#define CING_H
+#define CPING_H
 
 #include "CServer.h"
 

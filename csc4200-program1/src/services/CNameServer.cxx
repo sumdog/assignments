@@ -35,7 +35,7 @@ void CNameServer::processRequest(command_t *t, char* retval) {
 	strcpy(retval,"E:Unknown Serivce\n");
       }
       else {
-	sprintf(retval,"A:%s:%d",t->host,t->port);
+	sprintf(retval,"A:%s:%d\n",t->host,t->port);
 
       }
     }

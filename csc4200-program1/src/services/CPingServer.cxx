@@ -9,9 +9,9 @@ void CPingServer::processRequest(command_t *t, char* retval) {
 
   //check for the right command format
   if(t->type == CMD_IVK   &&   t->argc == 1   &&   strcmp("ping",*(t->argv)) == 0  ) {
-    strcpy(retval,"A:Pong!");
+    strcpy(retval,"A:Pong!\n");
   }
   else {
-    strcpy(retval,"E:Invalid Command");
+    strcpy(retval,"E:Invalid Command\n");
   }
 }
