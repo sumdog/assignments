@@ -1,0 +1,40 @@
+<project name="csc4240-program1" default="dist" basedir=".">
+
+  <!--globals-->
+  <property name="src" value="." />
+  <property name="build" value="./build" />
+  <property name="doc" value="./doc" /> 
+
+  <!--create build directory-->
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}" />
+    <mkdir dir="${doc}"  />
+  </target>
+
+  <!--compile all source files-->
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${build}" debug="off" optimize="on"/>
+  </target>
+
+  <!--compile all souce files with debugging support-->
+  <target name="debug" depends="init">
+    <javac srcdir="${src}" destdir="${build}" debug="on" optimize="off" />
+  </target>
+
+  <!--clean up compiled class files-->
+  <target name="clean">
+    <delete dir="${build}" />
+    <delete dir="${doc}" />
+    <delete file="./Isszy.jar" />
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="./csc4240-program1.jar" basedir="${build}" manifest="./manifest.txt" />
+  </target>
+
+  <target name="doc" depends="init">
+    <javadoc sourcepath="${src}" destdir="${doc}" packagenames="sum.*" />
+  </target>
+
+</project>
