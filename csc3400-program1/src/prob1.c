@@ -46,7 +46,7 @@ void p1populateSet(p1DataSet *set) {
     printf("\n<num a>:<num b>");
     printf("\nexample:");
     printf("\n3:4");
-    printf("\nTo delete, using a '!' symbol like so:");
+    printf("\nTo delete, use a '!' symbol like so:");
     printf("\n!3:!4");
     printf("\nUse end of file (^D) to exit\n");
 
@@ -75,16 +75,20 @@ void p1populateSet(p1DataSet *set) {
       long curnum = atol(token);
       switch(count) {
       case 2:
-	if( *token == '!' && *(token+sizeof(char)) != '\0' ) {
+	if( *token == '!' && *(++token) != '\0' ) {
 	  //delete token
-	  if ( !p1removeElement(set->seta, atol(*(token+sizeof(char))) , set->sizea) ) 
-	    { fprintf(stderr,"Warning: %d is not an element\n",*(token+sizeof(char))); }
+	  if ( p1removeElement(set->seta, atol(token) , set->sizea) == -1 ) { 
+	    fprintf(stderr,"Warning: Could not remove %s. Not an element in set A\n",token); 
+	  }
+	  else {
+	    set->sizea--;
+	  } 
 	}
-	else if( *token == '!' ) {
-	  fprintf(stderr,"Warning: removal flag used without valid number");
+	else if( *token == '\0' ) {
+	  fprintf(stderr,"Warning: removal flag used in set a without valid number\n");
 	}
 	else if( p1checkDups(set->seta,curnum,set->sizea) ) {
-	  fprintf(stderr,"Warning: duplicate element in aet A: %d\n",curnum);
+	  fprintf(stderr,"Warning: duplicate element in set A: %d\n",curnum);
 	} 
 	else {
 	  *a = curnum;
@@ -93,8 +97,19 @@ void p1populateSet(p1DataSet *set) {
 	}
 	break;
       case 1:
-	if( *token == '!' ) {
+	
+	if( *token == '!' && *(++token) != '\0' ) {
 	  //delete token
+	  if ( p1removeElement(set->setb, atol(token) , set->sizeb) == -1 ) {
+	    fprintf(stderr,"Warning: Could not remove %s. Not an element in set B\n",token); 
+	  }
+	  else {
+	    set->sizeb--;
+	  }
+	  
+	}
+	else if( *token == '\0' ) {
+	  fprintf(stderr,"Warning: removal flag used in set a without valid number\n");
 	}
 	else if( p1checkDups(set->setb,curnum,set->sizeb) ) {
 	  fprintf(stderr,"Warning: duplicate blement in set B: %d\n",curnum);
@@ -167,9 +182,16 @@ p1CalSet* p1performCalculations(p1DataSet *data) {
 					data->sizea : data->sizeb  
 					);
   calset->subtract     = (long*) malloc(sizeof(long) * data->sizea);
-  
+  calset->union_size = 0;
+  calset->inter_size = 0;
+  calset->sub_size   = 0;
 
   //setup some set pointers
+  long *un = &(calset->set_union[0]);
+  long *ir = &(calset->intersection[0]);
+  long *su = &(calset->subtract[0]);
+
+  //loop for calculations
   
 }
 
@@ -189,7 +211,7 @@ void p1destroyCalculations(p1CalSet *data) {
 short p1removeElement(long *set, long check, unsigned short size) {
   long *x, found;
   for( x=&set[0], found=0; size > 0; x++, size--) {
-    if( *x = check ) {
+    if( *x == check ) {
       found = 1;
     }
     if( found == 1 && size != 1) {
