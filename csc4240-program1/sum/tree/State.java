@@ -59,7 +59,7 @@ public class State implements Comparable{
 		}
 		else 
 		{
-			return herestic - ((State)o).getHerestic(); 
+			return  (herestic + depth) - ( ((State)o).getHerestic() + ((State)o).getDepth()) ; 
 		}
 	}
 	

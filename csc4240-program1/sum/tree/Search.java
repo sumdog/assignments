@@ -4,8 +4,6 @@
 package sum.tree;
 
 import java.util.Hashtable;
-import java.util.Stack;
-
 import org.mcgraw.PriorityQueue;
 import org.mcgraw.PriorityVector;
 
@@ -30,45 +28,42 @@ public class Search {
 	// abandon depth
 	public SearchResults searchIDS(int abandon)
 	{
-		Stack list = new Stack();
-		Hashtable hashcheck = new Hashtable();
-		list.push(root);
+		PriorityQueue pq = new PriorityVector();
+		Hashtable check = new Hashtable();
+		pq.add(root);
+		check.put(root.toString(),root);
 		counter = 0;
-		int x=1;
-		for(; x<abandon;x++)
+		int d;
+		for(d=0; d<abandon; d++)
 		{
-			State retval = searchIDSRecursive(list,hashcheck,x);
-			if(retval != null)
+			while(!pq.isEmpty())
 			{
-				return new SearchResults(counter,x,retval);
+				//infinate loop check
+				current = (State) pq.remove();
+				if(current.getDepth()-1 == d) { break; }
+				while(check.containsKey(current.toString()))
+				{ 	
+					if(pq.isEmpty()) { break; }
+					current = (State) pq.remove(); 
+				}
+				
+				if(current.equals(goal)) { return new SearchResults(counter,current.getDepth(),current); }
+				else
+				{
+					State[] expand = current.expandState();
+					for(int x=0; x<expand.length; x++)
+					{
+						expand[x].setHerestic(1); 
+						pq.add(expand[x]); 
+					}
+				}
+				counter++;	
 			}
 		}
-		return new SearchResults(counter,x,null);
+		return new SearchResults(counter,d,null);
+		
 	}
 	
-	//Recursive part of function
-	//  Base cases: reached goal (return goal)
-	//              reached max depth (return null)
-	private State searchIDSRecursive(Stack list, Hashtable h,int depth)
-	{
-		State s = (State) list.pop();
-		while( h.contains(s) ) 
-		{ 
-			if(h.isEmpty()) { return null; }
-			s = (State) list.pop(); 
-		}
-		
-		if(s.equals(goal)) { return s; }
-		else if(s.getDepth() == depth) { return null; }
-		else 
-		{
-			State[] expansion = s.expandState();
-			for(int x=0; x<expansion.length; x++)
-				list.push(expansion[x]);
-			h.put(s.toString(), s);
-			return searchIDSRecursive(list,h,depth);
-		}
-	}
 	
 	//perform an A* tree search based on Mahatten Distance
 	public SearchResults searchAStarMahatten()

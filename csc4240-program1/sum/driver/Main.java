@@ -8,7 +8,6 @@ package sum.driver;
 
 import java.io.BufferedReader;
 import java.io.File;
-//import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
@@ -23,38 +22,95 @@ import sum.gui.StateViewer;
  * Window>Preferences>Java>Code Generation>Code and Comments
  */
 public class Main {
+	
+	
+	public static void usage()
+	{
+		System.out.println("\n\nCSC 4240 - Program 1 (Eight Square Puzzle Problem) \n\nUsage:\n\n");
+		System.out.println("java -jar puzzle.jar [-g] <sourcefile>\n\n");
+		System.out.println("-g           - Indicates if you want to start the graphical tree debugger\n");
+		System.out.println("<sourcefile> - File to read in puzzle data from");
+	}
+	
+	public static int start[][] = new int[3][3];
+	public static int goal[][] = new int[3][3];
 
 	public static void main(String[] args) 
 	{
-		//int start[][] = { {6,5,4},{0,0,0},{3,2,1} };
-		//int goal[][] = { {1,2,3},{0,0,0},{4,5,6} };
-		int start[][] = { {1,2,3},{4,8,6},{7,0,9} };
-		int goal[][] = { {1,2,3},{4,0,6},{7,8,9} };
 		
-		StateViewer bob = new StateViewer(new State(start, null,0),new State(goal,null,-1));
+		if(args.length >= 1)
+		{
+			try
+			{
+				readFile(new File(args[args.length-1]));
+			}
+			catch (Exception e)
+			{
+				System.err.println("Error opening/parsing File");
+				System.exit(2);
+			}
+		}
+		else
+		{
+			usage();
+			System.exit(1);
+		}
 		
-		Search srch = new Search(start,goal);
-		//SearchResults results = srch.searchAStarMahatten();
-		//System.out.println("("+results.getNodes()+")"+" (depth="+results.getResultDepth()+")");
-		//results.printPath();
-		
-		//SearchResults results = srch.searchAStarTilesOutOfPlace();
-		//System.out.println("("+results.getNodes()+")"+" (depth="+results.getResultDepth()+")");
-		//results.printPath();
-		
-		/*
-		Search s = new Search(start,goal);
-		SearchResults result = s.searchIDS(100000);
-		
-		System.out.println("("+result.getNodes()+")"+" (depth="+result.getResultDepth()+")");
-		result.printPath();*/
+		//-g option for debugging
+		if(args.length >=1 && args[0].equals("-g"))
+		{ StateViewer bob = new StateViewer(new State(start, null,0),new State(goal,null,-1)); }
+		else
+		{		
+			System.out.println("A* Mahatten Distance");
+			Search srch = new Search(start,goal);
+			SearchResults results = srch.searchAStarMahatten();
+			System.out.println("("+results.getNodes()+")"+" (depth="+results.getResultDepth()+")");
+			results.printPath();
+			
+			System.out.println("A* Tiles Out of Place");
+			results = srch.searchAStarTilesOutOfPlace();
+			System.out.println("("+results.getNodes()+")"+" (depth="+results.getResultDepth()+")");
+			results.printPath();
+			
+			
+			System.out.println("IDS");
+			results = srch.searchIDS(100000);
+			System.out.println("("+results.getNodes()+")"+" (depth="+results.getResultDepth()+")");
+			results.printPath();
+		}
 	}
 	
-	private void readFile(File f) throws IOException
+	private static void readFile(File f) throws IOException
 	{
 		BufferedReader reader = new BufferedReader(new FileReader(f));
 		reader.readLine(); //skip firt line
-		String set = reader.readLine() + "," + reader.readLine() + "," + reader.readLine();
-		StringTokenizer toke = new StringTokenizer(set);
+
+		for(int s=0; s<2; s++)
+		{		
+			String set = reader.readLine() + "," + reader.readLine() + "," + reader.readLine();
+			StringTokenizer toke = new StringTokenizer(set,",\n");
+			for(int i=0; i<3; i++)
+				for(int j=0; j<3; j++)
+				{
+					String t = toke.nextToken();
+					if(s==0 && !t.equals("b")) 
+					{ start[i][j] = Integer.parseInt(t); }
+					else if(s==0) 
+					{ start[i][j] = 0; }
+					else if(s==1 && !t.equals("b"))
+					{ goal[i][j] = Integer.parseInt(t); }
+					else if(s==1)
+					{ goal[i][j] = 0; }	
+				}
+			reader.readLine(); //skip blank and title lines
+			reader.readLine();
+		}
 	}
 }
+
+
+
+
+
+
+

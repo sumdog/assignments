@@ -30,7 +30,7 @@
   </target>
 
   <target name="jar" depends="compile">
-    <jar destfile="./csc4240-program1.jar" basedir="${build}" manifest="./manifest.txt" />
+    <jar destfile="./puzzle.jar" basedir="${build}" manifest="./manifest.txt" />
   </target>
 
   <target name="doc" depends="init">

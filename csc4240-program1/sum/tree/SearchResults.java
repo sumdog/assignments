@@ -37,7 +37,7 @@ public class SearchResults
 		else
 		{
 			for(int x=0; x<path.length;x++)
-				System.out.println(path[x].toString()+"\n");
+				System.out.println(path[x].toString());
 		}
 	}
 	

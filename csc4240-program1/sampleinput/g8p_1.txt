@@ -1,0 +1,9 @@
+initial state
+6,5,4
+b,b,b
+3,2,1
+
+goal state
+1,2,3
+b,b,b
+4,5,6
