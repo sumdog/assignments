@@ -49,6 +49,19 @@ public class Graph {
         return -1;
     }
     
+    public void addRow(String node, PRow p) {
+        if(p != null) {
+            getNode(node).addRow(p);
+        }
+    }
+    
+    private PNode getNode(String s) {
+        for(int x=0; x < size; x++) {
+            if(nodes[x].getName().equals(s)) { return nodes[x]; }
+        }
+        return null;
+    }
+    
     private void resizeGraph(int newsize) {
         //create new stuff
         boolean[][] new_edges = new boolean[newsize][newsize];

@@ -12,6 +12,9 @@ import org.w3c.dom.NodeList;
  
 import sum.graph.PNode;
 import sum.graph.Graph;
+import sum.graph.PRow;
+import sum.graph.PSet;
+import sum.graph.PValue;
 
 /**
  * @author skhanna
@@ -87,7 +90,63 @@ public class XMLParser {
                 }
             }//end <topology> section
             else if (child.getNodeName().equals("probabilities")) {
-
+                NodeList nl = child.getChildNodes();
+                for(int i=0; i<nl.getLength(); i++) {
+                    if(nl.item(i).getNodeName().equals("node")) {
+                        NodeList sub_nl = nl.item(i).getChildNodes();
+                        String name = null;
+                        for(int j=0; j<sub_nl.getLength(); j++) {
+                            if(sub_nl.item(j).getNodeName().equals("name")) {
+                                name = sub_nl.item(j).getChildNodes().item(0).getNodeValue();
+                            } else if (sub_nl.item(j).getNodeName().equals("table")) {
+                                NodeList nl_table = sub_nl.item(j).getChildNodes();
+                                for(int k=0;k<nl_table.getLength(); k++) {
+                                    PRow row = null;
+                                    if(nl_table.item(k).getNodeName().equals("row")) {
+                                        row = new PRow();
+                                        NodeList nl_row = nl_table.item(k).getChildNodes();
+                                        for(int u=0; u < nl_row.getLength(); u++) {
+                                            if(nl_row.item(u).getNodeName().equals("parents")) {
+                                                NodeList nl_pp = nl_row.item(u).getChildNodes();
+                                                for(int q=0; q<nl_pp.getLength(); q++) {
+                                                    if(nl_pp.item(q).getNodeName().equals("parent")) {
+                                                        String pnam = null;
+                                                        String pval = null;
+                                                        NodeList nl_parents = nl_pp.item(q).getChildNodes();
+                                                        for(int w=0; w < nl_parents.getLength(); w++) {
+                                                            if(nl_parents.item(w).getNodeName().equals("name")) {
+                                                                pnam = nl_parents.item(w).getChildNodes().item(0).getNodeValue(); 
+                                                            }
+                                                            else if(nl_parents.item(w).getNodeName().equals("val")) {
+                                                                pval = nl_parents.item(w).getChildNodes().item(0).getNodeValue();
+                                                            }
+                                                        }
+                                                        row.addSet(new PSet(pnam, pval));
+                                                    }
+                                                }
+                                            }
+                                            else if(nl_row.item(u).getNodeName().equals("entry")) {
+                                                NodeList nl_ent = nl_row.item(u).getChildNodes();
+                                                String val = null;
+                                                float prob = 0;
+                                                for(int e=0; e< nl_ent.getLength(); e++) {
+                                                    if(nl_ent.item(e).getNodeName().equals("val")) {
+                                                        val = nl_ent.item(e).getChildNodes().item(0).getNodeValue();
+                                                    }
+                                                    else if(nl_ent.item(e).getNodeName().equals("prob")) {
+                                                        prob = Float.parseFloat(nl_ent.item(e).getChildNodes().item(0).getNodeValue());
+                                                    }
+                                                }
+                                                row.addVal(new PValue(val,prob));
+                                            }
+                                        }
+                                    }
+                                    graph.addRow(name,row);
+                                }
+                            }
+                        }
+                    }
+                }
             }// end <probabilities> section
             
             //System.out.println(graph);

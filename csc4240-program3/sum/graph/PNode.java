@@ -4,6 +4,7 @@
 package sum.graph;
 
 import java.util.Hashtable;
+import java.util.Vector;
 
 import sum.exception.GraphException;
 
@@ -29,6 +30,8 @@ public class PNode {
      * name of current node
      */
     private String name;
+    
+    private Vector rows;
      
      /**
       * Constructs a new node
@@ -37,7 +40,12 @@ public class PNode {
       */
     public PNode(String name, String[] bools) {
         this.name = name;
-        this.bools = bools;    
+        this.bools = bools;
+        rows = new Vector();    
+    }
+    
+    public void addRow(PRow r) {
+        rows.add(r);
     }
     
     public float getProbablity(String id) {
@@ -46,7 +54,10 @@ public class PNode {
         return retval.floatValue();
     }
     
-    public void setProbablity(String id, float f) {
+    public void setProbablity(String parent, String var, float f) {
+        
+    }
+    public void setProbablity(String var, float f) {
         
     }
     
@@ -58,6 +69,10 @@ public class PNode {
             retval += bools[x];
             if(x != bools.length-1) { retval += ","; }
         }
-        return retval + "}>";
+        retval += "}>\n";
+        for(int x=0; x<rows.size(); x++) {
+            retval += "\n"+rows.elementAt(x);
+        }
+        return retval;
     }
 }
