@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword xmlns="http://www.abisource.com/awml.dtd" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.0.2" fileformat="1.0" styles="unlocked">
+<!-- =====================================================================  -->
+<!-- This file is an AbiWord document.                                      -->
+<!-- AbiWord is a free, Open Source word processor.                         -->
+<!-- You may obtain more information about AbiWord at www.abisource.com     -->
+<!-- You should not edit this file by hand.                                 -->
+<!-- =====================================================================  -->
+
+<styles>
+<s type="P" name="Normal" basedon="" followedby="Current Settings" props="font-family:Nimbus Roman; dom-dir:ltr; font-style:normal; margin-left:0pt; text-indent:0in; margin-top:0pt; text-position:normal; font-weight:normal; font-variant:normal; color:000000; text-decoration:none; line-height:1.0; margin-bottom:0pt; text-align:left; margin-right:0pt; bgcolor:transparent; font-size:12pt; widows:2; font-stretch:normal"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">Advanced Programming -- Program #1</c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">2-16-03 -- Sumit Khanna</c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US"></c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">Introduction</c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="lang:en-US">Program #1 consisted of six parts. Therefore I created six .c files and six .h files (</c><c props="font-family:Bookman; lang:en-US">prob[1-6].{c,h}</c><c props="lang:en-US"> respectively). all of which can be run and tested through the driver main.c </c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">Compiling</c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="lang:en-US">To compile, simply untar the archive, go into the src directory and type in "make all" and afterwords you should be able to run the program 'main'. </c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">Documentation</c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="lang:en-US">All documentation is found in the doc directory and was created using Doxygen and special Doxygen comments found in the source files.</c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="font-weight:bold; lang:en-US">Source</c></p>
+<p style="Normal"><c props="lang:en-US"></c></p>
+<p style="Normal"><c props="lang:en-US">The following pages contain color coded source code using emacs, starting with main.c, problems.h and problems.c and then continuing with each individual problem's .h and .c file respectively. </c></p>
+</section>
+</abiword>
