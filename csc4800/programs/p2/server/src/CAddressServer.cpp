@@ -60,6 +60,7 @@ bool CAddressServer::processRequest(command_t *t, char* retval) {
     bool found = false;
     string li("A:");
     for(it = book->begin(); it != book->end(); it++) {
+      if(t->argv[0] == NULL) { break; }
       if(strcmp( it->second->lname->c_str() , t->argv[0] ) == 0) {
 
 	
@@ -73,7 +74,7 @@ bool CAddressServer::processRequest(command_t *t, char* retval) {
       }
     }
     if(!found) {
-      strcpy(retval,"E:No Entries Found By That Name");
+      strcpy(retval,"E:No Entries Found By That Name\n");
       return true;
     }
     else {
@@ -103,9 +104,12 @@ bool CAddressServer::processRequest(command_t *t, char* retval) {
       return true;
     }
     string s("A:");
-    s += (temp->housenum);
+    char *tchar = new char[100];
+    sprintf(tchar,"%d",temp->housenum);
+    s += tchar;
     s += "\n";
     strcpy(retval,s.c_str());
+    delete tchar;
     return true;
     break;
   }
@@ -116,9 +120,12 @@ bool CAddressServer::processRequest(command_t *t, char* retval) {
       return true;
     }
     string s("A:");
-    s += (temp->zip);
+    char *tchar = new char[100];
+    sprintf(tchar,"%d",temp->zip);
+    s += tchar;
     s += "\n";
     strcpy(retval,s.c_str());
+    delete tchar;
     return true;
     break;
   }

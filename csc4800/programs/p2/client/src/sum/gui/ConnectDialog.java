@@ -1,9 +1,15 @@
 /*
  * Created on Sep 28, 2004
+ * 
+ * CSC4800/3400 - Sumit Khanna - Project 2
+ * 
+ * Dialog that is displayed when program first starts 
+ * or the user decides to reconnect
  */
 package sum.gui;
 
 import sum.net.ConnectionHandler;
+import sum.Client;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -35,6 +41,7 @@ public class ConnectDialog extends JDialog implements ActionListener {
         //set layout for dialog
         this.getContentPane().setLayout(new BorderLayout(10,0));
         this.setSize(200,110);
+        this.setResizable(false);
         
         //Left Panel with Host/Port lables
         this.getContentPane().add(new JPanel() {
@@ -77,6 +84,7 @@ public class ConnectDialog extends JDialog implements ActionListener {
         	}
         });
         
+        Client.centerWindow(this);
         this.show();
     }
     
@@ -98,7 +106,7 @@ public class ConnectDialog extends JDialog implements ActionListener {
 			}
 			ConnectionHandler socket = new ConnectionHandler(tf_hostname.getText(),prt);
 			if(socket.connect()) {
-				MainWindow w = new MainWindow(socket);
+				new MainWindow(socket);
 				this.hide();
 			}
 			else {

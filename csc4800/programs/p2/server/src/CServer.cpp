@@ -109,16 +109,17 @@ void* CServer::serverThread(void* cserver) {
   while(open) {
   
     //read user request
-    fgets(input,BUFFER_SIZE,stream);
+    if(fgets(input,BUFFER_SIZE,stream) == NULL) { break; }
 
     command_t *cmd = server->server->parseCommand(input);
 
     //process request and copy it into buffer
     //retval,server->server->processRequest(cmd,retval);
     open = server->server->processRequest(cmd,retval);
+    if(!open) { break; }
 
     //send user buffer
-    fputs(retval,stream);
+    if(fputs(retval,stream) == EOF) { break; }
     
   }
   

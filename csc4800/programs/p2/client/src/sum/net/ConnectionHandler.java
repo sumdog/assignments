@@ -1,5 +1,9 @@
 /*
  * Created on Sep 28, 2004
+ * 
+ * CSC4800/3400 - Sumit Khanna - Project 2
+ * 
+ * Layer of network and protocol abstraction
  */
 package sum.net;
 
@@ -40,6 +44,11 @@ public class ConnectionHandler {
      * used to read from socket
      */
     private BufferedReader reader;
+    
+    /*
+     * event listener for disconnects
+     */
+    private DisconnectListener disconnect;
        
     //Address Book Protocol Constants
     public static final char GET_NAME       = 'B';
@@ -57,6 +66,11 @@ public class ConnectionHandler {
         socket = new Socket();
         this.host = host;
         this.port = port;
+        
+    }
+    
+    public void addDisconnectListener(DisconnectListener d) {
+        disconnect = d;
     }
     
     public boolean connect() {
@@ -88,17 +102,13 @@ public class ConnectionHandler {
             writer.flush();
             
             //recieve acknowlegement (block until we get one line)
-            while( (ack = reader.readLine()) == null) {
-                try { Thread.sleep(100); } 
-                catch (InterruptedException e1) {
-                    System.err.println("FATAL ERROR: Should not get here!");
-                    e1.printStackTrace(); 
-                    System.exit(5);
-                }
-            }
+            ack = reader.readLine();
+            if(ack == null) {disconnect.serverDisconnect(null);}
+
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+             if(disconnect != null) {
+                 disconnect.serverDisconnect(e);
+             }
         }
         
         //process ACK
