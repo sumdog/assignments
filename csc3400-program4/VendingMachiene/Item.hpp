@@ -16,11 +16,6 @@ public:
 };
 
 
-class Coke :  public Item {
 
-public:
-  Coke() : Item(1.00,std::string("Coke")) {}
-
-};
 
 #endif /* ITEM_H */

@@ -11,7 +11,7 @@ public:
   void insertCoin(money m);
   double getCurrentMoney();
   double coinReturn();
-
+  double selectItem(Item e);
 
 protected:
   double total_money;

@@ -21,4 +21,14 @@ double VendingMachine::coinReturn() {
   return temp;
 }
 
-
+double VendingMachine::selectItem(Item e) {
+  if( e.getPrice() < current_money ) {
+    throw "Need More Money";
+  }
+  else {
+    double change = current_money - e.getPrice();
+    total_money += e.getPrice();
+    current_money = 0;
+    return change;
+  }
+}
