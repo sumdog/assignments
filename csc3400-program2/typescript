@@ -1,0 +1,304 @@
+Script started on Mon Mar  3 04:33:11 2003
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ gcc -o lim lim.c -lm
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ ./lim 
+ nqhuriatayltdg
+wuojprph cuweelstajbué j voxfytuwok  jkayltdg
+ fdwmflnycjnn
+ iflnycjnn
+hjhjsd  mlxayltdg
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ gcc -o sets setc .c
+gcc: set.c: No such file or directory
+gcc: no input files
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ gcc -o sets set.c[1@s
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ ./sets
+
+Enter two numbers in the following format:
+<num a>:<num b>
+example:
+3:4
+To delete, use a '!' symbol like so:
+!3:!4
+Use end of file (^D) to exit
+4:6
+3:2
+12:18
+17:27
+!3:12
+16:!2
+6:4
+-----------------Data Sets-----------------
+Set A: 
+ { 4 12 17 17 16 }
+Set B: 
+ { 6 18 27 12 12 }
+Cardinality for A: 5
+Cardinality for B: 5
+-------Calculation for Sets A and B--------
+A union B :
+ { 4 12 17 17 16 6 18 27 }
+A intersect B: 
+ { 12 }
+A subtract B:  
+ { 4 17 17 16 }
+Cardinality for A union     B: 8
+Cardinality for A intersect B: 1
+Cardinality for A subtract  B: 4
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ gcc -o matrix matrix.c
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ ./matrix 
+Enter number of rows for Matrix a:
+2
+Enter number of cols for Matrix a:
+3
+Enter number of rows for Matrix b:
+2
+Enter number of rows for Matrix b:
+3
+Enter scalor to multiply a by:
+4
+Enter scalor to multiply b by:
+5
+
+Please enter values for Matrix: A
+Col: 1, Row: 1
+12
+Col: 2, Row: 1
+13
+Col: 3, Row: 1
+17
+Col: 1, Row: 2
+19
+Col: 2, Row: 2
+28
+Col: 3, Row: 2
+99
+
+Please enter values for Matrix: B
+Col: 1, Row: 1
+46
+Col: 2, Row: 1
+75
+Col: 3, Row: 1
+32
+Col: 1, Row: 2
+65
+Col: 2, Row: 2
+12
+Col: 3, Row: 2
+34
+
+Matrix: A
+12.000000	13.000000	17.000000	
+19.000000	28.000000	99.000000	
+
+Matrix: B
+46.000000	75.000000	32.000000	
+65.000000	12.000000	34.000000	
+
+Matrix: A + B
+58.000000	88.000000	49.000000	
+84.000000	40.000000	133.000000	
+
+Matrix: A - B
+-34.000000	-62.000000	-15.000000	
+-46.000000	16.000000	65.000000	
+
+A and B are not equal
+
+Matrix: A * 4.000000
+48.000000	52.000000	68.000000	
+76.000000	112.000000	396.000000	
+
+Matrix: B * 5.000000
+230.000000	375.000000	160.000000	
+325.000000	60.000000	170.000000	
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ ./matrix 
+Enter number of rows for Matrix a:
+3
+Enter number of cols for Matrix a:
+3
+Enter number of rows for Matrix b:
+3
+Enter number of rows for Matrix b:
+3
+Enter scalor to multiply a by:
+8
+Enter scalor to multiply b by:
+7
+
+Please enter values for Matrix: A
+Col: 1, Row: 1
+4
+Col: 2, Row: 1
+5
+Col: 3, Row: 1
+4
+Col: 1, Row: 2
+3
+Col: 2, Row: 2
+2
+Col: 3, Row: 2
+3
+Col: 1, Row: 3
+4
+Col: 2, Row: 3
+5
+Col: 3, Row: 3
+6
+
+Please enter values for Matrix: B
+Col: 1, Row: 1
+42
+Col: 2, Row: 1
+2
+Col: 3, Row: 1
+3
+Col: 1, Row: 2
+45
+Col: 2, Row: 2
+6
+Col: 3, Row: 2
+4
+Col: 1, Row: 3
+23
+Col: 2, Row: 3
+4
+Col: 3, Row: 3
+6
+
+Matrix: A
+4.000000	5.000000	4.000000	
+3.000000	2.000000	3.000000	
+4.000000	5.000000	6.000000	
+
+Matrix: B
+42.000000	2.000000	3.000000	
+45.000000	6.000000	4.000000	
+23.000000	4.000000	6.000000	
+
+Matrix: A + B
+46.000000	7.000000	7.000000	
+48.000000	8.000000	7.000000	
+27.000000	9.000000	12.000000	
+
+Matrix: A - B
+-38.000000	3.000000	1.000000	
+-42.000000	-4.000000	-1.000000	
+-19.000000	1.000000	0.000000	
+
+A and B are not equal
+
+Matrix: A * 8.000000
+32.000000	40.000000	32.000000	
+24.000000	16.000000	24.000000	
+32.000000	40.000000	48.000000	
+
+Matrix: B * 7.000000
+294.000000	14.000000	21.000000	
+315.000000	42.000000	28.000000	
+161.000000	28.000000	42.000000	
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ ./matrix 
+Enter number of rows for Matrix a:
+4
+Enter number of cols for Matrix a:
+3
+Enter number of rows for Matrix b:
+4
+Enter number of rows for Matrix b:
+3
+Enter scalor to multiply a by:
+9
+Enter scalor to multiply b by:
+9
+
+Please enter values for Matrix: A
+Col: 1, Row: 1
+5
+Col: 2, Row: 1
+3
+Col: 3, Row: 1
+3
+Col: 1, Row: 2
+3
+Col: 2, Row: 2
+4
+Col: 3, Row: 2
+5
+Col: 1, Row: 3
+6
+Col: 2, Row: 3
+7
+Col: 3, Row: 3
+5
+Col: 1, Row: 4
+4
+Col: 2, Row: 4
+3
+Col: 3, Row: 4
+4.2
+
+Please enter values for Matrix: B
+Col: 1, Row: 1
+4.12
+Col: 2, Row: 1
+88.54
+Col: 3, Row: 1
+12.32
+Col: 1, Row: 2
+86.43
+Col: 2, Row: 2
+12.6
+Col: 3, Row: 2
+4
+Col: 1, Row: 3
+9.87
+Col: 2, Row: 3
+45.7
+Col: 3, Row: 3
+12.4
+Col: 1, Row: 4
+55
+Col: 2, Row: 4
+66
+Col: 3, Row: 4
+99.99
+
+Matrix: A
+5.000000	3.000000	3.000000	
+3.000000	4.000000	5.000000	
+6.000000	7.000000	5.000000	
+4.000000	3.000000	4.200000	
+
+Matrix: B
+4.120000	88.540000	12.320000	
+86.430000	12.600000	4.000000	
+9.870000	45.700000	12.400000	
+55.000000	66.000000	99.990000	
+
+Matrix: A + B
+9.120000	91.540000	15.320000	
+89.430000	16.600000	9.000000	
+15.870000	52.700000	17.400000	
+59.000000	69.000000	104.190000	
+
+Matrix: A - B
+0.880000	-85.540000	-9.320000	
+-83.430000	-8.600000	1.000000	
+-3.870000	-38.700000	-7.400000	
+-51.000000	-63.000000	-95.790000	
+
+A and B are not equal
+
+Matrix: A * 9.000000
+45.000000	27.000000	27.000000	
+27.000000	36.000000	45.000000	
+54.000000	63.000000	45.000000	
+36.000000	27.000000	37.800000	
+
+Matrix: B * 9.000000
+37.080000	796.860000	110.880000	
+777.870000	113.400000	36.000000	
+88.830000	411.300000	111.600000	
+495.000000	594.000000	899.910000	
+]0;skhanna@sumdog:~/class-working/csc3400-program2[skhanna@sumdog csc3400-program2]$ exit
+
+Script done on Mon Mar  3 04:36:27 2003
