@@ -172,7 +172,10 @@ short p1checkDups(long *set, long check, unsigned short size) {
   return 0;
 }
 
-
+/**
+ *\fn p1CalSet* p1performCalculations(p1DataSet *data)
+ *Calculates the union, intersection and subtraction of two sets
+ */
 p1CalSet* p1performCalculations(p1DataSet *data) {
   //setup our return struct
   p1CalSet *calset = (p1CalSet*) malloc(sizeof(p1CalSet));
@@ -201,10 +204,12 @@ p1CalSet* p1performCalculations(p1DataSet *data) {
     //loop to go through set b
     for( b=&(data->setb[0]), j=data->sizeb; j > 0 ; j--, b++  ) {
       //stuff that should only be executed once 
-      if( j == 1 ) { 
-	*un = *b;   //union
-	calset->union_size++;
-	un++;
+      if( i == 1 ) {
+	if( p1checkDups(&(calset->set_union[0]),*b,calset->union_size) == 0 ) { //avoid duplicate elemtns in union
+	  *un = *b;   //union
+	  calset->union_size++;
+	  un++;
+	}
       }
       if( *a == *b ) { 
 	//intersection
@@ -222,8 +227,13 @@ p1CalSet* p1performCalculations(p1DataSet *data) {
       }
     }//end setb forloop
   }//end seta forloop
+
+  return calset;
 }
 
+/** \fn void p1destroyCalculations(p1CalSet *data)
+ *Frees memory allocated to a calculation struct
+ */
 void p1destroyCalculations(p1CalSet *data) {
   free( data->set_union    );
   free( data->subtract     );
@@ -232,7 +242,7 @@ void p1destroyCalculations(p1CalSet *data) {
 }
 
 /**
- *\fn p1removeElement(long *set, long check, unsigned short size)
+ *\fn short p1removeElement(long *set, long check, unsigned short size)
  *This function will find the first occurance of the check element
  *and remove it from the array. The other elements will be shifted
  *down and the last element will be changed to a zero.
@@ -254,4 +264,72 @@ short p1removeElement(long *set, long check, unsigned short size) {
   else {
     return -1;
   }
+}
+
+/**
+ *\fn void p1printResults(p1DataSet *data, p1CalSet *result)
+ *Prints the union, intersection, subtraction of sets A and B
+ *and tells the user if the sets are disjoined or if one is a 
+ *sub/super set of the other.
+ */
+void p1printResults(p1DataSet *data, p1CalSet *result) {
+  
+  long *x;            //array pointer
+  unsigned short y;   //array size counter (for loops)
+
+  printf("-----------------Data Sets-----------------");
+
+  printf("\nSet A: \n {");
+  for(x=&(data->seta[0]),y=data->sizea ; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nSet B: \n {");
+  for(x=&(data->setb[0]),y=data->sizeb ; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nCardinality for A: %d", data->sizea);
+  printf("\nCardinality for B: %d", data->sizeb);
+
+  printf("\n-------Calculation for Sets A and B--------");
+  
+  printf("\nA union B :\n {");
+  for(x=&(result->set_union[0]),y=result->union_size ; y > 0; y--, x++) {
+    printf(" %d",*x);
+  }
+  printf(" }");
+
+  printf("\nA intersect B: \n {");
+  for(x=&(result->intersection[0]),y=result->inter_size; y > 0; y--, x++) {
+    printf(" %d",*x);
+  }
+  printf(" }");
+  
+  printf("\nA subtract B:  \n {");
+  for(x=&(result->subtract[0]),y=result->sub_size; y > 0; y--, x++) {
+    printf(" %d", *x);
+  }
+  printf(" }");
+
+  printf("\nCardinality for A union     B: %d", result->union_size);
+  printf("\nCardinality for A intersect B: %d", result->inter_size);
+  printf("\nCardinality for A subtract  B: %d", result->sub_size);
+
+  if( result->inter_size == 0 ) {
+    printf("\nA and B are disjoined sets");
+  }
+  else {
+    if( result->inter_size == data->sizeb ) {
+      printf("\nA is a superset of B");
+      printf("\nB is a subset   of A");
+    }
+    if( result->inter_size == data->sizea) {
+      printf("\nA is a subset of B");
+      printf("\nB is a superset of A");
+    }
+  }
+  printf("\n");
 }

@@ -68,7 +68,7 @@ void p1printElements(p1DataSet *data);
  *\param set a pointer to a set of interger data
  *\param check the element to check for duplicates of
  *\param size the size of the array allocated to set
- *\return -1 if a duplicate is found, 0 otherwise
+ *\return -1 if duplicate found, 0 otherwise
  */
 short p1checkDups(long *set, long check, unsigned short size);
 
@@ -89,7 +89,7 @@ p1CalSet* p1performCalculations(p1DataSet *data);
 void p1destroyCalculations(p1CalSet *data);
 
 /**
- *\fn p1removeElement(long *set, long check, unsigned short size)
+ *\fn short p1removeElement(long *set, long check, unsigned short size)
  *\breif removes an element from a set
  *\param set the set to remove the element from
  *\param check element to remove
@@ -97,3 +97,11 @@ void p1destroyCalculations(p1CalSet *data);
  *\return 0 if element was removed, -1 if element wasn't found
  */
 short p1removeElement(long *set, long check, unsigned short size);
+
+/**
+ *\fn void p1printResults(p1CalSet *result)
+ *\breif displays calculations performed on a set
+ *\param result struct that contains set calculations
+ *\param data struct containing original sets
+ */
+void p1printResults(p1DataSet *data, p1CalSet *result);
