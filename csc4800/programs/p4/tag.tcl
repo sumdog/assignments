@@ -20,7 +20,7 @@ proc createObject {oname} {
      }
 
      proc playGame {} {
-       set others [::comm:comm send $::Spackle::AgentSrvr::remoteInterp
+       set others [::comm:comm send $::Spackle::AgentSrvr::remoteInterp \
            ::Spackle::Portal::who]
        if {[llength $others] > 0} {
          #pick one at random
@@ -31,14 +31,13 @@ proc createObject {oname} {
 	 set name  [lindex $names $which]
 	 set otherinterp $aothers($name)
 	 #call tag
-	 if {[catch {::comm:comm send $otherinterp ${name}::tag} result
+	 if {[catch {::comm:comm send $otherinterp ${name}::tag} result]} {
 	   logit "[this]: I missed $name"
 	 } else {
 	   logit "[this]: You're out $name"
 	 }
-        } else {
-	   logit "[this]: No one to tag!"
-	}
+       } else {
+	       logit "[this]: No one to tag!"
        }
        #add self to registry
        set j [::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
@@ -126,3 +125,5 @@ proc main {} {
   }
   puts "Done."
 }
+
+main
