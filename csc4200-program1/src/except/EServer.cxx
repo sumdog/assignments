@@ -1,16 +1,7 @@
 #include "EServer.h"
-#include <cstring>
+#include <string>
 
-EServer::EServer(char *msg) {
-  message = new char[strlen(msg)];
-  strcpy(message,msg);
-}
-
-EServer::~EServer() {
-  delete message; 
-}
-
-char* EServer::getMsg() {
+std::string EServer::getMsg() {
   return message;
 }
   

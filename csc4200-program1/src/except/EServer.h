@@ -1,11 +1,12 @@
+#include <string>
+
 class EServer {
 
  private:
-  char *message;
+  std::string message;
 
  public:
-  EServer(char *msg);
-  ~EServer();
-  char* getMsg();
+  EServer(std::string msg) : message(msg){};
+  std::string getMsg();
 
 };

@@ -6,7 +6,8 @@
 #include "except/EServer.h"
 #include <pthread.h>
 #include "unistd.h"
-#include <string.h>
+#include <string>
+#include <stdio.h>
 
 CServer::CServer(char* ip, unsigned short port, long backlog) {
 
@@ -30,8 +31,48 @@ CServer::~CServer() {
   delete remote_addr;
 }
 
-char* CServer::processRequest(char *arg, unsigned short argc, char **argv) {
-  return "Override this method to implement";
+char* CServer::processRequest(command_t *t) {
+
+  return "Override this method to implement\n";
+}
+
+void CServer::deleteCommand(command_t *t) {
+  //delete all strings
+  char **i;
+  short x;
+  for(x=0, i=t->argv;  x<t->argc;   x++,i++) {
+    delete *i;
+  }
+  delete t->argv;
+  
+  //delete struct
+  delete t;
+
+  //all gone!
+}
+
+command_t* CServer::parseCommand(char *cmd) {
+  
+  //struct for returning data
+  command_t *retval = new command_t;
+  retval->argc=0;
+  retval->argv = new (char*)[MAX_ARGS];
+  
+  //break tokens on spaces and ':'
+  char *token = strtok(cmd,": ");
+
+  //the first letter of token is our type
+  //(e.g. A:, I:, R:, etc.)
+  retval->type = *token;
+
+  //get the rest of the tokens
+  for(char **i=retval->argv; (token = strtok(cmd,": ")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
+    *i = new char[strlen(token)];
+    strcpy(*i,token);
+  }
+  
+  //return our struct
+  return retval;
 }
 
 void* CServer::server_thread(void* cserver) {
@@ -39,19 +80,29 @@ void* CServer::server_thread(void* cserver) {
   //get our server information
   serverinfo_t *server = (serverinfo_t*) cserver;
   
-  //buffer return data
-  char retval[256]; 
+  //open our file discriptor
+  FILE *filesocket = fdopen(server->fd,"r+");
+
+  //buffer for data
+  char *input = new char[BUFFER_SIZE];
+  char *retval= new char[BUFFER_SIZE]; 
+
+  //read a command
+  fgets(input,BUFFER_SIZE,filesocket);
+
+  //parse the command into a struct
+  command_t *cmd = server->server->parseCommand(input);
 
   //process request and copy it into buffer
-  strcpy(retval,server->server->processRequest(NULL,0,NULL));
+  strcpy(retval,server->server->processRequest(cmd));
 
   //send user buffer
-  send(server->fd,retval,strlen(retval),0);
-
+  fputs(retval,filesocket);
 
   //clean up our mess
+  fclose(filesocket);
   close(server->fd);
-  delete server;
+  delete server, input, retval;
   pthread_exit(0);
 }
 
@@ -59,12 +110,12 @@ void CServer::runService() {
 
   //bind to socket
   if( bind(sockfd,(struct sockaddr*) local_addr,sizeof(struct sockaddr)) != 0 ){
-    throw EServer("Could Not Bind to Port");
+    throw EServer(std::string("Could Not Bind to Port"));
   }
 
   //listen to port
   if( listen(sockfd, backlog) != 0) {
-    throw EServer("Could Not Listen on Port");
+    throw EServer(std::string("Could Not Listen on Port"));
   }
 
   while(true) {

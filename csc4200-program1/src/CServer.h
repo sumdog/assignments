@@ -1,6 +1,19 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 
+#define BUFFER_SIZE 256
+#define MAX_ARGS 50
+#define CMD_ERR E
+#define CMD_IVK I
+#define CMD_ANS A
+#define CMD_REQ R
+
+typedef struct command {
+  char type;
+  short argc;
+  char **argv;
+} command_t;
+
 class CServer {
 
  private:
@@ -10,21 +23,26 @@ class CServer {
   long backlog;
 
   static void* server_thread(void* cserver);
+  command_t* parseCommand(char *cmd);
+  void deleteCommand(command_t *t);
 
+ protected:
+  virtual char* processRequest(command_t *t);
 
  public:
   CServer(char* ip, unsigned short port, long backlog);
   ~CServer();
   void runService();
-  virtual char* processRequest(char *arg, unsigned short argc, char **argv);
-};
 
+};
 
 typedef struct serverinfo {
   socklen_t sin_size;
   long fd; 
   CServer *server;
 } serverinfo_t;
+
+
 
 
 
