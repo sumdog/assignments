@@ -76,12 +76,17 @@ command_t* CServer::parseCommand(char *cmd) {
 
   //the first letter of token is our type
   //(e.g. A:, I:, R:, etc.)
-  retval->type = *token;
+  if(token != NULL) {
+    retval->type = *token;
 
-  //get the rest of the tokens
-  for(char **i=retval->argv; (token = strtok(NULL,":")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
-    *i = new char[strlen(token)+1];
-    strcpy(*i,token);
+    //get the rest of the tokens
+    for(char **i=retval->argv; (token = strtok(NULL,":")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
+      *i = new char[strlen(token)+1];
+      strcpy(*i,token);
+    }
+  }
+  else {
+    retval->type = 'X';
   }
   
   //return our struct

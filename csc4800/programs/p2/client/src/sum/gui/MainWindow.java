@@ -8,20 +8,21 @@
 package sum.gui;
 
 import java.awt.BorderLayout;
-import javax.swing.JWindow;
+import javax.swing.JFrame;
 
 import sum.net.ConnectionHandler;
-
 
 /**
  * @author skhanna
  */
-public class MainWindow extends JWindow {
+public class MainWindow extends JFrame {
 
     public MainWindow(ConnectionHandler c) {
-        this.setSize(1000,500);
+    	super();
+        this.setSize(380,250);
+        this.setName("csc4800client");
         this.getContentPane().setLayout(new BorderLayout());
-        this.add(new TabPane(c),BorderLayout.CENTER);
+        this.getContentPane().add(new TabPane(c),BorderLayout.CENTER);
         
         this.show();
     }
