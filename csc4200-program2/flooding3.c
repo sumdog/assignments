@@ -169,42 +169,67 @@ static void up_to_transport(char *msg, int *len, CnetAddr source);
 
 static void down_to_network(char *msg,int length, CnetAddr dest);
 
+typedef enum { ACK, NCK, MSG } tl_packet;
+
 typedef struct {
 
-  int checksum;
-  int sequence_number;
+  unsigned int checksum;
+  unsigned int sequence_number;
   int length;
+  tl_packet type;
   char msg[MAX_MESSAGE_SIZE];
 
-} SUMIT_TR_PACKET;
+} TR_PACKET;
 
-#define SUMIT_TR_HEADER_SIZE     (sizeof(int)*3)
-#define SUMIT_TR_PACKET_SIZE(p) (SUMIT_TR_HEADER_SIZE + p.length)
+#define TR_HEADER_SIZE     (sizeof(int)+ (sizeof(unsigned int)*2) + sizeof(tl_packet))
+#define TR_PACKET_SIZE(p) (TR_HEADER_SIZE + p.length)
 
 /* END PROTOTYPE HEADER */
 
 static void up_to_transport(char *msg, int *len, CnetAddr source) {
 
-  SUMIT_TR_PACKET *p;
-  p = (SUMIT_TR_PACKET*) msg;
+  TR_PACKET *p;
+  p = (TR_PACKET*) msg;
+  
+  if(p->type == MSG) {
 
-  CHECK(CNET_write_application(p->msg,&(p->length)));
+      CHECK(CNET_write_application(p->msg,&(p->length)));
 
+  }
+  else if(p->type == ACK) {
+  }
+  else if(p->type == NCK) {
+  }
+  else {
+    /* the type field is malformed...
+       since we're not sure what this is suposte 
+       to be..we'll just drop it and wait for it
+       to come around again
+    */
+  }
+  
 }
+
 
 static void down_to_transport(CnetEvent ev, CnetTimer timer, CnetData data) {
 
-  SUMIT_TR_PACKET p;
+  /* our packet  */
+  TR_PACKET p;
 
-  
-  /*NL_PACKET p;*/
+  /* destination address to pass to network layer */
   CnetAddr temp;
 
-  /*  p.length = sizeof(p.msg);*/
+
+  p.type = MSG;
   p.length = sizeof(p.msg);
   CHECK(CNET_read_application(&temp, p.msg, &p.length));
   CNET_disable_application(temp);
-  down_to_network( (char*)&p , SUMIT_TR_PACKET_SIZE(p) , temp);
+  /* p.sequence_number = 0; */
+
+  p.checksum = checksum_crc32( ((char*)&p)+sizeof(unsigned int) 
+			       , TR_PACKET_SIZE(p) - sizeof(unsigned int));
+  
+  down_to_network( (char*)&p , TR_PACKET_SIZE(p) , temp);
 }
 
 
