@@ -1,4 +1,4 @@
-#include "CINumber.h"
+#include "CINumber.hpp"
 #include <iostream>
 using std::cout;
 using std::endl;

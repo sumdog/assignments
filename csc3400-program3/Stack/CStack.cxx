@@ -1,5 +1,5 @@
-#include "CStack.h"
-#include "EStack.h"
+#include "CStack.hpp"
+#include "EStack.hpp"
 
 
 
@@ -58,6 +58,6 @@ bool CStack::isEmpty() {
 }
 
 bool CStack::isFull() {
-  return !(isEmpty());
+  return (numelements == maxsize);
 }
 

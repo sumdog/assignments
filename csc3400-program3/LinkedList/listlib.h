@@ -1,21 +1,46 @@
 #ifndef LISTLIB_C
 #define LISTLIB_C
 
+#if defined __cplusplus
+extern "C" {
+#endif
+
 typedef long atom_t;
 
-typedef struct node {
+struct node {
   atom_t element;
   struct node *next;
-} node_t;
+};
 
 typedef struct {
   struct node *head;
-  struct node *tail;
   long numelements;
 } list_t;
 
 struct node* new_node();
 
-//void 1st_null(struct node *node)
+void lst_free(list_t *ll);
+
+int lst_equal(list_t *l1, list_t *l2);
+
+list_t* lst_copy(list_t *l1, list_t *l2);
+
+list_t* lst_concat(list_t *l1, list_t *l2, list_t *l3);
+
+unsigned long lst_count(list_t *ll);
+
+void delete_node(struct node *node);
+
+list_t* lst_null(struct node *node);
+
+void lst_add(list_t *ll, atom_t a);
+
+void lst_display(list_t *ll);
+
+void lst_delete(atom_t a, list_t *l1, list_t *l2);
+
+#if defined __cplusplus
+}
+#endif
 
 #endif

@@ -1,4 +1,4 @@
-#include "CINumber.h"
+#include "CINumber.hpp"
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -24,29 +24,29 @@ int main() {
 
   //display original numbers
   for(n=numbers,x=0; x < ELEMENTS; x++, n++) {
-    cout << "Complex (c" << x+1 << "): \t";
+    cout << "Complex (c" << x+1 << "): \t\t";
     (*n)->printNumber();
   }
 
   //add two of them together
-  cout << "Sum(c1 + c2):\t";
+  cout << "Sum(c1 + c2):\t\t";
   (*(numbers[0]) + *(numbers[1])).printNumber();
 
   //subtract two of them
-  cout << "Difference(c1 - c2):\t";
+  cout << "Difference(c1 - c2):\t\t";
   (*(numbers[0]) - *(numbers[1])).printNumber();
 
   //multiply
-  cout << "Product(c1 * c2):\t";
+  cout << "Product(c1 * c2):\t\t";
   (*(numbers[0]) * *(numbers[1])).printNumber();
 
   //test for equality
-  cout << "Test for Equality(c1 == c3)";
+  cout << "Test for Equality(c1 == c3)\t\t";
   cout << ((*(numbers[0]) == *(numbers[1])) ? "The numbers are equal" : "The numbers are not equal");
   cout << endl;
 
   //test for inequality
-  cout << "Test for Inequality(c2 != c4)";
+  cout << "Test for Inequality(c2 != c4)\t\t";
   cout << ((*(numbers[0]) != *(numbers[1])) ? "The numbers are not equal" : "The numbers are equal");
   cout << endl;
 
@@ -54,6 +54,7 @@ int main() {
   for(n=numbers,x=0; x < ELEMENTS; x++, n++) {
     delete *n;
   }
+
   delete[] numbers;
 
 }
