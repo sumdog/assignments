@@ -1,0 +1,17 @@
+11-17-04 - CSC4800 Notes
+The Web
+   Web browsers and web servers
+    Client/Server
+   Protocol - HTTP
+      Application layer (above TCP)
+   Quick example: GET
+
+HTTP
+    Examples: 1 page with 7 images
+       Takes eight requests, Why?
+       HTTP is a stateless protocol
+   Text based oriticik
+   Client Request
+        METHOD Resource HTTP Version
+        Client Generated Headers
+        Request Body
