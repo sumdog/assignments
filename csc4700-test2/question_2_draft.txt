@@ -1,8 +1,4 @@
-Apache and Mozilla came from two very different backgrounds, but have both been sucessful open source projects. Apache started out as a desperate attempt by system administrators to maintain the NCSA webserver after NCSA stopped active development. (httpd.apache.org). Mozilla was started by the Netscape corporation during a time when Netscape was losing it's webbrowser market to Microsoft's Internet Explorer (which ironically was based off NCSA's Moasic). Netscape was one of the first major corporations to open it's source code to the public domain as an open source development project. Although both projects had different objectives, approaches and designs, they are both considered very successful open source projects by todays standards.
-
-Security
-
-Bug Tracking
+2) Apache and Mozilla came from two very different backgrounds, but have both been sucessful open source projects. Apache started out as a desperate attempt by system administrators to maintain the NCSA webserver after NCSA stopped active development. (httpd.apache.org). Mozilla was started by the Netscape corporation during a time when Netscape was losing it's webbrowser market to Microsoft's Internet Explorer (which ironically was based off NCSA's Moasic). Netscape was one of the first major corporations to open it's source code to the public domain as an open source development project. Although both projects had different objectives, approaches and designs, they are both considered very successful open source projects by todays standards.
 
 Usability
 
@@ -15,7 +11,11 @@ As Mozilla development contined, the product kept getting more and more stable. 
 
 Testing
 
+Testing has allways been an interesting issue with open source software. Typically there are several branches of any given open source projects. For starters you have "Releases" which are fully tested, ready to use on mass scale packages. These are rare. You also have "Release Canidates" which are products that are almost ready to release and which should be bug free, but require testing in real-world enviroments before they can be given a seal of approval. You then have "betas." These vary. Some betas will have comments from the authors stating that the software is ready to be tested in a real enviroment while others state the product is still in a very early stage of development. Most open source projects stay in a beta state for years! Below beta is the alpha which is typically nothing more than ideas and a flowchart with little pieces of code attached. Below that is the dreaded nightly-build. These are compiled each night automagically from CVS and typically the only guarentee you get when you use one is "it compiled."
 
+As far as Mozilla and Apache are concerned, Mozilla was in beta for a very long time. The Mozilla 1.0 release was met with parities, fanfares and launch parities in many major ciites. Apache's http2 server, although not met with as much fanfare, was similar in it's beta stage.
+
+The key to open source testing is that the system administrators realize that they're in a continual state of gunnie pigs and can choose the level of risk they want to manage. Some administrators may test active betas on their major server while others find their tasks so critical that they'll only test release canadits. Still, others with very critical servers may only use releases on their main servers and use secondary servers for testing. The contrast is with Microsoft software and how every is a gunnine pig weather or not they like or ever realize it. 
 
 Foundations
 
@@ -23,6 +23,16 @@ The most notable thing to notice about Mozilla and the Apache is that there is n
 
 Browsing both orginizations websites will show you massive lists of projects, subprojects, branches of current projects and project proposals. These originizations aren't nesceserally centered around one project anymore, but have branced into making all kinds of new tools to help better support open souce software development and the free software community.
 
+
+Conclusion
+
+Incorporating open source techniques may be difficult in comerical programming. With open source developemnt, most of your developers and volunteers. many of which enjoy working on a particular project. There is rarely an urgency of a deadline to meet or needs to fullfill. However, comerical groups may benefit by find teams of employees that express an interst in certain projects so that they are more passionate about their work and incorporating more open beta testing among the general public. ID software has started making beta testing more open and during their development of Castle Wolfenstine, they made several releases avaiable as demos and encourages feedback and bug reports from gamers, sometimes even releaseing a new demo each week. 
+
+Finally, many corporations have beenfitted the open source community by release a lot of their older code to the community. Both Apache and Mozilla came from comerical projects (NSCA Webserver and Netscape), ID software has released the code for many of their old games (Doom, Doom II, Quake, etc.), Crack-dot-com released the source code for all their games before they went under (Abuse and Gilgotha) and even Toys for Bob released the code for Ur-Quan Masters (the name had to be changed from Star Control II because Accolade still holds the rights to it) to the community. In almost every case, teams of people have taken up the project and have developed fully usable game engines and game imporvments. Many openGL ports have been made of the original doom as well as Linux and FreeBSD ports.
+
+Some companies actually activily developed the code they release to the comunity. Examples include IBM who released their Journaling File System (JFS) to the community and SGI who released XFS to the community. Both companies activly use and develope the filesystesm and well as release kernel patches for it. JFS was incorporated into the 2.4 serise of kernels and XFS is currently in the 2.5 development branch.
+
+In conclusion, open source devlopment is a very interesting and unique type of development which had led to the production of many fine tools, enviroments and utilities. Corporations who contribute old code have played a vital part in reviving old dieing software and creating modern useful applications. If it wasn't for the Mozilla team, Netscape could very well be a dead browser by now. Although everything can't be open-source, nor should it be (well, maybe it should in a perfect world), companies can contribute to to the comunity by making older products avaiable and by making parts of current software open (the old shareware concept; try and if you want the extras, buy). Both open and closed software development teams can learn a lot from each other and help build better software for the consumer public.
 
 
 Works Cited
