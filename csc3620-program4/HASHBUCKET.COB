@@ -30,6 +30,10 @@ file-control.
      select input-file assign to "disk$research:[dhume.362]  .dat"
          organization is sequential.
 
+**added from handout
+     select temp-file assign to "temp.dat".
+********************
+
 data division.
 file section.
 fd  hash-file.
@@ -56,6 +60,13 @@ fd  input-file
        05  acct-no-in          pic 9(5).
        05  customer-name-in    pic x(20).
        05  other-data-in       pic x(47).
+
+**added from handout
+fd temp-file.
+01 temp-record.
+       05 acct-no-temp         pic 9(5).
+       05 other-data-temp      pic x(67).
+*******************
 
 working-storage section.
 01  index-variables.
@@ -97,6 +108,9 @@ working-storage section.
     05  bucket-full-flag        pic x(1).
         88  bucket-full          value "Y".
         88  bucket-not-full      value "N".
+**added from handout
+    05  temp-file-flag          pic x(1) value "Y".
+********************
 
 01  bucket-output-line.
     05 filler                   pic x(2) value spaces.
@@ -115,6 +129,7 @@ working-storage section.
     05 acct-no-out              pic x(5).
     05 filler                   pic x(2)  value spaces.
     05 customer-name-out        pic x(20).
+
 
 procedure division.
 main-line-para.
@@ -290,3 +305,46 @@ add-error-para.
 
 file-is-full-error-para.
     display "Record cannot be added: file is full".
+
+
+**added from handout
+pass-1-load-input-file-para.
+    open input input-file.
+    open i-o hash-file.
+    open output temp-file.
+    read input-file at end move "N" to input-file-flag.
+    perform pass-1-process-input-record until input-file-flag = "N".
+    close input-file.
+    close temp-file.
+    close hash-file.
+
+pass-2-load-input-file-para.
+    open input temp-file.
+    open i-o hash-file.
+    read temp-file at end move "N" to temp-file-flag.
+    perform pass-2-process-input-record until temp-file-flag = "N".
+    close temp-file.
+    close hash-file.
+
+pass-1-process-input-record.
+    move acct-no-in to hash-key-field.
+    perform hashing-para.
+    move "N" to unused-slot-flag.
+    perform pass-1-examine-next-slot varying i from 1 by 1 until 1 > bucket-size.
+    if unused-slot-found then
+       perform add-record-para-1
+    else
+       write temp-record from input-record.
+    read input-file at end move "N" to input-file-flag.
+
+pass-1-examine-next-slot.
+    if rec-status(i) = SPACES then move "Y" to unused-slot-flag
+       if unused-slot-variable = 0 then
+       move i to unused-slot-variable.
+
+pass-2-process-input-record.
+    move acct-no-temp to hash-key-field.
+    perform hashing-para.
+    perform add-record-para-2.
+    read temp-file at end move "N" to temp-file-flag.
+********************
