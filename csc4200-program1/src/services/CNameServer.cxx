@@ -4,10 +4,25 @@
 #include <stdio.h>
 
 CNameServer::CNameServer(unsigned short port, long backlog) : CServer(port,backlog) {
-
+  //initalize service
   servicemap = new servicemap_t();
   strcpy(name,"name");
+
+  //setup our mutex lock
+  pthread_mutex_init(&lock,NULL);
 }
+
+CNameServer::~CNameServer() {
+  
+  //I should really delete everything in 
+  // the map first, but for this simple
+  // program, we'll skip that
+  delete servicemap;
+
+  //destory our mutex lock
+  pthread_mutex_destroy(&lock);
+}
+  
 
 void CNameServer::processRequest(command_t *t, char* retval) {
   //iteratorion vars
@@ -59,7 +74,11 @@ void CNameServer::processRequest(command_t *t, char* retval) {
       current->port = sport;
 
       //store it in the map (tree data structure)
+      // we lock our mutex first to syncronize this 
+      // between threads
+      pthread_mutex_lock(&lock);
       (*servicemap)[sname] = current;
+      pthread_mutex_unlock(&lock);
 
       //return value
       strcpy(retval,"A:SUCCESS\n");

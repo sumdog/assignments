@@ -4,6 +4,7 @@
 #include "CServer.h"
 #include <map>
 #include <string>
+#include <pthread.h>
 
 using std::string;
 using std::map;
@@ -21,13 +22,14 @@ class CNameServer : public CServer {
 
  private:
   servicemap_t *servicemap;
+  pthread_mutex_t lock;
 
  protected:
   virtual void processRequest(command_t *t, char* retval);
 
  public:
   CNameServer(unsigned short port, long backlog);
-
+  ~CNameServer();
 };
 
 #endif /** CNAM_H */

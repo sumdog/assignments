@@ -36,7 +36,7 @@ void usage() {
   cerr << "\t                          If no name is given, $HOME/.4200p1rc\n";
   cerr << "\t                          is assumed.\n";
   cerr << "\t                          (1st line of file is hostname     \n";
-  cerr << "\t                        and 2nd is port)                  \n";
+  cerr << "\t                          and 2nd is port)                  \n";
   cerr << "\t                       If -f and -r are specified, -r\n";
   cerr << "\t                           takes precedence            \n";
   cerr << "Examples:\n";
@@ -58,7 +58,8 @@ int main(int argc, char **argv) {
   bool fser=false, fclient=false;
 
   //parse command line arguments
-  while( (op = getopt(argc,argv,"s:p:r:f")) != -1) {
+  opterr = 0;
+  while( (op = getopt(argc,argv,"s:p:r:f:")) != -1) {
     switch(op) {
     case 'f': {//file to get host info from
       if(rname != NULL) { //-f takes presedence over -r
@@ -92,6 +93,18 @@ int main(int argc, char **argv) {
       rport = atol(p);
       delete[] temp;
       break;
+    }
+    case '?': {
+      switch(optopt) {
+      case 'f': {
+	ns_t *k = getNameserver(NULL);
+	rname = new char[strlen(k->nshost)+1];
+	strcpy(rname,k->nshost);
+	rport = k->nsport;
+	freeNameserver(k);
+	break;
+      }
+      }
     }
     }
   }

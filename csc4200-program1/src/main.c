@@ -15,7 +15,7 @@ int main(int argc,char **argv) {
   while( (op = getopt(argc,argv,"f:")) != -1) {
     switch(op) {
     case 'f':
-      config = malloc(sizeof(char)*strlen(optarg));
+      config = malloc(sizeof(char)*strlen(optarg)+1);
       strcpy(config,optarg);
     }
   }
