@@ -61,11 +61,11 @@ The following is some sample Input and Output for how to run these programs.\\
 \\
 echo -e ``localhost$\backslash$n7250'' \textgreater test.ini\\
 ./server -s name -p 7250 \&\\
-./server -s ping -p 9000 -f thost \&\\
-./server -s pal -p 5285 -f thost \&\\
-./server -s insult -p 9001 -f thost \&\\
+./server -s ping -p 9000 -f test.ini \&\\
+./server -s pal -p 5285 -f test.ini \&\\
+./server -s insult -p 9001 -f test.ini \&\\
 \\
-./client -f thost\\
+./client -f test.ini\\
 CSC 4200 Networking Program \#1 Client\\
  Sumit Khanna -- \(Interactive Mode\)\\
 \textgreater\textgreater\textgreater ping ping\\
