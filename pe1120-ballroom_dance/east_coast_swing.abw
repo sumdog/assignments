@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.5" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Mon Mar 22 01:27:56 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p props="text-align:right">Sumit Khanna</p>
+<p>East Coast Swing</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">A. History</p>
+<p style="Normal" props="margin-left:36pt">Started by Crazy George, jazz musician, in dedication of America's first real hero, Charles Lindberg. The original basic step was called Basic Lindy and gave birth to dances such as the Lindy Hop, East Coast Swing, West Cost Swing, Shag and Charleston.</p>
+<p style="Normal">B. Description of Dance</p>
+<p style="Normal" props="margin-left:36pt">A three (or six) count dance performed to four count music. Dancers typically have their knees bent. Most of the movement is above the waste with the man leading his partner with hand and wrist movements. Heal-clicks and advanced footwork can be added for style.</p>
+<p style="Normal" props="margin-left:0pt">C. Technical Specification</p>
+<p style="Normal" props="margin-left:36pt">style: Lindy Swing Style</p>
+<p style="Normal" props="margin-left:36pt">basic rhythm: slow, slow, quick-step or triplet, triplet, quick-step</p>
+<p style="Normal" props="margin-left:36pt">music: four count jazz, big band and rock 'n roll music</p>
+<p style="Normal" props="margin-left:0pt">D. Music</p>
+<p style="Normal" props="margin-left:36pt">1. Song: Little Brown Jug</p>
+<p style="Normal" props="margin-left:36pt">2. CD: Glenn Miller: Take Two</p>
+<p style="Normal" props="margin-left:36pt">3. Rating: It's all right.</p>
+<p style="Normal" props="margin-left:0pt">E. Movement</p>
+<p style="Normal" props="margin-left:36pt">one-two quick-step</p>
+<p style="Normal" props="margin-left:0pt">F. Attire</p>
+<p style="Normal" props="margin-left:36pt">1920's and 1930's jazz clothing, both casual and formal. Women normally wear knee length skirts with bloomers. Men typically wear suspenders, baggy pants, ties, etc.</p>
+<p style="Normal" props="margin-left:36pt">1950's/60's rock attire and shoes are also appropriate (example: skirts with poodles on them)</p>
+</section>
+</abiword>
