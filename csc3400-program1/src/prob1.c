@@ -190,9 +190,19 @@ p1CalSet* p1performCalculations(p1DataSet *data) {
   long *un = &(calset->set_union[0]);
   long *ir = &(calset->intersection[0]);
   long *su = &(calset->subtract[0]);
+  long *a, *b, i, j;
 
   //loop for calculations
-  
+  for( a=&(data->seta[0]), i=data->sizea ; i > 0  ; i--, a++) {
+    for( b=&(data->setb[0]), j=data->sizeb; j > 0 ; j--, b++  ) {
+      if( *a == *b ) { 
+	//intersection
+	*ir = *a;
+	ir++;
+	calset->inter_size++;
+      }
+    }//end setb forloop
+  }//end seta forloop
 }
 
 void p1destroyCalculations(p1CalSet *data) {
