@@ -1,5 +1,8 @@
 #include "VMWindow.hpp"
 #include "ItemButton.hpp"
+#include "MoneyDialog.hpp"
+#include <string>
+#include <cstring>
 
 /**
  *VMWindow()  -- constructs primary window
@@ -51,7 +54,7 @@ VMWindow::VMWindow(VendingMachine m) {
   p_top_bottom->add2(*bx_buttons);
 
   //adds signals
-  b_coin->signal_clicked().connect( SigC::slot(*this, &VMWindow::insertMoney));
+  b_coin->signal_clicked().connect( SigC::slot(*this, &VMWindow::insertMoneyButton));
 
   //show everything
   show_all_children();
@@ -74,9 +77,13 @@ VMWindow::~VMWindow() {
 
 
 /**
- *insertMoney() -- adds money to machiene
+ *insertMoneyButton() -- bring up money dialog
  */
-void VMWindow::insertMoney() {
+void VMWindow::insertMoneyButton() {
+
+  MoneyDialog *temp = new MoneyDialog(this);
+  temp->run();
+  delete temp;
 
 }
 
@@ -98,4 +105,18 @@ double VMWindow::buyItem(double price) {
   else {
     return -1;
   }
+}
+
+/**
+ *insertMoney() --callback function for inserting money
+ *
+ *PARAMS:      amount of money inserted
+ */
+void VMWindow::insertMoney(double amount) {
+  money += amount;
+  char mon_tmp[100];
+  snprintf(&mon_tmp[0], 100, "$%lf",money);
+  string s_temp("");
+  s_temp.append(mon_tmp);
+  l_money->set_text(s_temp);
 }

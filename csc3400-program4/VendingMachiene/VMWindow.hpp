@@ -16,6 +16,7 @@ public:
   VMWindow(VendingMachine m);
   ~VMWindow();
   double buyItem(double price);
+  void insertMoney(double amount);
 
 private:
   Gtk::VPaned *p_top_bottom;
@@ -25,8 +26,8 @@ private:
   Gtk::VBox   *bx_buttons;
   Gtk::VBox   *bx_items;
   Gtk::Image  *img_logo;
-  void insertMoney();
   double money;
+  void insertMoneyButton();
 };
 
 

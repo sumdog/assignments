@@ -5,6 +5,7 @@ class ItemComm {
 
 public:
   virtual double buyItem(double price) = 0;
+  virtual void insertMoney(double amount) = 0;
 
 };
 
