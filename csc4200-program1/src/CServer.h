@@ -3,10 +3,12 @@
 
 #define BUFFER_SIZE 256
 #define MAX_ARGS 50
-#define CMD_ERR E
-#define CMD_IVK I
-#define CMD_ANS A
-#define CMD_REQ R
+#define CMD_ERR 'E'
+#define CMD_IVK 'I'
+#define CMD_ANS 'A'
+#define CMD_REQ 'R'
+#define CMD_LOK 'L'
+
 
 typedef struct command {
   char type;
@@ -22,12 +24,12 @@ class CServer {
   long sockfd;
   long backlog;
 
-  static void* server_thread(void* cserver);
+  static void* serverThread(void* cserver);
   command_t* parseCommand(char *cmd);
   void deleteCommand(command_t *t);
 
  protected:
-  virtual char* processRequest(command_t *t);
+  virtual void processRequest(command_t *t, char *retval);
 
  public:
   CServer(char* ip, unsigned short port, long backlog);

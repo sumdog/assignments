@@ -31,9 +31,8 @@ CServer::~CServer() {
   delete remote_addr;
 }
 
-char* CServer::processRequest(command_t *t) {
-
-  return "Override this method to implement\n";
+void CServer::processRequest(command_t *t, char* retval) {
+  strcpy(retval,"Override this method to implement\n");
 }
 
 void CServer::deleteCommand(command_t *t) {
@@ -66,7 +65,7 @@ command_t* CServer::parseCommand(char *cmd) {
   retval->type = *token;
 
   //get the rest of the tokens
-  for(char **i=retval->argv; (token = strtok(cmd,": ")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
+  for(char **i=retval->argv; (token = strtok(NULL,": ")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
     *i = new char[strlen(token)];
     strcpy(*i,token);
   }
@@ -75,7 +74,8 @@ command_t* CServer::parseCommand(char *cmd) {
   return retval;
 }
 
-void* CServer::server_thread(void* cserver) {
+void* CServer::serverThread(void* cserver) {
+  std::cout << "\nServer Thread\n";
 
   //get our server information
   serverinfo_t *server = (serverinfo_t*) cserver;
@@ -83,18 +83,25 @@ void* CServer::server_thread(void* cserver) {
   //open our file discriptor
   FILE *filesocket = fdopen(server->fd,"r+");
 
+
   //buffer for data
   char *input = new char[BUFFER_SIZE];
   char *retval= new char[BUFFER_SIZE]; 
 
+  std::cout << "\nquarter way though\n";
+
   //read a command
   fgets(input,BUFFER_SIZE,filesocket);
+
+  std::cout << "\nhafl way through\n";
 
   //parse the command into a struct
   command_t *cmd = server->server->parseCommand(input);
 
   //process request and copy it into buffer
-  strcpy(retval,server->server->processRequest(cmd));
+  std::cout << 1 << std::endl;
+  retval,server->server->processRequest(cmd,retval);
+  std::cout << 2 << std::endl;
 
   //send user buffer
   fputs(retval,filesocket);
@@ -102,7 +109,9 @@ void* CServer::server_thread(void* cserver) {
   //clean up our mess
   fclose(filesocket);
   close(server->fd);
+  server->server->deleteCommand(cmd);
   delete server, input, retval;
+  std::cout << "\nFinished Cleaning Up\n";
   pthread_exit(0);
 }
 
@@ -128,7 +137,7 @@ void CServer::runService() {
     
     //we've got a connection, now start a thread
     pthread_t sock_thread;
-    long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(server_thread), (void*) info);
+    long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(serverThread), (void*) info);
   }
 
 }
