@@ -201,7 +201,7 @@ static void up_to_transport(char *msg, int *len, CnetAddr source) {
   }
   else {
     /* bad packet */
-    printf("Fuck...Bad, bad packet!\n");
+    printf("Bad, bad packet!\n");
   }
 }
 
@@ -235,8 +235,8 @@ static void down_to_transport(CnetEvent ev, CnetTimer timer, CnetData data) {
   p.checksum = checksum_crc32( ((char*)&p)+sizeof(unsigned int) 
 			       , TR_PACKET_SIZE(p) - sizeof(unsigned int));
   
- down_to_network( (char*)&p , TR_PACKET_SIZE(p) , temp); */
-  enqueuePacket((char*)&p, TR_PACKET_SIZE(p), temp);
+ down_to_network( (char*)&p , TR_PACKET_SIZE(p) , temp); 
+ /* enqueuePacket((char*)&p, TR_PACKET_SIZE(p), temp); */
 
   CNET_start_timer(EV_TIMER1, 1000, (CnetData)1);
 }
