@@ -26,7 +26,7 @@ void CNameServer::processRequest(command_t *t, char* retval) {
       //parse single argument
       strcpy(sname,*(t->argv));
       //trim the f#$%@ing new line off the string
-      sname[strlen(sname)-2] = '\0';
+      sname[strlen(sname)-1] = '\0';
 
       //lookup entry
       service_t *t = (*servicemap)[sname];

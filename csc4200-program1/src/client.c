@@ -13,7 +13,7 @@ ns_t* getNameserver(char *config) {
 
   //config files
   if(config == NULL) {
-    temp = malloc(sizeof(char)*strlen(getenv("HOME")));
+    temp = malloc(sizeof(char)*strlen(getenv("HOME"))+1);
     strcpy(temp,getenv("HOME"));
     strcpy(cfg,temp);
     strcat(cfg,"/");
@@ -38,9 +38,9 @@ ns_t* getNameserver(char *config) {
   }
 
   //read hostname
-  temp = malloc(sizeof(char)*BUFFER);
+  temp = malloc(sizeof(char)*BUFFER+1);
   if( fgets(temp,BUFFER,fd) != NULL) {
-    ns->nshost = malloc(sizeof(char)*strlen(temp));
+    ns->nshost = malloc(sizeof(char)*strlen(temp)+1);
     strcpy(ns->nshost,temp);
     ns->nshost[strlen(ns->nshost)-1] = '\0'; //trim newline
   }
@@ -101,10 +101,10 @@ cmd_t* promptUser(){
     
     //service and command
     if( (t = strtok(temp," ")) != NULL ) {
-      retval->service = malloc(sizeof(char)*strlen(t));
+      retval->service = malloc(sizeof(char)*strlen(t)+1);
       strcpy(retval->service,t);
       if( (t = strtok(NULL,"")) != NULL) {
-	retval->command = malloc(sizeof(char)*strlen(t));
+	retval->command = malloc(sizeof(char)*strlen(t)+1);
 	strcpy(retval->command,t);
 	break;
       }
@@ -147,12 +147,13 @@ short socketConnect(char *host,unsigned short port,char *sendbuf,char *recievebu
   
   //open file stream;
   FILE *nstream = fdopen(sockfd,"r+");
-  if(nstream == NULL) { 
+  if(nstream == NULL) {
     close(sockfd); 
     return -3;
   }
 
   //send request
+  printf("%s333\n",sendbuf);
   if( fputs(sendbuf,nstream) == EOF) {
     fclose(nstream);
     close(sockfd);
@@ -196,7 +197,7 @@ short serviceLookup(cmd_t *cmd, ns_t *ns){
   if(strcmp(i,"A") != 0) { return -5; }
   i = strtok(NULL,":\n"); //hostname
   if(i == NULL) { return -4; }
-  cmd->host = malloc(sizeof(char)*strlen(i));
+  cmd->host = malloc(sizeof(char)*strlen(i)+1);
   strcpy(cmd->host,i);
   i = strtok(NULL,":\n"); //port
   if(i == NULL) { return -4; }

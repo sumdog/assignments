@@ -52,13 +52,13 @@ int main(int argc, char **argv) {
   //   we may pass it to a class)
   int op;
   long port = -1, rport = -1;
-  char *host = NULL, *sname = NULL, *rname = NULL, *temp;
+  char *sname = NULL, *rname = NULL, *temp;
   //set to null for checking later
   CServer *service = NULL;
   bool fser=false, fclient=false;
 
   //parse command line arguments
-  while( (op = getopt(argc,argv,"s:p:r:f:c")) != -1) {
+  while( (op = getopt(argc,argv,"s:p:r:f")) != -1) {
     switch(op) {
     case 'f': {//file to get host info from
       if(rname != NULL) { //-f takes presedence over -r
@@ -80,11 +80,6 @@ int main(int argc, char **argv) {
     }
     case 'p': {//port to use
       port = atol(optarg);
-      break;
-    }
-    case 'h': {//interface to use
-      host = new char[strlen(optarg)+1];
-      strcpy(host, optarg);
       break;
     }
     case 'r': {//name service to register with
@@ -148,7 +143,6 @@ int main(int argc, char **argv) {
       server->runService();
 
       //cleanup
-      delete[] host;
       delete[] sname;
     }
     catch(EServer e) {
