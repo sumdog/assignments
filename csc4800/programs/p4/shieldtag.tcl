@@ -11,12 +11,15 @@ proc createObject {oname} {
 	variable thisComputer ""
 	variable logfile [pwd]/taggame.log
 	variable shield
+	variable visited
 
 	proc wakeup {} {
 	    after idle [this]::playGame
 	}
 
 	proc playGame {} {
+	    variable visited
+
 	    set others [::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
 			    ::Spackle::Portal::who]
 	    if {[llength $others] > 0} {
@@ -25,8 +28,10 @@ proc createObject {oname} {
 		set names [array names aothers]
 		set size [llength $names]
 		set which [expr {int (rand()*$size)}]
+		#increment value of selected computer (at this point we haven't visited any)
+		lset visited $which 1
 		set name [lindex $names $which]
-set otherinterp $aothers($name)
+		set otherinterp $aothers($name)
 		# call tag
 		if {[catch {::comm::comm send $otherinterp ${name}::tag} results]} {
 		    logit "[this]: I missed $name!"
@@ -48,19 +53,44 @@ set otherinterp $aothers($name)
 	proc moveOn {} {
 	    variable computers
 	    variable thisComputer
+	    variable visited
 	    # remove self from registry
 	    ::comm::comm send $::Spackle::AgentSrvr::remoteInterp \
 		::Spackle::Portal::unregisterMe [this]
+
+	    #if every computer has been visited twice
+	    #reset the list
+	    set alltwice 0
+	    foreach i $visited {
+		if [expr $i < 2] {
+		    set alltwice 1
+		}
+	    }
+	    if { [expr $alltwice == 0] } {
+		for {set y 0} {$y < [llength $visited]} { incr y } {
+		    lset visited $y 0
+		}
+	    }
+
 	    # pick random machine
 	    set size [llength $computers]
 	    while {1} {
 		flush stdout
 		set which [expr {int (rand()*$size)}]
+
+		#check to see if we've visited this computer twice
+		set twice 0 
+		if { [lindex $visited $which] >= 2  } {
+		    set twice 1
+		}
+
 		set machine [lindex $computers $which]
 		if {$thisComputer != $machine} {
-		    break;
+		    if { $twice == 0 } {
+			break;
+		    }
 		}
-		#If we get here, then we chose ourself, try again
+		#If we get here, then we chose ourself || we've hit this place twice, try again
 	    }
 	    set thisComputer $machine
 	    # move
@@ -78,7 +108,13 @@ set otherinterp $aothers($name)
 
 	proc setMachines {mList} {
 	    variable computers
-	    set computers $mList
+	    #build list of visited comps and set them to 0
+	    variable visited
+	    set visited [list 0]
+	    for {set x 0} {$x <= [llength $mList]} {incr x} {
+		lappend visited 0
+	    }
+	    set computers $mList	    
 	}
 
 	proc this {} {
@@ -98,7 +134,6 @@ set otherinterp $aothers($name)
 	proc tag {} {
 	    variable shield
 	    set shield [expr $shield - 1]
-	    puts $shield
 	    if { [expr $shield > 0] } {
 		logit "[this]: Shields down to $shield"
 	    } else {
