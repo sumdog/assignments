@@ -1,0 +1,12 @@
+double getAverage(double* list, int size);
+double getBHat(int samplesize, double avg, double element1);
+double getAHat(int samplesize, double element1, double bhat);
+double* getW(double* data, int size, double ahat, double bhat);
+double* getZ(double* data, double* w, int size);
+double getWSquared(double* data, double* z, int size);
+void setRandomSeed();
+double* generateRandomNumber();
+double randomNormal(double mu, double sigma2);
+double randomChiSquareOne();
+double convergenceTest(double mu, int reps);
+double* generateRandomChiSquareOne(int samplesize);
