@@ -1,0 +1,11 @@
+messagerate      = 200ms,
+propagationdelay = 100ms,
+bandwidth	 = 56Kbps,
+/*probframeloss    = 3,
+probframecorrupt = 4,*/
+compile		 = "-g flooding3.c"
+
+#include "AUSTRALIA.MAP"
+/*
+#include "EUROPE.MAP"
+ */

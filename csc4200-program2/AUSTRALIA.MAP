@@ -1,0 +1,44 @@
+
+bgimage		 = "australia1.gif"
+
+host Perth {
+    x=80, y=290
+    ostype = "linux"
+    link to Adelaide 
+}
+host Canberra {
+    x=410, y=330
+    link to Melbourne 
+    link to Sydney 
+}
+host Melbourne {
+    x=380, y=380
+    link to Canberra 
+    link to Sydney 
+    link to Hobart 
+}
+host Sydney {
+    x=470, y=320
+    link to Canberra 
+    link to Melbourne 
+    link to Hobart 
+    link to Brisbane 
+}
+host Hobart {
+    x=420, y=450
+    link to Melbourne 
+    link to Sydney 
+}
+host Brisbane {
+    x=480, y=230
+    link to Sydney 
+}
+host Adelaide {
+    x=340, y=320
+    link to Melbourne 
+    link to Darwin 
+}
+host Darwin {
+    x=280, y=65
+    link to Adelaide 
+}
