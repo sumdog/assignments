@@ -7,10 +7,10 @@ package sum.kb;
 /**
  * @author skhanna
  */
-public class Constant extends Element {
+public class Constant extends Argument {
 
-    public Constant(String identifer, String constant) {
-        super(identifer,constant);
+    public Constant(String constant) {
+        super(constant);
     }
 
 }

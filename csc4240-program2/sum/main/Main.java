@@ -52,10 +52,11 @@ public class Main {
         while(!input.trim().equals("quit")) {
           try {
                 if(input.charAt(input.length()-1) == '?') {
-                    //ask knowledge base something   
+                    //ask knowledge base something
+                    kb.askQuestion(new Element(input.substring(0,input.length()-1)));
                 }
                 else {
-                    try { kb.addRule(new Sentence(input));   }
+                    try { kb.addFact(new Element(input));   }
                     catch(KBException e) { System.err.println("Invalid Rule"); }
                 }
                 System.err.print("$");

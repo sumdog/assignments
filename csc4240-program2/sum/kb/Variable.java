@@ -6,9 +6,9 @@ package sum.kb;
 /**
  * @author skhanna
  */
-public class Variable extends Element {
+public class Variable extends Argument {
 
-    public Variable(String identifer, String variable) {
-        super(identifer, variable);
+    public Variable(String variable) {
+        super(variable);
     }
 }
