@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.11" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Sat Dec  4 09:38:39 2004</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal">Project #5</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">write a simple web page from based on PHP or CGI</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Please Register</p>
+<p style="Normal">First ______ Last ____</p>
+<p style="Normal">SSN ________</p>
+<p style="Normal">Address _______________</p>
+<p style="Normal">Address _______________</p>
+<p style="Normal">City _________</p>
+<p style="Normal">State __</p>
+<p style="Normal">Email _________</p>
+<p style="Normal">[Submit]</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">Write form data to a file</p>
+<p style="Normal">Filename will be their SSN and the data will be written as one item per line</p>
+<p style="Normal">First:</p>
+<p style="Normal">Last:</p>
+<p style="Normal">SSN:</p>
+<p style="Normal">etc....</p>
+<p style="Normal"><c></c></p>
+<p style="Normal">don't worry about checking</p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+</section>
+</abiword>
