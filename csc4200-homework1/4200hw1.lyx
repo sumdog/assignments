@@ -122,7 +122,13 @@ Suppose transmission channels become virtually error free.
 \begin_deeper 
 \layout Enumerate
 
-undone bob
+Even if the transmission channels become error free, the data-link layer
+ is still needed to break apart information into frames to be sent as well
+ as extracting frames destined for it from the lower layers.
+  The data-link layer deals more primarily with sending and receiving data
+ based on MAC addresses, and no so much so with error correction.
+ However if the transmission channels became error free, large portions
+ of the transport layer could be removed.
 \end_deeper 
 \layout Enumerate
 
@@ -154,7 +160,12 @@ Suppose a data link layer provides reliable delivery from one hop to the
 \begin_deeper 
 \layout Enumerate
 
-bob2
+Yes.
+ As long as you could assure, with 100% accuracy, that each and every hop
+ would be completely error free and no data would be lost or corrupted.
+ However, this scenario  is not really possible and it's the reason the
+ Transport layer provides error correction mechanisms to make sure data
+ is not lost.
 \end_deeper 
 \layout Enumerate
 
@@ -219,7 +230,28 @@ n.
 
 Answer the following questions from the book in chapter 2 under Review Questions
 : (9), (11), (12), (13), (16), (17) 
+\begin_deeper 
+\layout Itemize
+
+9:
+\layout Itemize
+
+11: FTP actually makes two connections. The initial connection is made from the client to the server and is used to transmit all control data (get a file, send a file, change directories, etc). When a user requests a file, a second connection is opened from the client to the server (or in passive mode--for when the client is behind a firewall--, from the server to the client). Because the control information is sent through a different socket connection than the file transfer, FTP's control information is considered to be send "out-of-band."  
+\layout Itemize
+
+12: Alice will type the message in her web browser and click the "send" button. Her message is send to the Hotmail server using the standard HTTP (or possibly HTTPS if she has encryption enabled) protocol. Although Hotmail is a propriety web-based email service and doesn't  support POP or IMAP, it still must use an MTA (mail transport agent) behind the scenes. The MTA (Microsoft's version of sendmail, most likely Microsoft Exchange) will take Alice's message, analyze it's destination, and then attempt to send it.
+
+First it find the domain of the email (e.g. if it's to Bob@bob.bob, the domain is @bob.bob), and send a UDP message to a DNS server to look up the MX record for the domain. The MX record contains the address of the mail server for which all mail traffic destined for that domain is supposed to go. After it gets the address of the mail server, it will then contact the mail server using the SMTP protocol and deliver the message. The SMTP server analyzes the message, determines if the local user exists. If it does, it stores the message in a local mail database (e.g. an mbox file or a Maildir). If the user or alias doesn't exist, it rejects the message and sends a bounce.
+
+Bob then uses the POP protocol to contact the mail server and the mail server will read his messages out of storage (e.g. an mbox or Maildir) and return them to Bob. 
+
+The reason an intermediate SMTP server is used, as opposed to your mail program directly connecting to the destination SMTP server, is that SMTP server will attempt to connect to their destination for 4 hours before sending a bounce. This is built into the SMTP protocol as a buffer in case a system administrator needs  to take down a mail server to be updated/replaced. This gives an administrator a 4 hour window to bring a mail server back on-line before the user notices any bounced messages. 
+
+\layout Itemize
+
+13:
 \layout Enumerate
+\end_deeper 
 
 Solve problems (6) and (7) from the 
 \series bold 
