@@ -240,7 +240,7 @@ public class Can {
      * T(x,y,z,t+ti)=((ti*(k1+k2)*(x+0.5)*(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/(x*(xspace^2)*(p1*c1+p2*c2)))+TARRAY(x,y,z,t)
      */
     public double eq1(int x, int y, int z, int t, Material k1, Material k2) {
-        return //((timeinterval*(k1.CONDUCTIVITY+k2.CONDUCTIVITY)*(x+0.5)*
+       //((timeinterval*(k1.CONDUCTIVITY+k2.CONDUCTIVITY)*(x+0.5)*
                 //(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/(x*(Math.pow(xspacing,2))*
                 //(k1.DENSITY*k1.SPECIFICHEAT+k2.DENSITY*k2.SPECIFICHEAT)))+TARRAY(x,y,z,t);
         
@@ -248,11 +248,7 @@ public class Can {
                 //(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/((x+0.5)*(Math.pow(xspacing,2))*
                 //(k1.DENSITY*k1.SPECIFICHEAT+k2.DENSITY*k2.SPECIFICHEAT)))+TARRAY(x,y,z,t);
         
-        ((timeinterval*(k1.CONDUCTIVITY+k2.CONDUCTIVITY)*
-
-                (TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/((Math.pow(xspacing,2))*
-
-                (k1.DENSITY*k1.SPECIFICHEAT+k2.DENSITY*k2.SPECIFICHEAT)))+TARRAY(x,y,z,t);
+        return (TARRAY(x+1,y,z,t));
         
     }
     
@@ -295,8 +291,10 @@ public class Can {
     }
 
     public double eq5(int x, int y, int z, int t, Material k1) {
-        return ((timeinterval*k1.CONDUCTIVITY*(x+0.5)*(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/
-               (x*(Math.pow(xspacing,2))*(k1.DENSITY*k1.SPECIFICHEAT)))+TARRAY(x,y,z,t);
+    	//((timeinterval*k1.CONDUCTIVITY*(x+0.5)*(TARRAY(x+1,y,z,t)-TARRAY(x,y,z,t)))/
+        //(x*(Math.pow(xspacing,2))*(k1.DENSITY*k1.SPECIFICHEAT)))+TARRAY(x,y,z,t);
+    	
+        return (TARRAY(x+1,y,z,t));
     }
 
     public double eq6(int x, int y, int z, int t, Material k1, Material k2) {
@@ -326,3 +324,4 @@ public class Can {
                (TARRAY(x,y,z+1,t)-TARRAY(x,y,z,t)))+TARRAY(x,y,z,t);
     }
 }
+
