@@ -1,0 +1,30 @@
+\documentclass[a4paper,11pt]{article}
+\author{Sumit Khanna}
+\title{CSC 4200 Homework 2}
+
+\begin{document}
+\maketitle
+\section{Chapter 3 - Review Questions}
+\paragraph{}1) They will simply be the opposite ports. source=y and dest=x. The source and destination are always relative to the computer who's sending.
+
+\paragraph{}4a) False. Host B will attempt to piggyback an ACK onto a packet in its queue that's intended for host A. If it searches its queue and can't find another packet that's destined for that host, it will simply send a new packet which only contains the ACK
+
+\paragraph{}4b) False. The receiver has a buffer used to pull packets together in the correct order. Say packets 1, 2, 3, 7 and 8 come it. It will ship 1, 2 and 3 up to the application as soon as they come in because they're in order. 7 will be buffered until packets 4, 5 and 6 come in at which time packets 4 through 8 will be sent to the application layer. The buffer is of a fixed size. The amount of free space in the buffer is known as the RcvWindow and will, of course, change and the buffer is filled and emptied. It's important not to confused the RcvWindow, which is just an indicator on how full a host's buffer is, with the actual Buffer which is a static allocation of memory (non-changing).
+
+\paragraph{}4c) True. According to TCP, you should not send any packets until you're sure there's room in the receiver's buffer. However, you should still send empty packets as acknowledgments that you're still there sending data.
+
+\paragraph{}4d) False. In TCP, the segment number indicates the number of byes you're at in the stream. If I send 2k of data (2k = 2000) starting with sequence number 40, then the next sequence number will be 40 + 2000. 
+
+\paragraph{}4e) True (p 231)
+
+\paragraph{}4f) False TimeoutInterval = EstimatedRTT + 4 * DevRTT (p 237)
+
+\paragraph{}4g)
+
+\section{Chapter 3 - Problems}
+
+\pararaph{}1) a) Source: 5002 Dest: 22\\b)Source: 6012 Dest: 22\\
+c) Source: 22 Dest: 5002\\
+d) Source: 22 Dest: 6012
+
+\end{document}
