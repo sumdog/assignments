@@ -70,7 +70,7 @@ command_t* CServer::parseCommand(char *cmd) {
 
   //get the rest of the tokens
   for(char **i=retval->argv; (token = strtok(NULL,": ")) && retval->argc < MAX_ARGS; i++,retval->argc++) {
-    *i = new char[strlen(token)];
+    *i = new char[strlen(token)+1];
     strcpy(*i,token);
   }
   
@@ -99,7 +99,6 @@ void* CServer::serverThread(void* cserver) {
   //clean up our mess
   close(server->fd);
   
-  //server->server->deleteCommand(cmd);
   //delete[] input, retval;
   //delete server;
   pthread_exit(0);
@@ -123,14 +122,17 @@ void CServer::runService() {
     info->server = this;
 
     //start blocking 
-    info->fd = accept(sockfd,(struct sockaddr*) &remote_addr,&(info->sin_size));
+    info->sin_size = sizeof(struct sockaddr_in);
+    info->fd = accept(sockfd,(struct sockaddr*) remote_addr,&(info->sin_size));
  
     if(info->fd != -1) { 
       //we've got a connection, now start a thread
       pthread_t sock_thread;
       long res = pthread_create(&sock_thread, NULL,static_cast<void*(*)(void*)>(serverThread), (void*) info);
+      //serverThread((void*)info);
     }
     else {
+      printf("%d\n",sockfd);
       throw EServer(std::string("Accept Call Failed"));
     }
   }
@@ -159,8 +161,8 @@ void CServer::registerService(char* host, unsigned short port) {
   memset(nameserver.sin_zero,'\0',8);
 
   //connect to name server
-  long sockfd = socket(AF_INET, SOCK_STREAM, 0);
-  if( connect(sockfd, (struct sockaddr *)&nameserver, sizeof(struct sockaddr)) == -1 ) {
+  long sfd = socket(AF_INET, SOCK_STREAM, 0);
+  if( connect(sfd, (struct sockaddr *)&nameserver, sizeof(struct sockaddr)) == -1 ) {
     throw ERegister(std::string("Could Not Connect To Nameserver"));
   }
   else {
@@ -168,7 +170,7 @@ void CServer::registerService(char* host, unsigned short port) {
     char regdata[BUFFER_SIZE];
     sprintf(regdata,"R:%s:%s:%d\n",name,me,this->port);
     sendAll(sockfd,regdata);
-    close(sockfd);
+    close(sfd);
   }
 }
 
