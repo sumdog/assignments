@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
-<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.11" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<abiword template="false" styles="unlocked" version="2.0.11" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="lang:en-US; dom-dir:ltr">
 <!-- ======================================================================== -->
 <!-- This file is an AbiWord document.                                        -->
 <!-- AbiWord is a free, Open Source word processor.                           -->
@@ -11,10 +11,10 @@
 <metadata>
 <m key="dc.format">application/x-abiword</m>
 <m key="abiword.generator">AbiWord</m>
-<m key="abiword.date_last_changed">Mon Nov 29 13:37:51 2004</m>
+<m key="abiword.date_last_changed">Sun Dec  5 19:50:05 2004</m>
 </metadata>
 <styles>
-<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
 </styles>
 <pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
 <section props="page-margin-footer:0.5in; page-margin-header:0.5in">
@@ -33,6 +33,16 @@
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">As I started taking classes in my major, I realized that there is much more to programming than game design. A lot of </p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">For each project:</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  Purpose?</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  Implementation?</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  What did I learn?</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">GiPost</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">8-bit ALU</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal"><c></c></p>
 <p style="Normal">Ganges</p>
@@ -83,6 +93,11 @@
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">GraphMapper Version 1.5 (current)</c><c props="text-decoration:none"></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">GraphMapper Version 1.0</c><c props="text-decoration:none"></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none">Web Portfolio</c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:none"></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
