@@ -48,7 +48,7 @@ void* CServer::server_thread(void* cserver) {
 void CServer::runService() {
 
   //bind to socket
-  if( bind(sockfd,(struct sockaddr*) &local_addr,sizeof(struct sockaddr)) != 0 ){
+  if( bind(sockfd,(struct sockaddr*) local_addr,sizeof(struct sockaddr)) != 0 ){
     throw EServer("Could Not Bind to Port");
   }
 
