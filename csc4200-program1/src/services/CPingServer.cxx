@@ -8,7 +8,7 @@ CPingServer::CPingServer(unsigned short port, long backlog) : CServer(port,backl
 void CPingServer::processRequest(command_t *t, char* retval) {
 
   //check for the right command format
-  if(t->type == CMD_IVK   &&   t->argc == 1   &&   strcmp("ping",*(t->argv)) == 0  ) {
+  if(t->type == CMD_IVK   &&   t->argc == 1   &&   strcmp("ping\n",*(t->argv)) == 0  ) {
     strcpy(retval,"A:Pong!\n");
   }
   else {

@@ -41,7 +41,7 @@ void CPalServer::processRequest(command_t *t, char* retval) {
     word = *(++v);
 
     //strip of new line
-    word[strlen(word)-2] = '\0';
+    word[strlen(word)-1] = '\0';
 
 
     //the testPalindrome function will cut this up, so let's copy it first

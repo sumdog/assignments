@@ -54,7 +54,7 @@ void CNameServer::processRequest(command_t *t, char* retval) {
 
       //make struct for storage in map
       service_t *current = new service_t;
-      current->host = new char[strlen(shost)];
+      current->host = new char[strlen(shost)+1];
       strcpy(current->host,shost);
       current->port = sport;
 

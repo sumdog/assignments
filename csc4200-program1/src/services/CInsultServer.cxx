@@ -37,13 +37,14 @@ void CInsultServer::processRequest(command_t *t, char* retval) {
   strcpy(cmd,*(t->argv));
 
   //strip off newline
-  cmd[strlen(&cmd[0])-2] = '\0';
+  cmd[strlen(&cmd[0])-1] = '\0';
 
   //check for the right command format
   if(t->type == CMD_IVK   &&   t->argc == 1   &&   strcmp("insult",&cmd[0]) == 0  ) {
     
     short r = (short) floor(10 * ((float)rand()/RAND_MAX));
-    strcpy(retval,insults[r]);
+    strcpy(retval,"A:");
+    strcat(retval,insults[r]);
 
   }
   else {

@@ -175,7 +175,6 @@ void CServer::registerService(char* host, unsigned short port) {
     
     FILE *stream = fdopen(sfd,"w");
     fputs(regdata,stream);
-    //sendAll(sockfd,regdata);
     
     fclose(stream);
     close(sfd);
@@ -183,20 +182,3 @@ void CServer::registerService(char* host, unsigned short port) {
 }
 
 
-bool CServer::sendAll(long fd, char* buffer) {
-
-  //here, we'll makre sure all our data is sent
-  long total = 0;    
-  long length = strlen(buffer);
-  long bytesleft = length;
-  long n;
-
-        while(total < length) {
-            n = send(fd, buffer+total, bytesleft, 0);
-            if (n == -1) { break; }
-            total += n;
-            bytesleft -= n;
-        }
-
-        return (n == -1) ? false : true; 
-}

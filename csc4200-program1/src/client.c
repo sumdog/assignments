@@ -153,7 +153,6 @@ short socketConnect(char *host,unsigned short port,char *sendbuf,char *recievebu
   }
 
   //send request
-  printf("%s333\n",sendbuf);
   if( fputs(sendbuf,nstream) == EOF) {
     fclose(nstream);
     close(sockfd);
@@ -207,19 +206,39 @@ short serviceLookup(cmd_t *cmd, ns_t *ns){
   return 0; 
 }
 
-
+// 0  on failure
+// 1  on success
+// -1 on undefined response 
 short runCommand(cmd_t *cmd, char *output, long bufsize){
 
+  //setup our buffers
   char recvbuf[BUFFER];
+  recvbuf[BUFFER-1] = '\0';
   char sendbuf[BUFFER];
+  sendbuf[BUFFER-1] = '\0';
+
+  //format our command to send to server
   sprintf(sendbuf,"I:%s",cmd->command);
   
+  //connect and send that command
   short c = socketConnect(cmd->host,cmd->port,&sendbuf[0],&recvbuf[0],BUFFER);
   if(c != 0) { return c; } //error
 
-  printf("2%s2\n",&recvbuf[0]);
+  //output result to user
+  switch(recvbuf[0]) {
+  case 'E':
+    printf("<<ERROR>> %s",&recvbuf[2]);
+    return 0;
+    break;
+  case 'A':
+    printf("Response: %s",&recvbuf[2]);
+    return 1;
+    break;
+  default:
+    printf("<<Unknown Response>> %s",&recvbuf[0]);
+    return -1;
+  }
 
-  return 0;
 }
 
 

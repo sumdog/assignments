@@ -166,7 +166,7 @@ ns_t* getNameserver(char *config) {
 
   //config files
   if(config == NULL) {
-    temp = (char*) malloc(sizeof(char)*strlen(getenv("HOME")));
+    temp = (char*) malloc(  (sizeof(char)*strlen(getenv("HOME")))+1  );
     strcpy(temp,getenv("HOME"));
     strcpy(cfg,temp);
     strcat(cfg,"/");
