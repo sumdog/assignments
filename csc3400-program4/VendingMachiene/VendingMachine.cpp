@@ -32,3 +32,13 @@ double VendingMachine::selectItem(Item e) {
     return change;
   }
 }
+
+double VendingMachine::peekMoneyTray() {
+  return total_money;
+}
+
+double VendingMachine::emptyMoneyTray() {
+  double temp = total_money;
+  total_money = 0;
+  return temp;
+}
