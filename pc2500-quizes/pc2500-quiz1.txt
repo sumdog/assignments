@@ -1,0 +1,31 @@
+1. Technical writing (and by extension, oral presentation) is: (List the
+four characteristics I gave in class.)
+
+Technical writing, unlike expository writing, isn't creative or designed to stir emotions. It should be kept relatively short, to the point and have clear directions and goals. Four key characteristic of technical writing (and all other forms of technical communication including oral presentations, video tutorials, professional web pages, etc) include the following:
+
+Factual - All technical writing should be based on facts and statistics with well cited sources or research.
+
+Objective - Technical writing is not persuasive nor does it stir emotions.
+
+Prose (written work only) - Paragraphs should be well formed and grammatically correct, weather it's part of a document or a caption for a picture or table.
+
+Audience - Technical writing and presentations are usually targeted for a very specific audience. If your audience includes experts in the field, you can use lots of terminology that they should be expected to be familiar with (example: a factory car service manual). For a more general audience, you may need more explanation, "layman's terms," cross references and an index (example: a Chilton's or Haynes car manual).
+
+
+2. The key to effective technical writing is "straightforward simplicity."
+What does this simplicity mean in regards to such elements as sentence
+style, sentence length, and paragraphs.
+
+Typically, a writer or presenter doesn't expand very much. Instead they keep everything straightforward and easy to read. Sentences are usually short and may seem choppy (17 words on average). There is often a constant repetition of main points. A paragraph will usually only contain one briefly developed idea (35 to 40 words or 3 to 4 sentences). It is not untypical for some paragraphs to contain only one well-written sentence.
+
+3. Technical writing and oral presentations rely heavily on visual aids,
+which include (list four).
+
+Presenters can use a wide variety of visual aids. Some aids discussed in class included Graphs, Charts, Pictures and Tables. There are also a wide variety of ways to present visual aids. You could simply hold them up or place them on a easel, being careful to make sure all the print is large enough to be seen from all corners of the room. You could also use overheads, handouts, projectors, or video screens.
+
+There's also a wide variety of software, both free and commercial, available on the open market to help make presentations. Such software includes Harvard Graphics, Open Office Presenter, Macromedia Flash/Shockwave and Microsoft Power Point.
+
+
+
+
+
