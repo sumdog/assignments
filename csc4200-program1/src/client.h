@@ -31,6 +31,7 @@ short serviceLookup(cmd_t *cmd, ns_t *ns);
 
 void runCommand(cmd_t *cmd, char *output, long bufsize);
 
+void freeNameserver(ns_t *t);
 
 
 #endif /** CLIENT_H */
