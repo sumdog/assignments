@@ -1,3 +1,6 @@
+#ifndef CNAM_H
+#define CNAM_H
+
 #include "CServer.h"
 #include <map>
 #include <string>
@@ -23,8 +26,8 @@ class CNameServer : public CServer {
   virtual void processRequest(command_t *t, char* retval);
 
  public:
-  CNameServer(char* ip, unsigned short port, long backlog);
+  CNameServer(unsigned short port, long backlog);
 
 };
 
-
+#endif /** CNAM_H */

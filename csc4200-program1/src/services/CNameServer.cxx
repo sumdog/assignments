@@ -3,10 +3,10 @@
 #include <string>
 #include <stdio.h>
 
-CNameServer::CNameServer(char* ip, unsigned short port, long backlog) : CServer(ip,port,backlog) {
+CNameServer::CNameServer(unsigned short port, long backlog) : CServer(port,backlog) {
 
   servicemap = new servicemap_t();
-
+  strcpy(name,"name");
 }
 
 void CNameServer::processRequest(command_t *t, char* retval) {

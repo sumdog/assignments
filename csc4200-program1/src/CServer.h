@@ -1,6 +1,10 @@
+#ifndef CSVR_H
+#define CSVR_H
+
 #include <sys/types.h>
 #include <sys/socket.h>
 
+#define NAME_SIZE 20
 #define BUFFER_SIZE 256
 #define MAX_ARGS 50
 #define CMD_ERR 'E'
@@ -23,6 +27,7 @@ class CServer {
   struct sockaddr_in *remote_addr;
   long sockfd;
   long backlog;
+  unsigned short port;
 
   static void* serverThread(void* cserver);
   command_t* parseCommand(char *cmd);
@@ -30,12 +35,13 @@ class CServer {
 
  protected:
   virtual void processRequest(command_t *t, char *retval);
+  char name[NAME_SIZE];
 
  public:
-  CServer(char* ip, unsigned short port, long backlog);
+  CServer(unsigned short port, long backlog);
   ~CServer();
   void runService();
-
+  void registerService(char* host, unsigned short port);
 };
 
 typedef struct serverinfo {
@@ -47,4 +53,4 @@ typedef struct serverinfo {
 
 
 
-
+#endif /** CSVR_H */

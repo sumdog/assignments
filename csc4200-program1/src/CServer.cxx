@@ -8,13 +8,17 @@
 #include "unistd.h"
 #include <string>
 #include <stdio.h>
+#include "ERegister.h"
+#include <unistd.h>
 
-CServer::CServer(char* ip, unsigned short port, long backlog) {
+CServer::CServer(unsigned short port, long backlog) {
 
   //setup class variables
   local_addr = new sockaddr_in;
   remote_addr = new sockaddr_in;
   this->backlog = backlog;
+  strcpy(name,"default");
+  this->port = port;
 
   //socket file discriptor
   sockfd = socket(AF_INET,SOCK_STREAM,0);
@@ -134,3 +138,36 @@ void CServer::runService() {
 }
 
 
+void CServer::registerService(char* host, unsigned short port) {
+
+  //who am i
+  char me[100];
+  gethostname(&me[0],100);
+
+  //resolve hostname
+  struct hostent *hostname = gethostbyname(host);
+  if(!hostname) {
+    //error looking up host
+    throw ERegister(std::string("Invalid Nameserver Hostname"));
+  }
+
+  //fill our our socket connection struct
+  struct sockaddr_in nameserver;
+  nameserver.sin_family = AF_INET;
+  nameserver.sin_port   = htons(port);
+  nameserver.sin_addr   = *((struct in_addr*)hostname->h_addr);
+  memset(nameserver.sin_zero,'\0',8);
+
+  //connect to name server
+  long sockfd = socket(AF_INET, SOCK_STREAM, 0);
+  if( connect(sockfd, (struct sockaddr *)&nameserver, sizeof(struct sockaddr)) == -1 ) {
+    throw ERegister(std::string("Could Not Connect To Nameserver"));
+  }
+  else {
+    //send our registration data
+    char regdata[BUFFER_SIZE];
+    sprintf(regdata,"R:%s:%s:%d\n",name,me,this->port);
+    send(sockfd,regdata,strlen(regdata),0);
+    close(sockfd);
+  }
+}

@@ -1,3 +1,6 @@
+#ifndef ESVR_H
+#define ESVR_H
+
 #include <string>
 
 class EServer {
@@ -10,3 +13,5 @@ class EServer {
   std::string getMsg();
 
 };
+
+#endif /** ESVR_H */
