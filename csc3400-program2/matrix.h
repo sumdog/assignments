@@ -14,3 +14,11 @@ void fillMatrix(matrix_t *matrix);
 void deleteMatrix(matrix_t *matrix);
 
 void printMatrix(matrix_t *matrix);
+
+matrix_t* addMatrix(matrix_t *a, matrix_t *b);
+
+matrix_t* subtractMatrix(matrix_t *a, matrix_t *b);
+
+short equalMatrix(matrix_t *a, matrix_t *b);
+
+void scalarMatrix(matrix_t *a, double scalar);
