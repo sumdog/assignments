@@ -7,16 +7,18 @@ class CLinkList {
   
 public:
   CLinkList();
-  CLinkList(CLinkList l1, CLinkList l2);
   ~CLinkList();
   void addElement(atom_t a);
   void deleteElement(atom_t a);
-  bool isEqual(CLinkList ll);
   unsigned long numelements();
+  CLinkList operator+(CLinkList l);
+  bool operator==(CLinkList l);
+  bool operator!=(CLinkList l);
 
 private:
   list_t *list;
-  
+  CLinkList(list_t *l);
+
 };
 
 

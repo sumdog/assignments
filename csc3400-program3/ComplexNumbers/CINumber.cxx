@@ -1,3 +1,12 @@
+/***********************************************************
+ *File: CINumbers.cxx
+ *
+ *  Sumit Khanna - CSC3400 - Rama
+ *
+ *Contains: Implementation of CINumber class
+ *
+ *See:      CINumbers.hpp - for class definition
+ ***********************************************************/
 #include "CINumber.hpp"
 #include <iostream>
 using std::cout;

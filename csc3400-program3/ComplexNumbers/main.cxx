@@ -1,3 +1,13 @@
+/***********************************************************
+ *File: main.cxx
+ *
+ *  Sumit Khanna - CSC3400 - Rama
+ *
+ *Contains: Driver for testing Complex Number Class
+ *
+ *See:      CINumbers.cxx for Complex Number Class functions
+ *          CINumbers.hpp for Complex Number Class definition
+ ***********************************************************/
 #include "CINumber.hpp"
 #include <iostream>
 using std::cout;

@@ -1,3 +1,13 @@
+/***********************************************************
+ *File: CINumbers.hpp
+ *
+ *  Sumit Khanna - CSC3400 - Rama
+ *
+ *Contains: Definition of CINumber class for
+ *          handeling complex numbers
+ *
+ *See:      CINumbers.cxx for function discriptions
+ ***********************************************************/
 #ifndef CINUMBER
 #define CINUMBER
 
