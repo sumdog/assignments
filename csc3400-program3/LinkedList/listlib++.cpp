@@ -1,5 +1,14 @@
+/*****************************************
+ *These LinkList and ListIterator classes
+ *are implemented as wrappers for the C
+ *classes by abstracting data using 
+ *private fields. They are linked to the C
+ *shared object files (.so) at compile time
+ ******************************************/
+
 #include "listlib.h"
 #include "listlib++.hpp"
+#include <cstdlib>
 
 CLinkList::CLinkList() {
   list = lst_null(new_node());
@@ -40,4 +49,30 @@ void CLinkList::deleteElement(atom_t a) {
 
 unsigned long CLinkList::numelements() {
   return lst_count(list);
+}
+
+CListIterator CLinkList::getIterator() {
+  return CListIterator(list);
+}
+
+CListIterator::CListIterator(list_t *l) {
+  list = lst_null(new_node());
+  lst_copy(l,list);
+  current = list->head->next;
+}
+
+CListIterator::~CListIterator() {
+  lst_free(list);
+}
+
+atom_t CListIterator::getElement(){
+  return current->element;
+}
+
+void CListIterator::operator++() {
+  current = current->next;
+}
+
+bool CListIterator::hasMore() {
+  return (current->next == NULL) ? false : true;
 }

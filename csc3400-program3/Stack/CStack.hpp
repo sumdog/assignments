@@ -1,3 +1,9 @@
+/************************************
+ *CStack - a class to handle a stack
+ *  see CStack.cxx for function
+ *  discriptions
+ ***********************************/
+
 #ifndef CSTACK_H
 #define CSTACK_H
 

@@ -1,3 +1,8 @@
+/***************************************
+ *a driver for the c++ implementation
+ *of our Linked List
+ **************************************/
+
 #include "listlib++.hpp"
 #include <iostream>
 #include <unistd.h>
@@ -29,8 +34,17 @@ int main() {
     list->addElement((atom_t) in);
     if(tty) { cout << ">>>"; }
   }
+  
+  cout << endl << endl;
 
   //display list
-  
+  CListIterator iter = list->getIterator();
+  cout << "{ ";
+  while(iter.hasMore()) {
+    long temp = (long) iter.getElement();
+    cout << temp << " ";
+    ++iter;
+  }
+  cout << "}" << endl;
 
 }

@@ -1,3 +1,8 @@
+/********************************
+ *CStr - Class to handle strings
+ *  see CStr.cxx for function
+ *  discriptions
+ ********************************/
 #ifndef CSTR_H
 #define CSTR_H
 #include <string.h>

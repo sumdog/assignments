@@ -1,3 +1,10 @@
+/*******************************************
+ *C Functions to handle a linked list
+ *
+ * exter "C" is defined when a c++ compiler
+ * is used to make these functions avaiable 
+ * to c++ classes
+ *******************************************/
 #ifndef LISTLIB_C
 #define LISTLIB_C
 

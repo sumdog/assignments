@@ -1,3 +1,8 @@
+/***************************
+ *driver to test CStr class
+ ***************************/
+
+
 #include "CStr.hpp"
 #include <iostream>
 using std::cout;

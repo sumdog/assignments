@@ -1,0 +1,138 @@
+Script started on Fri Apr 11 01:48:21 2003
+]0;skhanna@sumdog:~/class-working/csc3400-program3[skhanna@sumdog csc3400-program3]$ cd CStr/
+]0;skhanna@sumdog:~/class-working/csc3400-program3/CStr[skhanna@sumdog CStr]$ g++ CStr.cxx main.cxx -o main
+]0;skhanna@sumdog:~/class-working/csc3400-program3/CStr[skhanna@sumdog CStr]$ ./main
+String 1:            Hello
+String 2:            World
+String 3:            GoodBye
+String 4:            World
+String1 and String2: HelloWorld
+String1  == String4: The two strings are not equal
+String2  != String4: The two strings are equal
+]0;skhanna@sumdog:~/class-working/csc3400-program3/CStr[skhanna@sumdog CStr]$ cd ..
+]0;skhanna@sumdog:~/class-working/csc3400-program3[skhanna@sumdog csc3400-program3]$ cd CO omplexNumbers/
+]0;skhanna@sumdog:~/class-working/csc3400-program3/ComplexNumbers[skhanna@sumdog ComplexNumbers]$ g++ CINumber.cxx main.cxx -o main
+]0;skhanna@sumdog:~/class-working/csc3400-program3/ComplexNumbers[skhanna@sumdog ComplexNumbers]$ ./main 
+Enter the First complex Number:	Real part followed by the imaginary part:	1 2
+Enter the First complex Number:	Real part followed by the imaginary part:	-4 5
+Enter the First complex Number:	Real part followed by the imaginary part:	12 6
+Enter the First complex Number:	Real part followed by the imaginary part:	-12 4
+Complex (c1): 		1 + 2i
+Complex (c2): 		-4 + 5i
+Complex (c3): 		12 + 6i
+Complex (c4): 		-12 + 4i
+Sum(c1 + c2):		-3 + 7i
+Difference(c1 - c2):		5 + -3i
+Product(c1 * c2):		-14 + -3i
+Test for Equality(c1 == c3)		The numbers are not equal
+Test for Inequality(c2 != c4)		The numbers are not equal
+]0;skhanna@sumdog:~/class-working/csc3400-program3/ComplexNumbers[skhanna@sumdog ComplexNumbers]$ cd ..
+]0;skhanna@sumdog:~/class-working/csc3400-program3[skhanna@sumdog csc3400-program3]$ (arg: 1) [K4) [skhanna@sumdog csc3400-program3]$ d S   cd Stack/
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ g++ CStack.cxx EStack.cxx main.cxx -o main
+EStack.cxx:1:20: EStack.h: No such file or directory
+EStack.cxx:4: syntax error before `::' token
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ g++ CStack.cxx EStack.cxx main.cxx -o main
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ ./main 
+Enter a String: 
+bob
+bob is a Palindrome
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ ./main 
+Enter a String: 
+retty
+retty is not a Palindrome
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ ./main 
+Enter a String: 
+b.,.o.,[ '"b
+bob is a Palindrome
+]0;skhanna@sumdog:~/class-working/csc3400-program3/Stack[skhanna@sumdog Stack]$ cd ../LinkedList/
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ gcc listlib.c main.c -o main
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ gcc -fPIC -c listlib.c
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ld -shared -soname liblist.so.1 -o liblist.so.1.0 - lc listlib.o
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ln -fs liblist.so.1.0 liblist.so
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ln -fs liblist.so.1.0 liblist.soist.so.1
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ g++ listlib++.cpp main++.cpp -L.  I. -llist -i   o main++
+/usr/bin/ld: cannot find -llist
+collect2: ld returned 1 exit status
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ g++ listlib++.cpp main++.cpp -I. -llist -o main++[1P[1P[1P[1P[1P[1P[1P-o main++[1P[1@L. -[1@-[1@I[1@.[1@ -[1@-[1@l[1@l[1@is-o main++ [Askhanna@sumdog LinkedList]$ g++ listlib++.cpp main++.cpp -L. -I. -llist-o main
++[Askhanna@sumdog LinkedList]$ g++ listlib++.cpp main++.cpp -L. -I. -llist -o main++[Akhanna@sumdog LinkedList]$ g++ listlib++.cpp main++.cpp -L. -I. -llist 
+
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ./main
+Linked List -- Interactive Mode
+Enter a list, one integer per line
+Exit with ^D
+>>>1
+>>>4
+>>>5
+>>>7
+>>>9
+>>>8
+>>>
+Linked List:
+{ 1 4 5 7 9 8 }
+Number of Elements: 6
+
+Linked List -- Interactive Mode
+Enter a list of integers to be deleted
+One per line. End with ^D
+>>>5
+>>>7
+>>>
+
+Original Linked List:
+{ 1 4 5 7 9 8 }
+Number of Elements: 6
+
+New Linked List:
+{ 1 4 9 8 }
+Number of Elements: 4
+
+Lists are not equal.
+
+Concatinated Linked List:
+{ 1 4 5 7 9 8 1 4 9 8 }
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ./main
+Linked List -- Interactive Mode
+Enter a list, one integer per line
+Exit with ^D
+>>>1
+>>>2
+>>>3
+>>>4
+>>>
+Linked List:
+{ 1 2 3 4 }
+Number of Elements: 4
+
+Linked List -- Interactive Mode
+Enter a list of integers to be deleted
+One per line. End with ^D
+>>>
+
+Original Linked List:
+{ 1 2 3 4 }
+Number of Elements: 4
+
+New Linked List:
+{ 1 2 3 4 }
+Number of Elements: 4
+
+Lists are equal.
+
+Concatinated Linked List:
+{ 1 2 3 4 1 2 3 4 }
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ./main++
+./main++: error while loading shared libraries: liblist.so.1: cannot open shared object file: No such file or directory
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ ./main++[1@L[1@D[1@_[1@L[1@I[1@R[1@A[1@R[1@Y[1P[1P[1P[1P[1P[1P[1@L[1@I[1@B[1@R[1@A[1@R[1@Y[1@_[1@+[1P[1@P[1@A[1@T[1@H[1@=.[1@.[1@ 
+Linked List (C++) -- Interactive Mode
+Enter a list, one integer per line
+Exit with ^D
+>>>2
+>>>4
+>>>77
+>>>9
+>>>>>>
+
+{ 2 4 77 9 }
+]0;skhanna@sumdog:~/class-working/csc3400-program3/LinkedList[skhanna@sumdog LinkedList]$ exit
+
+Script done on Fri Apr 11 02:13:42 2003
