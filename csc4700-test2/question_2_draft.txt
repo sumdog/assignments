@@ -1,0 +1,29 @@
+Apache and Mozilla came from two very different backgrounds, but have both been sucessful open source projects. Apache started out as a desperate attempt by system administrators to maintain the NCSA webserver after NCSA stopped active development. (httpd.apache.org). Mozilla was started by the Netscape corporation during a time when Netscape was losing it's webbrowser market to Microsoft's Internet Explorer (which ironically was based off NCSA's Moasic). Netscape was one of the first major corporations to open it's source code to the public domain as an open source development project. Although both projects had different objectives, approaches and designs, they are both considered very successful open source projects by todays standards.
+
+Security
+
+Bug Tracking
+
+Usability
+
+During it's early development years, Mozilla was sadly a very unusable product. It was based off Netscape 6.x and it's Gecko HTML rendering engine and the early de-engineering/re-engineering became tedious and bug ridden. It gave birth to the Bugzilla bug tracking system which has also been a huge success of the Mozilla team as one of the most powerful open source bug tracking and managment tools. 
+
+As Mozilla development contined, the product kept getting more and more stable. People who supported Mozilla by testing each beta release noticed the changes and how Mozilla would stop crashing as frequently. By the time Mozilla got into it's .9x serise, it was turning out to be a decent web browser. The 1.0 release was what set the stage for Mozilla. It's first stable release and full window install proved to the world that Netscape hard work was not dead, but is alive, kicking, stable and ready to be put to use on home computers as a fullly functional replacment to Interent Explorer.
+
+
+
+
+Testing
+
+
+
+Foundations
+
+The most notable thing to notice about Mozilla and the Apache is that there is no "Mozilla" produce or "Apache" produce. There is the "Apache HTTP Daemon" and the "Mozilla Web Browser." Why should sementatics matter? Although these groups started to support one product, they've grown into huge open source foundations. Apache has several projects under the Apache name including Ant (java build utility) and Tomcat (java servlet engine). Mozilla's sub projects include scaled down version of their web browser and mail clients.
+
+Browsing both orginizations websites will show you massive lists of projects, subprojects, branches of current projects and project proposals. These originizations aren't nesceserally centered around one project anymore, but have branced into making all kinds of new tools to help better support open souce software development and the free software community.
+
+
+
+Works Cited
+http://httpd.apache.org/ABOUT_APACHE.html
