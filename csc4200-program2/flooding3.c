@@ -183,6 +183,7 @@ typedef struct {
 
 #define TR_HEADER_SIZE     (sizeof(int)+ (sizeof(unsigned int)*2) + sizeof(tl_packet))
 #define TR_PACKET_SIZE(p) (TR_HEADER_SIZE + p.length)
+#define TR_PACKET_SIZE_PTR(p) (TR_HEADER_SIZE + p->length)
 
 /* END PROTOTYPE HEADER */
 
@@ -192,8 +193,14 @@ static void up_to_transport(char *msg, int *len, CnetAddr source) {
   p = (TR_PACKET*) msg;
   
   if(p->type == MSG) {
-
+    if( p->checksum == checksum_crc32( msg + sizeof(unsigned int),
+				       RE_PACKET_SIZE_PTR(p) - sizeof(unsigned int)) ) {
+      /* good packet */				 
       CHECK(CNET_write_application(p->msg,&(p->length)));
+    }
+    else {
+      /* bad packet, send NAC */
+    }
 
   }
   else if(p->type == ACK) {
