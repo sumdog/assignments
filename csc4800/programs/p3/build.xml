@@ -1,0 +1,47 @@
+<project name="csc4800p3" default="all" basedir=".">
+
+  <!--globals-->
+  <property name="src" value="./src" />
+  <property name="sbin" value="./bin_server" />
+  <property name="abin" value="./bin_applet" /> 
+
+  <!--create build directory-->
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${sbin}" />
+    <mkdir dir="${abin}"  />
+  </target>
+
+  <!--compile all source files-->
+  <target name="compile_applet" depends="init">
+    <javac srcdir="${src}" destdir="${abin}" debug="off" optimize="on"
+      includes="sum/RMIApplet.java,sum/gui/*,sum/net/RemoteEcho.java"
+    />
+  </target>
+
+  <target name="compile_server" depends="init">
+    <javac srcdir="${src}" destdir="${sbin}" debug="off" optimize="on" 
+      includes="sum/RMIServer.java,sum/net/*"
+    />
+    <rmic base="${sbin}" classname="sum.net.RemoteObject" />
+  </target>
+
+  <!--clean up compiled class files-->
+  <target name="clean">
+    <delete dir="${sbin}" />
+    <delete dir="${abin}" />
+    <delete file="RMIServer.jar" />
+    <delete file="RMIApplet.jar" />
+  </target>
+
+  <target name="jar_server" depends="compile_server">
+    <jar destfile="./RMIServer.jar" basedir="${sbin}" manifest="./s_manifest.txt" />
+  </target>
+    
+  <target name="jar_applet" depends="compile_applet">
+    <jar destfile="./RMIApplet.jar" basedir="${sbin}" />
+  </target>
+
+  <target name="all" depends="jar_server,jar_applet" />
+
+</project>
