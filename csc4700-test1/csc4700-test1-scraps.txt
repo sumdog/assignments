@@ -1,0 +1,44 @@
+A disadvantage of object orientated design is that you could increase the complexity of a problem that doesn't lend itself well to object orientated design. An example of that is web development. ASP is a web development language that feels like a graphical toolkit. It wraps HTML rendering within several classes that are very similar to graphical toolkits used in application design. Although this adds a nice layer of abstraction for programs who arn't use to dealing with HTML, it's also a thick layer of abstraction that could cause performance delays and increases the complexity of simply web design.
+
+Another example is PHP. It's a non-object orientated scripting language (It supports objects, but they're rarely used and don't support private methods or fields) that basically adds a powerful scripting layer to regular HTML. If designed well, it's possible to have a very modular website designed in PHP without the overhead involved with objects.
+
+
+Use Case Diagrams
+
+Use cases are typically used as a top-down approach (looking at the end result and building a solutiuon). The best way to think of use case diagrams is a way to describe seceneros you'd want the end user to be able to perform. Use cases diagrams are typically composed of actors which are represented by stick men and cases which are represented by little bubbles. 
+
+Use cases are good for presenting a concept for a design in a very easy to understand fassion. Non-computer people can usually understand the diagrams after some basic explanation which makes them ideal for showing clients and non-engeneering people who are involved in a project.
+
+Class Diagrams
+
+A Class Diagram is typically used to break down the problem into a serise of classes. The diagrams represent each class with a box. The box contains three sections, one for the class name, another for the class constructor and methods and a third for variable defined within that class. Arrows are used to relate one class to another. A 1 or m is typically placed next to an arrow to indicate the type of relationship. You can have 1 to 1 (only one instance of each class exists and they talk directly to each other), 1 to many (one instance of a class talks to many instances of another class), many to 1 and many to many (many instances of a class will talk to many instances of the other class which is very bad!).
+
+Class Diagrams are useful tools for trying to break down the problem/project into workable classes/modules and to see how the classes/modules will talk to each other.
+
+
+Sequence Diagrams
+
+
+
+7)
+One example of a non-exucution testing technique is called a "Code Walkthough," during which a team of programms will look at your code (e.g. on an overhead) and step through each class, subroutiene and method during which time they may ask questions, call out mistakes and scrutunize your code. Although it can be very helpful way to examine code, it's not always the best for the pride of the programmer who's doing the walk-through.
+
+8)
+Coupling is used to describe how a given module interacts with other modules. Cohesion is how powerful, self-sufficent and independent a given module is. Typically it's better to have low coupling and high Cohesion. You want your modules to be faily independent. This allows for easier testing (If your module makes calls to 15 other modules for it's data, it's hard to find who's at fault) as well as making it easier to reuse. You also want them to be fairly powerful in-and-of-themselves or Cohesive so that you don't have a bunch of smaller modules coupled together that should really be done by one cohesive object. 
+
+
+9)
+One way to promote code reuse is offering cash bonuses and rewards to programmers who reuse a significant segment of code. Another way to promote reuse is to encourge programmers to develop current projects in such a way as to make the code easy for reuse.
+
+An example of a disadvantage to code reuse is the the fact that often times, a programmer will generate code for a specific problem. Although there may be errors that would occur in general, the programmer may determine none of those errors will occure in the way the person who's using his module designs their implementation. If you take this code later and try to adapt it to something else, you may run into unchecked excpetions. An example of this in class was the European Space program and their $500 million dollar failed rocket that died becasue it couldn't convert a 64-bit integer to a 16-bit short. 
+
+
+
+Spirial Desing) The Spirial design follows the stages of the waterfall, but in contrast, the design starts very rough and becomes more detailed over time (http://asd-www.larc.nasa.gov/barkstrom/public/The_Standard_Waterfall_Model_For_Systems_Development.htm)
+
+Incremental Model) 
+With the Incremental model, after each cycle, you will have a completed product. The idea behind the Incremental Model is to start with the most basic design requirments and with each successive build, incorporate more of what's required. This has several advantages. Each phase is a "mini-waterfall," maintance is implemented directly into the model (each new increment can be though of as maintaing the previous build), and you development team could stop early if the end consumer is satified with the end product of one of the cycles. 
+
+The disadvantages include having lots of proto-types you'll have to throw away from the early cycles and no clear rational for starting a new phase. 
+
+http://www.cc.gatech.edu/computing/SW_Eng/people/Faculty/Colin.Potts/Courses/3302/1-08-mgt/sld011.htm
