@@ -4,6 +4,7 @@
  */
 #include "problems.h"
 #include "prob1.h"
+#include "prob2.h"
 #include "prob5.h"
 #include "prob6.h"
 #include <string.h>
@@ -59,4 +60,12 @@ void runProblemSix( double n , short type) {
  */ 
 short runProblemFive(char *s) {
   return p5testPalindrome(s);
+}
+
+/**\fn void runProblemTwo()
+ *This function takes user input and calculates
+ *sales totals.
+ */
+void runProblemTwo(){
+  p2sales();
 }

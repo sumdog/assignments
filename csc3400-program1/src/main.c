@@ -10,6 +10,8 @@ void usage() {
   printf("\nPrograms\n--------\n");
   printf("1 Takes input from standard in to form\n");
   printf("  two sets and preform calculations on them\n");
+  printf("2 Take input from standard in to form a two dimensional\n");
+  printf("  array that holds sales information.\n");
   printf("5 [-s] string -- Takes a String and determines\n");
   printf("  if it is a palindrome while ignoring spaces, \n");
   printf("  punctuation, and all ASCII values between 65 and 122.\n");
@@ -79,6 +81,9 @@ int main(int argc, char** argv) {
     else {
       usage();
     }
+  case 2:
+    runProblemTwo();
+    break;
   default:
     usage();
   }

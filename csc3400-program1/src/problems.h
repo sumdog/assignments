@@ -18,3 +18,9 @@ void runProblemSix( double n , short type);
  *\return 1 if true, 0 if false
  */
 short runProblemFive(char *s);
+
+/**
+ *\fn void runProblemTwo()
+ *\brief solves problem two
+ */
+void runProblemTwo();
