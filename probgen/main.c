@@ -56,11 +56,49 @@ int main(int argc, char* argv[]){
     printf("100:  %lf\n",convergenceTest(1,100));
     printf("500:  %lf\n",convergenceTest(1,500));
     printf("1000: %lf\n",convergenceTest(1,1000));
+    printf("\n\n");
   }
 
   //setup counter for CV
   int count = 0;
-  
+
+  //setup upper tail percentage points 
+  double tail;
+
+  switch (sample) {
+    case 5: {
+      tail = .117;
+      break;
+    }
+    case 10: {
+      tail = .142;
+      break;
+    }
+    case 15: {
+      tail = .151;
+      break;
+    }
+    case 20: {
+      tail = .157;
+      break;
+    }
+    case 25: {
+      tail = .160;
+      break;
+    }
+    case 50: {
+      tail = .170;
+      break;
+    }
+    case 100: {
+      tail = .175;
+      break;
+    }
+    default: 
+      tail = -1;
+      break;
+  }
+
   //test sample size with rep number of repititions
   for(x=0; x<rep; x++){
     double *ch1 = generateRandomChiSquareOne(sample);
@@ -71,8 +109,8 @@ int main(int argc, char* argv[]){
     double *w = getW(ch1,sample,ahat,bhat);
     double *z = getZ(ch1,w,sample);
     double w2 = getWSquared(ch1,z,sample);
-    
-    if(w2 > .142) {
+    printf("element0: %lf  avg: %lf  bhat: %lf  ahat: %lf  W^2: %lf\n",*(&ch1[0]),average,bhat,ahat,w2);
+    if(w2 > tail) {
       count++;
     }
   }
@@ -81,6 +119,16 @@ int main(int argc, char* argv[]){
   double power = count/rep;
 
   //print output
+  printf("\nSample Size: %d\nRepetitions: %d\n",sample,rep);
+  if( tail == -1 ){
+    printf("Critical Value for alpha = .1 is not our data for sample space %d.\n",sample);
+    printf("Please use a sample size of 5, 10, 15, 20, 25, 50 or 100 for simulated");
+    printf("power data.\n\n");
+  }
+  else {
+    printf("Critical Value for alpha = .1 is %lf\n",tail);
+    printf("Simulated Power: %lf\n\n",power);
+  }
   
 
 }//end main()

@@ -84,7 +84,7 @@ double getWSquared(double* data, double* z, int size){
   double sum=0;
   //loop
   for(x=0;x<size;x++,data++,z++){
-     sum = sum + (*z - ( (2 * *data -1)/(2*size) )  );
+     sum = sum + pow((*z - ( (2 * *data -1)/(2*size) )  ),2);
   }
   //return W Squared
   return sum + (1/(12*size)) ;
