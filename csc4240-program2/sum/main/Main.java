@@ -53,10 +53,10 @@ public class Main {
           try {
                 if(input.charAt(input.length()-1) == '?') {
                     //ask knowledge base something
-                    kb.askQuestion(new Element(input.substring(0,input.length()-1)));
+                    System.out.println(kb.askQuestion(new Element(input.substring(0,input.length()-1))));
                 }
                 else {
-                    try { kb.addFact(new Element(input));   }
+                    try { kb.addFact(new Element(input)); }
                     catch(KBException e) { System.err.println("Invalid Rule"); }
                 }
                 System.err.print("$");

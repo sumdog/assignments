@@ -17,5 +17,4 @@ public abstract class Argument {
     public String getArg() { return arg; }
     public void setArg(String s) { arg = s;  }
     public String toString() { return arg;  }
-
 }

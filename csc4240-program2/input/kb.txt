@@ -1,4 +1,4 @@
 motive(X) & opportunity(X) -> suspect(X)
 beneficiary(X) -> motive(X)
-no_alibi(X) & owns (X,Y) & weapon(Y) -> opportunity(X)
+no_alibi(X) & owns(X,Y) & weapon(Y) -> opportunity(X)
 wounds_consistent_with(X) -> weapon(X)

@@ -28,6 +28,10 @@ public class Element {
         }
     }
     
+    public boolean equals(Object o) {
+        return o.toString().equals(this.toString());
+    }
+    
     //this program restricts questions to only containing Constants (no variables)
     public boolean isValidQuestion() {
         for(int x=0; x<args.length; x++) {

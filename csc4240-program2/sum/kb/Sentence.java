@@ -76,7 +76,6 @@ public class Sentence {
     }
 
 	public boolean containsSubject(Element s) {
-
         for(int i=0; i < subject.size(); i++) {
             if( ((Element)subject.elementAt(i)).getIdentifer().equals(s.getIdentifer())  ) {
                 return true;
