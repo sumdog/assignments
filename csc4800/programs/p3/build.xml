@@ -4,34 +4,45 @@
   <property name="src" value="./src" />
   <property name="sbin" value="./bin_server" />
   <property name="abin" value="./bin_applet" /> 
+  <property name="dbin" value="./debug" />
+  <property name="bin" value="./bin" />
+
+  <target name="debug" depends="init">
+    <mkdir dir="${dbin}" />
+    <javac srcdir="${src}" destdir="${dbin}" debug="on" optimize="off" />
+    <rmic base="${dbin}" classname="sum.net.RemoteObject" verify="true" />
+  </target>
 
   <!--create build directory-->
   <target name="init">
     <tstamp/>
-    <mkdir dir="${sbin}" />
-    <mkdir dir="${abin}"  />
   </target>
 
   <!--compile all source files-->
   <target name="compile_applet" depends="init">
+    <mkdir dir="${abin}"  />
     <javac srcdir="${src}" destdir="${abin}" debug="off" optimize="on"
       includes="sum/RMIApplet.java,sum/gui/*,sum/net/RemoteEcho.java"
     />
   </target>
 
   <target name="compile_server" depends="init">
+    <mkdir dir="${sbin}" />
     <javac srcdir="${src}" destdir="${sbin}" debug="off" optimize="on" 
       includes="sum/RMIServer.java,sum/net/*"
     />
-    <rmic base="${sbin}" classname="sum.net.RemoteObject" />
+    <rmic base="${sbin}" classname="sum.net.RemoteObject" verify="true" />
   </target>
 
   <!--clean up compiled class files-->
   <target name="clean">
     <delete dir="${sbin}" />
     <delete dir="${abin}" />
+    <delete dir="${dbin}" />
+    <delete dir="${bin}" />
     <delete file="RMIServer.jar" />
     <delete file="RMIApplet.jar" />
+    <delete file="RMI.jar" />
   </target>
 
   <target name="jar_server" depends="compile_server">
@@ -39,7 +50,17 @@
   </target>
     
   <target name="jar_applet" depends="compile_applet">
-    <jar destfile="./RMIApplet.jar" basedir="${abin}" />
+    <jar destfile="./RMIApplet.jar" basedir="${abin}"  />
+  </target>
+
+  <target name="compile" depends="init">
+      <mkdir dir="${bin}" />
+      <javac srcdir="${src}" destdir="${bin}" debug="off" optimize="on" />
+      <rmic base="${bin}" classname="sum.net.RemoteObject" verify="true" />
+  </target>
+
+  <target name="jar" depends="compile">
+    <jar destfile="./RMI.jar" basedir="${bin}" manifest="./s_manifest.txt" />
   </target>
 
   <target name="all" depends="jar_server,jar_applet" />

@@ -5,12 +5,12 @@ package sum;
 import java.rmi.RMISecurityManager;
 import java.rmi.Naming;
 
-import sum.net.*;
+import sum.net.RemoteObject;
 
 /**
  * @author skhanna
  */
-public class RMIServer {
+public class RMIServer { 
 
 	
 	public static String rmihost;

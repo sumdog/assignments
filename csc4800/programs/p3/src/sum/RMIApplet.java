@@ -13,7 +13,7 @@ import java.rmi.Naming;
 /**
  * @author skhanna
  */
-public class RMIApplet extends Applet {
+public class RMIApplet extends Applet { 
 	
 	RemoteEcho robj;
 	
