@@ -22,11 +22,11 @@ import sum.graph.PValue;
 */
 public class XMLParser {
 
-    private Document doc;
+    private static Document doc;
     
-    private Graph graph;
+    private static Graph graph;
 
-    XMLParser(File file) {
+    public static Graph XMLParse(File file) {
         
         graph = new Graph();
         
@@ -151,7 +151,7 @@ public class XMLParser {
             
             //System.out.println(graph);
         }//end for()
-        System.out.println(graph);
+        return graph;
     }//end XMLParser()  (constructor)
 
 }//end class
