@@ -1,6 +1,7 @@
-#include "cnet_list.h"
 #include <cnet.h>
 #include <malloc.h>
+#include "cnet_list.h"
+
 
 /* head of linked list */
 static sequence_t *head = NULL;
@@ -9,7 +10,7 @@ static sequence_t *head = NULL;
 static sequence_t *current = NULL;
 
 /* Gets the sequence number of a given address */
-static unsigned long getSequence(CnetAddr addr) {
+unsigned long getSequence(CnetAddr addr) {
 
   sequence_t *temp = head;
   
@@ -25,7 +26,7 @@ static unsigned long getSequence(CnetAddr addr) {
 }
 
 /* adds and address to our linked list */
-static void addAddress(CnetAddr addr, unsigned long sequence) {
+void addAddress(CnetAddr addr, unsigned long sequence) {
   
   /* first element to add to list (special case) */
   if( head == NULL ) {
@@ -47,7 +48,7 @@ static void addAddress(CnetAddr addr, unsigned long sequence) {
 }
 
 /* sets an address's sequence number */
-static void setSequence(CnetAddr addr, unsigned long sequence) {
+void setSequence(CnetAddr addr, unsigned long sequence) {
 
   sequence_t *temp = head;
   

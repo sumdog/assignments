@@ -171,19 +171,16 @@ static void up_to_transport(char *msg, int *len, CnetAddr source);
 
 static void down_to_network(char *msg,int length, CnetAddr dest);
 
-typedef enum { ACK, NCK, MSG } tl_packet;
-
 typedef struct {
 
   unsigned int checksum;
   unsigned int sequence_number;
   int length;
-  tl_packet type;
   char msg[MAX_MESSAGE_SIZE];
 
 } TR_PACKET;
 
-#define TR_HEADER_SIZE     (sizeof(int)+ (sizeof(unsigned int)*2) + sizeof(tl_packet))
+#define TR_HEADER_SIZE     (sizeof(int)+ (sizeof(unsigned int)*2))
 #define TR_PACKET_SIZE(p) (TR_HEADER_SIZE + p.length)
 #define TR_PACKET_SIZE_PTR(p) (TR_HEADER_SIZE + p->length)
 
@@ -191,32 +188,21 @@ typedef struct {
 
 static void up_to_transport(char *msg, int *len, CnetAddr source) {
 
+  printf("Transport Layer is getting a packet\n");
+
   TR_PACKET *p;
   p = (TR_PACKET*) msg;
   
-  if(p->type == MSG) {
-    if( p->checksum == checksum_crc32( msg + sizeof(unsigned int),
-				       TR_PACKET_SIZE_PTR(p) - sizeof(unsigned int)) ) {
-      /* good packet */				 
-      CHECK(CNET_write_application(p->msg,&(p->length)));
-    }
-    else {
-      /* bad packet, send NAC */
-    }
-
-  }
-  else if(p->type == ACK) {
-  }
-  else if(p->type == NCK) {
+  if( p->checksum == checksum_crc32( msg + sizeof(unsigned int),
+				     TR_PACKET_SIZE_PTR(p) - sizeof(unsigned int)) ) {
+    /* good packet */				 
+    printf("Mmmm...Good packet\n");
+    CHECK(CNET_write_application(p->msg,&(p->length)));
   }
   else {
-    /* the type field is malformed...
-       since we're not sure what this is suposte 
-       to be..we'll just drop it and wait for it
-       to come around again
-    */
+    /* bad packet */
+    printf("Fuck...Bad, bad packet!\n");
   }
-  
 }
 
 
@@ -229,15 +215,15 @@ static void down_to_transport(CnetEvent ev, CnetTimer timer, CnetData data) {
   CnetAddr temp;
 
 
-  p.type = MSG;
   p.length = sizeof(p.msg);
   CHECK(CNET_read_application(&temp, p.msg, &p.length));
   CNET_disable_application(temp);
-
-  /* establish sequence number */
+  
+  /* establish sequence number */ 
   unsigned long seq = getSequence(temp);
   if( seq == -1) {
     addAddress(temp,0);
+    p.sequence_number = 0;
   }
   else {
     unsigned long newseq = seq + p.length;
@@ -245,14 +231,26 @@ static void down_to_transport(CnetEvent ev, CnetTimer timer, CnetData data) {
     p.sequence_number = newseq;
   }
 
-  /* p.sequence_number = 0; */
 
   p.checksum = checksum_crc32( ((char*)&p)+sizeof(unsigned int) 
 			       , TR_PACKET_SIZE(p) - sizeof(unsigned int));
   
-  down_to_network( (char*)&p , TR_PACKET_SIZE(p) , temp);
+ down_to_network( (char*)&p , TR_PACKET_SIZE(p) , temp); */
+  enqueuePacket((char*)&p, TR_PACKET_SIZE(p), temp);
+
+  CNET_start_timer(EV_TIMER1, 1000, (CnetData)1);
 }
 
+
+static void fire_queue(CnetEvent ev, CnetTimer timer, CnetData data) {
+  printf("Firing Packet From Queue\n");
+  packet_t temp = dequeuePacket();
+  if( temp.length != -1) {
+    printf("Sending Packet From Queue\n");
+    down_to_network( temp.msg, temp.length, temp.dest);
+    printf("Packet send to network layer\n");
+  }
+}
 
 
 /** end Transport------------------------------------------------------------*/
@@ -394,4 +392,8 @@ void reboot_node(CnetEvent ev, CnetTimer timer, CnetData data)
     init_NL();
 
     CNET_enable_application(ALLNODES);
+
+    /* added a timer to sending stuff from queue */
+    CNET_set_handler(EV_TIMER1, fire_queue, 0);
+    
 }

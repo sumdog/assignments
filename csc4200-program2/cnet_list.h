@@ -8,10 +8,11 @@ typedef struct sequence {
   struct sequence *next;
 } sequence_t;
 
-static unsigned long getSequence(CnetAddr addr);
 
-static void addAddress(CnetAddr addr, unsigned long sequence);
+unsigned long getSequence(CnetAddr addr);
 
-static void setSequence(CnetAddr addr, unsigned long sequence);
+void addAddress(CnetAddr addr, unsigned long sequence);
+
+void setSequence(CnetAddr addr, unsigned long sequence);
 
 #endif /* CNET_LIST */
