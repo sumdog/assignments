@@ -1,6 +1,8 @@
 #include <cnet.h>
 #include <stdlib.h>
 #include <string.h>
+#include "cnet_queue.h"
+#include "cnet_list.h"
 
 #define	MAXHOPS		4
 #define	ALL_LINKS	(-1)
@@ -194,7 +196,7 @@ static void up_to_transport(char *msg, int *len, CnetAddr source) {
   
   if(p->type == MSG) {
     if( p->checksum == checksum_crc32( msg + sizeof(unsigned int),
-				       RE_PACKET_SIZE_PTR(p) - sizeof(unsigned int)) ) {
+				       TR_PACKET_SIZE_PTR(p) - sizeof(unsigned int)) ) {
       /* good packet */				 
       CHECK(CNET_write_application(p->msg,&(p->length)));
     }
@@ -231,6 +233,18 @@ static void down_to_transport(CnetEvent ev, CnetTimer timer, CnetData data) {
   p.length = sizeof(p.msg);
   CHECK(CNET_read_application(&temp, p.msg, &p.length));
   CNET_disable_application(temp);
+
+  /* establish sequence number */
+  unsigned long seq = getSequence(temp);
+  if( seq == -1) {
+    addAddress(temp,0);
+  }
+  else {
+    unsigned long newseq = seq + p.length;
+    setSequence(temp,newseq);
+    p.sequence_number = newseq;
+  }
+
   /* p.sequence_number = 0; */
 
   p.checksum = checksum_crc32( ((char*)&p)+sizeof(unsigned int) 

@@ -3,7 +3,7 @@ propagationdelay = 100ms,
 bandwidth	 = 56Kbps,
 /*probframeloss    = 3,
 probframecorrupt = 4,*/
-compile		 = "-g flooding3.c"
+compile		 = "-g flooding3.c cnet_list.c cnet_queue.c"
 
 #include "AUSTRALIA.MAP"
 /*
