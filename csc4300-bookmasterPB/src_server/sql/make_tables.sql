@@ -12,7 +12,8 @@ CREATE TABLE bookmarks {
 	url   varchar(255),
 	datemod timestamp(24),
 	origin varchar(20),
-	fid int unsigned 
+	fid int unsigned,
+	del boolean
 };
 
 CREATE TABLE folder {
