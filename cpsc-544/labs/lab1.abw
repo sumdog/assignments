@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+</metadata>
+<history version="18" edit-time="7703" last-saved="1115254538" uid="7625a54c-bcee-11d9-8c34-cabb18a0b1a1">
+<version id="18" started="1115247559" uid="65c107c0-bd00-11d9-8c34-cabb18a0b1a1" auto="0"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-decoration:none; text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s followedby="Normal" name="Heading 1" basedon="Normal" type="P" props="keep-with-next:1; margin-top:0.3056in; font-weight:bold; margin-bottom:0.0417in; font-family:Arial; font-size:17pt"/>
+<s followedby="Normal" name="Contents 1" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; list-style:Numbered List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Normal" name="Contents 2" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; list-style:Numbered List; start-value:1; field-color:transparent; margin-left:1.0000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Normal" name="Contents 3" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; list-style:Numbered List; start-value:1; field-color:transparent; margin-left:1.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Normal" name="Contents 4" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; list-style:Numbered List; start-value:1; field-color:transparent; margin-left:2.0000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Normal" name="Numbered Heading 1" basedon="Heading 1" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Arial; text-indent:0.0in; list-style:Numbered List; tabstops:0.299306in/L0"/>
+<s followedby="Normal" name="Numbered Heading 2" basedon="Heading 2" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Arial; text-indent:0.0in; list-style:Numbered List; tabstops:0.299306in/L0"/>
+<s type="P" name="Square List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Square List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s type="P" name="Lower Roman List" basedon="Normal" followedby="Current Settings" props="list-delim:%L; list-decimal:.; list-style:Lower Roman List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s type="P" name="Diamond List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Diamond List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s type="P" name="Numbered List" followedby="Current Settings" props="list-delim:%L.; list-decimal:.; list-style:Numbered List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Current Settings" name="Endnote Text" basedon="Normal" type="C"/>
+<s type="P" name="Triangle List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Triangle List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s followedby="Normal" name="Numbered Heading 3" basedon="Heading 3" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Arial; text-indent:0.0in; list-style:Numbered List; tabstops:0.299306in/L0"/>
+<s type="P" name="Dashed List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Dashed List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s type="P" name="Upper Roman List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L; list-decimal:.; list-style:Upper Roman List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s followedby="Normal" name="Heading 4" basedon="Normal" type="P" props="keep-with-next:1; margin-top:0.3056in; font-weight:bold; margin-bottom:0.0417in; font-family:Arial; font-size:12pt"/>
+<s type="P" name="Heart List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Heart List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s followedby="Normal" name="Contents Header" basedon="Normal" type="P" props="keep-with-next:1; font-size:16pt; margin-bottom:0.0826in; font-weight:bold; text-align:center; font-family:Arial; margin-top:0.1667in"/>
+<s type="P" name="Upper Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; list-style:Upper Case List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s type="P" name="Bullet List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Bullet List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Symbol"/>
+<s type="P" name="Hand List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Hand List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s followedby="Normal" name="Heading 2" basedon="Normal" type="P" props="keep-with-next:1; margin-top:0.3056in; font-weight:bold; margin-bottom:0.0417in; font-family:Arial; font-size:14pt"/>
+<s followedby="Normal" name="Heading 3" basedon="Normal" type="P" props="keep-with-next:1; margin-top:0.3056in; font-weight:bold; margin-bottom:0.0417in; font-family:Arial; font-size:12pt"/>
+<s type="P" name="Tick List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Tick List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s type="P" name="Lower Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; list-style:Lower Case List; start-value:1; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:NULL"/>
+<s type="P" name="Block Text" basedon="Normal" followedby="Current Settings" props="margin-bottom:0.0826in; margin-right:1.0000in; margin-left:1.0000in"/>
+<s followedby="Normal" name="Section Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Section %L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Arial; text-indent:0.0in; list-style:Numbered List; tabstops:1.100000in/L0"/>
+<s type="P" name="Implies List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Implies List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Symbol"/>
+<s type="P" name="Box List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Box List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s type="P" name="Star List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; list-style:Star List; start-value:0; field-color:transparent; margin-left:0.5000in; text-indent:-0.2986in; field-font:Dingbats"/>
+<s followedby="Normal" name="Chapter Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Chapter %L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Arial; text-indent:0.0in; list-style:Numbered List; tabstops:1.100000in/L0"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" props="text-align:right"><c props="font-weight:bold">CPSC 544 - Network Security</c></p>
+<p style="Normal" props="text-align:right"><c props="font-weight:bold">Lab #1</c></p>
+<p style="Normal" props="text-align:right"><c props="font-weight:bold">Sumit Khanna</c></p>
+<p style="Heading 1">Buffer Overflows</p>
+<p style="Normal"></p>
+<p style="Normal">Buffer overflows are one of the most common and most dangerous forms of exploits. Lets take this piece of C code for example:</p>
+<p style="Normal"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">#include &lt;stdio.h&gt;</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">#include &lt;malloc.h&gt;</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">int main() {</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  char *a = malloc(sizeof(char)*100);</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  gets(a);</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">}</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">If you compile this on modern compilers, it will give you a warning stating that "gets() is dangerous." Why is that so? Well look at the code. We've allocated a region large enough to hold a string of 100 chars. What if we put in 101? We violate the segment bounds and could receive a segmentation fault. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">A careful hacker could pick apart a program with no bounds checking with a memory debugger and learn where the segment boundaries are. He or she could then fill up the buffer of 100 and then place in machine code after the buffer containing a jump to a subroutine that will get executed when the stack pointer returns. Within that code you could start a shell, and suddenly you are the user the program is running as. This could be very bad say if this exploit was in the web server or even worse, a service running as root!</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">How do we fix this very simply example of a buffer overflow? With the following:</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">#include &lt;stdio.h&gt;</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">#include &lt;malloc.h&gt;</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">#define BUFFER 100</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">int main() {</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  char *a = malloc(sizeof(char)*BUFFER);</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">  fgets(a,BUFFER,stdin);</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">}</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">As you can see, it is important that you never write to a pointer without knowing its size. Imagine a web server writing a URL to a pointer? In the above case, if the input exceeds the buffer size of 100, you can simply check the return value of fgets() to see if there anything left in the buffer to process, in effect only reading in 100 bytes at a time.</p>
+<p style="Heading 1">Man in the Middle (DHCP)</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Certain attacks are known as "Man in the Middle" where a person somehow intercepts traffic from users without their knowledge and without interrupting their service. A very simply man in the middle attack can be done on a LAN that uses DHCP.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Simply obtain a DHCP address from the DHCP server. Then start your own DHCP server on a second network interface (real or virtual) and route all traffic between the two interfaces via NAT. By means of proximity, certain systems will pick up an address from your DHCP server before they get an address from the "real" DHCP server. With you routing all their traffic, in effect it comes through your machine first and you become a gateway. You can then use filtering and dumping tools to view all their network traffic.</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">This is a simple example. In the world of the Internet there are many points that your data is routed between as it travels and any number of ISPs that can view your data. Effective protection against man in the middle attacks include using secure protocols for sensitive data (imaps, pops, https, ssh, etc.) or using secure tunnels/virtual private networks such as OpenVPN, IPSec and PPTP. </p>
+<p style="Heading 1">Sequence number Spoofing</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; font-style:italic"><c props="font-style:italic">http://lcamtuf.coredump.cx/newtcp/</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The most common protocol on the Internet is the TCP/UDP transport protocol which is built upon IP. UDP is a light weight protocol that doesn't guarantee data loss or in-order delivery. It's larger brother, TCP, does guarantee in-order delivery and provides CRC checks to prevent data loss. To be efficient, TCP sends a series of packets at once, each with their own sequence numbers,  and as it receives acknowledgments that packets have been received, it slides its sequence space, hence it is a "sliding window protocol"</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Predicting sequence numbers can be used to send a host packets that seem correct. When they receive the "actual" packet, having the same sequence number, the "real" packet is discarded and an acknowledgment is sent. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">They key to preventing sequence number spoofing is an algorithm within the network stack that provides a substantial amount of randomness for the sequence numbers on IP packets. The following websites has some very good comparisons between various operating systems: http://lcamtuf.coredump.cx/newtcp/</p>
+<p style="Heading 1">IDN Exploit in Mozilla</p>
+<p style="Normal" props="font-style:italic"><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:italic; lang:en-US">http://www.shmoo.com/idn/</c></p>
+<p style="Normal"></p>
+<p style="Normal">This is an interesting exploit as it affects Gecko Engine based browser (Mozilla, Firefox, Galeon, etc.) and Opera but not Internet Explorer (unless an IDN plug-in was installed). Don't get me wrong, I'm a heavy fan of Firefox and would recommend it over IE, and if anything this hole shows how the community can easily poke holes and even supply patches for exploits.</p>
+<p style="Normal"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The basis of the exploit is actually a feature: International Domain Name support  (IDN). An example can be show at the following link: "http://www.shmoo.com/idn/"</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">If the user clicks on the paypal.com link they are directed to ""http://www.p&amp;#1072;ypal.com/," which obviously contains a Unicode character. The way this address is rendered with IDN turned on makes the address look like "http://paypal.com." This even works for https and can spoof SSL certs! This is what is refereed to as a phishing attack: making someone believe their on a secure site, say their bank, and then giving away critical information. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The temporary solution was to turn off IDN support in Firefox buy typing in "about:config" into the address bar. In modern versions of Firefox, RACES has been replaced with PUNYCODE which would render the above paypal address as "www.xn--pypal-4ve.com"</p>
+<p style="Heading 1">Using ARP to implement transparent subnet gateways.</p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in; font-style:italic"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:italic; text-decoration:none">http://www.linuxdig.com/rfc/individual/1027.php</c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">Ethernet Address Resolution Protocol (APR) is what's commonly used on LANs for computers to communicate with each other. In the five layer ANSI protocol stack, it is located at the data-link layer.</c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">ARP is used when computers are physically connected to each other. When two subnets are separated physically, a router must function on behalf on the adapters of one subnet to communicate with adapters on the other. These generate psudo or "phantom" arps. </c></p>
+<p style="Heading 1" props="font-family:Times New Roman; font-size:12pt; color:000000; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">Squirlmail Exploit</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; font-style:italic"><c props="font-style:italic">http://www.securiteam.com/unixfocus/5NP0J20EUG.html</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">I learned about this exploit specifically because Squirlmail is installed and being used where I work. Basically the squirlmail plug-in which allowed for viewing S/MIME information had a vulnerability within it that allowed the sender of an email to execute arbitrary commands on the server squirlmail ran on with the privileges of the web server.   </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">S/MIME is a protocol designed to digitally sign email in a way to ensure authenticity. The plug-in in squirlmail relied on an external program, openssl, to handle the S/MIME data. Care has to be taken whenever a PHP script makes a call to a program via the system() or exec() commands. Specifically you should never allow user generated input to be included in such functions. In this case it was unavoidable (unless you wanted to fully implement the functionality of openssl in PHP!)</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">The fix for this exploit involved using the PHP function escapeshellargs() to keep the users from running arbitrary commands. For system administrators, dealing with this exploit meaning updating squirlmail to the latest version which can typically be done with a Linux distributions auto update tool (yum in Fedora, up2date in Red Hat, emerge in Gentoo, etc.)</p>
+<p style="Heading 1">Linux Kernel mremap() root exploit</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; font-style:italic"><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:italic; lang:en-US">http://www.isec.pl/vulnerabilities/isec-0014-mremap-unmap.txt</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">This is an interesting kernel exploit which effects unpatched Linux kernels with versions &lt;= 2.2.25, &lt;=2.4.24 and &lt;= 2.6.2. It allows any normal user to gain root level access my means of bugs in the kernels memory mapping functions.</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">The actual details of the exploit are quite complicated and involve making several kernel calls to map, unmap and copy memory. Basically due to the fact that do_mremap() doesn't check the return value of do_mummap() when called, the do_mumap() function could fail.</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">There are no hot fixes for the exploit. The kernel must be upgraded or patched and the system must then be rebooted.</c></p>
+<p style="Heading 1">Traceroute on OpenBSD (m68k/Macintosh)</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; font-style:italic"><c props="font-style:italic">http://www.monkey.org/openbsd/archive/bugs/9706/msg00015.html</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">This is an exploit on the common unix command, "traceroute" on the OpenBSD system. Traceroute itself has a potential buffer overflow when looking up DNS information. It's not possible to exploit it directory because of resolver lib checks, but the policies elsewhere in OpenBSD could lead to potential problems.</p>
+<p style="Heading 1">Cisco ICMP Redirect </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr; font-style:italic"><c props="font-style:italic">http://www.phenoelit.de/stuff/CiscoICMP.txt</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Typically routers try to find the shortest distance between two hosts. With some basic graph theory in their engines, distance is calculated in "hops" with each router along the way adding a hop. ICMP, originally a diagnostic protocol  (made famous by our friend the "ping" command) is used in some Cisco routers to determine inefficient network routes using the ICMP redirects. By flooding these routers with such requests, all the memory in the router becomes filled making it impossible for the router to fill its queues or even accept telnet connections. Firmware updates for affected routers are available.</p>
+<p style="Heading 1">ICMP Attacks Against TCP</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-style:italic">http://www.kb.cert.org/vuls/id/222750</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">This vulnerability stems from the fact that many TCP/IP implementations do not adequately validate ICMP errors. In fact, many places including my previous university, Tennessee Tech, completely block all ICMP. That's right, from within Tennessee Tech you can not ping any outside source!</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Rater than completely block such an important diagnostic tool, a better solution would simply be to develop patches for bad TCP/IP implementation to fix ICMP handling issues.</p>
+</section>
+</abiword>
