@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
-<abiword template="false" styles="unlocked" version="2.0.12" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.12" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
 <!-- ======================================================================== -->
 <!-- This file is an AbiWord document.                                        -->
 <!-- AbiWord is a free, Open Source word processor.                           -->
@@ -11,108 +11,103 @@
 <metadata>
 <m key="dc.format">application/x-abiword</m>
 <m key="abiword.generator">AbiWord</m>
-<m key="abiword.date_last_changed">Thu May 12 14:57:23 2005</m>
+<m key="abiword.date_last_changed">Mon May 16 17:14:41 2005</m>
 </metadata>
-<history version="38" edit-time="7438" last-saved="1115936270" uid="5f5a1932-c320-11d9-8527-88cc341535be">
-<version id="3" started="1115928007" uid="b28eec30-c321-11d9-8527-88cc341535be" auto="0"/>
-<version id="28" started="1115929189" uid="930facca-c32e-11d9-8318-b0ad0f6f666c" auto="0"/>
-<version id="38" started="1115934889" uid="ad5fad8c-c333-11d9-8222-ffd64da2fc44" auto="0"/>
-</history>
 <styles>
-<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.000000; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.000000; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Block Text" basedon="Normal" followedby="Current Settings" props="line-height:1.000000; margin-bottom:0.0813in; margin-left:1.0000in; margin-right:1.0000in"/>
+<s type="P" name="Box List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Box List; text-indent:-0.300000in"/>
+<s type="P" name="Bullet List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Symbol; line-height:1.000000; list-style:Bullet List; text-indent:-0.300000in"/>
+<s followedby="Normal" name="Chapter Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Chapter %L.; field-color:transparent; start-value:1; margin-left:0.0in; tabstops:1.100000in/L0; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; field-font:Bitstream Vera Sans"/>
 <s followedby="Normal" name="Contents 1" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
 <s followedby="Normal" name="Contents 2" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:1.0000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
 <s followedby="Normal" name="Contents 3" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:1.5000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
 <s followedby="Normal" name="Contents 4" basedon="Normal" type="P" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:2.0000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
-<s followedby="Normal" name="Numbered Heading 1" basedon="Heading 1" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Bitstream Vera Sans; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; tabstops:0.299306in/L0"/>
-<s followedby="Normal" name="Numbered Heading 2" basedon="Heading 2" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Bitstream Vera Sans; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; tabstops:0.299306in/L0"/>
-<s type="P" name="Square List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Square List; text-indent:-0.300000in"/>
-<s type="P" name="Lower Roman List" basedon="Normal" followedby="Current Settings" props="list-delim:%L; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Lower Roman List; text-indent:-0.300000in"/>
-<s type="P" name="Diamond List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Diamond List; text-indent:-0.300000in"/>
-<s type="P" name="Numbered List" followedby="Current Settings" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
-<s type="C" name="Endnote Text" basedon="Normal" followedby="Current Settings" props="text-position:normal; line-height:1.000000"/>
-<s type="C" name="Endnote Reference" basedon="None" followedby="Current Settings" props="text-position:superscript; line-height:1.000000; font-size:10pt"/>
-<s type="P" name="Triangle List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Triangle List; text-indent:-0.300000in"/>
-<s followedby="Normal" name="Numbered Heading 3" basedon="Heading 3" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Bitstream Vera Sans; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; tabstops:0.299306in/L0"/>
+<s followedby="Normal" name="Contents Header" basedon="Normal" type="P" props="margin-top:0.1667in; font-size:16pt; margin-bottom:0.0813in; font-weight:bold; line-height:1.000000; text-align:center; font-family:Bitstream Vera Sans; keep-with-next:1"/>
 <s type="P" name="Dashed List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Dashed List; text-indent:-0.300000in"/>
-<s type="P" name="Upper Roman List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Upper Roman List; text-indent:-0.300000in"/>
-<s followedby="Normal" name="Heading 4" basedon="Normal" type="P" props="margin-top:0.3056in; font-size:12pt; margin-bottom:0.0417in; line-height:1.000000; font-weight:bold; keep-with-next:1; font-family:Bitstream Vera Sans"/>
-<s type="P" name="Heart List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Heart List; text-indent:-0.300000in"/>
-<s followedby="Normal" name="Contents Header" basedon="Normal" type="P" props="margin-top:0.1667in; font-size:16pt; margin-bottom:0.0813in; font-weight:bold; line-height:1.000000; text-align:center; keep-with-next:1; font-family:Bitstream Vera Sans"/>
-<s type="P" name="Upper Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Upper Case List; text-indent:-0.300000in"/>
-<s type="P" name="Bullet List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Symbol; line-height:1.000000; list-style:Bullet List; text-indent:-0.300000in"/>
-<s type="P" name="Hand List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Hand List; text-indent:-0.300000in"/>
+<s type="P" name="Diamond List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Diamond List; text-indent:-0.300000in"/>
+<s type="C" name="Endnote Reference" basedon="None" followedby="Current Settings" props="text-position:superscript; line-height:1.000000; font-size:10pt"/>
+<s type="C" name="Endnote Text" basedon="Normal" followedby="Current Settings" props="text-position:normal; line-height:1.000000"/>
+<s type="C" name="Footnote Reference" basedon="None" followedby="Current Settings" props="text-position:superscript; line-height:1.000000; font-size:10pt"/>
 <s type="C" name="Footnote Text" basedon="Normal" followedby="Current Settings" props="text-position:normal; line-height:1.000000; font-size:10pt"/>
+<s type="P" name="Hand List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Hand List; text-indent:-0.300000in"/>
 <s followedby="Normal" name="Heading 1" basedon="Normal" type="P" props="margin-top:0.3056in; font-size:17pt; margin-bottom:0.0417in; line-height:1.000000; font-weight:bold; keep-with-next:1; font-family:Bitstream Vera Sans"/>
 <s followedby="Normal" name="Heading 2" basedon="Normal" type="P" props="margin-top:0.3056in; font-size:14pt; margin-bottom:0.0417in; line-height:1.000000; font-weight:bold; keep-with-next:1; font-family:Bitstream Vera Sans"/>
 <s followedby="Normal" name="Heading 3" basedon="Normal" type="P" props="margin-top:0.3056in; font-size:12pt; margin-bottom:0.0417in; line-height:1.000000; font-weight:bold; keep-with-next:1; font-family:Bitstream Vera Sans"/>
-<s type="P" name="Tick List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Tick List; text-indent:-0.300000in"/>
-<s type="P" name="Lower Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Lower Case List; text-indent:-0.300000in"/>
-<s type="P" name="Block Text" basedon="Normal" followedby="Current Settings" props="line-height:1.000000; margin-bottom:0.0813in; margin-right:1.0000in; margin-left:1.0000in"/>
-<s type="C" name="Footnote Reference" basedon="None" followedby="Current Settings" props="text-position:superscript; line-height:1.000000; font-size:10pt"/>
-<s followedby="Normal" name="Section Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Section %L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Bitstream Vera Sans; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; tabstops:1.100000in/L0"/>
+<s followedby="Normal" name="Heading 4" basedon="Normal" type="P" props="margin-top:0.3056in; font-size:12pt; margin-bottom:0.0417in; line-height:1.000000; font-weight:bold; keep-with-next:1; font-family:Bitstream Vera Sans"/>
+<s type="P" name="Heart List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Heart List; text-indent:-0.300000in"/>
 <s type="P" name="Implies List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Symbol; line-height:1.000000; list-style:Implies List; text-indent:-0.300000in"/>
-<s type="P" name="Box List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Box List; text-indent:-0.300000in"/>
-<s type="P" name="Star List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Star List; text-indent:-0.300000in"/>
+<s type="P" name="Lower Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Lower Case List; text-indent:-0.300000in"/>
+<s type="P" name="Lower Roman List" basedon="Normal" followedby="Current Settings" props="list-delim:%L; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Lower Roman List; text-indent:-0.300000in"/>
+<s followedby="Normal" name="Numbered Heading 1" basedon="Heading 1" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; tabstops:0.299306in/L0; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; field-font:Bitstream Vera Sans"/>
+<s followedby="Normal" name="Numbered Heading 2" basedon="Heading 2" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; tabstops:0.299306in/L0; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; field-font:Bitstream Vera Sans"/>
+<s followedby="Normal" name="Numbered Heading 3" basedon="Heading 3" type="P" props="list-delim:%L.; field-color:transparent; start-value:1; margin-left:0.0in; tabstops:0.299306in/L0; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; field-font:Bitstream Vera Sans"/>
+<s type="P" name="Numbered List" followedby="Current Settings" props="list-delim:%L.; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Numbered List; text-indent:-0.300000in"/>
 <s type="P" name="Plain Text" basedon="Normal" followedby="Current Settings" props="font-family:Courier New; line-height:1.000000"/>
-<s followedby="Normal" name="Chapter Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Chapter %L.; field-color:transparent; start-value:1; margin-left:0.0in; field-font:Bitstream Vera Sans; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; tabstops:1.100000in/L0"/>
+<s followedby="Normal" name="Section Heading" basedon="Numbered Heading 1" type="P" props="list-delim:Section %L.; field-color:transparent; start-value:1; margin-left:0.0in; tabstops:1.100000in/L0; text-indent:0.0in; line-height:1.000000; list-style:Numbered List; field-font:Bitstream Vera Sans"/>
+<s type="P" name="Square List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Square List; text-indent:-0.300000in"/>
+<s type="P" name="Star List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Star List; text-indent:-0.300000in"/>
+<s type="P" name="Tick List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Tick List; text-indent:-0.300000in"/>
+<s type="P" name="Triangle List" followedby="Current Settings" props="list-delim:%L; list-decimal:NULL; field-color:transparent; start-value:0; margin-left:0.5000in; field-font:Dingbats; line-height:1.000000; list-style:Triangle List; text-indent:-0.300000in"/>
+<s type="P" name="Upper Case List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L); list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Upper Case List; text-indent:-0.300000in"/>
+<s type="P" name="Upper Roman List" basedon="Numbered List" followedby="Current Settings" props="list-delim:%L; list-decimal:.; field-color:transparent; start-value:1; margin-left:0.5000in; field-font:NULL; line-height:1.000000; list-style:Upper Roman List; text-indent:-0.300000in"/>
 </styles>
 <lists>
 <l id="1000" parentid="0" type="5" start-value="0" list-delim="%L" list-decimal="NULL"/>
 </lists>
 <pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
 <section props="page-margin-footer:0.5in; page-margin-header:0.5in">
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"><c props="font-weight:bold; font-size:16pt">Sumit Khanna and Hisham Elasmar</c></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"><c props="font-weight:bold; font-size:16pt">CPSC 544 - Network Security </c></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"><c props="font-weight:bold; font-size:16pt"> Dr. Joseph M. Kizza</c></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; font-size:16pt; font-weight:bold; dom-dir:ltr"><c props="font-weight:bold; font-size:16pt">Lab #4</c></p>
-<p style="Normal" props="font-family:Times New Roman; text-decoration:none; dom-dir:ltr; color:000000; font-size:12pt; font-weight:normal; text-position:normal; text-align:center; font-style:normal"><c props="font-weight:bold; font-size:14pt">System Security Assessment</c></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:center; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="text-decoration:overline"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c props="font-weight:bold; font-size:16pt">Sumit Khanna and Hisham Elasmar</c><c props="font-weight:bold; font-size:16pt"></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c props="font-weight:bold; font-size:16pt">CPSC 544 - Network Security </c><c props="font-weight:bold; font-size:16pt"></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c props="font-weight:bold; font-size:16pt"> Dr. Joseph M. Kizza</c><c props="font-weight:bold; font-size:16pt"></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; dom-dir:ltr; font-size:16pt"><c props="font-weight:bold; font-size:16pt">Lab #4</c><c props="font-weight:bold; font-size:16pt"></c></p>
+<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; text-decoration:none; text-align:center; text-position:normal; font-weight:normal; font-style:normal"><c props="font-weight:bold; font-size:14pt">System Security Assessment</c><c props="font-weight:bold; font-size:14pt"></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:center; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:center; dom-dir:ltr">Due Date: May/17/2005<pbr/></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">In this lab my partner and I will be using Server #4 and the computers on its network to find security holes. We will use a variety of Linux tools ranging from nmap to Nessus to test both the server and the hosts. First lets take a look at the server's general setup:</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Routes:</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">Kernel IP routing table</c></p>
-<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</c></p>
-<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">10.170.24.0     *               255.255.255.0   U     0      0        0 eth1</c></p>
-<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">10.170.1.0      *               255.255.255.0   U     0      0        0 eth0</c></p>
-<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">default         jknet.cs.utc.ed 0.0.0.0         UG    0      0        0 eth0</c></p>
-<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; font-weight:normal; text-position:normal; text-align:left; font-style:normal; text-decoration:none"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Kernel</c>: 2.6.8-2-686 #1 Mon Jan 24 03:58:38 EST 2005 i686 GNU/Linux </p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; text-decoration:underline; font-style:italic">Kernel is out of date</c><c props="font-weight:bold">! </c><c props="font-weight:normal">Updates should be made to protect against kernel vulnerabilities </c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Firewall Rules</c> (<c props="font-style:italic">iptables</c>):</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Routes:</c><c props="font-weight:bold"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">Kernel IP routing table</c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US"></c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</c><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"></c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">10.170.24.0     *               255.255.255.0   U     0      0        0 eth1</c><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"></c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">10.170.1.0      *               255.255.255.0   U     0      0        0 eth0</c><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"></c></p>
+<p style="Normal" props="margin-top:0.0000in; margin-left:0.0000in; text-indent:0.0000in; dom-dir:ltr; margin-bottom:0.0000in; line-height:1.000000; text-align:left; margin-right:0.0000in"><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none">default         jknet.cs.utc.ed 0.0.0.0         UG    0      0        0 eth0</c><c props="font-family:Times New Roman; font-size:12pt; lang:en-US; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"></c></p>
+<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; text-align:left; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Kernel</c><c props="font-weight:bold"></c>: 2.6.8-2-686 #1 Mon Jan 24 03:58:38 EST 2005 i686 GNU/Linux </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; text-decoration:underline; font-style:italic">Kernel is out of date</c><c props="font-weight:bold; text-decoration:underline; font-style:italic"></c><c props="font-weight:bold">! </c><c props="font-weight:normal">Updates should be made to protect against kernel vulnerabilities </c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Firewall Rules</c><c props="font-weight:bold"></c> (<c props="font-style:italic">iptables</c>):</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">none in the general table</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">none in the NAT table</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">IP local</c>: 10.170.24.1</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">IP world</c>: 208.45.211.2</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Hostname</c>: server4</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Domain Name</c>: (unknown)</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Reverse DNS </c><c props="font-weight:normal">(</c><c props="font-style:italic; font-weight:normal">world</c><c props="font-style:normal; font-weight:normal">)</c>: None</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Reverse DNS </c><c props="font-weight:normal">(</c><c props="font-style:italic; font-weight:normal">local</c><c props="font-style:normal; font-weight:normal">): </c><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">server4.jknet.cs.utc.edu</c></p>
-<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; font-weight:normal; text-position:normal; text-align:left; font-style:normal; text-decoration:none"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">IP local</c><c props="font-weight:bold"></c>: 10.170.24.1</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">IP world</c><c props="font-weight:bold"></c>: 208.45.211.2</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Hostname</c><c props="font-weight:bold"></c>: server4</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Domain Name</c><c props="font-weight:bold"></c>: (unknown)</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Reverse DNS </c><c props="font-weight:bold"></c><c props="font-weight:normal">(</c><c props="font-style:italic; font-weight:normal">world</c><c props="font-style:normal; font-weight:normal">)</c>: None</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Reverse DNS </c><c props="font-weight:bold"></c><c props="font-weight:normal">(</c><c props="font-style:italic; font-weight:normal">local</c><c props="font-style:normal; font-weight:normal">): </c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">server4.jknet.cs.utc.edu</c></p>
+<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; text-align:left; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">Scanning The Server from the Server</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Using <c props="font-style:italic; font-weight:bold">nmap</c> we find the following open ports:</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Using <c props="font-style:italic; font-weight:bold">nmap</c><c props="font-style:italic; font-weight:bold"></c> we find the following open ports:</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">9/tcp   open  discard</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">13/tcp  open  daytime</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">22/tcp  open  ssh</p>
@@ -125,22 +120,22 @@
 <p style="Normal" props="text-align:left; dom-dir:ltr">445/tcp open  microsoft-ds</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">631/tcp open  ipp</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">728/tcp open  unknown</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">953/tcp open  <c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">rndc</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-style:normal">Issues:</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">953/tcp open  <c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">rndc</c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-style:normal">Issues:</c><c props="font-weight:bold; font-style:normal"></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">Discard, daytime, time and domain are services that have been around for historic reasons and are usually run through xinetd or inetd. They should be disabled unless they have a specific use. </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">SMTP is for incoming mail and should also be disabled or at least restricted to the local subnet to keep people from using your host as a spam relay. </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">Rpcbind is a service of portmap which is necessary for NFS and other services. It should be turned off if such services are not in use.</p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">IPP is for the Internet printing protocol and should only be turned on if you plan on using the server for printing.</p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">Rndc is for reloading DNS data in BIND and the port should be disabled unless you're running a name server. Even if we are running a DNS server, it is important to use restrictive keys for authorization of rndc restarts. </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">We don't know what unknown, auth, netbios-ssn and unknown (728) are for so the process ids running those services should be turned off unless they are doing something known and useful for your network.</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Using netstat --inet -p:</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Using netstat --inet -p:</c><c props="font-weight:bold"></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        0      0 localhost:47091         localhost:ipp           ESTABLISHED</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        0      0 localhost:47097         localhost:ipp           ESTABLISHED</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        0      1 server4.jknet.cs.:49003 printer.jknet.cs.ut:ipp SYN_SENT</p>
@@ -160,93 +155,91 @@
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        1      0 localhost:41530         localhost:ipp           CLOSE_WAIT</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        0      0 localhost:ipp           localhost:47091         ESTABLISHED</p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">tcp        0      0 localhost:ipp           localhost:47097         ESTABLISHED</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Issues:</c></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">There are a lot of prince processes running. This is not a problem as long as this is a print server and the service is secure and only allows authorized hosts to print. </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">Next we will scan the server using <c props="font-weight:bold">Nessus</c>. We did an "apt-get update" followed by "apt-get install nessus nessusd" to get the latest version of the Nessus client and server. Then we ran "/etc/init.d/nessusd start" to start the nessus server. We added a nessus user and then ran my scan for the following hosts: </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
-<p level="1" listid="1000" parentid="0" style="Normal" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal">	</c><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">server4.jknet.cs.utc.edu (Debian Linux </c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:bold; font-style:normal; lang:en-US">Server</c><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">)</c></p>
-<p level="1" listid="1000" style="Normal" props="font-family:Times New Roman; dom-dir:ltr; list-decimal:.; margin-left:0.5000in; start-value:0; font-style:normal; text-indent:-0.3000in; text-align:left; list-delim:%L; font-weight:normal; font-size:12pt; list-style:Bullet List; text-decoration:none; line-height:1.0; text-position:normal; lang:en-US; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal">	</c>client9.net4.jknet.cs.utc.edu (WinXP)</p>
-<p level="1" listid="1000" style="Normal" props="list-delim:%L; list-decimal:.; list-style:Bullet List; start-value:0; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; dom-dir:ltr; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal">	</c>client12.net4.jknet.cs.utc.edu (FreeBSD)</p>
-<p level="1" listid="1000" style="Normal" props="list-delim:%L; list-decimal:.; list-style:Bullet List; start-value:0; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; dom-dir:ltr; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; font-variant:normal; font-weight:normal; lang:en-US; font-style:normal; color:000000; list-style:Bullet List; bgcolor:transparent; font-size:12pt; homogeneous:1; text-decoration:none; height:0in; text-position:normal; font-stretch:normal">	</c>client10<c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">.net4.jknet.cs.utc.edu (Debian Linux)</c></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Issues:</c><c props="font-weight:bold"></c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">There are a lot of print processes running. This is not a problem as long as this is a print server and the service is secure and only allows authorized hosts to print. </p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">Next we will scan the server using <c props="font-weight:bold">Nessus</c><c props="font-weight:bold"></c>. We did an "apt-get update" followed by "apt-get install nessus nessusd" to get the latest version of the Nessus client and server. Then we ran "/etc/init.d/nessusd start" to start the nessus server. We added a nessus user and then ran my scan for the following hosts: </p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
+<p level="1" listid="1000" parentid="0" style="Normal" props="list-style:Bullet List; start-value:0; dom-dir:ltr; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal">	</c><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">server4.jknet.cs.utc.edu (Debian Linux </c><c props="font-family:Times New Roman; text-decoration:none; color:000000; font-size:12pt; text-position:normal; font-weight:bold; font-style:normal; lang:en-US">Server</c><c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">)</c></p>
+<p level="1" listid="1000" style="Normal" props="font-family:Times New Roman; dom-dir:ltr; list-decimal:.; margin-left:0.5000in; start-value:0; font-style:normal; font-weight:normal; text-align:left; list-delim:%L; text-decoration:none; line-height:1.0; list-style:Bullet List; text-position:normal; text-indent:-0.3000in; font-size:12pt; lang:en-US; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal">	</c><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></c>client9.net4.jknet.cs.utc.edu (WinXP)</p>
+<p level="1" listid="1000" style="Normal" props="list-delim:%L; list-decimal:.; list-style:Bullet List; start-value:0; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; dom-dir:ltr; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal">	</c><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></c>client12.net4.jknet.cs.utc.edu (FreeBSD)</p>
+<p level="1" listid="1000" style="Normal" props="list-delim:%L; list-decimal:.; list-style:Bullet List; start-value:0; margin-left:0.5000in; text-indent:-0.3000in; line-height:1.0; dom-dir:ltr; text-align:left; field-font:Symbol"><field type="list_label" props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></field><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal">	</c><c props="width:0in; font-family:Times New Roman; display:inline; color:000000; font-weight:normal; text-position:normal; lang:en-US; font-style:normal; font-variant:normal; text-decoration:none; bgcolor:transparent; list-style:Bullet List; homogeneous:1; height:0in; font-size:12pt; font-stretch:normal"></c>client10<c props="font-family:Times New Roman; font-size:12pt; color:000000; text-decoration:none; text-position:normal; font-weight:normal; font-style:normal; lang:en-US">.net4.jknet.cs.utc.edu (Debian Linux)</c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">The Windows machine had a firewall that had to be disabled first to preform the scan. It even blocked ICMP traffic (ping). In it's default state with the firewall on, it proved fairly secure against a standard scan. </p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">The port scan on server12 took a very long time which might have been a feature of FreeBSD to prevent attacks.</p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr">After the scan was complete, we got a better idea of what the services were that we saw previously running using nmap. On the server we found the following possible issue:</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">server4.jknet.cs.utc.edu</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">Port: 728 - Famd is a program used by gnome to monitor when files change on the local file system. Several versions have known exploits and the service really doesn't need to be accessible to anyone except localhost. </p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">server4.jknet.cs.utc.edu</c><c props="font-weight:bold; font-size:14pt"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">Port: 728 - Famd is a program used by Gnome to monitor when files change on the local file system. Several versions have known exploits and the service really doesn't need to be accessible to anyone except localhost. </p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">sunrpc (111), ntp (123), netbios-ssn(139) returned notes but no warnings. </p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">Samba's netbios server was running on 137 and gives away some identification information. This is not a security risk in and of itself unless you have no use for Samba (Windows File Sharing or CIFS) in which case it should be shut down.</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">nessus(1241) is running (this should be expected).</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">microsoft-ds(445) is a dead Samba connection (IPC$) and it can be accessed with a null session. <c props="font-weight:bold">Security Hole!</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; font-weight:normal; text-position:normal; text-align:left; font-style:normal; text-decoration:none"><c props="font-weight:normal">ipp(631) the PUT method is enabled in the web server. Although it can not be exploited, it should still be disabled. </c><c props="font-weight:bold">Security Hole</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">DNS(53) the DNS server allows recursive queries. If this server is not running for just the local host, this could cause cache poisoning. DNS queries should be restricted.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client9.net4.jknet.cs.utc.edu (WinXP Professional</c>) :</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">microsoft-ds(445) is a dead Samba connection (IPC$) and it can be accessed with a null session. <c props="font-weight:bold">Security Hole!</c><c props="font-weight:bold"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; color:000000; lang:en-US; text-align:left; text-position:normal; font-weight:normal; font-style:normal; text-decoration:none"><c props="font-weight:normal">ipp(631) the PUT method is enabled in the web server. Although it can not be exploited, it should still be disabled. </c><c props="font-weight:normal"></c><c props="font-weight:bold">Security Hole</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">DNS(53) the DNS server allows recursive queries. If this server is not running for just the local host, this could cause cache poisoning. DNS queries should be restricted.</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client9.net4.jknet.cs.utc.edu (WinXP Professional</c><c props="font-weight:bold; font-size:14pt"></c>) :</p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">ntp(123) open port</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">netbios-ssn(139) open port</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">netbios-ns (137) - NetBIOS information is present. Restrict if you don't want people to see netbios information.</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">microsoft-ds(445) - This shows that this host is the browse master for SMB.</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">loc-srv (135) - open port</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">general TCP: Windows doesn't use sufficiently random sequence numbers on IP packets. This has been a long standing problem in Windows.</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client12.net4.jknet.cs.utc.edu (FreeBSD):</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr">ssh (22) - OpenSSH is out of date (version older than 3.7.1) <c props="font-weight:normal">Known vulnerabilities exist. SSH should be patched. </c><c props="font-weight:bold">Security Hole</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">general TCP: FreeBSD doesn't discard TCP SYN packets which have FIN flag set. A non-stateless firewall is needed.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">general ICMP: FreeBSD answers time requests on ICMP. This can defeat time based authentication, however if you have no time based authentication or random seeds based on time, this shouldn't be a problem.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client10.net4.jknet.cs.utc.edu (Linux Debian):</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">time (37) - open port</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ssh(22) - open port</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ntp (123) - open port</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ipp (631) - web server responds to PUT protocol. Can not be exploited but should be disabled.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">discard (9) - generic and useless service that should be disabled in inetd.cond</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">daytime (13) - another generic service in inetd.conf that should be disabled unless used</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">auth (113) - ident server that is unnecessary unless using IRC chat or something that requires ident. </c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client12.net4.jknet.cs.utc.edu (FreeBSD):</c><c props="font-weight:bold; font-size:14pt"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr">ssh (22) - OpenSSH is out of date (version older than 3.7.1) <c props="font-weight:normal">Known vulnerabilities exist. SSH should be patched. </c><c props="font-weight:normal"></c><c props="font-weight:bold">Security Hole</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">general TCP: FreeBSD doesn't discard TCP SYN packets which have FIN flag set. A non-stateless firewall is needed.</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">general ICMP: FreeBSD answers time requests on ICMP. This can defeat time based authentication, however if you have no time based authentication or random seeds based on time, this shouldn't be a problem.</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold; font-size:14pt">client10.net4.jknet.cs.utc.edu (Linux Debian):</c><c props="font-weight:bold; font-size:14pt"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">time (37) - open port</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ssh(22) - open port</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ntp (123) - open port</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">ipp (631) - web server responds to PUT protocol. Can not be exploited but should be disabled.</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">discard (9) - generic and useless service that should be disabled in inetd.cond</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">daytime (13) - another generic service in inetd.conf that should be disabled unless used</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:normal">auth (113) - ident server that is unnecessary unless using IRC chat or something that requires ident. </c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">General TCP - host doesn't filter SYN packets that have FIN flag set. Appropriate firewall needed. </p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
 <p style="Normal" props="text-align:left; dom-dir:ltr">General ICMP - host responds to time requests on ICMP</p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Network Setup</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; text-indent:0.0000in; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">Towards the end of this lab we noticed that one of the other students could see all network traffic using </c><c props="font-style:italic; font-weight:normal">tcpdump</c><c props="font-weight:normal">. That surprised us since you usually can't see all network traffic if Ethernet is run through a switch. We looked and noticed that there was a hub installed. I assumed Dr. Kizza did this so that it would be easier for us to run tools like tcpdump to examine network traffic. In a real work environment, hubs should always be avoided as they repeat traffic stupidly everywhere. It is worth the extra money for a system administrator to invest in a switch.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Conclusion</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">We've scanned the server and three hosts and have found several security holes. Many of these can be fixed by simply turning off the services or restricting them with configuration options. Others can be fixed by simply upgrading all the packages on the affected machines. After these updates are done a firewall should be imposed to really tighten security.</c></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"></p>
-<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">In the next lab we'll go further into fixing many of these security holes and working on making a firewall.</c></p>
-<p style="Normal" props="text-align:left; dom-dir:ltr"></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Network Setup</c><c props="font-weight:bold"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; text-indent:0.0000in; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">Towards the end of this lab we noticed that one of the other students could see all network traffic using </c><c props="font-weight:normal"></c><c props="font-style:italic; font-weight:normal">tcpdump</c><c props="font-weight:normal">. That surprised us since you usually can't see all network traffic if Ethernet is run through a switch. We looked and noticed that there was a hub installed. I assumed Dr. Kizza did this so that it would be easier for us to run tools like tcpdump to examine network traffic. In a real work environment, hubs should always be avoided as they repeat traffic stupidly everywhere. It is worth the extra money for a system administrator to invest in a switch.</c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c props="font-weight:bold">Conclusion</c><c props="font-weight:bold"></c></p>
+<p style="Normal" props="text-align:left; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">We've scanned the server and three hosts and have found several security holes. Many of these can be fixed by simply turning off the services or restricting them with configuration options. Others can be fixed by simply upgrading all the packages on the affected machines. After these updates are done a firewall should be imposed to really tighten security.</c><c props="font-weight:normal"></c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c></c></p>
+<p style="Normal" props="text-align:left; line-height:1.5; dom-dir:ltr"><c props="font-weight:normal">In the next lab we'll go further into fixing many of these security holes and working on making a firewall.</c><c props="font-weight:normal"></c></p>
 </section>
 </abiword>
