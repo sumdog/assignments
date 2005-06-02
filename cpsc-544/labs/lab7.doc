@@ -3,92 +3,153 @@
 {\f0\fnil\fcharset0\fprq0\fttruetype Times New Roman;}
 {\f1\fnil\fcharset0\fprq0\fttruetype NULL;}
 {\f2\fnil\fcharset0\fprq0\fttruetype Bitstream Vera Sans;}
-{\f3\fnil\fcharset0\fprq0\fttruetype Dingbats;}
-{\f4\fnil\fcharset0\fprq0\fttruetype Symbol;}
-{\f5\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\f3\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f4\fnil\fcharset0\fprq0\fttruetype Dingbats;}
+{\f5\fnil\fcharset0\fprq0\fttruetype Symbol;}
+{\f6\fnil\fcharset0\fprq0\fttruetype Courier New;}}
 {\colortbl
 \red0\green0\blue0;
 \red255\green255\blue255;}
 {\stylesheet
-{\s1\fi-431\li720\sbasedon28\snext28 Contents 1;}
-{\s2\fi-431\li1440\sbasedon28\snext28 Contents 2;}
-{\s3\fi-431\li2160\sbasedon28\snext28 Contents 3;}
-{\s8\fi-431\li720\sbasedon28 Lower Roman List;}
-{\s5\tx431\sbasedon24\snext28 Numbered Heading 1;}
-{\s6\tx431\sbasedon25\snext28 Numbered Heading 2;}
-{\s7\fi-431\li720 Square List;}
-{\*\cs11\sbasedon28 Endnote Text;}
-{\s4\fi-431\li2880\sbasedon28\snext28 Contents 4;}
-{\s9\fi-431\li720 Diamond List;}
-{\s10\fi-431\li720 Numbered List;}
-{\*\cs12\fs20\super Endnote Reference;}
-{\s13\fi-431\li720 Triangle List;}
-{\s14\tx431\sbasedon26\snext28 Numbered Heading 3;}
-{\s15\fi-431\li720 Dashed List;}
-{\s16\fi-431\li720\sbasedon10 Upper Roman List;}
-{\s17\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 4;}
-{\s18\fi-431\li720 Heart List;}
-{\s34\fi-431\li720 Box List;}
-{\s20\fi-431\li720\sbasedon10 Upper Case List;}
-{\s21\fi-431\li720 Bullet List;}
-{\s22\fi-431\li720 Hand List;}
-{\*\cs23\fs20\sbasedon28 Footnote Text;}
-{\s24\sb440\sa60\f2\fs34\b\sbasedon28\snext28 Heading 1;}
-{\s25\sb440\sa60\f2\fs28\b\sbasedon28\snext28 Heading 2;}
-{\s19\qc\sb240\sa120\f2\fs32\b\sbasedon28\snext28 Contents Header;}
-{\s27\fi-431\li720 Tick List;}
-{\s26\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 3;}
-{\s29\fi-431\li720\sbasedon10 Lower Case List;}
-{\s30\li1440\ri1440\sa120\sbasedon28 Block Text;}
-{\s36\f5\sbasedon28 Plain Text;}
-{\s32\tx1584\sbasedon5\snext28 Section Heading;}
-{\s33\fi-431\li720 Implies List;}
-{\s28\f0\fs24\lang1033 Normal;}
-{\s35\fi-431\li720 Star List;}
-{\*\cs31\fs20\super Footnote Reference;}
-{\s37\tx1584\sbasedon5\snext28 Chapter Heading;}}
+{\s1\sl240\slmult1\fi-431\li720\sbasedon28\snext28 Contents 1;}
+{\s2\sl240\slmult1\fi-431\li1440\sbasedon28\snext28 Contents 2;}
+{\s3\sl240\slmult1\fi-431\li2160\sbasedon28\snext28 Contents 3;}
+{\s8\sl240\slmult1\fi-431\li720\sbasedon28 Lower Roman List;}
+{\s5\sl240\slmult1\tx431\sbasedon24\snext28 Numbered Heading 1;}
+{\s6\sl240\slmult1\tx431\sbasedon25\snext28 Numbered Heading 2;}
+{\s7\sl240\slmult1\fi-431\li720 Square List;}
+{\*\cs11\sl240\slmult1\sbasedon28 Endnote Text;}
+{\s4\sl240\slmult1\fi-431\li2880\sbasedon28\snext28 Contents 4;}
+{\s9\sl240\slmult1\fi-431\li720 Diamond List;}
+{\s10\sl240\slmult1\fi-431\li720 Numbered List;}
+{\*\cs12\sl240\slmult1\fs20\super Endnote Reference;}
+{\s13\sl240\slmult1\fi-431\li720 Triangle List;}
+{\s14\sl240\slmult1\tx431\sbasedon26\snext28 Numbered Heading 3;}
+{\s15\sl240\slmult1\fi-431\li720 Dashed List;}
+{\s16\sl240\slmult1\fi-431\li720\sbasedon10 Upper Roman List;}
+{\s17\sl240\slmult1\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 4;}
+{\s18\sl240\slmult1\fi-431\li720 Heart List;}
+{\s34\sl240\slmult1\fi-431\li720 Box List;}
+{\s20\sl240\slmult1\fi-431\li720\sbasedon10 Upper Case List;}
+{\s21\sl240\slmult1\fi-431\li720 Bullet List;}
+{\s22\sl240\slmult1\fi-431\li720 Hand List;}
+{\*\cs23\sl240\slmult1\fs20\sbasedon28 Footnote Text;}
+{\s24\sl240\slmult1\sb440\sa60\f2\fs34\b\sbasedon28\snext28 Heading 1;}
+{\s25\sl240\slmult1\sb440\sa60\f2\fs28\b\sbasedon28\snext28 Heading 2;}
+{\s19\qc\sl240\slmult1\sb240\sa119\f2\fs32\b\sbasedon28\snext28 Contents Header;}
+{\s27\sl240\slmult1\fi-431\li720 Tick List;}
+{\s26\sl240\slmult1\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 3;}
+{\s29\sl240\slmult1\fi-431\li720\sbasedon10 Lower Case List;}
+{\s30\sl240\slmult1\li1440\ri1440\sa119\sbasedon28 Block Text;}
+{\s36\sl240\slmult1\f6\sbasedon28 Plain Text;}
+{\s32\sl240\slmult1\tx1584\sbasedon5\snext28 Section Heading;}
+{\s33\sl240\slmult1\fi-431\li720 Implies List;}
+{\s28\sl240\slmult1\f0\fs24\lang1033 Normal;}
+{\s35\sl240\slmult1\fi-431\li720 Star List;}
+{\*\cs31\sl240\slmult1\fs20\super Footnote Reference;}
+{\s37\sl240\slmult1\tx1584\sbasedon5\snext28 Chapter Heading;}}
 \kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\facingp\titlepg\revprop3{\info}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctl
-\sectd\sbknone\colsx360\pgncont\ltrsect
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Hisham Elasmar and Sumit Khanna}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch CPSC 544 - Network Security}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Dr. Joseph M. Kizza}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Intrusion Detection System}{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Lab #7}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Date: Thursday, June 9, 2005}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch \page Introduction}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In this lab, we installed Snort, a network sniffing program, in Linux on Server #4. This report is an explanation of all the steps we took in setting up Snort, monitoring the network and reporting our results.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Installation}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We installed Snort in Debain by using the apt package manager. We used the command }{\s28\f0\fs24\i\lang1033{\*\listtag0}apt-get install snort}{\s28\f0\fs24\lang1033{\*\listtag0} to install the latest Snort package.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Setup}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch All the configuration files for snort were stored in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort}{\s28\f0\fs24\lang1033{\*\listtag0}. We edited the }{\s28\f0\fs24\i\lang1033{\*\listtag0}snort.conf}{\s28\f0\fs24\lang1033{\*\listtag0} file to monitor our own cluster of machines (10.170.24.0/24) as well as one machine outside of our network (10.170.1.5) by adding the following line to the configuration file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch var HOME_NET [10.170.24.0/24,10.170.1.5]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}}
+\sectd\sbknone\colsx360\headery0\footery0\pgncont\ltrsect
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Hisham Elasmar and Sumit Khanna}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch CPSC 544 - Network Security}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Dr. Joseph M. Kizza}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Intrusion Detection System}{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Lab #7}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Date: Thursday, June 9, 2005}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch \page Introduction}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In this lab, we installed Snort, a network sniffing program, in Linux on Server #4. This report is an explanation of all the steps we took in setting up Snort, monitoring the network and reporting our results.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Installation}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We installed Snort in Debain by using the apt package manager. We used the command }{\s28\f0\fs24\i\lang1033{\*\listtag0}apt-get install snort}{\s28\f0\fs24\lang1033{\*\listtag0} to install the latest Snort package.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Setup}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch All the configuration files for snort were stored in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort}{\s28\f0\fs24\lang1033{\*\listtag0}. We edited the }{\s28\f0\fs24\i\lang1033{\*\listtag0}snort.defian.conf}{\s28\f0\fs24\lang1033{\*\listtag0} file to monitor our own cluster of machines (10.170.24.0/24) as well as one machine outside of our network (10.170.1.6) by adding the following line to the configuration file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch DEBIAN_SNORT_HOME_NET="10.170.24.0/24,10.170.1.6"}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Testing}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next to test our Snort monitor to make sure it was listening, we ran a Nessus scan from 10.170.1.8 (server4). We then viewed several lines such as the following in the log file located in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/var/log/snort}{\s28\f0\fs24\lang1033{\*\listtag0} :}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [**] [1:501:4] MISC source route lssre [**]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Classification: Potentially Bad Traffic] [Priority: 2]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-17:13:07.859946 10.170.1.8:49669 -> 10.170.1.9:113}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch IP Options (1) => LSRR}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS420]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [**] [1:500:4] MISC source route lssr [**]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Classification: Potentially Bad Traffic] [Priority: 2]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-17:13:12.948208 10.170.1.8:49669 -> 10.170.1.9:113}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch IP Options (1) => LSRR}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS418]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch This showed that our snort process was listening for potentially dangerous traffic. }{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Further Configuration}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next, we modified Snort's configuration file to only monitor ports above 114. To accomplish this, first we added the following line to }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort/snort.conf}{\s28\f0\fs24\lang1033{\*\listtag0}:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch include $RULE_PATH/cpsc544.rules}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Then we created a rules file called }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort/rules/cpsc544.rules}{\s28\f0\fs24\lang1033{\*\listtag0} and added the following rule to it:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any 115: <> any 115: (msg:"Port above 114 has been accessed";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch After adding the rule, we saw the following in our log file indicating the rule was working:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:11:23.057381  [**] [1:0:0] Port above 114 has been accessed [**] [Priority: 0] \{TCP\} 10.170.24.21:32859 -> 10.170.1.9:118}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:11:23.057411  [**] [1:0:0] Port above 114 has been accessed [**] [Priority: 0] \{TCP\} 10.170.1.9:118 -> 10.170.24.21:3}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next, we went about writing rules to monitor all udp packets coming into the cluster and give us alerts for packets broadcast on ports 13, 22, 63, 74, 1001, 1248 and 5000 using the following rules:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert udp any any <> any any (msg:"A UDP packet has been sent";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 13 (msg:"Message detected on port 13";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 22 (msg:"Message detected on port 22";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 63 (msg:"Message detected on port 63";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 74 (msg:"Message detected on port 74";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 114 (msg:"Message detected on port 114";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 1001 (msg:"Message detected on port 1001";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 1248 (msg:"Message detected on port 1248";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 5000 (msg:"Message detected on port 5000";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Upon saving these rules and restarting snort, we tested them and received the following output in our alert file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:19:37.137472  [**] [1:0:0] A UDP packet has been sent [**] [Priority: 0] \{UDP\} 10.170.1.7:1027 -> 239.2.11.71:8649}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:19:38.139328  [**] [1:0:0] A UDP packet has been sent [**] [Priority: 0] \{UDP\} 10.170.1.7:1027 -> 239.2.11.71:8649}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:25:07.334407  [**] [1:0:0] Message detected on port 13 [**] [Priority: 0] \{TCP\} 10.170.1.9:13 -> 10.170.24.21:32878}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:25:07.334894  [**] [1:0:0] Message detected on port 13 [**] [Priority: 0] \{TCP\} 10.170.24.21:32878 -> 10.170.1.9:13\line 06/02-19:27:25.595942  [**] [1:0:0] Message detected on port 22 [**] [Priority: 0] \{TCP\} 10.170.24.21:32879 -> 10.170.1.9:22}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:25.596751  [**] [1:0:0] Message detected on port 22 [**] [Priority: 0] \{TCP\} 10.170.1.9:22 -> 10.170.24.21:32879}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:52.736760  [**] [1:0:0] Message detected on port 63 [**] [Priority: 0] \{TCP\} 10.170.24.21:32880 -> 10.170.1.9:63}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:52.736788  [**] [1:0:0] Message detected on port 63 [**] [Priority: 0] \{TCP\} 10.170.1.9:63 -> 10.170.24.21:32880}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:01.520331  [**] [1:0:0] Message detected on port 74 [**] [Priority: 0] \{TCP\} 10.170.24.21:32881 -> 10.170.1.9:74}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:01.520353  [**] [1:0:0] Message detected on port 74 [**] [Priority: 0] \{TCP\} 10.170.1.9:74 -> 10.170.24.21:32881}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:13.171956  [**] [1:0:0] Message detected on port 114 [**] [Priority: 0] \{TCP\} 10.170.24.21:32882 -> 10.170.1.9:114}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:13.171972  [**] [1:0:0] Message detected on port 114 [**] [Priority: 0] \{TCP\} 10.170.1.9:114 -> 10.170.24.21:32882}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:20.442070  [**] [1:0:0] Message detected on port 1001 [**] [Priority: 0] \{TCP\} 10.170.1.9:1001 -> 10.170.24.21:328}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:46.364846  [**] [1:0:0] Message detected on port 1248 [**] [Priority: 0] \{TCP\} 10.170.1.9:1248 -> 10.170.24.21:328}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:38.105559  [**] [1:0:0] Message detected on port 5000 [**] [Priority: 0] \{TCP\} 10.170.24.21:32885 -> 10.170.1.9:50}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch (Note: Some repetitive output was removed for brevity)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Conclusion}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In conclusion, we were not only able to install and configure snort on a Debian system, but customize specific rules to alert us to traffic on specific ports.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}}
