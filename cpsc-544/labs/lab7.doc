@@ -1,0 +1,94 @@
+{\rtf1\ansi\ansicpg1252\deff0
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Times New Roman;}
+{\f1\fnil\fcharset0\fprq0\fttruetype NULL;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Bitstream Vera Sans;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Dingbats;}
+{\f4\fnil\fcharset0\fprq0\fttruetype Symbol;}
+{\f5\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;}
+{\stylesheet
+{\s1\fi-431\li720\sbasedon28\snext28 Contents 1;}
+{\s2\fi-431\li1440\sbasedon28\snext28 Contents 2;}
+{\s3\fi-431\li2160\sbasedon28\snext28 Contents 3;}
+{\s8\fi-431\li720\sbasedon28 Lower Roman List;}
+{\s5\tx431\sbasedon24\snext28 Numbered Heading 1;}
+{\s6\tx431\sbasedon25\snext28 Numbered Heading 2;}
+{\s7\fi-431\li720 Square List;}
+{\*\cs11\sbasedon28 Endnote Text;}
+{\s4\fi-431\li2880\sbasedon28\snext28 Contents 4;}
+{\s9\fi-431\li720 Diamond List;}
+{\s10\fi-431\li720 Numbered List;}
+{\*\cs12\fs20\super Endnote Reference;}
+{\s13\fi-431\li720 Triangle List;}
+{\s14\tx431\sbasedon26\snext28 Numbered Heading 3;}
+{\s15\fi-431\li720 Dashed List;}
+{\s16\fi-431\li720\sbasedon10 Upper Roman List;}
+{\s17\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 4;}
+{\s18\fi-431\li720 Heart List;}
+{\s34\fi-431\li720 Box List;}
+{\s20\fi-431\li720\sbasedon10 Upper Case List;}
+{\s21\fi-431\li720 Bullet List;}
+{\s22\fi-431\li720 Hand List;}
+{\*\cs23\fs20\sbasedon28 Footnote Text;}
+{\s24\sb440\sa60\f2\fs34\b\sbasedon28\snext28 Heading 1;}
+{\s25\sb440\sa60\f2\fs28\b\sbasedon28\snext28 Heading 2;}
+{\s19\qc\sb240\sa120\f2\fs32\b\sbasedon28\snext28 Contents Header;}
+{\s27\fi-431\li720 Tick List;}
+{\s26\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 3;}
+{\s29\fi-431\li720\sbasedon10 Lower Case List;}
+{\s30\li1440\ri1440\sa120\sbasedon28 Block Text;}
+{\s36\f5\sbasedon28 Plain Text;}
+{\s32\tx1584\sbasedon5\snext28 Section Heading;}
+{\s33\fi-431\li720 Implies List;}
+{\s28\f0\fs24\lang1033 Normal;}
+{\s35\fi-431\li720 Star List;}
+{\*\cs31\fs20\super Footnote Reference;}
+{\s37\tx1584\sbasedon5\snext28 Chapter Heading;}}
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\facingp\titlepg\revprop3{\info}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctl
+\sectd\sbknone\colsx360\pgncont\ltrsect
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Hisham Elasmar and Sumit Khanna}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch CPSC 544 - Network Security}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Dr. Joseph M. Kizza}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Intrusion Detection System}{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Lab #7}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\qc\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Date: Thursday, June 9, 2005}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch \page Introduction}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In this lab, we installed Snort, a network sniffing program, in Linux on Server #4. This report is an explanation of all the steps we took in setting up Snort, monitoring the network and reporting our results.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Installation}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We installed Snort in Debain by using the apt package manager. We used the command }{\s28\f0\fs24\i\lang1033{\*\listtag0}apt-get install snort}{\s28\f0\fs24\lang1033{\*\listtag0} to install the latest Snort package.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Setup}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch All the configuration files for snort were stored in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort}{\s28\f0\fs24\lang1033{\*\listtag0}. We edited the }{\s28\f0\fs24\i\lang1033{\*\listtag0}snort.conf}{\s28\f0\fs24\lang1033{\*\listtag0} file to monitor our own cluster of machines (10.170.24.0/24) as well as one machine outside of our network (10.170.1.5) by adding the following line to the configuration file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch var HOME_NET [10.170.24.0/24,10.170.1.5]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s28\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}}
