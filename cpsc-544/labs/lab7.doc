@@ -1,155 +1,223 @@
-{\rtf1\ansi\ansicpg1252\deff0
-{\fonttbl
-{\f0\fnil\fcharset0\fprq0\fttruetype Times New Roman;}
-{\f1\fnil\fcharset0\fprq0\fttruetype NULL;}
-{\f2\fnil\fcharset0\fprq0\fttruetype Bitstream Vera Sans;}
-{\f3\fnil\fcharset0\fprq0\fttruetype Arial;}
-{\f4\fnil\fcharset0\fprq0\fttruetype Dingbats;}
-{\f5\fnil\fcharset0\fprq0\fttruetype Symbol;}
-{\f6\fnil\fcharset0\fprq0\fttruetype Courier New;}}
-{\colortbl
-\red0\green0\blue0;
-\red255\green255\blue255;}
-{\stylesheet
-{\s1\sl240\slmult1\fi-431\li720\sbasedon28\snext28 Contents 1;}
-{\s2\sl240\slmult1\fi-431\li1440\sbasedon28\snext28 Contents 2;}
-{\s3\sl240\slmult1\fi-431\li2160\sbasedon28\snext28 Contents 3;}
-{\s8\sl240\slmult1\fi-431\li720\sbasedon28 Lower Roman List;}
-{\s5\sl240\slmult1\tx431\sbasedon24\snext28 Numbered Heading 1;}
-{\s6\sl240\slmult1\tx431\sbasedon25\snext28 Numbered Heading 2;}
-{\s7\sl240\slmult1\fi-431\li720 Square List;}
-{\*\cs11\sl240\slmult1\sbasedon28 Endnote Text;}
-{\s4\sl240\slmult1\fi-431\li2880\sbasedon28\snext28 Contents 4;}
-{\s9\sl240\slmult1\fi-431\li720 Diamond List;}
-{\s10\sl240\slmult1\fi-431\li720 Numbered List;}
-{\*\cs12\sl240\slmult1\fs20\super Endnote Reference;}
-{\s13\sl240\slmult1\fi-431\li720 Triangle List;}
-{\s14\sl240\slmult1\tx431\sbasedon26\snext28 Numbered Heading 3;}
-{\s15\sl240\slmult1\fi-431\li720 Dashed List;}
-{\s16\sl240\slmult1\fi-431\li720\sbasedon10 Upper Roman List;}
-{\s17\sl240\slmult1\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 4;}
-{\s18\sl240\slmult1\fi-431\li720 Heart List;}
-{\s34\sl240\slmult1\fi-431\li720 Box List;}
-{\s20\sl240\slmult1\fi-431\li720\sbasedon10 Upper Case List;}
-{\s21\sl240\slmult1\fi-431\li720 Bullet List;}
-{\s22\sl240\slmult1\fi-431\li720 Hand List;}
-{\*\cs23\sl240\slmult1\fs20\sbasedon28 Footnote Text;}
-{\s24\sl240\slmult1\sb440\sa60\f2\fs34\b\sbasedon28\snext28 Heading 1;}
-{\s25\sl240\slmult1\sb440\sa60\f2\fs28\b\sbasedon28\snext28 Heading 2;}
-{\s19\qc\sl240\slmult1\sb240\sa119\f2\fs32\b\sbasedon28\snext28 Contents Header;}
-{\s27\sl240\slmult1\fi-431\li720 Tick List;}
-{\s26\sl240\slmult1\sb440\sa60\f2\fs24\b\sbasedon28\snext28 Heading 3;}
-{\s29\sl240\slmult1\fi-431\li720\sbasedon10 Lower Case List;}
-{\s30\sl240\slmult1\li1440\ri1440\sa119\sbasedon28 Block Text;}
-{\s36\sl240\slmult1\f6\sbasedon28 Plain Text;}
-{\s32\sl240\slmult1\tx1584\sbasedon5\snext28 Section Heading;}
-{\s33\sl240\slmult1\fi-431\li720 Implies List;}
-{\s28\sl240\slmult1\f0\fs24\lang1033 Normal;}
-{\s35\sl240\slmult1\fi-431\li720 Star List;}
-{\*\cs31\sl240\slmult1\fs20\super Footnote Reference;}
-{\s37\sl240\slmult1\tx1584\sbasedon5\snext28 Chapter Heading;}}
-\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\facingp\titlepg\revprop3{\info}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctl
-\sectd\sbknone\colsx360\headery0\footery0\pgncont\ltrsect
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Hisham Elasmar and Sumit Khanna}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch CPSC 544 - Network Security}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Dr. Joseph M. Kizza}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Intrusion Detection System}{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Lab #7}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\qc\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Date: Thursday, June 9, 2005}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch \page Introduction}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In this lab, we installed Snort, a network sniffing program, in Linux on Server #4. This report is an explanation of all the steps we took in setting up Snort, monitoring the network and reporting our results.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Installation}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We installed Snort in Debain by using the apt package manager. We used the command }{\s28\f0\fs24\i\lang1033{\*\listtag0}apt-get install snort}{\s28\f0\fs24\lang1033{\*\listtag0} to install the latest Snort package.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Setup}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch All the configuration files for snort were stored in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort}{\s28\f0\fs24\lang1033{\*\listtag0}. We edited the }{\s28\f0\fs24\i\lang1033{\*\listtag0}snort.defian.conf}{\s28\f0\fs24\lang1033{\*\listtag0} file to monitor our own cluster of machines (10.170.24.0/24) as well as one machine outside of our network (10.170.1.6) by adding the following line to the configuration file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch DEBIAN_SNORT_HOME_NET="10.170.24.0/24,10.170.1.6"}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Testing}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next to test our Snort monitor to make sure it was listening, we ran a Nessus scan from 10.170.1.8 (server4). We then viewed several lines such as the following in the log file located in }{\s28\f0\fs24\i\lang1033{\*\listtag0}/var/log/snort}{\s28\f0\fs24\lang1033{\*\listtag0} :}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [**] [1:501:4] MISC source route lssre [**]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Classification: Potentially Bad Traffic] [Priority: 2]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-17:13:07.859946 10.170.1.8:49669 -> 10.170.1.9:113}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch IP Options (1) => LSRR}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS420]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [**] [1:500:4] MISC source route lssr [**]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Classification: Potentially Bad Traffic] [Priority: 2]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-17:13:12.948208 10.170.1.8:49669 -> 10.170.1.9:113}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch IP Options (1) => LSRR}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\i\lang1033{\*\listtag0}\abinodiroverride\ltrch [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS418]}{\s28\f0\fs24\i\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch This showed that our snort process was listening for potentially dangerous traffic. }{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Further Configuration}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next, we modified Snort's configuration file to only monitor ports above 114. To accomplish this, first we added the following line to }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort/snort.conf}{\s28\f0\fs24\lang1033{\*\listtag0}:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch include $RULE_PATH/cpsc544.rules}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Then we created a rules file called }{\s28\f0\fs24\i\lang1033{\*\listtag0}/etc/snort/rules/cpsc544.rules}{\s28\f0\fs24\lang1033{\*\listtag0} and added the following rule to it:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any 115: <> any 115: (msg:"Port above 114 has been accessed";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch After adding the rule, we saw the following in our log file indicating the rule was working:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:11:23.057381  [**] [1:0:0] Port above 114 has been accessed [**] [Priority: 0] \{TCP\} 10.170.24.21:32859 -> 10.170.1.9:118}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:11:23.057411  [**] [1:0:0] Port above 114 has been accessed [**] [Priority: 0] \{TCP\} 10.170.1.9:118 -> 10.170.24.21:3}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next, we went about writing rules to monitor all udp packets coming into the cluster and give us alerts for packets broadcast on ports 13, 22, 63, 74, 1001, 1248 and 5000 using the following rules:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert udp any any <> any any (msg:"A UDP packet has been sent";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 13 (msg:"Message detected on port 13";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 22 (msg:"Message detected on port 22";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 63 (msg:"Message detected on port 63";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 74 (msg:"Message detected on port 74";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 114 (msg:"Message detected on port 114";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 1001 (msg:"Message detected on port 1001";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 1248 (msg:"Message detected on port 1248";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch alert tcp any any <> any 5000 (msg:"Message detected on port 5000";)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Upon saving these rules and restarting snort, we tested them and received the following output in our alert file:}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:19:37.137472  [**] [1:0:0] A UDP packet has been sent [**] [Priority: 0] \{UDP\} 10.170.1.7:1027 -> 239.2.11.71:8649}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:19:38.139328  [**] [1:0:0] A UDP packet has been sent [**] [Priority: 0] \{UDP\} 10.170.1.7:1027 -> 239.2.11.71:8649}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:25:07.334407  [**] [1:0:0] Message detected on port 13 [**] [Priority: 0] \{TCP\} 10.170.1.9:13 -> 10.170.24.21:32878}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:25:07.334894  [**] [1:0:0] Message detected on port 13 [**] [Priority: 0] \{TCP\} 10.170.24.21:32878 -> 10.170.1.9:13\line 06/02-19:27:25.595942  [**] [1:0:0] Message detected on port 22 [**] [Priority: 0] \{TCP\} 10.170.24.21:32879 -> 10.170.1.9:22}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:25.596751  [**] [1:0:0] Message detected on port 22 [**] [Priority: 0] \{TCP\} 10.170.1.9:22 -> 10.170.24.21:32879}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:52.736760  [**] [1:0:0] Message detected on port 63 [**] [Priority: 0] \{TCP\} 10.170.24.21:32880 -> 10.170.1.9:63}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:27:52.736788  [**] [1:0:0] Message detected on port 63 [**] [Priority: 0] \{TCP\} 10.170.1.9:63 -> 10.170.24.21:32880}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:01.520331  [**] [1:0:0] Message detected on port 74 [**] [Priority: 0] \{TCP\} 10.170.24.21:32881 -> 10.170.1.9:74}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:01.520353  [**] [1:0:0] Message detected on port 74 [**] [Priority: 0] \{TCP\} 10.170.1.9:74 -> 10.170.24.21:32881}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:13.171956  [**] [1:0:0] Message detected on port 114 [**] [Priority: 0] \{TCP\} 10.170.24.21:32882 -> 10.170.1.9:114}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:13.171972  [**] [1:0:0] Message detected on port 114 [**] [Priority: 0] \{TCP\} 10.170.1.9:114 -> 10.170.24.21:32882}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:20.442070  [**] [1:0:0] Message detected on port 1001 [**] [Priority: 0] \{TCP\} 10.170.1.9:1001 -> 10.170.24.21:328}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:46.364846  [**] [1:0:0] Message detected on port 1248 [**] [Priority: 0] \{TCP\} 10.170.1.9:1248 -> 10.170.24.21:328}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch 06/02-19:28:38.105559  [**] [1:0:0] Message detected on port 5000 [**] [Priority: 0] \{TCP\} 10.170.24.21:32885 -> 10.170.1.9:50}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch (Note: Some repetitive output was removed for brevity)}{\s28\f0\fs24\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\sb440\sa60\s24\sl240\slmult1\itap0{\s24\f2\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Conclusion}{\s24\f2\fs34\b\lang1033{\*\listtag0}\par}
-\pard\plain\ltrpar\ql\s28\sl240\slmult1\itap0{\s28\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In conclusion, we were not only able to install and configure snort on a Debian system, but customize specific rules to alert us to traffic on specific ports.}{\s28\f0\fs24\lang1033{\*\listtag0}\par}}
+{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f10\fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}
+{\f36\fnil\fcharset0\fprq0{\*\panose 00000000000000000000}Bitstream Vera Sans;}{\f224\froman\fcharset238\fprq2 Times New Roman CE;}{\f225\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f227\froman\fcharset161\fprq2 Times New Roman Greek;}
+{\f228\froman\fcharset162\fprq2 Times New Roman Tur;}{\f229\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f230\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f231\froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\f232\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\f244\fmodern\fcharset238\fprq1 Courier New CE;}{\f245\fmodern\fcharset204\fprq1 Courier New Cyr;}{\f247\fmodern\fcharset161\fprq1 Courier New Greek;}
+{\f248\fmodern\fcharset162\fprq1 Courier New Tur;}{\f249\fmodern\fcharset177\fprq1 Courier New (Hebrew);}{\f250\fmodern\fcharset178\fprq1 Courier New (Arabic);}{\f251\fmodern\fcharset186\fprq1 Courier New Baltic;}
+{\f252\fmodern\fcharset163\fprq1 Courier New (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;
+\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 Normal;}{\s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 heading 1;}{
+\s2\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel1\rin0\lin0\itap0 \b\f36\fs28\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 heading 2;}{\s3\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel2\rin0\lin0\itap0 
+\b\f36\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 heading 3;}{\s4\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel3\rin0\lin0\itap0 \b\f36\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 
+heading 4;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv 
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}{\s15\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 Contents 1;}{\s16\ql \fi-431\li1440\ri0\nowidctlpar\faauto\rin0\lin1440\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 Contents 2;}{
+\s17\ql \fi-431\li2160\ri0\nowidctlpar\faauto\rin0\lin2160\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 Contents 3;}{\s18\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext18 Lower Roman List;}{\s19\ql \li0\ri0\nowidctlpar\tx431\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon1 \snext0 Numbered Heading 1;}{
+\s20\ql \li0\ri0\nowidctlpar\tx431\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon2 \snext0 Numbered Heading 2;}{\s21\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext21 Square List;}{\s22\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext22 \ssemihidden 
+endnote text;}{\s23\ql \fi-431\li2880\ri0\nowidctlpar\faauto\rin0\lin2880\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 Contents 4;}{\s24\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext24 Diamond List;}{\s25\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext25 Numbered List;}{\*\cs26 \additive \fs20\super 
+\sbasedon10 \ssemihidden endnote reference;}{\s27\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext27 Triangle List;}{\s28\ql \li0\ri0\nowidctlpar\tx431\faauto\rin0\lin0\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon3 \snext0 Numbered Heading 3;}{\s29\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext29 Dashed List;}{
+\s30\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon25 \snext30 Upper Roman List;}{\s31\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext31 Heart List;}{\s32\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext32 Box List;}{
+\s33\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon25 \snext33 Upper Case List;}{\s34\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext34 Bullet List;}{\s35\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext35 Hand List;}{
+\s36\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext36 \ssemihidden footnote text;}{\s37\qc \li0\ri0\sb240\sa119\nowidctlpar\faauto\rin0\lin0\itap0 
+\b\f36\fs32\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 Contents Header;}{\s38\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext38 Tick List;}{
+\s39\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon25 \snext39 Lower Case List;}{\s40\ql \li1440\ri1440\sa119\nowidctlpar\faauto\rin1440\lin1440\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext40 Block Text;}{\s41\ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 \f2\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext41 Plain Text;}{
+\s42\ql \li0\ri0\nowidctlpar\tx1584\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon19 \snext0 Section Heading;}{\s43\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext43 Implies List;}{\s44\ql \fi-431\li720\ri0\nowidctlpar\faauto\rin0\lin720\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext44 Star List;}{\*\cs45 \additive \fs20\super 
+\sbasedon10 \ssemihidden footnote reference;}{\s46\ql \li0\ri0\nowidctlpar\tx1584\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon19 \snext0 Chapter Heading;}{\s47\ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 
+\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 \sautoupd \ssemihidden \styrsid3878898 toc 1;}{\*\cs48 \additive \ul\cf2 \sbasedon10 \styrsid3878898 Hyperlink;}}{\*\listtable{\list\listtemplateid1435787768\listhybrid{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698699\'01\u-3880 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li720\jclisttab\tx720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li1440\jclisttab\tx1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1
+\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li2160\jclisttab\tx2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0
+{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li2880\jclisttab\tx2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext
+\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li3600\jclisttab\tx3600\lin3600 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693
+\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li4320\jclisttab\tx4320\lin4320 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698689\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li5040\jclisttab\tx5040\lin5040 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698691\'01o;}{\levelnumbers;}\f2\fbias0 \fi-360\li5760
+\jclisttab\tx5760\lin5760 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\leveltext\leveltemplateid67698693\'01\u-3929 ?;}{\levelnumbers;}\f10\fbias0 \fi-360\li6480\jclisttab\tx6480\lin6480 }
+{\listname ;}\listid1857453285}}{\*\listoverridetable{\listoverride\listid1857453285\listoverridecount0\ls1}}{\*\rsidtbl \rsid1249409\rsid3091026\rsid3878898\rsid7371617\rsid7615519\rsid7700391}{\*\generator Microsoft Word 10.0.2627;}{\info
+{\author Preferred Customer}{\operator Preferred Customer}{\creatim\yr2005\mo6\dy3\hr9\min12}{\revtim\yr2005\mo6\dy6\hr10\min37}{\version6}{\edmins39}{\nofpages6}{\nofwords979}{\nofchars5583}{\*\company Memorial Health Care System}{\nofcharsws6549}
+{\vern16437}}\margl1440\margr1440 \facingp\widowctrl\ftnbj\aenddoc\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\hyphcaps0\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow0\dgvshow3
+\jcompress\viewkind1\viewscale100\nolnhtadjtbl\rsidroot7700391 \fet0\sectd \sbknone\linex0\headery0\footery0\colsx360\sectdefaultcl\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang 
+{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang 
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain 
+\ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 
+\par 
+\par 
+\par 
+\par }\pard \qc \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\b\fs28\insrsid7371617\charrsid7371617 Hisham Elasmar,}{\b\fs28\insrsid7615519\charrsid7371617  Sumit Khanna}{\b\fs28\insrsid7371617\charrsid7371617  &}{\b\fs28\insrsid7615519\charrsid7371617 
+\par }{\b\fs28\insrsid7371617\charrsid7371617 Phillip Simulis
+\par }{\fs28\insrsid7615519\charrsid7371617 CPSC 544 - Network Security
+\par Dr. Joseph M. Kizza
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }\pard \qc \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }{\fs32\insrsid7615519\charrsid7371617 Intrusion Detection System
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\b\insrsid7615519 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }\pard \qc \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 Lab #7
+\par 
+\par Date: Thursday, June 9, 2005
+\par }\pard\plain \s1\qc \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0\pararsid3878898 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid1249409 \page }{\insrsid3878898 Table of Content 
+\par }\pard\plain \s47\ql \li0\ri0\nowidctlpar\tqr\tldot\tx9350\faauto\rin0\lin0\itap0 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\field\fldedit{\*\fldinst {\insrsid3878898  TOC \\o "1-1" \\h \\z \\u }}{\fldrslt {\field\fldedit{\*\fldinst {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817570"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370030000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Introduction}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817570 \\h }{
+\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370030000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 3}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }{\field\fldedit{\*\fldinst {\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817571"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370031000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Installation}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817571 \\h }{
+\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370031000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 3}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }{\field\fldedit{\*\fldinst {\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817572"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370032000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Setup}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817572 \\h }{
+\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370032000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 3}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }{\field\fldedit{\*\fldinst {\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817573"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370033000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Testing}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817573 \\h }{
+\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370033000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 3}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }{\field\fldedit{\*\fldinst {\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817574"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370034000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Further Configuration}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817574 \\h
+ }{\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370034000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 4}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }{\field\fldedit{\*\fldinst {\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{\lang1024\langfe1024\noproof\insrsid3878898 HYPERLINK \\l "_Toc105817575"}{\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855  }{
+\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370035000000}}}{\fldrslt {
+\cs48\ul\cf2\lang1024\langfe1024\noproof\insrsid3878898\charrsid3937855 Conclusion}{\lang1024\langfe1024\noproof\webhidden\insrsid3878898 \tab }{\field{\*\fldinst {\lang1024\langfe1024\noproof\webhidden\insrsid3878898  PAGEREF _Toc105817575 \\h }{
+\lang1024\langfe1024\noproof\insrsid3878898 {\*\datafield 08d0c9ea79f9bace118c8200aa004ba90b02000000080000000e0000005f0054006f0063003100300035003800310037003500370035000000}}}{\fldrslt {\lang1024\langfe1024\noproof\webhidden\insrsid3878898 6}}}}}{
+\lang1024\langfe1024\noproof\insrsid3878898 
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0\pararsid3878898 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 }}\pard\plain 
+\s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0\pararsid3878898 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 \page {\*\bkmkstart _Toc105817513}{\*\bkmkstart _Toc105817570}Introduction
+{\*\bkmkend _Toc105817513}{\*\bkmkend _Toc105817570}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7371617 After building the firewall for both Windows and Linux systems}{\insrsid3091026 
+ in previous lab}{\insrsid7371617 , it was time for us to}{\insrsid3091026  install the intrusion detection system to monitor the in and out lines of our server. So i}{\insrsid7615519 n this lab, we installed Snort, a netwo}{\insrsid3091026 
+rk sniffing program, in Linux based}{\insrsid7615519  Server }{\insrsid3091026 (}{\insrsid7615519 #4}{\insrsid3091026 )}{\insrsid7615519 
+. This report is an explanation of all the steps we took in setting up Snort, monitoring the network and reporting our results.
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 {\*\bkmkstart _Toc105817514}{\*\bkmkstart _Toc105817571}Installation
+{\*\bkmkend _Toc105817514}{\*\bkmkend _Toc105817571}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 We installed Snort in Debain by using the apt package manager. We used the command }{
+\b\i\insrsid7615519\charrsid7615519 apt-get install snort}{\insrsid7615519  to install the latest Snort package.
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 {\*\bkmkstart _Toc105817515}{\*\bkmkstart _Toc105817572}Setup{\*\bkmkend _Toc105817515}
+{\*\bkmkend _Toc105817572}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 All the configuration files for snort were stored in }{\b\i\insrsid7615519\charrsid3091026 
+/etc/snort}{\insrsid7615519 . We edited the }{\b\i\insrsid7615519\charrsid7700391 snort.defian.conf}{\b\insrsid7615519\charrsid7700391  }{\insrsid7615519 file to monitor our own cluster of machines (10.170.24.0/24) as well as one mac
+hine outside of our network (10.170.1.6) by adding the following line to the configuration file:
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }{\b\i\insrsid7615519\charrsid7700391 DEBIAN_SNORT_HOME_NET="10.170.24.0/24,10.170.1.6"
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 {\*\bkmkstart _Toc105817516}{\*\bkmkstart _Toc105817573}Testing
+{\*\bkmkend _Toc105817516}{\*\bkmkend _Toc105817573}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 
+Next to test our Snort monitor to make sure it was listening, we ran a Nessus scan from 10.170.1.8 (server4). We then viewed several lines such as the following in the log file located in }{\b\i\insrsid7615519\charrsid7615519 /var/log/snort}{
+\insrsid7615519 :
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\i\insrsid7615519 [**] [1:501:4] MISC source route lssre [**]
+\par [Classification: Potentially Bad Traffic] [Priority: 2]
+\par 06/02-17:13:07.859946 10.170.1.8:49669 -> 10.170.1.9:113
+\par TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44
+\par IP Options (1) => LSRR
+\par ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20
+\par [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS420]
+\par 
+\par [**] [1:500:4] MISC source route lssr [**]
+\par [Classification: Potentially Bad Traffic] [Priority: 2]
+\par 06/02-17:13:12.948208 10.170.1.8:49669 -> 10.170.1.9:113
+\par TCP TTL:64 TOS:0x0 ID:61291 IpLen:24 DgmLen:44
+\par IP Options (1) => LSRR
+\par ******S* Seq: 0x1415B1DE  Ack: 0x0  Win: 0x200  TcpLen: 20
+\par [Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0909][Xref => http://www.securityfocus.com/bid/646][Xref => http://www.whitehats.com/info/IDS418]
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par This showed that our snort process was listening for potentially dangerous traffic. 
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 {\*\bkmkstart _Toc105817517}{\*\bkmkstart _Toc105817574}Further Configuration
+{\*\bkmkend _Toc105817517}{\*\bkmkend _Toc105817574}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 
+Next, we modified Snort's configuration file to only monitor ports above 114. To accomplish this, first we added the following line to }{\b\i\insrsid7615519\charrsid7700391 /etc/snort/snort.conf}{\insrsid7615519 :
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }{\insrsid3091026 I}{\insrsid7615519 nclude }{\b\insrsid7615519\charrsid7700391 $RULE_PATH/cpsc544.rules}{\insrsid7615519 
+\par 
+\par Then we created a rules file called }{\b\i\insrsid7615519\charrsid7700391 /etc/snort/rules/cpsc544.rules}{\insrsid7615519  and added the following rule to it:
+\par 
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}}\pard \ql \fi-360\li720\ri0\nowidctlpar\jclisttab\tx720\faauto\ls1\rin0\lin720\itap0\pararsid3091026 {\insrsid7615519 alert tcp any 115: <> any 115: (msg:"}{
+\b\insrsid7615519\charrsid7700391 Port above 114 has been accessed}{\insrsid7615519 ";)
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par After adding the rule, we saw the following in our log file indicating the rule was working:
+\par 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:11:23.057381  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Port above 114 has been accessed}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.24.21:32859 -> 10.170.1.9:118
+\par 06/02-19:11:23.057411  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Port above 114 has been accessed}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.1.9:118 -> 10.170.24.21:3
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }\pard \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 
+Next, we went about writing rules to monitor all udp packets coming into the cluster and give us alerts for packets broadcast on ports 13, 22, 63, 74, 1001, 1248 and 5000 using the following rules:
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}}\pard \ql \fi-360\li720\ri0\sl360\slmult1\nowidctlpar\jclisttab\tx720\faauto\ls1\rin0\lin720\itap0\pararsid3091026 {\insrsid7615519 alert udp any any <> any any (msg:"}{
+\b\insrsid7615519\charrsid7700391 A UDP packet has been sent}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 13 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 13}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 22 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 22}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 63 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 63}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 74 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 74}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 114 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 114}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 1001 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 1001}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 1248 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 1248}{\insrsid7615519 ";)
+\par {\listtext\pard\plain\f10\insrsid7615519 \loch\af10\dbch\af0\hich\f10 \'d8\tab}alert tcp any any <> any 5000 (msg:"}{\b\insrsid7615519\charrsid7700391 Message detected on port 5000}{\insrsid7615519 ";)
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par 
+\par Upon saving these rules and restarting snort, we tested them and received the following output in our alert file:
+\par 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:19:37.137472  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 A UDP packet has been sent}{\insrsid7615519  [**] [Priority: 0] \{UDP\}
+ 10.170.1.7:1027 -> 239.2.11.71:8649
+\par 06/02-19:19:38.139328  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 A UDP packet has been sent}{\insrsid7615519  [**] [Priority: 0] \{UDP\} 10.170.1.7:1027 -> 239.2.11.71:8649
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:25:07.334407  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 13}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.1.9:13 -> 10.170.24.21:32878
+\par 06/02-19:25:07.334894  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 13}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.24.21:32878 -> 10.170.1.9:13}{\insrsid3091026 
+\par }{\insrsid7615519 \line 06/02-19:27:25.595942  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 22}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.24.21:32879 -> 10.170.1.9:22
+\par 06/02-19:27:25.596751  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 22}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.1.9:22 -> 10.170.24.21:32879
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:27:52.736760  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 63}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.24.21:32880 -> 10.170.1.9:63
+\par 06/02-19:27:52.736788  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 63}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.1.9:63 -> 10.170.24.21:32880
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:28:01.520331  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 74}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.24.21:32881 -> 10.170.1.9:74
+\par 06/02-19:28:01.520353  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 74}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.1.9:74 -> 10.170.24.21:32881
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:28:13.171956  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 114}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.24.21:32882 -> 10.170.1.9:114
+\par 06/02-19:28:13.171972  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 114}{\insrsid7615519  [**] [Priority: 0] \{TCP\} 10.170.1.9:114 -> 10.170.24.21:32882
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:28:20.442070  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 1001}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.1.9:1001 -> 10.170.24.21:328
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:28:46.364846  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 1248}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.1.9:1248 -> 10.170.24.21:328
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid3091026 
+\par }\pard \ql \li0\ri0\sl360\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 {\insrsid7615519 06/02-19:28:38.105559  [**] [1:0:0] }{\b\insrsid7615519\charrsid7700391 Message detected on port 5000}{\insrsid7615519  [**] [Priority: 0] \{TCP\}
+ 10.170.24.21:32885 -> 10.170.1.9:50
+\par }\pard \ql \li0\ri0\nowidctlpar\faauto\rin0\lin0\itap0 {\insrsid7615519 
+\par }{\b\i\insrsid7615519\charrsid3091026 Note}{\insrsid7615519 : Some repetitive}{\insrsid3091026  output was removed for brevity}{\insrsid7615519 
+\par }\pard\plain \s1\ql \li0\ri0\sb440\sa60\nowidctlpar\faauto\outlinelevel0\rin0\lin0\itap0 \b\f36\fs34\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 {\*\bkmkstart _Toc105817518}{\*\bkmkstart _Toc105817575}Conclusion
+{\*\bkmkend _Toc105817518}{\*\bkmkend _Toc105817575}
+\par }\pard\plain \ql \li0\ri0\sl480\slmult1\nowidctlpar\faauto\rin0\lin0\itap0\pararsid3091026 \fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid7615519 
+In conclusion, we were not only able to install and configure snort on a Debian system, but customize specific rules to alert us to traffic on specific ports.
+\par }}
