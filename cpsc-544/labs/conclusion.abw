@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0.12" xml:space="preserve" props="dom-dir:ltr; lang:en-US">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="abiword.date_last_changed">Mon Jun 13 16:24:06 2005</m>
+</metadata>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Heading 1" basedon="Normal" followedby="Normal" props="keep-with-next:1; margin-top:22pt; font-weight:bold; margin-bottom:3pt; font-family:Nimbus Sans L; font-size:17pt"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:center; font-size:16pt"><c props="font-size:16pt">Sumit Khanna</c></p>
+<p style="Normal" props="text-align:center; font-size:16pt"><c props="font-size:16pt">CPSC 544 Network Security</c></p>
+<p style="Normal" props="text-align:center; font-size:16pt"><c props="font-size:16pt">Dr. Joseph M. Kizza</c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:center; font-weight:bold; font-size:16pt"><c props="font-weight:bold; font-size:16pt">Lab Conclusions</c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal"><c></c></p>
+<p style="Normal" props="text-align:center"><c props="font-weight:bold">Date: June 14th, 2005</c></p>
+<p style="Normal" props="text-align:center"><c></c></p>
+<p style="Heading 1" props="line-height:1.5"><c></c><pbr/>General Lab Conclusions</p>
+<p style="Normal" props="text-align:left; line-height:1.5"><c></c>In the past three labs, we have constructed firewalls, written security policies and customized intrusion detection systems on a variety of operating systems including Windows, Linux and MacOS X. We have learned a great deal about security at the network, host and operating system level. </p>
+<p style="Heading 1" props="line-height:1.5"><c></c>Security Policy</p>
+<p style="Normal" props="line-height:1.5"><c></c>In lab #5, my group had to write a security policy. The security policy felt as if it came from the perspective of an outside contractor or consultant who a company pay to examine a network, list what needed to be fixed and then fix the network appropriately. Typically such analysis and implementation happens very rapidly and is what is used to "fix" the network.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">In the case of my current job, I will need to write a security policy for my company who I am currently a system administrator for. I have never written a security policy nor was there one published at my previous position as a UNIX administrator for Tennessee Tech's Computer Science department or as my position as a Windows administrator at Hixson High School. </p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">I feel writing a security policy for a company I am an administrator for will be slightly different from the type of policy I wrote in this lab. Employees don't read anything you give them and I believe a full security policy coupled with small, short and terse information sheets are the best combined response to both raising awareness in the company and building a secure network.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Heading 1"><c></c>Firewalls</p>
+<p style="Normal" props="line-height:1.5"><c></c>In lab #6, my group built firewalls in both Windows using Zone Alarm and in Linux using Guarddog, a front end for iptables.  We learned how to use graphical configuration tools as well as analyze logs to see the results of our rules.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">I really felt a great amount of disappointment form this lab. For years I have used iptables front-ends to establish firewalls. I only know a few iptables rules for simple NAT which I used to create routers. With Linux being my primary operating system and field of study, it is necessary for me to learn how actual raw iptables rules work, however I've been lazy to this point and I was hoping this lab would finally force me to learn.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">I do not believe my group really learned anything about Linux firewalls by using Guarddog. Instead we should have focused on writing individual rules and learned how Linux handles its firewall at the operating system level so that we could write our own front-ends and basic firewall scripts.</p>
+<p style="Heading 1" props="line-height:1.5"><c></c>Intrusion Detection</p>
+<p style="Normal" props="line-height:1.5"><c></c>In lab #7, we used Snort, an Intrusion Detection System that worked at the network level of security. It monitors all traffic and identifies potentially dangerous traffic using a set of rules. Many rules have been predefined and are updated, however administrators can add their own rules as well.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">There are several limitations for using Snort. For one, it must be on a host which has access to all the network traffic to be effective. In our lab, this could simply be any machine since they are all hooked up to the same hub. However in office environment which use switches, the most effective place to put snort would be the router. </p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5"><c></c>If a customizable switch exists on the network, such as a Cisco or Adtran switch, it can be setup to repeat all network traffic to one specific Ethernet port and a server with Snort could be hooked up to that one port. This is the safer solution allowing the network to separate the IDS and the router.</p>
+<p style="Normal" props="line-height:1.5"><c></c></p>
+<p style="Normal" props="line-height:1.5">There is one other type of IDS we didn't cover in the lab and that is at the host level. Software such as <c props="font-weight:bold">Tripwire</c><c props="font-weight:bold"></c><c props="font-weight:normal"> is available to check a Linux system to make sure critical system files have not be altered. Typically this software is intended for Linux systems which people are allowed shell access to (via ssh, rsh or telnet) such as web hosting providers and school networks. Tripwire is designed to detect problems if a user as all ready gain illegal access to the system or if an authorized user tries to do something he or she isn't suppose to.</c></p>
+<p style="Heading 1" props="line-height:1.5"><c></c>Conclusions</p>
+<p style="Normal" props="line-height:1.5"><c props="font-weight:normal">During my time at my undergraduate school, Tennessee Technological University, I maintained a cluster of Red Hat Linux systems. We had two Linux administrators (including myself) and one Windows administrator. Our labs had centralized authentication and secure systems.</c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-weight:normal"></c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-weight:normal">In the education environment, it was easy for me to take a lot of things for granted as far as security is concerned. For one, all our machines had authentication (NIS at first and later LDAP in Linux and a Primary Domain Controller for Windows). We had secure installs and worked each semester to make the installs more secure, usable and maintainable. </c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-weight:normal"></c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-weight:normal">When I got my first </c><c props="font-style:italic; font-weight:normal">real</c><c props="font-style:normal; font-weight:normal"> job at a check/credit card transaction agency, I was introduced to a network with only one system administrator who didn't even have a two year technical degree much less a bachelors, and an entire office filled with Windows XP Home edition! Security was poor to say the least.</c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-style:normal; font-weight:normal"></c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-style:normal; font-weight:normal">The high security lab at UTC is similar to a </c><c props="font-style:italic; font-weight:normal">real world</c><c props="font-style:normal; font-weight:normal"> environment. There is no central authentication, the computers have various software installed without using the package manager, updates haven't been run in forever, all the computers are connected with an insecure hub and the only protection is the main firewall leading to the outside world. It is a security nightmare and similar to the office where I work.</c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-style:normal; font-weight:normal"></c></p>
+<p style="Normal" props="line-height:1.5"><c props="font-style:normal; font-weight:normal">This class and the series of labs have helped me think in new ways about approaching security. I've learned a lot of high level theory, which in itself isn't that useful, but which I can apply as a system administrator to fixing and updating a poor network while attempting to maintain normal day to day operations.</c></p>
+</section>
+</abiword>
