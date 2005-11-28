@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
-<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="14" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<abiword template="false" styles="unlocked" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="60" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
 <!-- ======================================================================== -->
 <!-- This file is an AbiWord document.                                        -->
 <!-- AbiWord is a free, Open Source word processor.                           -->
@@ -12,13 +12,14 @@
 <m key="dc.format">application/x-abiword</m>
 <m key="abiword.generator">AbiWord</m>
 </metadata>
-<history version="10" edit-time="20165" last-saved="1132777521" uid="2d5967a0-56b7-11da-8b7a-fa1f529cad76">
+<history version="32" edit-time="45879" last-saved="1133213558" uid="2d5967a0-56b7-11da-8b7a-fa1f529cad76">
 <version id="5" started="1132155715" uid="d35a3c46-56e0-11da-8b7a-fa1f529cad76" auto="0" top-xid="3"/>
 <version id="7" started="1132669463" uid="082f0410-5b64-11da-9d6d-8e5ced6408b8" auto="0" top-xid="6"/>
 <version id="10" started="1132777038" uid="456b19c6-5c5f-11da-807f-8fed493be79e" auto="0" top-xid="8"/>
+<version id="32" started="1133187982" uid="7f7baaf4-6056-11da-8898-a7b6e85e1003" auto="0" top-xid="24"/>
 </history>
 <styles>
-<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; font-variant:normal; lang:en-US; dom-dir:ltr; margin-bottom:0pt; text-decoration:none; font-weight:normal; bgcolor:transparent; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Normal" followedby="Current Settings" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
 </styles>
 <pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
 <section xid="2" props="page-margin-footer:0.5in; page-margin-header:0.5in">
@@ -26,12 +27,48 @@
 <p style="Normal" xid="6"></p>
 <p style="Normal" xid="1">In this paper we'll be taking a look at technology that allows processors to execute more than one task simultaneously. You may be thinking, "But don't processors all ready do that? I can run Notepad, play a movie and play solitaire on my computer the same time." Although to the end user, it seems like these applications are running simultaneously, your processor runs instructions one at a time sequentially. A multitasking operating system, for example Windows or Linux, can switch out these individual processes very quickly, giving each of them a few nanoseconds of time to run. It can switch them out so quickly that they seem to be running simultaneously. </p>
 <p style="Normal" xid="4"></p>
-<p style="Normal" xid="5">An operating systems usually has several running processes and any one of those processes can have multiple threads. These processes and threads each have to share time on one CPU. However there are computer systems available today that have multiple processors. With such systems, it is possible for the operating system to place different processes and even process threads on individual processors. There are several multiprocessor architecture types including Non-Uniform Memory Access (NUMA) and Symmetric Multiprocessor (SMP). Hyper-Threading (HT) is a name coined by Intel which actually referees to a single processor architecture that behaves like a multiprocessor; having several logical processors for one physical one.  </p>
+<p style="Normal" xid="5">An operating systems usually has several running processes and any one of those processes can have multiple threads. These processes and threads each have to share time on one CPU. However there are computer systems available today that have multiple processors. With such systems, it is possible for the operating system to place different processes and even process threads on individual processors. </p>
+<p style="Normal" xid="31"></p>
+<p style="Normal" xid="32">There are several multiprocessor architecture types including Non-Uniform Memory Access (NUMA), Symmetric Multiprocessor (SMP) and Massively Parallel Processing (MPP). Hyper-Threading (HT) is a name coined by Intel which actually referees to a single processor architecture that behaves like a multiprocessor; having several logical processors for one physical one.  </p>
 <p style="Normal" xid="9"></p>
 <p style="Normal" xid="11">With the additional of extra processing units, there is the expectation that the system will run faster. It's important to keep in mind that having a dual processor system will not make a program run twice as fast. A single non-threaded program on a uni-processor 500Mhz computer will run just as fast as if it were run on a dual-processor 500Mhz computer. The speed advantage comes when more than one process is running, allowing the operating system to balance out multiple processes. Still, even in these situations, a single process will never run faster on a dual system that it would a single. </p>
 <p style="Normal" xid="13"></p>
 <p style="Normal" xid="14">The exception are programs that utilize threads. The operating system can choose to balance to threads on separate processors, increasing the speed of the program. However for the general case, the common myth is that adding a second processor doubles the speed of the computer system. A dual 500Mhz system is not the same has having a single 1Ghz system.</p>
 <p style="Normal" xid="12"></p>
-<p style="Normal" xid="10">First, we'll look at Non-Uniform Memory Access or NUMA. In an NUMA system, each processor </p>
+<p style="Normal" xid="25"></p>
+<p style="Normal" xid="26"></p>
+<p style="Normal" xid="29">SMP</p>
+<p style="Normal" xid="30"></p>
+<p style="Normal" xid="33">A Symmetric Multiprocessor System is one of the most common types of multiprocessor systems. An SMP system can have between 2 to 32 processors. All the processors in the system have access to the same main memory. Because of this, any processor can work on any task. However since all the memory is shared, there can be significant performance hits if the processors become starved for memory resources. </p>
+<p style="Normal" xid="35"></p>
+<p style="Normal" xid="37">--insert more stuff here--</p>
+<p style="Normal" xid="42">In an SMP system, the operating system is loaded only onto the first processor. It is then up to the operating system to initialize and use any additional processors. If the operating system doesn't support SMP, such as Windows 95/98/ME, the system will only utilize one CPU leaving the other processor idle. Operating systems such as Windows NT/2000/XP/2003, Linux, BeOS, MacOS X and FreeBSD support SMP systems. </p>
+<p style="Normal" xid="38"></p>
+<p style="Normal" xid="36">SMP systems dominate much of the business and consumer level server market. Typically, SMP systems use consumer-level desktop processors. Intel chips have supported SMP since the 486 (only in limited embedded systems such as T1 CSU/DSU units), however major support for SMP didn't come around until the Pentium/PentiumPro. AMD's x86 processors also support SMP officially with the AthlonMP although support has always been available with their other processors.  Apple's PowerPC and IBM's POWER processors also support SMP configurations. There are also enterprise-level processors that support SMP such as Intel's Xeon, Itanium and Itanium2 as well as AMD's Opteron, Sun's UltraSparc, SGI's MIPS and DEC's Alpha. </p>
+<p style="Normal" xid="40"></p>
+<p style="Normal" xid="41">It is important to not only have the same type and speed of processor in an SMP system, but for stability it is recommended that the processors have the same family and stepping numbers; what's often known as a "Matched Set." Having an unmatched set of processors can lead to instability. Typically of the processors are of different speeds, the faster processor will be clocked down to the slower one, with the exception of AMD systems which can run two Athlon processors at different clock speeds. </p>
+<p style="Normal" xid="34"></p>
+<p style="Normal" xid="27"></p>
+<p style="Normal" xid="28">NUMA</p>
+<p style="Normal" xid="43"></p>
+<p style="Normal" xid="39">SMP is very prevalent, however because of the shared memory system it can be very inefficient. Since both processors have to balance memory access, there is an increase chance of the processors being starved for memory. Some designers require these systems to have "Buffered" or "Registered" memory to help alleviate this problem. Nonuniform Memory Systems (NUMA) systems deal with this issue by using separate memory banks for each processor. </p>
+<p style="Normal" xid="46"></p>
+<p style="Normal" xid="51">In an NUMA system the bottleneck from a shared memory bus is alleviated by limiting the number of CPUs on any one memory bus forming nodes which are connected via a high speed interconnect. Each node is defined as being the memory, CPU and I/O on the same physical bus. (NUMA FAQ) NUMAs introduce the concept of local and remote memory.</p>
+<p style="Normal" xid="52"></p>
+<p style="Normal" xid="53">Each node has much faster access to its local memory, however there are performance hits when a particular node attempts to access remote memory. It is up to the developer to write programs where individual processes </p>
+<p style="Normal" xid="47"></p>
+<p style="Normal" xid="59"></p>
+<p style="Normal" xid="60"></p>
+<p style="Normal" xid="50"></p>
+<p style="Normal" xid="54">Hyper Threading</p>
+<p style="Normal" xid="57"></p>
+<p style="Normal" xid="58"></p>
+<p style="Normal" xid="55"></p>
+<p style="Normal" xid="56"></p>
+<p style="Normal" xid="48">MPP</p>
+<p style="Normal" xid="18"></p>
+<p style="Normal" xid="19"></p>
+<p style="Normal" xid="21"></p>
+<p style="Normal" xid="22">Conclusion</p>
 </section>
 </abiword>
