@@ -1,3 +1,7 @@
+WikiPedia NUMA: http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access
 NUMA Faq: http://lse.sourceforge.net/numa/faq/
 WikiPedia SMP: http://en.wikipedia.org/wiki/Symmetric_multiprocessing
 Answers.com SMP: http://www.answers.com/topic/symmetric-multiprocessing
+WikiPedia HT: http://en.wikipedia.org/wiki/Hyper_threading
+WikiPedia SMT: http://en.wikipedia.org/wiki/Simultaneous_multithreading
+MPP: http://www.auditmypc.com/acronym/MPP.asp
