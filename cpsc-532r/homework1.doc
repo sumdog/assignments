@@ -1,0 +1,283 @@
+{\rtf1\ansi\ansicpg1252\deff0
+{\fonttbl
+{\f0\fnil\fcharset0\fprq0\fttruetype Times New Roman;}
+{\f1\fnil\fcharset0\fprq0\fttruetype Arial;}
+{\f2\fnil\fcharset0\fprq0\fttruetype Nimbus Mono L;}
+{\f3\fnil\fcharset0\fprq0\fttruetype Symbol;}
+{\f4\fnil\fcharset0\fprq0\fttruetype Dingbats;}
+{\f5\fnil\fcharset0\fprq0\fttruetype Courier New;}}
+{\colortbl
+\red0\green0\blue0;
+\red255\green255\blue255;}
+{\stylesheet
+{\s1\fi-432\li720\sbasedon29\snext29Contents 1;}
+{\s2\fi-432\li1440\sbasedon29\snext29Contents 2;}
+{\s3\fi-432\li2160\sbasedon29\snext29Contents 3;}
+{\s8\fi-432\li720\sbasedon29Lower Roman List;}
+{\s5\tx432\sbasedon25\snext29Numbered Heading 1;}
+{\s6\tx432\sbasedon26\snext29Numbered Heading 2;}
+{\s7\fi-432\li720Square List;}
+{\*\cs11\sbasedon29Endnote Text;}
+{\s4\fi-432\li2880\sbasedon29\snext29Contents 4;}
+{\s9\fi-432\li720Diamond List;}
+{\s10\fi-432\li720Numbered List;}
+{\*\cs12\fs20\superEndnote Reference;}
+{\s13\fi-432\li720Triangle List;}
+{\s14\tx432\sbasedon27\snext29Numbered Heading 3;}
+{\s15\fi-432\li720Dashed List;}
+{\s16\fi-432\li720\sbasedon10Upper Roman List;}
+{\s17\sb440\sa60\f1\fs24\b\sbasedon29\snext29Heading 4;}
+{\s18\fi-432\li720Heart List;}
+{\s35\fi-432\li720Box List;}
+{\*\cs20\fs20Reference;}
+{\s21\fi-432\li720\sbasedon10Upper Case List;}
+{\s22\fi-432\li720Bullet List;}
+{\s23\fi-432\li720Hand List;}
+{\*\cs24\fs20\sbasedon29Footnote Text;}
+{\s25\sb440\sa60\f1\fs34\b\sbasedon29\snext29Heading 1;}
+{\s26\sb440\sa60\f1\fs28\b\sbasedon29\snext29Heading 2;}
+{\s19\qc\sb240\sa120\f1\fs32\b\sbasedon29\snext29Contents Header;}
+{\s28\fi-432\li720Tick List;}
+{\s27\sb440\sa60\f1\fs24\b\sbasedon29\snext29Heading 3;}
+{\s30\fi-432\li720\sbasedon10Lower Case List;}
+{\s31\li1440\ri1440\sa120\sbasedon29Block Text;}
+{\s37\f5\sbasedon29Plain Text;}
+{\s33\tx1584\sbasedon5\snext29Section Heading;}
+{\s34\fi-432\li720Implies List;}
+{\s29\f0\fs24\lang1033Normal;}
+{\s36\fi-432\li720Star List;}
+{\*\cs32\fs20\superFootnote Reference;}
+{\s38\tx1584\sbasedon5\snext29Chapter Heading;}}
+{\*\listtable
+{\list\listtemplateid1000\listsimple{\listlevel\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-432\li720{\leveltext\'01\'b7 ;}{\levelnumbers;}\f3}\listid1000}}
+{\*\listoverridetable
+{\listoverride\listoverridecount0\listid1000\levelnfc23\levelstartat0\levelspace0\levelfollow0\fi-432\li720{\leveltext\'01\'b7 ;}{\levelnumbers;}\f3\ls1}}
+
+\kerning0\cf0\ftnbj\fet2\ftnstart1\ftnnar\aftnnar\ftnstart1\aftnstart1\aenddoc\revprop3{\info\uc1}\deftab720\viewkind1\paperw12240\paperh15840\margl1440\margr1440\widowctl
+\sectd\sbknone\colsx360\pgncont\ltrsect
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs36\b\lang1033{\*\listtag0}\abinodiroverride\ltrch CPSC-532r - Homework #1 - Harris}{\s29\f0\fs36\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs36\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Sumit Khanna}{\s29\f0\fs36\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Introduction}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The following is a writeup for Homework #1 in Dr. Harris's CPSC-532/Systems Programming class. There are a few conventions used throughout this paper. Names and paths to files are written in italics such as }{\s29\f0\fs24\i\lang1033{\*\listtag0}/boot/grub/grub.conf}{\s29\f0\fs24\lang1033{\*\listtag0}. All actual code, commands and text viewable on the terminal will be in a }{\s29\f2\fs24\lang1033{\*\listtag0}monospaced font}{\s29\f0\fs24\lang1033{\*\listtag0}. All actual command will be prefixed by either a $ or a # indicating a user or root prompt.}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Part 1: The Machine}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch For this assignment I will be using the machine located at damagedindustries.net, a DynDNS name that points to my home router which also functions as a firewall, ldap server, DNS server and mail server. It runs Gentoo and is heavily secured by means of firewalls, nightly security updates and by using the}{\s29\f0\fs24\i\lang1033{\*\listtag0} /etc/security/access.conf}{\s29\f0\fs24\lang1033{\*\listtag0} for SSH connections. The only services open to the world are SMTP, IMAP-ssl, OpenVPN and SSH. The name of the machine is bebop and the domain is turtles (FQDN: bebop.turtles.damagedindustries.net OR damagedindustries,net)}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Part 2: Configuring the Mail Service}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In the past for various jobs I've had to either configure or maintain sendmail, qmail or postfix. Over the years I've settled on postfix for various reasons, however the other two MTAs are equally valid. Here is how I've configured postfix on bebop:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 1: install pacakges}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch I run the following commands to install necessary packages: }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #emerge unmerge ssmtp}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #emerge -av postfix courier-imap clamav amavis-new spamassassin}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch First we unmerge ssmtp, a placeholder in Gentoo that essentially does nothing and needs to be replaced by an MTA (Mail Transport Agent). Then I emerge my MTA (postfix), my IMAP server (courier), my virus scanner (clamav) and my spam scanner (spamassassin). Postfix doesn't interact with the filters directly. Instead it uses amavis-new which passes mail through spamassassin and clamav and has hooks for many other mail checks I can install later.}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 2: Configuring Spamassassin }{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Configuring spamassassin is also very simply. Unlike clamav, spamassassin doesn't run as a daemon (it can run as a daemon but that daemon can't listen to untrusted networks and is intended to be used by local email programs). Instead, amavis-new accesses it as a standard perl library. The only thing we need to setup is the MySQL database.}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The scheme for the MySQL database can be found in the source tarball located in }{\s29\f0\fs24\i\lang1033{\*\listtag0}/usr/portage/distfiles }{\s29\f0\fs24\lang1033{\*\listtag0}which I untar to /tmp (I don't understand why Gentoo doesn't just install these to }{\s29\f0\fs24\i\lang1033{\*\listtag0}/usr/share/spamassassn}{\s29\f0\fs24\lang1033{\*\listtag0}), create the database user and import then like so:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $mysql -u root -p}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch <type password>}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mysql>CREATE DATABASE sa_bayes;}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mysql>GRANT ALL ON sa_bayes.* TO 'calmdb'@'localhost' IDENTIFIED BY '******';}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch FLUSH PRIVILEGES;}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch ^D}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $mysql -u clamdb -p < bayes_mysql.sql}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $mysql -u clamdb -p < userpref_mysql.sql}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $mysql -u clamdb -p < awl_mysql.sql}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch After this I just have to edit }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/spamassassin/secrets.cf}{\s29\f0\fs24\lang1033{\*\listtag0} and add my database name, user name and password. }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Next I edit }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/amavisd.conf}{\s29\f0\fs24\lang1033{\*\listtag0} to utilized clamav and spamassassin. The first thing to do is comment out the following in order to turn on spam checking:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #@bypass_spam_checks_maps = (1); }{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 3: Setting up Claim-AntiVirus}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Configuring clamav is very easy. I made sure the options "ScanMail" and "ScanArchive" were enabled in}{\s29\f0\fs24\i\lang1033{\*\listtag0} /etc/clamd.conf}{\s29\f0\fs24\lang1033{\*\listtag0} and made sure the "LocalSocket" matched the location in amavis-new's configuration files, in my case }{\s29\f0\fs24\i\lang1033{\*\listtag0}/var/run/clamav/clamd.sock}{\s29\f0\fs24\lang1033{\*\listtag0}. This socket is what allows amavis-new to scan mail using clamav.}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We turn on ClamAV in amavis-new by making sure we have the right socket defined:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch  ['ClamAV-clamd',}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch    \\&ask_daemon, ["CONTSCAN \{\}\\n", "/var/run/clamav/clamd.sock"],}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch    qr/\\bOK$/, qr/\\bFOUND$/,}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch    qr/^.*?: (?!Infected Archive)(.*) FOUND$/ ],}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 4: Configuring Amavis-new}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch There are a number of other settings at the beginning of this file that must be adjusted:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $mydomain = 'damagedindustries.net';      # (no useful default)}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $myhostname = 'damagedindustries.net';}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $forward_method = 'smtp:[127.0.0.1]:10025';}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch $unix_socketname = "$MYHOME/amavisd.sock";}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The last two are important because they indicate how mail programs can pass information into amavis to be filtered and what amavis should do when it's done with the filtering. Finally we need to create all the directories for amavisd:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #mkdir /var/lib/amavis/\{db,quarantine,tmp,virusmails\}}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #chown -R amavis:amavis /var/lib/amavis}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 5: Configuring Postfix}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Now we have to configure postfix. The basic }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/postfix/mail.cf}{\s29\f0\fs24\lang1033{\*\listtag0} looks exactly the same as it would without using amavis except for the last four lines:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch queue_directory = /var/spool/postfix}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch command_directory = /usr/sbin}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch daemon_directory = /usr/lib/postfix}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mail_owner = postfix}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch myhostname = turtles.damagedindustries.net}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mydomain = damagedindustries.net}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch myorigin = $mydomain}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch unknown_local_recipient_reject_code = 550}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mynetworks = 192.168.0.0/16}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch alias_maps = hash:/etc/mail/aliases}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch home_mailbox = Maildir/}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch debug_peer_level = 2}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch debugger_command =}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch          PATH=/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch          xxgdb $daemon_directory/$process_name $process_id & sleep 5}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch sendmail_path = /usr/sbin/sendmail}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch newaliases_path = /usr/bin/newaliases}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mailq_path = /usr/bin/mailq}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch setgid_group = postdrop}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch html_directory = /usr/share/doc/postfix-2.2.5/html}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch manpage_directory = /usr/share/man}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch sample_directory = /etc/postfix}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch readme_directory = /usr/share/doc/postfix-2.2.5/readme}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #needed for spam/virus filter amavis-new}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch biff = no}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch empty_address_recipient = MAILER-DAEMON}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch queue_minfree = 120000000}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch content_filter = smtp-amavis:[127.0.0.1]:10024}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Then we add the following to master.cf:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch smtp-amavis     unix -        -       n     -       2  smtp}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtp_data_done_timeout=1200}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtp_send_xforward_command=yes}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch 127.0.0.1:10025 inet n        -       n     -       -  smtpd}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o content_filter=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o local_recipient_maps=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o relay_recipient_maps=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_restriction_classes=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_client_restrictions=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_helo_restrictions=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_sender_restrictions=}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_recipient_restrictions=permit_mynetworks,reject}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o mynetworks=127.0.0.0/8}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o strict_rfc821_envelopes=yes}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_error_sleep_time=0}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_soft_error_limit=1001}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch   -o smtpd_hard_error_limit=1000}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 6: Configuring Courier IMAP (SSL)}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Finally we'll configure our IMAP service. By default Courier IMAP uses authpam and my current pam configuration authenticates against LDAP. I just need to make sure the following is set in }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/courier-imap/imapd-ssl}{\s29\f0\fs24\lang1033{\*\listtag0}:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch TLS_PROTOCOL=SSL3}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch TLS_CERTFILE=/dami/ssl-keys/courier.pem}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch TLS_VERIFYPEER=NONE}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch MAILDIRPATH=Maildir}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch MAILDIR=Maildir}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch I then run the following to make a self-signed SSL certificate ($1 = courier):}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch openssl genrsa 1024 > $1.key}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch openssl req -new -x509 -nodes -sha1 -days 365 -key $1.key > $1.crt}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch cat $1.key $1.crt > $1.pem}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch chmod 400 $1.*}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch mv $1 /dami/ssl-keys}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 7: Starting all the Services}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Now we add all services to the default run-level so they'll run on boot}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add amavisd default}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add clamd default }{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add postfix default}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add courier-imapd-ssl default}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Now we start all the services:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch /etc/init.d/clamd start}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch /etc/init.d/amavisd start}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch /etc/init.d/postfix start}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch /etc/init.d/courier-imapd-ssl start}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s26\itap0{\s26\f1\fs28\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Step 8: Testing}{\s26\f1\fs28\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We check the logs to make sure amavis was able to load both spam and virus filters:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #cat /var/log/mail/current | grep amavis:}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch ...}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch Jan 19 15:54:13 [amavis] ANTI-VIRUS code    loaded}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch Jan 19 15:54:13 [amavis] ANTI-SPAM  code    loaded}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch ...}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch We send a test email and use a standard mail client to make sure the e-mail goes through. When it does, we can check the source to see the additional headers added by amavis. So to recap, the progression of one e-mail is like so:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch E-mail comes to Postfix on port 25}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Postfix verifies the mail is either originating from or destined for its local networks}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Postfix sends mail to 127.0.0.1:10024 where amavis is listening to pick it up}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Amavis sends mail to }{\s29\f0\fs24\i\lang1033{\*\listtag0}/var/run/clamav/clamd.sock}{\s29\f0\fs24\lang1033{\*\listtag0} for virus scan}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Amavis passes email to SpamAssassin and rejects spam if above threshold of 6.3 (adjustable in }{\s29\f0\fs24\i\lang1033{\*\listtag0}amavisd.conf}{\s29\f0\fs24\lang1033{\*\listtag0})}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch If mail passes filters, it is sent back to Postfix on 10025}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Postfix writes mail to user's Maildir}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}{\listtext\pard\fi-432\li720\bullet 	}\pard\plain{\ltrpar\ql\fi-432\li720\s29{\*\abilist\abilistid1000\abilistparentid0\abilistlevel1\abistartat0{\abifieldfont Symbol}{\abilistdecimal NULL}{\abilistdelim %L}{\abiliststyle Bullet List}}{\*\pn\pnql\pnstart0\pnlvlblt{\pntxtb\bullet}}\ls1\ilvl0\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Courier-IMAP reads from Maildir}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+}\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The configuration I used followed the one listed on the official Gentoo site fairly closely; modified because the official documentation is actually out of date. The current version can be found at the following address:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch http://www.gentoo.org/doc/en/mailfilter-guide.xml}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The entire spam/virus filters can be skipped in a closed environment by removing the amavis lines at the end of }{\s29\f0\fs24\i\lang1033{\*\listtag0}main.cf}{\s29\f0\fs24\lang1033{\*\listtag0} and }{\s29\f0\fs24\i\lang1033{\*\listtag0}master.cf}{\s29\f0\fs24\lang1033{\*\listtag0} in the }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/postfix}{\s29\f0\fs24\lang1033{\*\listtag0} directory. }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Part 3: Creating a user account}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In order to create a user account, I can either create an LDIF file and import it into my openLDAP directory, or I can use the smbldap-tools. It is recommended to use the smbldap-tools since they keep track of nextUID and nextGID in the actual LDAP directory. }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch In order to use smbldap-tools, I must first SSH into rocksteady.turtles, my Samba3 Primary Domain Controller:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #ssh rocksteady.turtles}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch From here I simply add a user:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #smbldap-useradd -N "Billy Harris" -c "Billy Harris" wharris}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Then I set the password:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #smbldap-passwd wharris}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Alternatively, I could have created the following LDIF file and imported it using }{\s29\f0\fs24\i\lang1033{\*\listtag0}ldapadd}{\s29\f0\fs24\lang1033{\*\listtag0}: }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch dn: uid=wharris, ou=People, dc=damagedindustries,dc=net}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch userPassword:: \{MD5\}x}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch loginShell: /bin/bash}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch uidNumber: 1005}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch gidNumber: 100}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch objectClass: account}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch objectClass: posixAccount}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch objectClass: top}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch uid: cassius}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch gecos: Billy Harris}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch cn: Billy Harris}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch homeDirectory: /home/cassius}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Part 4: Installing a Web Browser}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch I ran the following:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #emerge lynx w3m}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Part 5: NTP}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Gentoo is interesting in the way it sets up the time using ntp. It is suggested you add both ntpclient and ntpd to the startup scripts, ntpclient to setup the time initially and ntpd to maintain it. (The same functionality can be achieved by using only ntpd with the -g argument, although ntp-client is faster since ntpd takes several samples for stability before setting the clock). }{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch To setup ntp on this server, I put the following in }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/ntp.conf}{\s29\f0\fs24\lang1033{\*\listtag0}:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch restrict default nomodify}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch restrict 127.0.0.1}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch restrict 192.168.0.0 netmask 255.255.0.0}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch server 0.us.pool.ntp.org iburst}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch server 1.us.pool.ntp.org iburst}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch server 2.us.pool.ntp.org iburst}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch server 3.us.pool.ntp.org iburst}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch driftfile /var/lib/ntp/ntp.drift}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch logfile /var/log/ntp.log}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Added the following to }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/conf.d/ntp-client}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch NTPCLIENT_OPTS=" -b -u 0.us.pool.ntp.org"}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Added the following to }{\s29\f0\fs24\i\lang1033{\*\listtag0}/etc/conf.d/net}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch dhcpcd_eth1="-R -N"}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs22\lang1033{\*\listtag0}\abinodiroverride\ltrch *By default dhcpcd overwrites }{\s29\f0\fs22\lang1033{\*\listtag0}ntp.conf}{\s29\f0\fs22\lang1033{\*\listtag0}, setting it to the DHCP servers NTP server. The -N option prevents this. All my other computers leave off the -N option because my DHCP pushes bebop as their NTP server.}{\s29\f0\fs22\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch Finally we setup the services to start at boot:}{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add ntp-client default}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f2\fs20\lang1033{\*\listtag0}\abinodiroverride\ltrch #rc-update add ntpd default}{\s29\f2\fs20\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\sb440\sa60\s25\itap0{\s25\f1\fs34\b\lang1033{\*\listtag0}\abinodiroverride\ltrch Conclusion}{\s25\f1\fs34\b\lang1033{\*\listtag0}\par}
+\pard\plain\ltrpar\ql\s29\itap0{\s29\f0\fs24\lang1033{\*\listtag0}\abinodiroverride\ltrch The server is now fully ready to act as a full MTA. There are several other aspects of setup and security that I haven't covered in this writeup including firewall rules, installing MySQL and installing openLDAP. The primary purpose of the mail server on this particular machine is to receive logs which I send it from other machines on the network.}{\s29\f0\fs24\lang1033{\*\listtag0}\par}}
