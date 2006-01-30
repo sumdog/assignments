@@ -1,33 +1,36 @@
 
-;Define Function
-;GETCHAR EQU	$FE02
+;Define D-Bug 12 Function
 ;PUTCHAR EQU	$F684
+OUT4HEX  EQU   $F698
+PRINTF   EQU   $F686
 
 ;Define Memory I/O
-SREADY	 EQU	$00C4
-SDATA 	 EQU	$00C7
-SINMASK  EQU    $0020
-SOUTMASK EQU    $0080
+SREADY	 EQU	$C4
+SDATA 	 EQU	$C7
+SINMASK  EQU    $20
+SOUTMASK EQU    $80
 
 ;Define ASCII 
-KEYSS   EQU     $0053 ;S
-KEYS    EQU     $0073 ;s
-KEYLL   EQU     $004C ;L
-KEYL    EQU     $006C ;l
-KEYRR   EQU     $0052 ;R
-KEYR    EQU     $0072 ;r
-KEYGG   EQU     $0047 ;G
-KEYG    EQU     $0067 ;g
-KEYBS   EQU     $0008 ;(backspace)
+KEYSS   EQU     $53 ;S
+KEYS    EQU     $73 ;s
+KEYLL   EQU     $4C ;L
+KEYL    EQU     $6C ;l
+KEYRR   EQU     $52 ;R
+KEYR    EQU     $72 ;r
+KEYGG   EQU     $47 ;G
+KEYG    EQU     $67 ;g
+KEYBS   EQU     $08 ;(backspace)
 
-  ORG	  $0800
+  ORG	  $0A00
   
 ;define datatypes
-COUNT	   DW	   0
-LAP	   DW	   0
-CLOCKON    DB      0
-LAPON      DB      0
+COUNT	   DW	   #$0000
+LAP	   DW	   #$0000
+CLOCKON    DB      $00
+LAPON      DB      $00
+FORMAT     DB      "%d",0
 
+  ORG $0800
 
 ;Primary Loop for program
 ;   1 - Check for any key actions
@@ -37,12 +40,12 @@ LAPON      DB      0
 Main:
             jsr KeyPoll
 	    jsr AdjustTime
-	    jsr ClearScreen
             jsr PrintTime
-            jsr Wait
+	    jsr ClearScreen
+            ;jsr Wait
             bra Main
 
-;Prints Register D to screen
+;Prints Register B to screen
 PutChar:
             brclr SREADY,#SOUTMASK,PutChar
 	    stab SDATA
@@ -75,12 +78,14 @@ key_ret                                ;no input or unrecognized key
             rts
 
 ;Prints enough backspaces to clear
-; the counter
+; the counter (7 backspace chars)
 ClearScreen:
-            ldd KEYBS
-            ldab $07                   ;a = 7
-	    dbeq b,clear_done          ;while a < 7; a--
-	    jsr PutChar 
+            ldab #KEYBS 
+            ldaa $07                   ;a = 7
+clear_loop:
+	    dbeq a,clear_done          ;while a < 7; a--
+	    jsr PutChar
+	    bra clear_loop 
 clear_done:
 	    rts
 
@@ -94,7 +99,17 @@ PrintTime:
 show_lap:
             ldd LAP
 show:
+	    ldx OUT4HEX
+	    jsr 0,x
 	    jsr PutChar
+	    tab
+	    jsr PutChar
+	    ;ldd #$0111
+	    ;pshd
+	    ;ldd #FORMAT
+	    ;ldx PRINTF
+	    ;jsr 0,x
+	    ;puld
 	    rts
 	    
 ;Preforms time adjustments
@@ -102,9 +117,7 @@ AdjustTime:
             ldaa CLOCKON               ;A = (bool) clockon
 	    cmpa #$0                   ;if(A = off)
 	    beq clock_off              ;return
-            ldd COUNT                  ;else increment counter
-	    addd $0001
-	    std COUNT
+	    inc COUNT
 clock_off:
 	    rts
 
