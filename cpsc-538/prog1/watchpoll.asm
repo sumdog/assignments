@@ -21,15 +21,6 @@ KEYGG   EQU     $47 ;G
 KEYG    EQU     $67 ;g
 KEYBS   EQU     $08 ;(backspace)
 
-  ORG	  $0A00
-  
-;define datatypes
-COUNT	   DW	   #$0000
-LAP	   DW	   #$0000
-CLOCKON    DB      $00
-LAPON      DB      $00
-FORMAT     DB      "%d",0
-
   ORG $0800
 
 ;Primary Loop for program
@@ -41,7 +32,7 @@ Main:
             jsr KeyPoll
 	    jsr AdjustTime
             jsr PrintTime
-	    jsr ClearScreen
+	    ;jsr ClearScreen
             ;jsr Wait
             bra Main
 
@@ -99,16 +90,18 @@ PrintTime:
 show_lap:
             ldd LAP
 show:
-	    ldx OUT4HEX
-	    jsr 0,x
-	    jsr PutChar
-	    tab
-	    jsr PutChar
-	    ;ldd #$0111
-	    ;pshd
-	    ;ldd #FORMAT
-	    ;ldx PRINTF
+	    ;ldx OUT4HEX
 	    ;jsr 0,x
+	    ;jsr PutChar
+	    ;tab
+	    ;jsr PutChar
+	    ;ldd #!4
+	    ;pshd
+	    ldd #FORMAT
+	    ldx PRINTF
+	    jsr 0,x
+	    swi
+	    ;jsr [PRINTF,PCR]
 	    ;puld
 	    rts
 	    
@@ -156,3 +149,11 @@ reset_ignore:
 	    rts
 
 ;END KEYBOARD FUNCTIONS--------------
+
+
+;define datatypes
+COUNT	   DW	   $0000
+LAP	   DW	   $0000
+CLOCKON    DB      $00
+LAPON      DB      $00
+FORMAT     DB      "Eh",0
