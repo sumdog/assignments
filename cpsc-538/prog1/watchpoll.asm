@@ -85,22 +85,30 @@ PrintTime:
             ldaa LAPON                 ;A = (bool) lapon
 	    cmpa #$1                   ;if (A = on)
 	    beq show_lap               ; goto show_lap
-            ldd COUNT                  ;else load count
+            ;ldd COUNT                  ;else load count
+            ldda TSEC
+            psha
+            ldda SEC
+            psha
+            ldda MIN
+            psha
 	    bra show
 show_lap:
-            ldd LAP
+            ldd LTSEC
+            psha
+            ldd LSEC
+	    psha
+	    ldd LMIN
+	    ppsha
+            ;ldd LAP
 show:
-	    ;ldx OUT4HEX
-	    ;jsr 0,x
-	    ;jsr PutChar
-	    ;tab
-	    ;jsr PutChar
-	    ;ldd #!4
-	    ;pshd
 	    ldd #FORMAT
 	    ldx PRINTF
 	    jsr 0,x
-	    swi
+	    pula
+	    pula
+	    pula
+	    ;swi
 	    ;jsr [PRINTF,PCR]
 	    ;puld
 	    rts
@@ -110,13 +118,43 @@ AdjustTime:
             ldaa CLOCKON               ;A = (bool) clockon
 	    cmpa #$0                   ;if(A = off)
 	    beq clock_off              ;return
-	    inc COUNT
+	    ;inc COUNT
+	    inc TSEC
+	    ;handle m-seconds
+	    ldx #TSEC
+	    ldy #SEC
+	    lda #!10
+	    jsr AdjustWithCarry
+	    ;handle seconds
+	    ldx #SEC
+	    ldy #MIN
+	    lda #!60
+	    jsr AdjustWithCarry
+	    
 clock_off:
 	    rts
 
 ;Loops nops for the remainder of time
 Wait:
             nop
+            rts
+
+;Adjusts and carry
+; X = Mem location of Adjust
+; Y = Mem location of cary
+; A = amount to break
+;
+;   example: mem[X] = 10
+;            mem[Y] = 12
+;                A  = 10
+;   returns: mem[X] = 0
+;            mem[Y] = 13
+AdjustWithCarry:
+	    cmpa x
+	    bne adjustcontinue
+	    inc y
+	    clr x
+adjustcontinue:
             rts
 
 ;BEGIN KEYBOARD FUNCTIONS--------------
@@ -129,6 +167,11 @@ StartClock:
 
 ;L/l - Starts or Stops the lap
 StartStopLap:
+            ldaa #$01         ;set lap bit
+	    staa LAPON
+            movb TSEC,LTSEC   ;copy current time to lap
+	    movb SEC,LSEC
+	    movb MIN,LMIN
             rts
 
 ;S/s - Stops the clock
@@ -143,8 +186,11 @@ RestClock:
             ldaa CLOCKON
 	    cmpa #$01
 	    beq reset_ignore
-	    ldd #$0000
-	    std COUNT 
+	    ;ldd #$0000
+	    ;std COUNT 
+	    clr TSEC
+	    clr SEC
+	    clr MIN
 reset_ignore:
 	    rts
 
@@ -152,8 +198,14 @@ reset_ignore:
 
 
 ;define datatypes
-COUNT	   DW	   $0000
-LAP	   DW	   $0000
+;COUNT	   DW	   $0000
+;LAP	   DW	   $0000
 CLOCKON    DB      $00
 LAPON      DB      $00
-FORMAT     DB      "Eh",0
+FORMAT     DB      "%2d:%2d.%2d",0
+TSEC       DB      $00
+SEC        DB      $00
+MIN        DB      $00
+LTSEC      DB      $00
+LSEC       DB      $00
+LMIN       DB      $00
