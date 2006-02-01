@@ -18,6 +18,7 @@
 
 ;Define D-Bug 12 Function
 PRINTF   EQU   $F686
+SETUVEC  EQU   $F69A
 
 ;Define Memory I/O
 SREADY	 EQU	$C4
@@ -44,24 +45,35 @@ KEYCR   EQU     $0D ;(Return)
 ;   3 - Wait remaining cycles
 ;   4 - Loop
 Main:
+            ;Set keyinput vector
+            ldd  #IntKey
+            pshd
+            ldd #$000B
+            ldx SETUVEC
+	    jsr 0,x
+            puld
+            ;enable interrupt
+            ldd #$0001
+            std $00C3
             wai
 
 
 ;BEGIN Interurpt Functions-------------
 
-TimeShift:
+IntTime:
             jsr AdjustTime
             jsr ClearScreen
             jsr PrintTime
-            rts
+            rti
 
-;Poll for a command and if present, call
+;Called when a key is pressed and then calls
 ; appropiate function 
 ; (clears register B)
-KeyPoll:
+IntKey:
             clrb                        
             brclr SREADY,#SINMASK,key_ret ;Check to see if we have input
 	    ldab SDATA                 ;Read in input
+            jsr PutChar
             cmpb #KEYSS                ;Start comparison of keys
             beq StopClock
             cmpb #KEYS
@@ -79,7 +91,7 @@ KeyPoll:
             cmpb #KEYG
             beq StartClock
 key_ret                                ;no input or unrecognized key
-            rts
+            rti
 
 ;END Interurpt Functions---------------
 
