@@ -12,8 +12,8 @@
 ;  L - Sets the Lap
 ;  R - Resets the Stopwatch (only when stopped)
 ;
-;  This program uses a timed wait loop. See
-;  watchirq for an example that uses interurpts
+;  This program uses interurpts. See watchpoll.asm
+;  for an example that uses a wait loop
 ;
 
 ;Define D-Bug 12 Function
@@ -44,12 +44,44 @@ KEYCR   EQU     $0D ;(Return)
 ;   3 - Wait remaining cycles
 ;   4 - Loop
 Main:
-            jsr KeyPoll
-	    jsr AdjustTime
+            wai
+
+
+;BEGIN Interurpt Functions-------------
+
+TimeShift:
+            jsr AdjustTime
+            jsr ClearScreen
             jsr PrintTime
-	    jsr ClearScreen
-            jsr Wait
-            bra Main
+            rts
+
+;Poll for a command and if present, call
+; appropiate function 
+; (clears register B)
+KeyPoll:
+            clrb                        
+            brclr SREADY,#SINMASK,key_ret ;Check to see if we have input
+	    ldab SDATA                 ;Read in input
+            cmpb #KEYSS                ;Start comparison of keys
+            beq StopClock
+            cmpb #KEYS
+            beq StopClock
+            cmpb #KEYLL
+            beq StartStopLap
+            cmpb #KEYL
+            beq StartStopLap
+            cmpb #KEYRR
+            beq RestClock
+            cmpb #KEYR
+            beq RestClock
+            cmpb #KEYGG
+            beq StartClock
+            cmpb #KEYG
+            beq StartClock
+key_ret                                ;no input or unrecognized key
+            rts
+
+;END Interurpt Functions---------------
 
 ;BEGIN KEYBOARD FUNCTIONS--------------
 
@@ -99,32 +131,6 @@ reset_ignore:
 PutChar:
             brclr SREADY,#SOUTMASK,PutChar
 	    stab SDATA
-            rts
-
-;Poll for a command and if present, call
-; appropiate function 
-; (clears register B)
-KeyPoll:
-            clrb                        
-            brclr SREADY,#SINMASK,key_ret ;Check to see if we have input
-	    ldab SDATA                 ;Read in input
-            cmpb #KEYSS                ;Start comparison of keys
-            beq StopClock
-            cmpb #KEYS
-            beq StopClock
-            cmpb #KEYLL
-            beq StartStopLap
-            cmpb #KEYL
-            beq StartStopLap
-            cmpb #KEYRR
-            beq RestClock
-            cmpb #KEYR
-            beq RestClock
-            cmpb #KEYGG
-            beq StartClock
-            cmpb #KEYG
-            beq StartClock
-key_ret                                ;no input or unrecognized key
             rts
 
 ;Clears the screen by
@@ -182,21 +188,6 @@ AdjustTime:
 	    
 clock_off:
 	    rts
-
-;Loops nops for the remainder of time
-Wait:
-            ldd #$FA23
-startwait:
-            dbeq d,donewait
-            nop
-            nop
-            nop
-            nop
-            nop
-            nop
-            bra startwait
-donewait:
-            rts
 
 ;Adjusts and carry
 ; X = Mem location of Adjust
