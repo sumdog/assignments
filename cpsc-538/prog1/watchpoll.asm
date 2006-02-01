@@ -1,7 +1,6 @@
 
 ;Define D-Bug 12 Function
 ;PUTCHAR EQU	$F684
-OUT4HEX  EQU   $F698
 PRINTF   EQU   $F686
 
 ;Define Memory I/O
@@ -33,8 +32,52 @@ Main:
 	    jsr AdjustTime
             jsr PrintTime
 	    ;jsr ClearScreen
-            ;jsr Wait
+            jsr Wait
             bra Main
+
+;BEGIN KEYBOARD FUNCTIONS--------------
+
+;G/g - Starts the clock
+StartClock:
+            ldaa #$01
+	    staa CLOCKON
+            rts
+
+;L/l - Starts or Stops the lap
+StartStopLap:
+            ldab LAPON
+            cmpb #$01
+            beq stoplap
+            ldaa #$01         ;set lap bit
+	    staa LAPON
+            movb TSEC,LTSEC   ;copy current time to lap
+	    movb SEC,LSEC
+	    movb MIN,LMIN
+            rts
+stoplap:
+            ldaa #$00
+            staa LAPON
+            rts
+
+;S/s - Stops the clock
+StopClock:
+            ldaa #$00
+	    staa CLOCKON
+            rts
+
+;R/r - Resets the counter 
+;      (ignored of counter is running)
+RestClock:
+            ldaa CLOCKON
+	    cmpa #$01
+	    beq reset_ignore
+	    clr TSEC
+	    clr SEC
+	    clr MIN
+reset_ignore:
+	    rts
+
+;END KEYBOARD FUNCTIONS--------------
 
 ;Prints Register B to screen
 PutChar:
@@ -72,9 +115,9 @@ key_ret                                ;no input or unrecognized key
 ; the counter (7 backspace chars)
 ClearScreen:
             ldab #KEYBS 
-            ldaa $07                   ;a = 7
+            ldaa #$09                  ;a = 9
 clear_loop:
-	    dbeq a,clear_done          ;while a < 7; a--
+	    dbeq a,clear_done          ;while a > 0; a--
 	    jsr PutChar
 	    bra clear_loop 
 clear_done:
@@ -82,35 +125,31 @@ clear_done:
 
 ;Prints the output
 PrintTime:
-            ldaa LAPON                 ;A = (bool) lapon
-	    cmpa #$1                   ;if (A = on)
+            ldaa #$00
+            ldab LAPON                 ;B = (bool) lapon
+	    cmpb #$1                   ;if (B = on)
 	    beq show_lap               ; goto show_lap
-            ;ldd COUNT                  ;else load count
-            ldda TSEC
-            psha
-            ldda SEC
-            psha
-            ldda MIN
-            psha
+            ldab TSEC
+            pshd
+            ldab SEC
+            pshd
+            ldab MIN
+            pshd
 	    bra show
 show_lap:
-            ldd LTSEC
-            psha
-            ldd LSEC
-	    psha
-	    ldd LMIN
-	    ppsha
-            ;ldd LAP
+            ldab LTSEC
+            pshd
+            ldab LSEC
+	    pshd
+	    ldab LMIN
+	    pshd
 show:
 	    ldd #FORMAT
 	    ldx PRINTF
 	    jsr 0,x
-	    pula
-	    pula
-	    pula
-	    ;swi
-	    ;jsr [PRINTF,PCR]
-	    ;puld
+	    puld
+	    puld
+	    puld
 	    rts
 	    
 ;Preforms time adjustments
@@ -118,17 +157,16 @@ AdjustTime:
             ldaa CLOCKON               ;A = (bool) clockon
 	    cmpa #$0                   ;if(A = off)
 	    beq clock_off              ;return
-	    ;inc COUNT
 	    inc TSEC
 	    ;handle m-seconds
 	    ldx #TSEC
 	    ldy #SEC
-	    lda #!10
+	    ldaa #$0A
 	    jsr AdjustWithCarry
 	    ;handle seconds
 	    ldx #SEC
 	    ldy #MIN
-	    lda #!60
+	    lda #$3C
 	    jsr AdjustWithCarry
 	    
 clock_off:
@@ -136,7 +174,11 @@ clock_off:
 
 ;Loops nops for the remainder of time
 Wait:
-            nop
+            ldd #$FFFF
+startwait:
+            dbeq d,donewait
+            bra startwait
+donewait:
             rts
 
 ;Adjusts and carry
@@ -150,59 +192,19 @@ Wait:
 ;   returns: mem[X] = 0
 ;            mem[Y] = 13
 AdjustWithCarry:
-	    cmpa x
+	    cmpa 0,x
 	    bne adjustcontinue
-	    inc y
-	    clr x
+	    inc 0,y
+	    clr 0,x
 adjustcontinue:
             rts
 
-;BEGIN KEYBOARD FUNCTIONS--------------
-
-;G/g - Starts the clock
-StartClock:
-            ldaa #$01
-	    staa CLOCKON
-            rts
-
-;L/l - Starts or Stops the lap
-StartStopLap:
-            ldaa #$01         ;set lap bit
-	    staa LAPON
-            movb TSEC,LTSEC   ;copy current time to lap
-	    movb SEC,LSEC
-	    movb MIN,LMIN
-            rts
-
-;S/s - Stops the clock
-StopClock:
-            ldaa #$00
-	    staa CLOCKON
-            rts
-
-;R/r - Resets the counter 
-;      (ignored of counter is running)
-RestClock:
-            ldaa CLOCKON
-	    cmpa #$01
-	    beq reset_ignore
-	    ;ldd #$0000
-	    ;std COUNT 
-	    clr TSEC
-	    clr SEC
-	    clr MIN
-reset_ignore:
-	    rts
-
-;END KEYBOARD FUNCTIONS--------------
 
 
 ;define datatypes
-;COUNT	   DW	   $0000
-;LAP	   DW	   $0000
 CLOCKON    DB      $00
 LAPON      DB      $00
-FORMAT     DB      "%2d:%2d.%2d",0
+FORMAT     DB      "%2d:%2d.%1d",$0D,$0A,0
 TSEC       DB      $00
 SEC        DB      $00
 MIN        DB      $00
