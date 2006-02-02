@@ -66,14 +66,14 @@ KEYCR   EQU     $0D ;(Return)
 ;   4 - Loop
 Main:
             ;Set keyinput Interrupt Handler
-            ;ldd  #IntKey
-            ;pshd
-            ;ldd #$000B
-            ;ldx SETUVEC
-	    ;jsr 0,x
-            ;puld
-            ;ldaa #%00101100
-            ;staa SCTRL
+            ldd  #IntKey
+            pshd
+            ldd #$000B
+            ldx SETUVEC
+	    jsr 0,x
+            puld
+            ldaa #%00101100
+            staa SCTRL
 
             ;Setup Timer Interrupt Handler
             ldd  #IntTime
@@ -111,9 +111,11 @@ Main:
 
 main_loop:                               
             wai                           ;loop and wait
-            jsr PollKey
+            ;jsr PollKey
             bra main_loop
 
+
+;BEGIN Interurpt Functions---------------
 
 ;Called by Timer Interrupt
 ; * Adjusts time by 1ms
@@ -131,7 +133,7 @@ IntTime:
 ;Called when a key is pressed and then calls
 ; appropiate function 
 ; (clears register B)
-PollKey:
+IntKey:
             clrb                        
             brclr SREADY,#SINMASK,key_ret ;Check to see if we have input
 	    ldab SDATA                 ;Read in input
@@ -152,8 +154,7 @@ PollKey:
             cmpb #KEYG
             beq StartClock
 key_ret                                ;no input or unrecognized key
-            rts
-            ;rti
+            rti
 
 ;END Interurpt Functions---------------
 
@@ -163,8 +164,7 @@ key_ret                                ;no input or unrecognized key
 StartClock:
             ldaa #$01
 	    staa CLOCKON
-            ;rti
-            rts
+            rti
 
 ;L/l - Starts or Stops the lap
 StartStopLap:
@@ -177,20 +177,17 @@ StartStopLap:
             movb TSEC,LTSEC   ;copy current time to lap
 	    movb SEC,LSEC
 	    movb MIN,LMIN
-            ;rti
-            rts
+            rti
 stoplap:
             ldaa #$00
             staa LAPON
-            ;rti
-            rts
+            rti
 
 ;S/s - Stops the clock
 StopClock:
             ldaa #$00
 	    staa CLOCKON
-            ;rti
-            rts
+            rti
 
 ;R/r - Resets the counter 
 ;      (ignored of counter is running)
@@ -202,8 +199,7 @@ RestClock:
 	    clr SEC
 	    clr MIN
 reset_ignore:
-	    ;rti
-            rts
+	    rti
 
 ;END KEYBOARD FUNCTIONS--------------
 
