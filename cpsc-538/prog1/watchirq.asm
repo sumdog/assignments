@@ -17,11 +17,31 @@
 ;
 
 ;Define D-Bug 12 Function
-PRINTF   EQU   $F686
-SETUVEC  EQU   $F69A
+PRINTF  EQU  $F686
+SETUVEC EQU  $F69A
+
+;Define Timer Location
+TIMER7  EQU  $10       ; Timer7 for D-Bug12 SetUserVector()
+TIOCS   EQU  $80       ; In capt/out compare select
+TSCR    EQU  $86       ; Timer System Control Register (p179)
+TCTL1   EQU  $88       ; Timer In/Out Pins
+TCTL2   EQU  $89
+TCTL3   EQU  $8A
+TCTL4   EQU  $8B
+TMSK1   EQU  $8C       ; Timer mask reg
+TMSK2   EQU  $8D       ; Timer Interrupt Mask 2 Register (p182)
+TFLG1   EQU  $8E       ; TFLG1 offset
+TC7     EQU  $9E       ; Timer compare register 7 (p187)
+TEN     EQU  %10000000 ; Timer enable bit
+C7F     EQU  %10000000 ; Output compare 2 Flag
+C7I     EQU  C7F       ; Interrupt enable
+IOS7    EQU  %10000000 ; Select OC2
+TCRE    EQU  %00001100
+
 
 ;Define Memory I/O
 SREADY	 EQU	$C4
+SCTRL    EQU    $C3     ;SCI Control Register 2 (p209)
 SDATA 	 EQU	$C7
 SINMASK  EQU    $20
 SOUTMASK EQU    $80
@@ -45,35 +65,76 @@ KEYCR   EQU     $0D ;(Return)
 ;   3 - Wait remaining cycles
 ;   4 - Loop
 Main:
-            ;Set keyinput vector
-            ldd  #IntKey
+            ;Set keyinput Interrupt Handler
+            ;ldd  #IntKey
+            ;pshd
+            ;ldd #$000B
+            ;ldx SETUVEC
+	    ;jsr 0,x
+            ;puld
+            ;ldaa #%00101100
+            ;staa SCTRL
+
+            ;Setup Timer Interrupt Handler
+            ldd  #IntTime
             pshd
-            ldd #$000B
-            ldx SETUVEC
-	    jsr 0,x
+            ldd  #TIMER7
+            ldx  SETUVEC
+            jsr  0,x
             puld
-            ;enable interrupt
-            ldd #$0001
-            std $00C3
-            wai
+
+            bset  TIOCS,IOS7  ;Bit to enable IOS7 in TIOS (p151)
+
+            ;Disable I/O pins
+            ldaa  #$0
+            staa  TCTL1
+            staa  TCTL2
+            staa  TCTL3
+            staa  TCTL4
+
+            ;Enable TCRE and set Prescaler TMASK2 (p182,p183)
+            ldaa  #TCRE
+            staa  TMSK2
 
 
-;BEGIN Interurpt Functions-------------
+            ;Set TC7 (p187) -- This adjusts our time interval
+            ldd	  #$c350
+            std	  TC7
 
+            ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
+            ldaa  #C7F
+            staa  TFLG1	          ; Clear C7F
+            bset  TMSK1,C7I       ; Enable TC7 Interrupt
+            ; Enable the Timer system
+            bset  TSCR,TEN
+            cli                   ; Unmask global interrupts
+
+main_loop:                               
+            wai                           ;loop and wait
+            jsr PollKey
+            bra main_loop
+
+
+;Called by Timer Interrupt
+; * Adjusts time by 1ms
+; * Clears Screen
+; * Prints Time
+; * Resets Timer Interrupt
 IntTime:
             jsr AdjustTime
             jsr ClearScreen
             jsr PrintTime
+            ldaa  #C7F                     ;Clear Interrupt Flag
+            staa  TFLG1
             rti
 
 ;Called when a key is pressed and then calls
 ; appropiate function 
 ; (clears register B)
-IntKey:
+PollKey:
             clrb                        
             brclr SREADY,#SINMASK,key_ret ;Check to see if we have input
 	    ldab SDATA                 ;Read in input
-            jsr PutChar
             cmpb #KEYSS                ;Start comparison of keys
             beq StopClock
             cmpb #KEYS
@@ -91,7 +152,8 @@ IntKey:
             cmpb #KEYG
             beq StartClock
 key_ret                                ;no input or unrecognized key
-            rti
+            rts
+            ;rti
 
 ;END Interurpt Functions---------------
 
@@ -101,10 +163,12 @@ key_ret                                ;no input or unrecognized key
 StartClock:
             ldaa #$01
 	    staa CLOCKON
+            ;rti
             rts
 
 ;L/l - Starts or Stops the lap
 StartStopLap:
+            ;swi
             ldab LAPON
             cmpb #$01
             beq stoplap
@@ -113,16 +177,19 @@ StartStopLap:
             movb TSEC,LTSEC   ;copy current time to lap
 	    movb SEC,LSEC
 	    movb MIN,LMIN
+            ;rti
             rts
 stoplap:
             ldaa #$00
             staa LAPON
+            ;rti
             rts
 
 ;S/s - Stops the clock
 StopClock:
             ldaa #$00
 	    staa CLOCKON
+            ;rti
             rts
 
 ;R/r - Resets the counter 
@@ -135,7 +202,8 @@ RestClock:
 	    clr SEC
 	    clr MIN
 reset_ignore:
-	    rts
+	    ;rti
+            rts
 
 ;END KEYBOARD FUNCTIONS--------------
 
