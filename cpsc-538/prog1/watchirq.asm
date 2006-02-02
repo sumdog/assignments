@@ -15,6 +15,10 @@
 ;  This program uses interurpts. See watchpoll.asm
 ;  for an example that uses a wait loop
 ;
+;  Note: all page numbers come from the
+;        Motorola M68HC12 Data Sheet Manual
+;         (Rev. 8 7.2003)
+;
 
 ;Define D-Bug 12 Function
 PRINTF  EQU  $F686
@@ -111,7 +115,6 @@ Main:
 
 main_loop:                               
             wai                           ;loop and wait
-            ;jsr PollKey
             bra main_loop
 
 
