@@ -36,7 +36,6 @@ count_t* parseFile(FILE *fd) {
   count->characters = 0;
   count->words = 0;
   count->lines = 0;
-  count->tokword = 0;
   
   while( fgets (buff,BUFFER_SIZE,fd) != NULL ) {
     checkLine(buff,count);
