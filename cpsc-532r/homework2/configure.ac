@@ -1,5 +1,9 @@
 AC_PREREQ(2.59)
-AC_INIT(cpsc532hw2,1.0,Sumit-Khanna@utc.edu)
+AC_INIT(main.c)
+#AC_INIT(cpsc532hw2,1.0,Sumit-Khanna@utc.edu)
+AM_INIT_AUTOMAKE(cpsc532hw2,1.0)
+#AM_CONFIG_HEADER(config.h)
+
 AC_CONFIG_SRCDIR([src/count.h])
 AC_CONFIG_HEADER([config.h])
 AC_PROG_CC
@@ -13,7 +17,7 @@ AC_ARG_WITH([wc], AC_HELP_STRING([--with-wc], [compile with wc]), with_wc=yes)
 AC_PATH_PROG(wc, wc)
 if test "$ac_with_wc" = yes; then
     if test x$ac_cv_prog_wc = xyes; then
-       AC_DEFINE(HAVE_WC)
+       AC_DEFINE(HAVE_WC,[],[Enable wc backend])
     fi
 fi
 

@@ -37,10 +37,12 @@ count_t* parseFile(FILE *fd) {
 
     /* pump everything into wc */
     while( fgets(buff,BUFFER_SIZE,fd) != NULL ) {
-      fputs(buff,);
+      fputs(buff,pin);
     }
-
     /* pull results from wc */
+    fgets(buff,BUFFER_SIZE,pout);
+    printf("%s",buff);
+
   }
   /* Child fork() (*/
   else {
