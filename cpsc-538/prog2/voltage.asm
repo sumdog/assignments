@@ -4,6 +4,7 @@
 ;OUT4HEX  EQU   $F698
 PRINTF   EQU   $F686
 PUTCHAR  EQU   $F684
+SETUVEC  EQU   $F69A
 
 ;Define Memory I/O
 SREADY	 EQU	$C4
@@ -13,6 +14,7 @@ SOUTMASK EQU    $80
 
 ;Define Keys
 KEYCR   EQU     $0D ;(Return)
+CHARX   EQU     $58 ;ASCII X
 
   ORG $0800
 
@@ -38,11 +40,37 @@ PrintVoltage:
   jsr [PRINTF,PCR]   ;Print numerical voltage
   puld               ;clean stack
   puld
-  lda VOLH           ;Print X chars
-  
+  jsr PrintXBars
+  rts
+
+;Prints X bars
+;  2 per whole number (WOLH)
+;  1 if VOLL is greater than 5
+;   exmaple: 4.6: XXXXXXXXX
+PrintXBars:
+  ldaa VOLH
+  ldab #CHARX
+start_xx:            ;Whole number loop
+  cmpa #$00      
+  dbeq a,done_xx
+  psha
+  ldaa #$00
+  ldab #CHARX
+  jsr [PUTCHAR,PCR]
+  jsr [PUTCHAR,PCR]
+  pula  
+  bra start_xx
+done_xx:
+  ldaa VOLL          ;Half step X (VOLL > 5)
+  cmpa #$05
+  ble done_x
+  ldaa #$00
+  ldab #CHARX
+  jsr [PUTCHAR,PCR]
+done_x:  
   rts
 
 ;define datatypes
-VOLH       DB      $00   ;Whole number
-VOLL       DB      $00   ;Tenth
+VOLH       DB      $05   ;Whole number
+VOLL       DB      $06   ;Tenth
 FORMAT     DB      "Voltage: %d.%d  ",0
