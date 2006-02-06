@@ -1,0 +1,2 @@
+/* Use WC Backend */
+#undef HAVE_WC
