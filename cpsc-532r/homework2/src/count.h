@@ -12,6 +12,9 @@ typedef struct countstruct {
   unsigned long characters;
   unsigned long words;
   unsigned long lines;
+#ifndef WITH_WC
+  short wtoke; /* Word Token (boolean) */
+#endif
 } count_t;
 
 count_t* parseFile(FILE *fd);

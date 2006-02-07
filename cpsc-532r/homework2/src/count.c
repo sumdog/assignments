@@ -27,9 +27,18 @@ void checkLine(char *line, count_t *counter) {
      *  that begins and ends with either a 
      *  space or new line
      */
-    if(cur == '\n' || cur == ' ') {
+
+    if(cur != '\n' && cur != ' ' && cur != '\t' && counter->wtoke == 0) {
       counter->words++;
+      counter->wtoke = 1;
     }
+    else if(cur != '\n' && cur != ' ' && cur != '\t' && counter->wtoke == 1)  {
+      
+    }
+    else {
+      counter->wtoke = 0;
+    }
+
   }/* end for loop */
 }
 
@@ -41,6 +50,7 @@ count_t* parseFile(FILE *fd) {
   count->characters = 0;
   count->words = 0;
   count->lines = 0;
+  count->wtoke = 0;
   
   while( fgets (buff,BUFFER_SIZE,fd) != NULL ) {
     checkLine(buff,count);
