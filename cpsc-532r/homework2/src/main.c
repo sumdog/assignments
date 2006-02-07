@@ -9,7 +9,8 @@ int main() {
   }
 
    count_t *counter = parseFile(stdin);
-   printf("Number of Characters:%d\n",counter->characters);
+   printf("Number of Bytes:%d\n",counter->characters);
    printf("Number of Words:%d\n",counter->words);
    printf("Number of Lines:%d\n",counter->lines);
+   free(counter);
 }

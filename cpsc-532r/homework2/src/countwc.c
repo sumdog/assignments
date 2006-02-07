@@ -1,18 +1,20 @@
 #ifdef USE_WC
+
 #include "count.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdio.h>
 
+
 count_t* parseFile(FILE *fd) {
 
   /* Initalize our buffers and data types */
   char *buff = malloc(sizeof(char)*BUFFER_SIZE);
   count_t *retval = malloc(sizeof(count_t));
-  count->characters = 0;
-  count->words = 0;
-  count->lines = 0;
+  retval->characters = 0;
+  retval->words = 0;
+  retval->lines = 0;
 
   /* Establish pipes */
   int pin[2];
@@ -34,19 +36,42 @@ count_t* parseFile(FILE *fd) {
 
   /* Parent fork() (read from stdin) */
   if(forkid) {
+    
+    /* Close ends of the pipe we can't use */
+    close(pin[0]);
+    close(pout[1]);
+
+    /* Open ends of the piple we do use */
+    FILE *fdin = fdopen(pin[1],"w");
+    FILE *fdout = fdopen(pout[0],"r");
 
     /* pump everything into wc */
     while( fgets(buff,BUFFER_SIZE,fd) != NULL ) {
-      fputs(buff,pin);
+      fputs(buff,fdin);
     }
+    fclose(fdin);
+
     /* pull results from wc */
-    fgets(buff,BUFFER_SIZE,pout);
-    printf("%s",buff);
+    fgets(buff,BUFFER_SIZE,fdout);
+    sscanf(buff,"%u %u %u",&retval->lines,&retval->words,&retval->characters);
+    fclose(fdout);
+
+    free(buff);
 
   }
-  /* Child fork() (*/
+  /* Child fork() (exec wc) */
   else {
-    exec();
+
+    /* Close unused ends of pipe */
+    close(pin[1]);
+    close(pout[0]);
+
+    /* Attach pipes to stdio  */
+    dup2(pin[0], STDIN_FILENO);
+    dup2(pout[1],STDOUT_FILENO);
+
+    /* execute wc */
+    execl("/usr/bin/wc","wc",(char *) NULL);
   }
 
   return retval;

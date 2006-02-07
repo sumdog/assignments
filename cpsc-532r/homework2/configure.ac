@@ -13,13 +13,17 @@ AC_CHECK_HEADERS([stdlib.h string.h unistd.h])
 AC_FUNC_FORK
 AC_FUNC_MALLOC
 
-AC_ARG_WITH([wc], AC_HELP_STRING([--with-wc], [compile with wc]), with_wc=yes)
+AC_ARG_WITH(wc,[ --with-wc       enables wc])
+#AC_ARG_WITH(wc, [AC_HELP_STRING(--with-wc, [compile with wc backend <default=no>]), with_wc=no,with_wc=yes)
 AC_PATH_PROG(wc, wc)
-if test "$ac_with_wc" = yes; then
-    if test x$ac_cv_prog_wc = xyes; then
-       AC_DEFINE(HAVE_WC,[],[Enable wc backend])
-    fi
-fi
+#AS_IF([test "x$with_wc" == xyes],
+#  AC_DEFINE(HAVE_WC,1,[Define if you want to use wc as backend])
+#)
+#if test "$ac_with_wc" = yes; then
+#    if test x$ac_cv_prog_wc = xyes; then
+#       AC_DEFINE(HAVE_WC,[],[Enable wc backend])
+#    fi
+#fi
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile])

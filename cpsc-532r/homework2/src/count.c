@@ -1,18 +1,20 @@
+#ifndef USE_WC
+
 #include "count.h" 
 #include <stdlib.h>
 #include <string.h>
 
-#ifndef USE_WC
 
 void checkLine(char *line, count_t *counter) {
   
   int x;
   for(x=0; x<strlen(line);x++) {
+    
     char cur = line[x];
+    
     /* Deal with Characters */
-    if(cur != ' ' && cur != '\n' ) {
-      counter->characters++;
-    }
+    counter->characters++;
+
     /* Deal with lines*/
     if(cur == '\n') {
       counter->lines++;
