@@ -1,0 +1,8 @@
+Installation Instructions
+*************************
+
+You don't want to install this. No really, you don't. It's
+just a Computer Science homework assignment. I haven't
+even tested to see if 'make install' actually works. It should, 
+but you really don't want to install it. Just run it from the
+/src directory

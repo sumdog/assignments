@@ -13,9 +13,19 @@ AC_CHECK_HEADERS([stdlib.h string.h unistd.h])
 AC_FUNC_FORK
 AC_FUNC_MALLOC
 
-AC_ARG_WITH(wc,[ --with-wc       enables wc])
-#AC_ARG_WITH(wc, [AC_HELP_STRING(--with-wc, [compile with wc backend <default=no>]), with_wc=no,with_wc=yes)
 AC_PATH_PROG(wc, wc)
+AC_ARG_WITH(wc, [  --with-wc            enable wc backend])
+if test "$with_wc" == "yes"
+then
+	AC_MSG_NOTICE([WC Support Enabled.])
+	AC_DEFINE(HAVE_WC,[],[Enable WC Backend])
+	AC_DEFINE_UNQUOTED(WC_PATH,"$ac_cv_path_wc",[Path to wc])
+else
+	AC_MSG_NOTICE([WC Support Disabled.])
+fi
+
+#AC_ARG_WITH(wc,[ --with-wc       enables wc])
+#AC_ARG_WITH(wc, [AC_HELP_STRING(--with-wc, [compile with wc backend <default=no>]), with_wc=no,with_wc=yes)
 #AS_IF([test "x$with_wc" == xyes],
 #  AC_DEFINE(HAVE_WC,1,[Define if you want to use wc as backend])
 #)

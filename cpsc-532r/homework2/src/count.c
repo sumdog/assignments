@@ -1,4 +1,8 @@
-#ifndef USE_WC
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifndef HAVE_WC
 
 #include "count.h" 
 #include <stdlib.h>
@@ -6,7 +10,6 @@
 
 
 void checkLine(char *line, count_t *counter) {
-  
   int x;
   for(x=0; x<strlen(line);x++) {
     
@@ -45,4 +48,4 @@ count_t* parseFile(FILE *fd) {
   return count;
 }
 
-#endif /* USE_WC */
+#endif /* HAVE_WC */

@@ -1,11 +1,22 @@
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <stdio.h>
 #include "count.h"
 
 int main() {
 
+  char *package = PACKAGE;
+  char *version = VERSION;
+#ifdef HAVE_WC
+  char *backend = WC_PATH;
+#else
+  char *backend = "Internal";
+#endif
+
   if(isatty(fileno(stdin))) {
-    printf("CPSC-532r Char/Word/Line Counter\n");
-    printf("\tSumit Khanna\n");
+    printf("%s  %s  Backend:%s\tSumit Khanna\n",package,version,backend);
   }
 
    count_t *counter = parseFile(stdin);

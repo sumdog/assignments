@@ -1,0 +1,40 @@
+CPSC-532r - Homework #2 - Sumit Khanna
+
+This is a simply program written for Dr. Harris's CPSC-532r
+class. It reads from standard in and counts the number
+of bytes, words and new line characters.
+
+It has an internal mechnism for string parsing as well
+as the ability to use the 'wc' program as a backend.
+
+
+**CONFIG**
+To configure:
+./configure
+
+To configure with wc as backend:
+./configure --with-wc
+
+
+**COMPILE**
+To compile:
+make
+
+Alternative way to compile (-DHAVE_WC is optional):
+gcc src/*.c -DHAVE_CONFIG_H -DHAVE_WC
+
+
+**RUN/TEST**
+To run:
+cd src
+./cpsc538hw2
+
+To use file redirection:
+cd src
+./cpsc538hw2 < /path/to/some/file
+
+
+**INSTALL**
+install? You're kidding right? In theory you should be
+able to do a 'make install' and have it installed
+to /usr/local/bin, but why would you want to?

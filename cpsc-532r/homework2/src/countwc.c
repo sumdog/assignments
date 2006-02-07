@@ -1,4 +1,8 @@
-#ifdef USE_WC
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifdef HAVE_WC
 
 #include "count.h"
 #include <stdlib.h>
@@ -55,7 +59,7 @@ count_t* parseFile(FILE *fd) {
     fgets(buff,BUFFER_SIZE,fdout);
     sscanf(buff,"%u %u %u",&retval->lines,&retval->words,&retval->characters);
     fclose(fdout);
-
+    
     free(buff);
 
   }
@@ -71,11 +75,11 @@ count_t* parseFile(FILE *fd) {
     dup2(pout[1],STDOUT_FILENO);
 
     /* execute wc */
-    execl("/usr/bin/wc","wc",(char *) NULL);
+    execl(WC_PATH,"wc",(char *) NULL);
   }
 
   return retval;
 
 }
 
-#endif /* USE_WC */
+#endif /* HAVE_WC */
