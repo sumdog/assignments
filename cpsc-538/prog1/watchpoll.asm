@@ -45,10 +45,10 @@ KEYCR   EQU     $0D ;(Return)
 ;   4 - Loop
 Main:
             jsr KeyPoll
+            jsr Wait
 	    jsr AdjustTime
             jsr PrintTime
 	    jsr ClearScreen
-            jsr Wait
             bra Main
 
 ;BEGIN KEYBOARD FUNCTIONS--------------
@@ -185,7 +185,7 @@ clock_off:
 
 ;Loops nops for the remainder of time
 Wait:
-            ldd #$FA23
+            ldd #$F63B
 startwait:
             dbeq d,donewait
             nop
