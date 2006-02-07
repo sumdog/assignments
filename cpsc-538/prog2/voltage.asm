@@ -7,10 +7,17 @@ PUTCHAR  EQU   $F684
 SETUVEC  EQU   $F69A
 
 ;Define Memory I/O
-SREADY	 EQU	$C4
-SDATA 	 EQU	$C7
-SINMASK  EQU    $20
-SOUTMASK EQU    $80
+;SREADY	 EQU	$C4
+;SDATA 	 EQU	$C7
+;SINMASK  EQU    $20
+;SOUTMASK EQU    $80
+
+;Define ATD Registers
+ATDCTL2 EQU     $62 ;ATD Control Register
+
+;Define ATD masks
+ATDMASK EQU     %11000010 ;Enable ATD, Fast Clear, Interrurpts for ATDCTL2
+
 
 ;Define Keys
 KEYCR   EQU     $0D ;(Return)
@@ -19,9 +26,14 @@ CHARX   EQU     $58 ;ASCII X
   ORG $0800
 
 Main:
+
+  ;Initalize ATD unit
+  bset ATDCTL2,ATDMASK  
+  
+
   jsr ClearScreen
   jsr PrintVoltage
-  bra Main
+  wai
 
 ;Ckears Screen via CR (without LF)
 ClearScreen:
@@ -32,9 +44,9 @@ ClearScreen:
 
 PrintVoltage:
   lda #$00           ;Load 0 into high bit
-  ldb VOLH           ;Printf args
+  ldb VOLL           ;Printf args
   pshd
-  ldb VOLL
+  ldb VOLH
   pshd
   ldd #FORMAT
   jsr [PRINTF,PCR]   ;Print numerical voltage
@@ -49,6 +61,7 @@ PrintVoltage:
 ;   exmaple: 4.6: XXXXXXXXX
 PrintXBars:
   ldaa VOLH
+  adda #$01          ;Add 1 for start_xx loop to get final X
   ldab #CHARX
 start_xx:            ;Whole number loop
   cmpa #$00      
@@ -61,9 +74,9 @@ start_xx:            ;Whole number loop
   pula  
   bra start_xx
 done_xx:
-  ldaa VOLL          ;Half step X (VOLL > 5)
-  cmpa #$05
-  ble done_x
+  ldaa VOLL          ;Half step X (VOLL > 50)
+  cmpa #$32          ; 50
+  blt done_x
   ldaa #$00
   ldab #CHARX
   jsr [PUTCHAR,PCR]
@@ -71,6 +84,6 @@ done_x:
   rts
 
 ;define datatypes
-VOLH       DB      $05   ;Whole number
-VOLL       DB      $06   ;Tenth
-FORMAT     DB      "Voltage: %d.%d  ",0
+VOLH       DB      $03   ;Whole number
+VOLL       DB      $31   ;Tenth
+FORMAT     DB      "Voltage: %d.%02d  ",0
