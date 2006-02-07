@@ -46,6 +46,7 @@ count_t* parseFile(FILE *fd) {
   }
   /* Child fork() (*/
   else {
+    exec();
   }
 
   return retval;
