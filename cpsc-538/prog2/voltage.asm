@@ -27,13 +27,32 @@ CHARX   EQU     $58 ;ASCII X
 
 Main:
 
+  ;setup interrurpt handler
+  ldd #IntVoltage
+  pshd
+  ldd #$09                ;UserAtoD = 9
+  jsr [SETUVEC,PCR]
+  puld
+
   ;Initalize ATD unit
   bset ATDCTL2,ATDMASK  
   
+  ;Wait for over 100 microseconds
+  ; so ATD can initalize
+init_wait:
+  ldaa $C8
+  dbne a,init_wait
 
+  ;Enable Interrurpts and wait
+  cli
+  wai
+
+
+;Interrurpt Handler for ATD
+IntVoltage:
   jsr ClearScreen
   jsr PrintVoltage
-  wai
+  rti
 
 ;Ckears Screen via CR (without LF)
 ClearScreen:
@@ -57,8 +76,8 @@ PrintVoltage:
 
 ;Prints X bars
 ;  2 per whole number (WOLH)
-;  1 if VOLL is greater than 5
-;   exmaple: 4.6: XXXXXXXXX
+;  1 if VOLL is greater than 50
+;   exmaple: 4.60: XXXXXXXXX
 PrintXBars:
   ldaa VOLH
   adda #$01          ;Add 1 for start_xx loop to get final X
@@ -84,6 +103,6 @@ done_x:
   rts
 
 ;define datatypes
-VOLH       DB      $03   ;Whole number
-VOLL       DB      $31   ;Tenth
+VOLH       DB      $00   ;Whole number
+VOLL       DB      $00   ;Tenth
 FORMAT     DB      "Voltage: %d.%02d  ",0
