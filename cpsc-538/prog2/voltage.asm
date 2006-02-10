@@ -42,31 +42,48 @@ init_wait:
   dbne a,init_wait
 
 loop:
+  jsr Pull
   jsr Convert
+  jsr ClearScreen
+  jsr PrintVoltage
   bra loop
 
 ;--Pulls data from ATD (PAD6) and 
-;  converts the unsigned 16-bit interger
-;  to a value between 0 to 5 and stores
-;  the whole part in VOLH and the fraction
-;  in VOLL
-Convert:
+;  stores it in [B] ([A] set to 0)
+Pull:
   ldaa #$06               ;Initializes ATD SCAN=0,MULT=0, PAD6
   staa ATDCTL5            ;Write clears flags
 
 c_loop:                   ;Wait until ATD has data
   brclr ATDSTATA,#%10000000,c_loop
 
-  jsr ClearScreen
-
-  ldab ADRX2H
+  ldab ADRX2H             ;pull 8-bit signed result
   ldaa #$00
-  pshd
-  ldd #DFORMAT
-  jsr [PRINTF,PCR]
+
+  rts
+
+;Converts the unsigned 8-bit interger
+;  in [D] ([B] = data, [A] = 00)
+;  to a value between 0 to 5 and stores
+;  the whole part in VOLH and the fraction
+;  (0 to 99) in VOLL, rounding 100 to 99
+;  for VOLL
+
+Convert:
+  ldx #$33                ;divide by 51 to get quotient between 0 and 5
+  idiv
+
+  pshd                    ;x will be a whole number ready for VOLH
+  tfr x,d                 ; ----DEBUG NOTE (should this be d,x?) 
+  stab VOLH               
   puld
 
-
+  ldaa #$02               ;Scale 0 - 50 to 0 - 100
+  mul                     ;  since multiplying by 2 can give us
+  tba                     ;  a 100, we give 99 for 100, losing
+  mina #$64               ;  1/100 point in accuracy with a tradeoff
+  staa VOLL               ;  of less math
+  
   rts
 
 
