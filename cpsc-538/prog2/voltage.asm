@@ -4,7 +4,7 @@
 ;OUT4HEX  EQU   $F698
 PRINTF   EQU   $F686
 PUTCHAR  EQU   $F684
-SETUVEC  EQU   $F69A
+;SETUVEC  EQU   $F69A
 
 ;Define Memory I/O
 ;SREADY	 EQU	$C4
@@ -13,10 +13,14 @@ SETUVEC  EQU   $F69A
 ;SOUTMASK EQU    $80
 
 ;Define ATD Registers
-ATDCTL2 EQU     $62 ;ATD Control Register
+ATDCTL2  EQU     $62 ;ATD Control Registers
+ATDCTL5  EQU     $65
+ATDSTATA EQU     $66
+PORTAD   EQU     $6F
+ADRX2H   EQU     $74
 
 ;Define ATD masks
-ATDMASK EQU     %11000010 ;Enable ATD, Fast Clear, Interrurpts for ATDCTL2
+;ATDMASK EQU     %11000010 ;Enable ATD, Fast Clear, Interrurpts for ATDCTL2
 
 
 ;Define Keys
@@ -25,42 +29,57 @@ CHARX   EQU     $58 ;ASCII X
 
   ORG $0800
 
+;--Main() program entry point
 Main:
 
-  ;setup interrurpt handler
-  ldd #IntVoltage
-  pshd
-  ldd #$09                ;UserAtoD = 9
-  jsr [SETUVEC,PCR]
-  puld
-
   ;Initalize ATD unit
-  bset ATDCTL2,ATDMASK  
+  bset ATDCTL2,%10000000
   
   ;Wait for over 100 microseconds
   ; so ATD can initalize
-init_wait:
   ldaa $C8
+init_wait:
   dbne a,init_wait
 
-  ;Enable Interrurpts and wait
-  cli
-  wai
+loop:
+  jsr Convert
+  bra loop
 
+;--Pulls data from ATD (PAD6) and 
+;  converts the unsigned 16-bit interger
+;  to a value between 0 to 5 and stores
+;  the whole part in VOLH and the fraction
+;  in VOLL
+Convert:
+  ldaa #$06               ;Initializes ATD SCAN=0,MULT=0, PAD6
+  staa ATDCTL5            ;Write clears flags
 
-;Interrurpt Handler for ATD
-IntVoltage:
+c_loop:                   ;Wait until ATD has data
+  brclr ATDSTATA,#%10000000,c_loop
+
   jsr ClearScreen
-  jsr PrintVoltage
-  rti
 
-;Ckears Screen via CR (without LF)
+  ldab ADRX2H
+  ldaa #$00
+  pshd
+  ldd #DFORMAT
+  jsr [PRINTF,PCR]
+  puld
+
+
+  rts
+
+
+;Clears Screen via CR (without LF)
 ClearScreen:
   ldaa #$00
   ldab #KEYCR
   jsr [PUTCHAR,PCR]
   rts
 
+;Prints Voltage in the format
+;  Voltage 5.0   XXXXXXXXXX
+;  (calls PrintXBars for analogue bar)
 PrintVoltage:
   lda #$00           ;Load 0 into high bit
   ldb VOLL           ;Printf args
@@ -106,3 +125,4 @@ done_x:
 VOLH       DB      $00   ;Whole number
 VOLL       DB      $00   ;Tenth
 FORMAT     DB      "Voltage: %d.%02d  ",0
+DFORMAT    DB      "%u",0 
