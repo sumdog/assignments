@@ -42,10 +42,12 @@ init_wait:
   dbne a,init_wait
 
 loop:
-  jsr Pull
+  ;jsr Pull
+  ldd #$0080
   jsr Convert
   jsr ClearScreen
   jsr PrintVoltage
+  wai
   bra loop
 
 ;--Pulls data from ATD (PAD6) and 
@@ -81,7 +83,7 @@ Convert:
   ldaa #$02               ;Scale 0 - 50 to 0 - 100
   mul                     ;  since multiplying by 2 can give us
   tba                     ;  a 100, we give 99 for 100, losing
-  mina #$64               ;  1/100 point in accuracy with a tradeoff
+  ;mina #$64               ;  1/100 point in accuracy with a tradeoff
   staa VOLL               ;  of less math
   
   rts
