@@ -1,16 +1,7 @@
 
 ;Define D-Bug 12 Function
-;PUTCHAR EQU	$F684
-;OUT4HEX  EQU   $F698
 PRINTF   EQU   $F686
 PUTCHAR  EQU   $F684
-;SETUVEC  EQU   $F69A
-
-;Define Memory I/O
-;SREADY	 EQU	$C4
-;SDATA 	 EQU	$C7
-;SINMASK  EQU    $20
-;SOUTMASK EQU    $80
 
 ;Define ATD Registers
 ATDCTL2  EQU     $62 ;ATD Control Registers
@@ -18,10 +9,6 @@ ATDCTL5  EQU     $65
 ATDSTATA EQU     $66
 PORTAD   EQU     $6F
 ADRX2H   EQU     $74
-
-;Define ATD masks
-;ATDMASK EQU     %11000010 ;Enable ATD, Fast Clear, Interrurpts for ATDCTL2
-
 
 ;Define Keys
 KEYCR   EQU     $0D ;(Return)
@@ -33,7 +20,7 @@ CHARX   EQU     $58 ;ASCII X
 Main:
 
   ;Initalize ATD unit
-  bset ATDCTL2,%10000000
+  bset ATDCTL2,%10000010
   
   ;Wait for over 100 microseconds
   ; so ATD can initalize
@@ -41,14 +28,39 @@ Main:
 init_wait:
   dbne a,init_wait
 
+  ;our main event loop
 loop:
-  ;jsr Pull
-  ldd #$0080
+  jsr Pull
   jsr Convert
   jsr ClearScreen
   jsr PrintVoltage
-  wai
+  jsr Wait
   bra loop
+
+;--Wait loop to prevent
+;  console flicker
+Wait:
+  ldd #$FFFF
+wait_loop:
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  dbne d,wait_loop
+  rts
+
 
 ;--Pulls data from ATD (PAD6) and 
 ;  stores it in [B] ([A] set to 0)
@@ -83,7 +95,7 @@ Convert:
   ldaa #$02               ;Scale 0 - 50 to 0 - 100
   mul                     ;  since multiplying by 2 can give us
   tba                     ;  a 100, we give 99 for 100, losing
-  ;mina #$64               ;  1/100 point in accuracy with a tradeoff
+;  mina 0,FLOOR          ;  1/100 point in accuracy with a tradeoff
   staa VOLL               ;  of less math
   
   rts
@@ -113,8 +125,8 @@ PrintVoltage:
   rts
 
 ;Prints X bars
-;  2 per whole number (WOLH)
-;  1 if VOLL is greater than 50
+;  4 per whole number (WOLH)
+;  2 if VOLL is greater than 50
 ;   exmaple: 4.60: XXXXXXXXX
 PrintXBars:
   ldaa VOLH
@@ -128,6 +140,8 @@ start_xx:            ;Whole number loop
   ldab #CHARX
   jsr [PUTCHAR,PCR]
   jsr [PUTCHAR,PCR]
+  jsr [PUTCHAR,PCR]
+  jsr [PUTCHAR,PCR]
   pula  
   bra start_xx
 done_xx:
@@ -137,6 +151,7 @@ done_xx:
   ldaa #$00
   ldab #CHARX
   jsr [PUTCHAR,PCR]
+  jsr [PUTCHAR,PCR]
 done_x:  
   rts
 
@@ -144,4 +159,4 @@ done_x:
 VOLH       DB      $00   ;Whole number
 VOLL       DB      $00   ;Tenth
 FORMAT     DB      "Voltage: %d.%02d  ",0
-DFORMAT    DB      "%u",0 
+FLOOR      DB      $63   ;used for mina to rount VOLL
