@@ -132,9 +132,9 @@ PrintXBars:
   ldaa VOLH
   adda #$01          ;Add 1 for start_xx loop to get final X
   ldab #CHARX
-start_xx:            ;Whole number loop
+start_4x:            ;Whole number loop
   cmpa #$00      
-  dbeq a,done_xx
+  dbeq a,done_4x
   psha
   ldaa #$00
   ldab #CHARX
@@ -143,16 +143,16 @@ start_xx:            ;Whole number loop
   jsr [PUTCHAR,PCR]
   jsr [PUTCHAR,PCR]
   pula  
-  bra start_xx
-done_xx:
+  bra start_4x
+done_4x:
   ldaa VOLL          ;Half step X (VOLL > 50)
   cmpa #$32          ; 50
-  blt done_x
+  blt done_2x
   ldaa #$00
   ldab #CHARX
   jsr [PUTCHAR,PCR]
   jsr [PUTCHAR,PCR]
-done_x:  
+done_2x:  
   rts
 
 ;define datatypes
