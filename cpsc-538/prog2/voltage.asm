@@ -32,8 +32,13 @@ init_wait:
 loop:
   jsr Pull
   jsr Convert
+  jsr CheckRefresh
+  ldaa REFRESH            ;Check to see if display needs refreshing
+  cmpa #$00
+  beq skip_paint
   jsr ClearScreen
   jsr PrintVoltage
+skip_paint:
   jsr Wait
   bra loop
 
@@ -59,6 +64,7 @@ wait_loop:
   nop
   nop
   dbne d,wait_loop
+
   rts
 
 
@@ -76,15 +82,44 @@ c_loop:                   ;Wait until ATD has data
 
   rts
 
+;--Saves Previous Values 
+; (to see if we need a refresh)
+; (called by CheckRefresh)
+SavePrev:
+  ldaa VOLH
+  staa VOLHPRV
+  ldaa VOLL
+  staa VOLLPRV
+  rts
+
+;--Checks to see if the screen needs to 
+;  be refreshed and sets the REFRESH bit
+CheckRefresh:
+  ldab #$00               ;Set refresh = 0 
+  stab REFRESH
+  ldaa VOLL               ;if VOLL or VOLH have changed
+  cmpa VOLLPRV            ; goto do_refresh
+  bne do_refresh
+  ldaa VOLH
+  cmpa VOLHPRV
+  bne do_refresh
+  bra skip_refresh        ;if we get here, display does not need updating
+do_refresh:               
+  ldab #$01
+  stab REFRESH
+skip_refresh:
+  jsr SavePrev            ;Reset PRVs for next time
+  rts
+
 ;Converts the unsigned 8-bit interger
 ;  in [D] ([B] = data, [A] = 00)
 ;  to a value between 0 to 5 and stores
 ;  the whole part in VOLH and the fraction
 ;  (0 to 99) in VOLL, rounding 100 to 99
 ;  for VOLL
-
 Convert:
-  ldx #$33                ;divide by 51 to get quotient between 0 and 5
+
+  ldx #$34                ;divide by 52 to get quotient between 0 and 5
   idiv
 
   pshd                    ;x will be a whole number ready for VOLH
@@ -93,11 +128,14 @@ Convert:
   puld
 
   ldaa #$02               ;Scale 0 - 50 to 0 - 100
-  mul                     ;  since multiplying by 2 can give us
-  tba                     ;  a 100, we give 99 for 100, losing
-;  mina 0,FLOOR          ;  1/100 point in accuracy with a tradeoff
-  staa VOLL               ;  of less math
-  
+  mul                     
+  tba                     
+  cmpa #$63               ;Round anything above 100 to 99
+  ble noround
+  ldaa #$63
+noround:
+  staa VOLL               ;  1/100 point in accuracy with a tradeoff
+                          ;  of less math
   rts
 
 
@@ -134,29 +172,40 @@ PrintXBars:
   ldab #CHARX
 start_4x:            ;Whole number loop
   cmpa #$00      
-  dbeq a,done_4x
-  psha
-  ldaa #$00
-  ldab #CHARX
-  jsr [PUTCHAR,PCR]
-  jsr [PUTCHAR,PCR]
-  jsr [PUTCHAR,PCR]
-  jsr [PUTCHAR,PCR]
-  pula  
+  dbeq a,done_4x 
+  jsr PrintAnX
+  jsr PrintAnX
+  jsr PrintAnX
+  jsr PrintAnX
   bra start_4x
 done_4x:
-  ldaa VOLL          ;Half step X (VOLL > 50)
-  cmpa #$32          ; 50
-  blt done_2x
+  ldaa VOLL          
+  cmpa #$19          ;VOLL > 25 (one X)
+  blt done_x
+  jsr PrintAnX
+  cmpa #$32          ;VOLL > 50 (XX)
+  blt done_x
+  jsr PrintAnX
+  cmpa #$4B           ;VOL > 74 (XXX)
+  blt done_x
+  jsr PrintAnX
+done_x:  
+  rts
+
+;--Prints an X WITHOUT clobbering registeres A or B
+PrintAnX:
+  pshd
   ldaa #$00
   ldab #CHARX
   jsr [PUTCHAR,PCR]
-  jsr [PUTCHAR,PCR]
-done_2x:  
+  puld
   rts
+
 
 ;define datatypes
 VOLH       DB      $00   ;Whole number
 VOLL       DB      $00   ;Tenth
+VOLHPRV    DB      $00   ;Screen Refresh vars
+VOLLPRV    DB      $00
+REFRESH    DB      $01   ;Refresh if equal to 1
 FORMAT     DB      "Voltage: %d.%02d  ",0
-FLOOR      DB      $63   ;used for mina to rount VOLL
