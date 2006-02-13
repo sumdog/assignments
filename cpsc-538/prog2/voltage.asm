@@ -1,3 +1,14 @@
+; Program #2 / CPSC-538 / Dumas
+;
+;  written by Sumit Khanna
+;             <Sumit-Khanna@utc.edu>
+;
+; This is a simply voltage meter that 
+; will measure voltage between 0 and 4.98
+; by attaching wires to VSS (ground) and
+; PAD-6
+;
+
 
 ;Define D-Bug 12 Function
 PRINTF   EQU   $F686
@@ -115,26 +126,35 @@ skip_refresh:
 ;  in [D] ([B] = data, [A] = 00)
 ;  to a value between 0 to 5 and stores
 ;  the whole part in VOLH and the fraction
-;  (0 to 99) in VOLL, rounding 100 to 99
-;  for VOLL
+;  (0 to 99) in VOLL
 Convert:
 
-  ldx #$34                ;divide by 52 to get quotient between 0 and 5
-  idiv
+  ldaa #$05                ; (n * 5) / 255
+  mul
+  ldx #$00FF
+  fdiv
+ 
+  stab VOLL
+  tfr x,d
+  stab VOLH
 
-  pshd                    ;x will be a whole number ready for VOLH
-  tfr x,d                 ; ----DEBUG NOTE (should this be d,x?) 
-  stab VOLH               
-  puld
+  ;-----Old method
+  ;ldx #$34                ;divide by 52 to get quotient between 0 and 5
+  ;idiv
 
-  ldaa #$02               ;Scale 0 - 50 to 0 - 100
-  mul                     
-  tba                     
-  cmpa #$63               ;Round anything above 100 to 99
-  ble noround
-  ldaa #$63
-noround:
-  staa VOLL               ;  1/100 point in accuracy with a tradeoff
+  ;pshd                    ;x will be a whole number ready for VOLH
+  ;tfr x,d                 ; ----DEBUG NOTE (should this be d,x?) 
+  ;stab VOLH               
+  ;puld
+
+  ;ldaa #$02               ;Scale 0 - 50 to 0 - 100
+  ;mul                     
+  ;tba                     
+  ;cmpa #$63               ;Round anything above 100 to 99
+  ;ble noround
+  ;ldaa #$63
+;noround:
+  ;staa VOLL               ;  1/100 point in accuracy with a tradeoff
                           ;  of less math
   rts
 
@@ -165,6 +185,7 @@ PrintVoltage:
 ;Prints X bars
 ;  4 per whole number (WOLH)
 ;  2 if VOLL is greater than 50
+;  1 if VOLL is a quarter step (>25,>75)
 ;   exmaple: 4.60: XXXXXXXXX
 PrintXBars:
   ldaa VOLH
@@ -186,7 +207,7 @@ done_4x:
   cmpa #$32          ;VOLL > 50 (XX)
   blt done_x
   jsr PrintAnX
-  cmpa #$4B           ;VOL > 74 (XXX)
+  cmpa #$4B           ;VOL > 75 (XXX)
   blt done_x
   jsr PrintAnX
 done_x:  
