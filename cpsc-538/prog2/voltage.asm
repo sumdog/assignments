@@ -49,6 +49,7 @@ loop:
   beq skip_paint
   jsr ClearScreen
   jsr PrintVoltage
+  jsr PrintSpaces
 skip_paint:
   jsr Wait
   bra loop
@@ -104,7 +105,7 @@ Pull:
 c_loop:                   ;Wait until ATD has data
   brclr ATDSTATA,#%10000000,c_loop
 
-  ldab ADRX2H             ;pull 8-bit signed result
+  ldab ADRX2H             ;pull 8-bit unsigned result
   ldaa #$00
 
   rts
@@ -194,6 +195,8 @@ PrintVoltage:
 ;  1 if VOLL is a quarter step (>25,>75)
 ;   exmaple: 4.60: XXXXXXXXX
 PrintXBars:
+  ldaa #$00
+  staa NUMBARS       ;Reset Bars
   ldaa VOLH
   adda #$01          ;Add 1 for start_xx loop to get final X
   ldab #CHARX
@@ -219,20 +222,38 @@ done_4x:
 done_x:  
   rts
 
+PrintSpaces:
+  ldaa NUMBARS        ;Print Spaces to clear screen
+loop_space:
+  cmpa #$13
+  beq done_space
+  inca
+  psha
+  ldd #$0020
+  jsr [PUTCHAR,PCR]
+  pula
+  bra loop_space
+done_space:
+  rts
+
 ;--Prints an X WITHOUT clobbering registeres A or B
 PrintAnX:
   pshd
   ldaa #$00
   ldab #CHARX
   jsr [PUTCHAR,PCR]
+  ldaa NUMBARS
+  adda #$01
+  staa NUMBARS
   puld
   rts
 
 
 ;define datatypes
 VOLH       DB      $00   ;Whole number
-VOLL       DB      $00   ;Tenth
+VOLL       DB      $00   ;Tenths/Hundredths
 VOLHPRV    DB      $00   ;Screen Refresh vars
 VOLLPRV    DB      $00
 REFRESH    DB      $01   ;Refresh if equal to 1
 FORMAT     DB      "Voltage: %d.%02d  ",0
+NUMBARS    DB      $00
