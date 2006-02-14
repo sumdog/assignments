@@ -74,6 +74,22 @@ wait_loop:
   nop
   nop
   nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
   dbne d,wait_loop
 
   rts
@@ -129,33 +145,23 @@ skip_refresh:
 ;  (0 to 99) in VOLL
 Convert:
 
-  ldaa #$05                ; (n * 5) / 255
+  ldaa #$05                ; (n * 5) / 256
   mul
-  ldx #$00FF
-  fdiv
+  ldx #$0100
+  idiv
  
-  stab VOLL
+  pshd
   tfr x,d
   stab VOLH
+  puld
 
-  ;-----Old method
-  ;ldx #$34                ;divide by 52 to get quotient between 0 and 5
-  ;idiv
+  lda #$64                 ; (n * 100) / 256
+  mul
+  ldx #$0100
+  idiv
+  tfr x,d
+  stab VOLL
 
-  ;pshd                    ;x will be a whole number ready for VOLH
-  ;tfr x,d                 ; ----DEBUG NOTE (should this be d,x?) 
-  ;stab VOLH               
-  ;puld
-
-  ;ldaa #$02               ;Scale 0 - 50 to 0 - 100
-  ;mul                     
-  ;tba                     
-  ;cmpa #$63               ;Round anything above 100 to 99
-  ;ble noround
-  ;ldaa #$63
-;noround:
-  ;staa VOLL               ;  1/100 point in accuracy with a tradeoff
-                          ;  of less math
   rts
 
 
