@@ -102,6 +102,7 @@ ReadNumbers:
 get_loop:
    jsr [GETCHAR,PCR]
    cmpb #MINUS
+   beq
    
    rts
 
