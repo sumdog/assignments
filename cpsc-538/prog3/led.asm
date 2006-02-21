@@ -8,7 +8,9 @@
 ;Define D-Bug 12 Function
 ;PRINTF  EQU  $F686
 SETUVEC EQU  $F69A
-GETCHAR EQU  $F682
+;GETCHAR EQU  $F682
+GETLN   EQU  $F688
+
 
 ;Define Timer Location
 TIMER7  EQU  $10       ; Timer7 for D-Bug12 SetUserVector()
@@ -28,8 +30,6 @@ C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
 TCRE    EQU  %00001100
 
-;Define ASCII 
-MINUS   EQU  $2D
 
   ORG $0800
 
@@ -37,6 +37,7 @@ MINUS   EQU  $2D
 NEGBIT  DB  $00
 NUMA    DB  $00
 NUMB    DB  $00
+INBUF   DB  "   "
 
 ;Primary Loop for program
 ;   1 - Check for any key actions
@@ -79,7 +80,8 @@ Main:
             bset  TSCR,TEN
             cli                   ; Unmask global interrupts
 
-main_loop:                               
+main_loop: 
+            jsr ReadNumbers                              
             wai                           ;loop and wait
             bra main_loop
 
@@ -98,12 +100,19 @@ IntTime:
 ;--Reads two digit number and possible - sign 
 ;  from SCI0
 ReadNumbers:
-   lda $02
-get_loop:
-   jsr [GETCHAR,PCR]
-   cmpb #MINUS
-   beq
+
+   ;read 3 chars from stdin
+   ldd #$0003
+   pshd
+   ldd #INBUF
+   jsr [GETLN,PCR]
+   puld
    
+   ;parse out numeric values
+   ldx #INBUF
+   cmpx #$2D
+   
+
    rts
 
 
