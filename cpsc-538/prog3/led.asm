@@ -6,7 +6,7 @@
 ;
 
 ;Define D-Bug 12 Function
-;PRINTF  EQU  $F686
+PRINTF  EQU  $F686
 SETUVEC EQU  $F69A
 ;GETCHAR EQU  $F682
 GETLN   EQU  $F688
@@ -31,13 +31,14 @@ IOS7    EQU  %10000000 ; Select OC2
 TCRE    EQU  %00001100
 
 
-  ORG $0800
+;ASCII
+MINUS   EQU  $2D
+SPACE   EQU  $20
+CR      EQU  $0D
+LF      EQU  $0A
 
-;Data Definitions
-NEGBIT  DB  $00
-NUMA    DB  $00
-NUMB    DB  $00
-INBUF   DB  "   "
+
+  ORG $0800
 
 ;Primary Loop for program
 ;   1 - Check for any key actions
@@ -46,6 +47,24 @@ INBUF   DB  "   "
 ;   4 - Loop
 Main:
 
+
+main_loop: 
+   ;jsr ReadNumbers
+   ;jsr sciDisplayNumber
+   ldaa #%11111111                ;Set all port A bits for writing
+   staa $02
+   ;ldaa #$FF
+   ;staa $00
+   ;ldaa #$03
+   ;jsr ledOutNum
+   ;ldaa #%10011000
+   ldaa $FF
+   staa $00
+   wai                           ;loop and wait
+   bra main_loop
+
+
+InitalizeTimer:
             ;Setup Timer Interrupt Handler
             ldd  #IntTime
             pshd
@@ -76,15 +95,10 @@ Main:
             ldaa  #C7F
             staa  TFLG1	          ; Clear C7F
             bset  TMSK1,C7I       ; Enable TC7 Interrupt
-            ; Enable the Timer system
+            ;Enable the Timer system
             bset  TSCR,TEN
             cli                   ; Unmask global interrupts
-
-main_loop: 
-            jsr ReadNumbers                              
-            wai                           ;loop and wait
-            bra main_loop
-
+  rts
 
 ;BEGIN Interurpt Functions---------------
 
@@ -96,10 +110,60 @@ IntTime:
 
 ;END Interurpt Functions---------------
 
+;--Outputs single digit to LED
+;  Reg[A] = digit
+;  Reg[X] = output register
+ledOutNum:
+l_zero:
+  cmpa $00
+  bne l_one
+  ldab #%00001100
+l_one:
+  cmpa $01
+  bne l_two
+  ldab #%10001000
+l_two:
+  cmpa $02
+  bne l_three
+  ldab #%01001000
+l_three:
+  cmpa $03
+  bne l_four
+  ldab #%11001000
+l_four:
+  cmpa $04
+  bne l_five
+l_five:
+  cmpa $05
+  bne l_six
+l_six:
+  cmpa $06
+  bne l_seven
+l_seven:
+  cmpa $07
+  bne l_eight
+l_eight:
+  cmpa $08
+  bne l_nine
+l_nine:
+  cmpa $09
+  bne l_done
+l_done:
+  stab $00
+  
+  rts
+
+;--Blanks an LED
+;  Reg[X] = output register
+ledBlank:
+  rts
 
 ;--Reads two digit number and possible - sign 
 ;  from SCI0
 ReadNumbers:
+   ;inform user
+   ldd #IFORMAT
+   jsr [PRINTF,PCR]
 
    ;read 3 chars from stdin
    ldd #$0003
@@ -109,15 +173,82 @@ ReadNumbers:
    puld
    
    ;parse out numeric values
-   ldx #INBUF
-   cmpx #$2D
-   
-
+   ldx #INBUF                    ;x = *INBUF[0]
+   ldaa [0,x]
+   cmpa #MINUS                   ;if(x[0] == '-')
+   bne num_positive
+   ldaa #$00                     ;set negative bit and parse
+   staa NEGBIT
+   ldaa [1,x]
+   ldy  #NUMA
+   jsr checkStoreNum
+   ldaa [2,x]
+   ldy #NUMB
+   jsr checkStoreNum
+   bra num_done
+num_positive: 
+   ldaa #$01                     ;set positive bit and parse
+   staa NEGBIT
+   ldy #NUMA
+   jsr checkStoreNum
+   ldaa [1,x]
+   ldy #NUMB
+   jsr checkStoreNum
+num_done:
    rts
 
+;Converts and stores the value of
+; an ASCII number
+; Reg[A] = number to check
+; Reg[y] = location to store number
+; Mem[VNUM] = 1 = invalid (valid left unchanged)
+checkStoreNum:
+  cmpa #$30
+  blt csn_error
+  cmpa #$39
+  bgt csn_error
+  suba #$30
+  staa [0,y]
+csn_error:
+   ldaa #$01
+   staa VNUM
+csn_done:
+   rts
 
+;Shows number to be displayed on terminal/SCI0
+sciDisplayNumber:
+  lda NEGBIT
+  cmpa #$01
+  bne sdn_positive
+  ldx #MINUS
+sdn_positive:
+  ldx #SPACE
+  ldd NUMB
+  pshd
+  ldd NUMA
+  pshd
+sdn_display:
+  pshx
+  ldd #DFORMAT
+  jsr [PRINTF,PCR]
+  puld
+  puld
+  puld
+  rts
 
+;Displays number to LED units 
+ledDisplayNumber:
+  rts
 
+;Data Definitions
+NEGBIT  DB  $00
+NUMA    DB  $00
+NUMB    DB  $00
+INBUF   DB  "   "
+VNUM    DB  $00
+DFORMAT DB  CR,LF,"Displaying Number: %c x %d x %d",0
+EFORMAT DB  "Error Invalid Number",CR,LF,0
+IFORMAT DB  "Input Number: ",0
 
 
 
