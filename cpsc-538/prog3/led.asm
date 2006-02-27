@@ -65,48 +65,47 @@ main_loop:
 
 
 InitalizeTimer:
-            ;Setup Timer Interrupt Handler
-            ldd  #IntTime
-            pshd
-            ldd  #TIMER7
-            ldx  SETUVEC
-            jsr  0,x
-            puld
+   ;Setup Timer Interrupt Handler
+   ldd  #IntTime
+   pshd
+   ldd  #TIMER7
+   ldx  SETUVEC
+   jsr 0,x
+   puld
 
-            bset  TIOCS,IOS7  ;Bit to enable IOS7 in TIOS (p151)
+   bset TIOCS,IOS7  ;Bit to enable IOS7 in TIOS (p151)
 
-            ;Disable I/O pins
-            ldaa  #$0
-            staa  TCTL1
-            staa  TCTL2
-            staa  TCTL3
-            staa  TCTL4
+   ;Disable I/O pins
+   ldaa #$0
+   staa TCTL1
+   staa TCTL2
+   staa TCTL3
+   staa TCTL4
 
-            ;Enable TCRE and set Prescaler TMASK2 (p182,p183)
-            ldaa  #TCRE
-            staa  TMSK2
+   ;Enable TCRE and set Prescaler TMASK2 (p182,p183)
+   ldaa #TCRE
+   staa TMSK2
 
+   ;Set TC7 (p187) -- This adjusts our time interval
+   ldd  #$c350
+   std  TC7
 
-            ;Set TC7 (p187) -- This adjusts our time interval
-            ldd	  #$c350
-            std	  TC7
-
-            ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
-            ldaa  #C7F
-            staa  TFLG1	          ; Clear C7F
-            bset  TMSK1,C7I       ; Enable TC7 Interrupt
-            ;Enable the Timer system
-            bset  TSCR,TEN
-            cli                   ; Unmask global interrupts
-  rts
+   ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
+   ldaa  #C7F
+   staa  TFLG1	          ; Clear C7F
+   bset  TMSK1,C7I       ; Enable TC7 Interrupt
+   ;Enable the Timer system
+   bset  TSCR,TEN
+   cli                   ; Unmask global interrupts
+   rts
 
 ;BEGIN Interurpt Functions---------------
 
 ;Called by Timer Interrupt
 IntTime:
-            ldaa  #C7F                     ;Clear Interrupt Flag
-            staa  TFLG1
-            rti
+   ldaa  #C7F                     ;Clear Interrupt Flag
+   staa  TFLG1
+   rti
 
 ;END Interurpt Functions---------------
 
@@ -115,52 +114,53 @@ IntTime:
 ;  Reg[X] = output register
 ledOutNum:
 l_zero:
-  cmpa $00
-  bne l_one
-  ldab #%00001100
+   cmpa $00
+   bne l_one
+   ldab #%00001100
 l_one:
-  cmpa $01
-  bne l_two
-  ldab #%10001000
+   cmpa $01
+   bne l_two
+   ldab #%10001000
 l_two:
-  cmpa $02
-  bne l_three
-  ldab #%01001000
+   cmpa $02
+   bne l_three
+   ldab #%01001000
 l_three:
-  cmpa $03
-  bne l_four
-  ldab #%11001000
+   cmpa $03
+   bne l_four
+   ldab #%11001000
 l_four:
-  cmpa $04
-  bne l_five
+   cmpa $04
+   bne l_five
 l_five:
-  cmpa $05
-  bne l_six
+   cmpa $05
+   bne l_six
 l_six:
-  cmpa $06
-  bne l_seven
+   cmpa $06
+   bne l_seven
 l_seven:
-  cmpa $07
-  bne l_eight
+   cmpa $07
+   bne l_eight
 l_eight:
-  cmpa $08
-  bne l_nine
+   cmpa $08
+   bne l_nine
 l_nine:
-  cmpa $09
-  bne l_done
+   cmpa $09
+   bne l_done
 l_done:
-  stab $00
+   stab $00
   
-  rts
+   rts
 
 ;--Blanks an LED
 ;  Reg[X] = output register
 ledBlank:
-  rts
+   rts
 
 ;--Reads two digit number and possible - sign 
 ;  from SCI0
 ReadNumbers:
+
    ;inform user
    ldd #IFORMAT
    jsr [PRINTF,PCR]
@@ -197,7 +197,7 @@ num_positive:
 num_done:
    rts
 
-;Converts and stores the value of
+;--Converts and stores the value of
 ; an ASCII number
 ; Reg[A] = number to check
 ; Reg[y] = location to store number
@@ -215,7 +215,7 @@ csn_error:
 csn_done:
    rts
 
-;Shows number to be displayed on terminal/SCI0
+;--Shows number to be displayed on terminal/SCI0
 sciDisplayNumber:
   lda NEGBIT
   cmpa #$01
@@ -223,9 +223,10 @@ sciDisplayNumber:
   ldx #MINUS
 sdn_positive:
   ldx #SPACE
-  ldd NUMB
+  lda #$00
+  ldb NUMB
   pshd
-  ldd NUMA
+  ldb NUMA
   pshd
 sdn_display:
   pshx
@@ -236,7 +237,7 @@ sdn_display:
   puld
   rts
 
-;Displays number to LED units 
+;--Displays number to LED units 
 ledDisplayNumber:
   rts
 
