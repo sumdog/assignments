@@ -8,8 +8,8 @@
 ;Define D-Bug 12 Function
 PRINTF  EQU  $F686
 SETUVEC EQU  $F69A
-;GETCHAR EQU  $F682
-GETLN   EQU  $F688
+GETCHAR EQU  $F682
+;GETLN   EQU  $F688
 
 
 ;Define Timer Location
@@ -29,6 +29,12 @@ C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
 TCRE    EQU  %00001100
+
+;IO Ports for LEDs
+DDRA   EQU   $0002                  ;Sets data direction (read/write)
+DDRB   EQU   $0003
+PORTA  EQU   $0000                  ;Data Memory Mapped I/O
+PORTB  EQU   $0001
 
 
 ;ASCII
@@ -51,18 +57,16 @@ Main:
 main_loop: 
    ;jsr ReadNumbers
    ;jsr sciDisplayNumber
-   ldaa #%11111111                ;Set all port A bits for writing
-   staa $02
-   ;ldaa #$FF
-   ;staa $00
-   ;ldaa #$03
-   ;jsr ledOutNum
-   ;ldaa #%10011000
-   ldaa $FF
-   staa $00
+   ldaa #$FF                     ;Set all port A/B bits for writing
+   staa DDRA
+   staa DDRB
+
+   ldaa #$02
+   ldx  #PORTA
+   staa 0,x
+
    wai                           ;loop and wait
    bra main_loop
-
 
 InitalizeTimer:
    ;Setup Timer Interrupt Handler
@@ -109,54 +113,6 @@ IntTime:
 
 ;END Interurpt Functions---------------
 
-;--Outputs single digit to LED
-;  Reg[A] = digit
-;  Reg[X] = output register
-ledOutNum:
-l_zero:
-   cmpa $00
-   bne l_one
-   ldab #%00001100
-l_one:
-   cmpa $01
-   bne l_two
-   ldab #%10001000
-l_two:
-   cmpa $02
-   bne l_three
-   ldab #%01001000
-l_three:
-   cmpa $03
-   bne l_four
-   ldab #%11001000
-l_four:
-   cmpa $04
-   bne l_five
-l_five:
-   cmpa $05
-   bne l_six
-l_six:
-   cmpa $06
-   bne l_seven
-l_seven:
-   cmpa $07
-   bne l_eight
-l_eight:
-   cmpa $08
-   bne l_nine
-l_nine:
-   cmpa $09
-   bne l_done
-l_done:
-   stab $00
-  
-   rts
-
-;--Blanks an LED
-;  Reg[X] = output register
-ledBlank:
-   rts
-
 ;--Reads two digit number and possible - sign 
 ;  from SCI0
 ReadNumbers:
@@ -166,35 +122,35 @@ ReadNumbers:
    jsr [PRINTF,PCR]
 
    ;read 3 chars from stdin
-   ldd #$0003
-   pshd
-   ldd #INBUF
-   jsr [GETLN,PCR]
-   puld
+;   ldd #$0003
+;   pshd
+;   ldd #INBUF
+;   jsr [GETLN,PCR]
+;   puld
    
    ;parse out numeric values
-   ldx #INBUF                    ;x = *INBUF[0]
-   ldaa [0,x]
-   cmpa #MINUS                   ;if(x[0] == '-')
-   bne num_positive
-   ldaa #$00                     ;set negative bit and parse
-   staa NEGBIT
-   ldaa [1,x]
-   ldy  #NUMA
-   jsr checkStoreNum
-   ldaa [2,x]
-   ldy #NUMB
-   jsr checkStoreNum
-   bra num_done
-num_positive: 
-   ldaa #$01                     ;set positive bit and parse
-   staa NEGBIT
-   ldy #NUMA
-   jsr checkStoreNum
-   ldaa [1,x]
-   ldy #NUMB
-   jsr checkStoreNum
-num_done:
+;   ldx #INBUF                    ;x = *INBUF[0]
+;   ldaa [0,x]
+;   cmpa #MINUS                   ;if(x[0] == '-')
+;   bne num_positive
+;   ldaa #$00                     ;set negative bit and parse
+;   staa NEGBIT
+;   ldaa [1,x]
+;   ldy  #NUMA
+;   jsr checkStoreNum
+;   ldaa [2,x]
+;   ldy #NUMB
+;   jsr checkStoreNum
+;   bra num_done
+;num_positive: 
+;   ldaa #$01                     ;set positive bit and parse
+;   staa NEGBIT
+;   ldy #NUMA
+;   jsr checkStoreNum
+;   ldaa [1,x]
+;   ldy #NUMB
+;   jsr checkStoreNum
+;num_done:
    rts
 
 ;--Converts and stores the value of
@@ -237,19 +193,15 @@ sdn_display:
   puld
   rts
 
-;--Displays number to LED units 
-ledDisplayNumber:
-  rts
-
 ;Data Definitions
-NEGBIT  DB  $00
-NUMA    DB  $00
-NUMB    DB  $00
-INBUF   DB  "   "
-VNUM    DB  $00
-DFORMAT DB  CR,LF,"Displaying Number: %c x %d x %d",0
-EFORMAT DB  "Error Invalid Number",CR,LF,0
-IFORMAT DB  "Input Number: ",0
+NEGBIT  RMB  $01
+NUMA    RMB  $01
+NUMB    RMB  $01
+;INBUF   DS   $04
+VNUM    RMB  $01
+DFORMAT DB   CR,LF,"Displaying Number: %c x %d x %d",0
+EFORMAT DB   "Error Invalid Number",CR,LF,0
+IFORMAT DB   "Input Number: ",0
 
 
 
