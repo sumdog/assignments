@@ -121,6 +121,22 @@ ReadNumbers:
    ldd #IFORMAT
    jsr [PRINTF,PCR]
 
+   ;read first char
+   jsr [GETCHAR,PCR]
+   cmpb #MINUS
+   bne rn_positive
+   ;negative number
+   ldaa #$01
+   staa NEGBIT
+   jsr [GETCHAR,PCR]
+
+rn_positive:
+   
+rn_error:
+   ldaa #$01
+   staa VNUM
+rn_clean:
+
    ;read 3 chars from stdin
 ;   ldd #$0003
 ;   pshd
@@ -194,11 +210,10 @@ sdn_display:
   rts
 
 ;Data Definitions
-NEGBIT  RMB  $01
-NUMA    RMB  $01
-NUMB    RMB  $01
-;INBUF   DS   $04
-VNUM    RMB  $01
+NEGBIT  DB  $00
+NUMA    DB  $00
+NUMB    DB  $00
+VNUM    DB  $00
 DFORMAT DB   CR,LF,"Displaying Number: %c x %d x %d",0
 EFORMAT DB   "Error Invalid Number",CR,LF,0
 IFORMAT DB   "Input Number: ",0
