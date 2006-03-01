@@ -8,7 +8,7 @@
  * of intercepting signals for Interrurpt (^C), 
  * Stop (^Z) and losing the tty. 
  *
- * The easiest way to actuall stop this program 
+ * The easiest way to actually stop this program 
  * is to send it the kill -9 signal like so:
  *   killall -9 cpsc-532r-p3
  *
