@@ -8,8 +8,8 @@
 ;Define D-Bug 12 Function
 PRINTF  EQU  $F686
 SETUVEC EQU  $F69A
-GETCHAR EQU  $F682
-;GETLN   EQU  $F688
+;GETCHAR EQU  $F682
+GETLN   EQU  $F688
 
 
 ;Define Timer Location
@@ -39,6 +39,7 @@ PORTB  EQU   $0001
 
 ;ASCII
 MINUS   EQU  $2D
+PLUS    EQU  $2B
 SPACE   EQU  $20
 CR      EQU  $0D
 LF      EQU  $0A
@@ -55,15 +56,30 @@ Main:
 
 
 main_loop: 
-   ;jsr ReadNumbers
-   ;jsr sciDisplayNumber
+
+   ldaa #$00                     ;reset err bit = 0
+   staa VNUM
+
+   jsr ReadNumbers
+
    ldaa #$FF                     ;Set all port A/B bits for writing
    staa DDRA
    staa DDRB
 
-   ldaa #$02
-   ldx  #PORTA
-   staa 0,x
+   ldaa VNUM                   ;check for invalid number
+   cmpa #$01
+   bne main_display
+   ldd #EFORMAT
+   jsr [PRINTF,PCR]
+   bra main_loop
+
+main_display:
+
+   jsr sciDisplayNumber          ;else display number
+   ldaa NUMA                     
+   staa PORTA
+   ldaa NUMB
+   staa PORTB
 
    wai                           ;loop and wait
    bra main_loop
@@ -121,52 +137,55 @@ ReadNumbers:
    ldd #IFORMAT
    jsr [PRINTF,PCR]
 
-   ;read first char
-   jsr [GETCHAR,PCR]
-   cmpb #MINUS
-   bne rn_positive
-   ;negative number
-   ldaa #$01
-   staa NEGBIT
-   jsr [GETCHAR,PCR]
-
-rn_positive:
-   
-rn_error:
-   ldaa #$01
-   staa VNUM
-rn_clean:
-
    ;read 3 chars from stdin
-;   ldd #$0003
-;   pshd
-;   ldd #INBUF
-;   jsr [GETLN,PCR]
-;   puld
+   ldd #$0003
+   pshd
+   ldd #INBUF
+   jsr [GETLN,PCR]
+   puld
    
    ;parse out numeric values
-;   ldx #INBUF                    ;x = *INBUF[0]
-;   ldaa [0,x]
-;   cmpa #MINUS                   ;if(x[0] == '-')
-;   bne num_positive
-;   ldaa #$00                     ;set negative bit and parse
-;   staa NEGBIT
-;   ldaa [1,x]
-;   ldy  #NUMA
-;   jsr checkStoreNum
-;   ldaa [2,x]
-;   ldy #NUMB
-;   jsr checkStoreNum
-;   bra num_done
-;num_positive: 
-;   ldaa #$01                     ;set positive bit and parse
-;   staa NEGBIT
-;   ldy #NUMA
-;   jsr checkStoreNum
-;   ldaa [1,x]
-;   ldy #NUMB
-;   jsr checkStoreNum
-;num_done:
+   ldx #INBUF                    ;x = *INBUF[0]
+   ldaa 0,x
+   cmpa #PLUS                    
+   beq  num_positive_hard
+   cmpa #MINUS
+   beq  num_negative
+   bra  num_positive_soft
+num_negative:
+   ldaa #$01                     ;set negative bit and parse
+   staa NEGBIT
+   bra num_sign_parse
+num_positive_hard:
+   ldaa #$00
+   staa NEGBIT
+num_sign_parse:
+   ldaa 1,x
+   ldy  #NUMA
+   jsr checkStoreNum
+   ldaa 2,x
+   cmpa #$00
+   bne num_double_digit
+   ldaa NUMA
+   staa NUMB
+   ldaa #$0F
+   staa NUMA
+   bra num_done
+
+num_double_digit:
+   ldy #NUMB
+   jsr checkStoreNum
+   bra num_done
+   
+num_positive_soft: 
+   ldab #$00                     ;set positive bit and parse
+   stab NEGBIT
+   ldy #NUMA
+   jsr checkStoreNum
+   ldaa 1,x
+   ldy #NUMB
+   jsr checkStoreNum
+num_done:
    rts
 
 ;--Converts and stores the value of
@@ -180,7 +199,8 @@ checkStoreNum:
   cmpa #$39
   bgt csn_error
   suba #$30
-  staa [0,y]
+  staa 0,y
+  bra csn_done
 csn_error:
    ldaa #$01
    staa VNUM
@@ -193,12 +213,18 @@ sciDisplayNumber:
   cmpa #$01
   bne sdn_positive
   ldx #MINUS
+  bra sdn_skip
 sdn_positive:
   ldx #SPACE
+sdn_skip:
   lda #$00
   ldb NUMB
   pshd
   ldb NUMA
+  cmpb #$0F
+  bne sdn_nonblank
+  ldb #$00
+sdn_nonblank:
   pshd
 sdn_display:
   pshx
@@ -214,9 +240,10 @@ NEGBIT  DB  $00
 NUMA    DB  $00
 NUMB    DB  $00
 VNUM    DB  $00
-DFORMAT DB   CR,LF,"Displaying Number: %c x %d x %d",0
-EFORMAT DB   "Error Invalid Number",CR,LF,0
+DFORMAT DB   CR,LF,"Displaying Number: %c%d%d",0
+EFORMAT DB   CR,LF,"Error Invalid Number",CR,LF,0
 IFORMAT DB   "Input Number: ",0
+INBUF   DS  $04
 
 
 
