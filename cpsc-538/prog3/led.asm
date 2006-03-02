@@ -54,11 +54,11 @@ LF      EQU  $0A
 ;   4 - Loop
 Main:
 
+   lda #$00                    ;start our timer
+   staa FSTATE                 
+   jsr InitalizeTimer
 
 main_loop: 
-
-   ldaa #$00                     ;reset err bit = 0
-   staa VNUM
 
    jsr ReadNumbers
 
@@ -76,16 +76,8 @@ main_loop:
 main_display:
 
    jsr sciDisplayNumber          ;else display number
-
-   ldaa NEGBIT                   ;if negative, start timer
-   cmpa #$01
-   bne skip_timer:
-   ldaa #$00                     ;initalize the flash state
-   staa FSTATE
-   jsr InitalizeTimer
-   
-skip_timer:   
-   ldaa NUMA                     
+ 
+   ldaa NUMA                     ;display to LED
    staa PORTA
    ldaa NUMB
    staa PORTB
@@ -116,8 +108,12 @@ InitalizeTimer:
    staa TMSK2
 
    ;Set TC7 (p187) -- This adjusts our time interval
-   ldd  #$c350
+   ldd  #$F424
    std  TC7
+
+   ;initialize interrurpt counter (we want four of these)
+   ldaa $#00
+   staa ICOUNT
 
    ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
    ldaa  #C7F
@@ -132,6 +128,12 @@ InitalizeTimer:
 
 ;Called by Timer Interrupt
 IntTime:
+
+   
+
+   ldaa NEGBIT                    ;Skip if positive number
+   cmpa #$00
+   beq flash_done
 
    ldaa FSTATE
    cmpa #$00
@@ -176,6 +178,13 @@ ReadNumbers:
    ldd #INBUF
    jsr [GETLN,PCR]
    puld
+
+   ;clear any existing values
+   ldaa #$00
+   staa VNUM
+   staa NUMA
+   staa NUMB
+   staa NEGBIT
    
    ;parse out numeric values
    ldx #INBUF                    ;x = *INBUF[0]
@@ -198,14 +207,25 @@ num_sign_parse:
    jsr checkStoreNum
    ldaa 2,x
    cmpa #$00
-   bne num_double_digit
+   bne num_double_digit_sign
+num_single_digit:
    ldaa NUMA
    staa NUMB
    ldaa #$0F
    staa NUMA
    bra num_done
 
-num_double_digit:
+num_doulbe_digit_nosign:
+   ldy #NUMB
+   jsr checkStoreNum
+   ldaa 2,x                       ;error on 3 digit numbers
+   cmpa #$00
+   beq num_done
+   ldaa #$01
+   staa VNUM
+   bra num_done
+
+num_double_digit_sign:
    ldy #NUMB
    jsr checkStoreNum
    bra num_done
@@ -216,8 +236,9 @@ num_positive_soft:
    ldy #NUMA
    jsr checkStoreNum
    ldaa 1,x
-   ldy #NUMB
-   jsr checkStoreNum
+   cmpa #00
+   bne num_doulbe_digit_nosign
+   bra num_single_digit
 num_done:
    rts
 
@@ -269,12 +290,13 @@ sdn_display:
   rts
 
 ;Data Definitions
+ICOUNT  DB  $00
 NEGBIT  DB  $00
 NUMA    DB  $00
 NUMB    DB  $00
 VNUM    DB  $00
 FSTATE  DB  $00
-DFORMAT DB   CR,LF,"Displaying Number: %c%d%d",0
+DFORMAT DB   CR,LF,"Displaying Number: %c%d%d",CR,LF,0
 EFORMAT DB   CR,LF,"Error Invalid Number",CR,LF,0
 IFORMAT DB   "Input Number: ",0
 INBUF   DS  $04
