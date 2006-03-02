@@ -28,7 +28,7 @@ TEN     EQU  %10000000 ; Timer enable bit
 C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
-TCRE    EQU  %00001100
+TCRE    EQU  %00001101
 
 ;IO Ports for LEDs
 DDRA   EQU   $0002                  ;Sets data direction (read/write)
@@ -76,6 +76,15 @@ main_loop:
 main_display:
 
    jsr sciDisplayNumber          ;else display number
+
+   ldaa NEGBIT                   ;if negative, start timer
+   cmpa #$01
+   bne skip_timer:
+   ldaa #$00                     ;initalize the flash state
+   staa FSTATE
+   jsr InitalizeTimer
+   
+skip_timer:   
    ldaa NUMA                     
    staa PORTA
    ldaa NUMB
@@ -102,7 +111,7 @@ InitalizeTimer:
    staa TCTL3
    staa TCTL4
 
-   ;Enable TCRE and set Prescaler TMASK2 (p182,p183)
+   ;Enable TCRE and set Prescaler of 32 TMASK2 (p182,p183)
    ldaa #TCRE
    staa TMSK2
 
@@ -123,6 +132,30 @@ InitalizeTimer:
 
 ;Called by Timer Interrupt
 IntTime:
+
+   ldaa FSTATE
+   cmpa #$00
+   beq flash_on
+   bra flash_off
+
+flash_on:
+   ldaa #$01
+   staa FSTATE
+   ldaa NUMA
+   staa PORTA
+   ldaa NUMB
+   staa PORTB
+   bra flash_done
+
+flash_off:
+  ldaa #$00
+  staa FSTATE
+  ldaa #$0F
+  staa PORTA
+  staa PORTB
+
+flash_done:
+
    ldaa  #C7F                     ;Clear Interrupt Flag
    staa  TFLG1
    rti
@@ -240,6 +273,7 @@ NEGBIT  DB  $00
 NUMA    DB  $00
 NUMB    DB  $00
 VNUM    DB  $00
+FSTATE  DB  $00
 DFORMAT DB   CR,LF,"Displaying Number: %c%d%d",0
 EFORMAT DB   CR,LF,"Error Invalid Number",CR,LF,0
 IFORMAT DB   "Input Number: ",0
