@@ -9,8 +9,10 @@
  * Stop (^Z) and losing the tty. 
  *
  * The easiest way to actually stop this program 
- * is to send it the kill -9 signal like so:
- *   killall -9 cpsc-532r-p3
+ * is to use ^\ or you can also send it 
+ * the kill -9 signal like so:
+ * 
+ *   killall -9 cpsc-532r-hw3
  *
  */
 #include <string>

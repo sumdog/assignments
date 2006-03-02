@@ -1,0 +1,16 @@
+cpsc-532r Homework #3 / Harris / UTC
+
+Sumit Khanna <Sumit-Khanna@utc.edu>
+
+Here is program #3. It is considerably less overkill
+than program #2. 
+
+To Compile:
+make
+
+To Run:
+./cpsc532r-hw3 [--help|--version] <string to be displayed>
+
+To Exit:
+Use either Ctrl + \ 
+or killall -9 cpsc532r-hw3
