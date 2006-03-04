@@ -8,7 +8,6 @@
 ;Define D-Bug 12 Function
 PRINTF  EQU  $F686
 SETUVEC EQU  $F69A
-;GETCHAR EQU  $F682
 GETLN   EQU  $F688
 
 
@@ -55,7 +54,9 @@ LF      EQU  $0A
 Main:
 
    lda #$00                    ;start our timer
-   staa FSTATE                 
+   staa FSTATE
+   lda #$01
+   staa ICOUNT                 
    jsr InitalizeTimer
 
 main_loop: 
@@ -82,7 +83,6 @@ main_display:
    ldaa NUMB
    staa PORTB
 
-   wai                           ;loop and wait
    bra main_loop
 
 InitalizeTimer:
@@ -111,10 +111,6 @@ InitalizeTimer:
    ldd  #$F424
    std  TC7
 
-   ;initialize interrurpt counter (we want four of these)
-   ldaa $#00
-   staa ICOUNT
-
    ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
    ldaa  #C7F
    staa  TFLG1	          ; Clear C7F
@@ -128,8 +124,16 @@ InitalizeTimer:
 
 ;Called by Timer Interrupt
 IntTime:
-
-   
+   ldab ICOUNT
+   cmpb #$03
+   bge flash
+   incb
+   stab ICOUNT
+  bra flash_done
+ 
+flash:
+   ldab #$00
+   stab ICOUNT
 
    ldaa NEGBIT                    ;Skip if positive number
    cmpa #$00
@@ -296,9 +300,9 @@ NUMA    DB  $00
 NUMB    DB  $00
 VNUM    DB  $00
 FSTATE  DB  $00
-DFORMAT DB   CR,LF,"Displaying Number: %c%d%d",CR,LF,0
-EFORMAT DB   CR,LF,"Error Invalid Number",CR,LF,0
-IFORMAT DB   "Input Number: ",0
+DFORMAT DB   CR,LF,"Displaying: %c%d%d",CR,LF,0
+EFORMAT DB   CR,LF,"Invalid Number",CR,LF,0
+IFORMAT DB   "Input: ",0
 INBUF   DS  $04
 
 
