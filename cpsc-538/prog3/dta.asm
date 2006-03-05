@@ -14,6 +14,10 @@ SCNHEX  EQU  $F68A
 CR      EQU  $0D
 LF      EQU  $0A
 
+;I/O Ports
+PORTT   EQU  $AE
+DDRT    EQU  $AF
+
 
    ORG $0800
 
@@ -32,28 +36,29 @@ sciDisplayNum:
 ReadInput:
    ldd #IFORMAT             ;Prompt User
    jsr [PRINTF,PCR]
-   ldd #INBUF               ;Read User Input
+   ldd #$0002              ;Read User Input
    pshd
-   ldd $0002
+   ldd #INBUF
    jsr [GETLN,PCR]
    puld
    ldd #HEXINPUT            ;Convert input to Hex
    pshd
    ldd #INBUF
    jsr [SCNHEX,PCR]
+   cmpb #$00                ;check for errors
+   bne ri_goodnum
    puld
-   ;swi
-   ;cmpb #$00                ;check for errors
-   ;bne ri_goodnum
-   ;ldd #EFORMAT
-   ;jsr [PRINTF,PCR]
-   ;bra ReadInput
-;ri_goodnum:
+   ldd #EFORMAT
+   jsr [PRINTF,PCR]
+   bra ReadInput
+ri_goodnum:
+   puld
    rts
 
 
-IFORMAT  DB  CR,LF,"Input Hex Number: ",0
-EFORMAT  DB  "Invalid Number",CR,LF,0
-DFORMAT  DB  "Sending %X",CR,LF,0
+IFORMAT  DB  "Input Hex Number: ",0
+EFORMAT  DB  CR,LF,"Invalid Number",CR,LF,0
+DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
+RFORMAT  DB  "Recieved %X",CR,LF,0
 HEXINPUT DW  $0000
 INBUF    DS  $03
