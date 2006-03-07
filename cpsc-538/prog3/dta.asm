@@ -30,7 +30,18 @@ main_loop:
    jsr ReadInput
    jsr sciDisplayNum
    jsr sendDAC
-   bra main_loop:
+   jsr getADC
+   jsr sciReadNum
+   bra main_loop
+
+
+sciReadNum:
+   ldd HEXOUT
+   pshd
+   ldd #RFORMAT
+   jsr [PRINTF,PCR]
+   puld
+   rts
 
 sciDisplayNum:
    ldd HEXINPUT
@@ -44,6 +55,38 @@ getADC:
    ldaa #$00               ;Set PORTT for reading
    staa DDRT
 
+   ldaa #%11111110         ;Set Busy read, rest write
+   staa DDRE
+
+   jsr LongDelay
+ 
+   ;set ST high
+   ldaa #%00000010
+   staa PORTE
+
+   jsr LongDelay
+
+   ;wait for busy
+port_wait:
+   ldaa PORTE
+   anda #%00000001
+   cmpa #%00000001
+   bne port_wait
+
+   ;set RD low
+   ldaa #%00001000
+   staa PORTE
+
+   jsr LongDelay
+
+   ;read from pins
+   ldaa PORTT
+   staa HEXOUT
+
+   jsr LongDelay
+
+   ldaa #$FF               ;reset PORTE for writing
+   staa DDRE
    rts
 
 sendDAC:
@@ -51,10 +94,33 @@ sendDAC:
    staa DDRT
    ldaa #$00               ;Reset DAC
    staa PORTE
+   jsr LongDelay
+
    ldd  HEXINPUT           ;send data to converter
    stab PORTT
-   ldaa #$FF               ;Tell DAC to update registers
+   ;ldaa #%00100000         ;Set CS/RESET to high
+   ;staa PORTE
+   jsr LongDelay
+
+   ldaa #%00001100         ;Set WR/RESET to high
    staa PORTE
+   ;swi
+   ;ldaa #$FF
+   ;staa PORTE
+   rts
+
+LongDelay:
+   pshd
+   ldd #$FFFF
+ld_loop:
+   nop
+   nop
+   nop
+   nop
+   nop
+   dbne d,ld_loop   
+
+   puld
    rts
 
 ReadInput:
@@ -85,4 +151,5 @@ EFORMAT  DB  CR,LF,"Invalid Number",CR,LF,0
 DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
 RFORMAT  DB  "Recieved %X",CR,LF,0
 HEXINPUT DW  $00
+HEXOUT   DW  $00
 INBUF    DS  $03
