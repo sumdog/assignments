@@ -2,6 +2,31 @@
 ;
 ;   written by Sumit Khanna
 ;
+;   This program will take a user input of an
+;   8-bit Hex value (00 - FF) and send it to 
+;   a Digital-to-Analog converter, causing it
+;   to produce a voltage between 0 and 2.5
+;
+;   The DTA also acts as an ATD, so the program
+;   will also read from the ATD to take the output
+;   voltage and return back the original hex values
+;
+;   M68HC12B32 Pin    AD7569 Pins
+;   --------------    -----------
+;   PT[0...7]         DB[0...7]
+;   PE[7]             RD
+;   PE[6]             ST
+;   PE[5]             CS
+;   PE[3]             BUSY
+;   PE[2]             WR
+;
+;   AD7569 Other Pins
+;   -----------------
+;   RESET and RANGE are set to high
+;   INT is set to ground
+;   CLK is hooked to resistor and capacitor
+;    in parallel
+;   
 ;
 
 ;Define D-Bug 12 Function
@@ -24,6 +49,15 @@ PEAR    EQU  $0A
 
    ORG $0800
 
+;--Main Entry Point
+;   * Set read/write modes for ports
+;   * Set PORTE to be a normal (vs specalized) port
+;   1 - Read Input (handles errors in subroutine)
+;   2 - Display Input we are going to send
+;   3 - Send to DTA
+;   4 - Get ATD
+;   5 - Display result from ATD
+;   6 - loop
 Main:
    ldaa #%11110111         ;Set Busy read, rest write
    staa DDRE
@@ -37,6 +71,9 @@ main_loop:
    jsr sciReadNum
    bra main_loop
 
+;--Checks busy flag on ATD and 
+;   only returns after busy flag
+;   is cleared (conversion is complete)
 waitForConversion:
    ldaa PORTE
    anda #%00001000
@@ -49,7 +86,7 @@ complete:
    jsr [PRINTF,PCR]
    rts
 
-
+;--Displays number recieved from ATD
 sciReadNum:
    ldd HEXOUT
    pshd
@@ -58,6 +95,7 @@ sciReadNum:
    puld
    rts
 
+;--Displays number sent to DTA
 sciDisplayNum:
    ldd HEXINPUT 
    pshd
@@ -66,27 +104,26 @@ sciDisplayNum:
    puld
    rts
 
+;--Retrieves a voltage from the ATD
+;   stores result in HEXOUT
 getADC:
    ldaa #$00               ;Set PORTT for reading
    staa DDRT
 
-   jsr LongDelay
-
-   ;WR/CS to high
+   ;set ST to low
    ldaa #%10110100
    staa PORTE
+
+   ;wait
    nop
    nop
    nop
    nop
 
-   ldaa #%10100100
-   staa PORTE
-   ;swi
-
+   ;check busy
    jsr waitForConversion
 
-   ;pull CS/RD down
+   ;pull CS/RD to low
    ldaa #%00000100
    staa PORTE
 
@@ -94,49 +131,55 @@ getADC:
    ldaa PORTT
    staa HEXOUT
 
+   ;set all control signal back to high
    ldaa #$FF
    staa PORTE
 
    rts
 
+;--sends hex value to DTA
+;   only returns when conversion is complete
 sendDAC:
    ldaa #$FF               ;Set PORTT for writing
    staa DDRT
-   ldaa #$FF         ;set WR/CS to high
+   ldaa #$FF               ;set WR/CS to high
    staa PORTE
 
-   jsr LongDelay
+   ;wait
+   nop
+   nop
+   nop
+   nop
 
    ldd  HEXINPUT           ;send data to converter
    stab PORTT
 
-   jsr LongDelay
+   ;wait
+   nop
+   nop
+   nop
+   nop
 
    ldaa #%11011011         ;Set WR/CS low
    staa PORTE
 
-   jsr LongDelay
+   nop
+   nop
+   nop
+   nop
+   
    ldaa #$FF         ;Bring them back high
    staa PORTE
 
+   ;wait for busy to clear
    jsr waitForConversion
 
    rts
 
-LongDelay:
-   pshd
-   ldd #$FFFF
-ld_loop:
-   nop
-   nop
-   nop
-   nop
-   nop
-   dbne d,ld_loop   
-
-   puld
-   rts
-
+;--Read user HEX input
+;   if input is invalid, error shown
+;    and used asked to retype input
+;   will only return upon valid input
 ReadInput:
    ldd #IFORMAT             ;Prompt User
    jsr [PRINTF,PCR]
@@ -159,13 +202,13 @@ ri_goodnum:
    puld
    rts
 
-
+;Variables
 IFORMAT  DB  "Input Hex Number: ",0
 EFORMAT  DB  CR,LF,"Invalid Number",CR,LF,0
 DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
 RFORMAT  DB  "Recieved %X",CR,LF,0
 CFORMAT  DB  "Conversion Complete",CR,LF,0
 BFORMAT  DB  "Busy",CR,LF,0
-HEXINPUT DW  $00
-HEXOUT   DW  $00
-INBUF    DS  $03
+HEXINPUT DW  $00  ;DTA Input value to send
+HEXOUT   DW  $00  ;ATD Output value recieved
+INBUF    DS  $03  ;Buffer for user input

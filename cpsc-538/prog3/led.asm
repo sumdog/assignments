@@ -3,6 +3,25 @@
 ;
 ;    written by Sumit Khanna
 ;
+;   This program is designed to take a numerical
+;   two digit input from the serial console (SCI0)
+;   and display it to 7-segment LED devices
+;
+;   The numbers may be input with or without 
+;   explicit signs (e.g. -37, 28, +25 are all valid)
+;
+;   LED will blink the numbers on and off at 1Hz (1 second)
+;   intervals for negative numbers
+;
+;   M68HC12 PIN     -    7 Segment Decoder PIN
+;   -----------          ---------------------
+;   PA/B[0]              A
+;   PA/B[1]              B
+;   PA/B[2]              C
+;   PA/B[3]              D
+;
+;   Pins LT and BI/BRO on decoder are set high
+;   RBI is don't care
 ;
 
 ;Define D-Bug 12 Function
@@ -47,10 +66,12 @@ LF      EQU  $0A
   ORG $0800
 
 ;Primary Loop for program
-;   1 - Check for any key actions
-;   2 - Print output for user
-;   3 - Wait remaining cycles
-;   4 - Loop
+;  * - Start Timer
+;  * - Set I/O ports for writing
+;  1 - read user input
+;  2 - if error, dispay error and goto 1
+;  3 - display numbers 
+;  4 - goto 1
 Main:
 
    lda #$00                    ;start our timer
@@ -59,13 +80,13 @@ Main:
    staa ICOUNT                 
    jsr InitalizeTimer
 
-main_loop: 
-
-   jsr ReadNumbers
-
    ldaa #$FF                     ;Set all port A/B bits for writing
    staa DDRA
    staa DDRB
+
+main_loop: 
+
+   jsr ReadNumbers
 
    ldaa VNUM                   ;check for invalid number
    cmpa #$01
@@ -85,6 +106,7 @@ main_display:
 
    bra main_loop
 
+;--Called by Main procedure to start Timer
 InitalizeTimer:
    ;Setup Timer Interrupt Handler
    ldd  #IntTime
@@ -124,22 +146,22 @@ InitalizeTimer:
 
 ;Called by Timer Interrupt
 IntTime:
-   ldab ICOUNT
-   cmpb #$03
-   bge flash
+   ldab ICOUNT                   ;4 Interrurpts = 1 second
+   cmpb #$03                     ; so count and skip code
+   bge flash                     ; block for ICOUNT<3
    incb
    stab ICOUNT
   bra flash_done
  
 flash:
-   ldab #$00
+   ldab #$00                     ;Reset Interrurpt counter
    stab ICOUNT
 
-   ldaa NEGBIT                    ;Skip if positive number
+   ldaa NEGBIT                   ;Skip if positive number
    cmpa #$00
    beq flash_done
 
-   ldaa FSTATE
+   ldaa FSTATE                   ;Toggle beteen flash on/off state
    cmpa #$00
    beq flash_on
    bra flash_off
@@ -153,7 +175,7 @@ flash_on:
    staa PORTB
    bra flash_done
 
-flash_off:
+flash_off:                       ;Turn LED off by sending it a 15 ($0F)
   ldaa #$00
   staa FSTATE
   ldaa #$0F
@@ -202,10 +224,10 @@ num_negative:
    ldaa #$01                     ;set negative bit and parse
    staa NEGBIT
    bra num_sign_parse
-num_positive_hard:
+num_positive_hard:               ;explicit + used
    ldaa #$00
    staa NEGBIT
-num_sign_parse:
+num_sign_parse:                  ;used only for explicit +/-
    ldaa 1,x
    ldy  #NUMA
    jsr checkStoreNum
@@ -279,9 +301,9 @@ sdn_skip:
   ldb NUMB
   pshd
   ldb NUMA
-  cmpb #$0F
-  bne sdn_nonblank
-  ldb #$00
+  cmpb #$0F              ;Because 15 ($0F) is used to blank
+  bne sdn_nonblank       ; the display. We should change it 
+  ldb #$00               ; to a 0 for printf output
 sdn_nonblank:
   pshd
 sdn_display:
@@ -304,14 +326,3 @@ DFORMAT DB   CR,LF,"Displaying: %c%d%d",CR,LF,0
 EFORMAT DB   CR,LF,"Invalid Number",CR,LF,0
 IFORMAT DB   "Input: ",0
 INBUF   DS  $04
-
-
-
-
-
-
-
-
-
-
-
