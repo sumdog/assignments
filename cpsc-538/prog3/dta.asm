@@ -19,13 +19,16 @@ PORTT   EQU  $AE
 DDRT    EQU  $AF
 PORTE   EQU  $08
 DDRE    EQU  $09
+PEAR    EQU  $0A
 
 
    ORG $0800
 
 Main:
-   ldaa #$FF               ;Set PORT E for writing
+   ldaa #%11110111         ;Set Busy read, rest write
    staa DDRE
+   ldaa #%10010000         ;Set PORTE to normal I/O mode
+   staa PEAR
 main_loop:
    jsr ReadInput
    jsr sciDisplayNum
@@ -33,6 +36,18 @@ main_loop:
    jsr getADC
    jsr sciReadNum
    bra main_loop
+
+waitForConversion:
+   ldaa PORTE
+   anda #%00001000
+   cmpa #%00001000
+   beq complete
+   ldd #BFORMAT
+   jsr [PRINTF,PCR]
+complete:
+   ldd #CFORMAT
+   jsr [PRINTF,PCR]
+   rts
 
 
 sciReadNum:
@@ -44,7 +59,7 @@ sciReadNum:
    rts
 
 sciDisplayNum:
-   ldd HEXINPUT
+   ldd HEXINPUT 
    pshd
    ldd #DFORMAT
    jsr [PRINTF,PCR]
@@ -55,58 +70,57 @@ getADC:
    ldaa #$00               ;Set PORTT for reading
    staa DDRT
 
-   ldaa #%11111110         ;Set Busy read, rest write
-   staa DDRE
-
    jsr LongDelay
- 
-   ;set ST high
-   ldaa #%00000010
+
+   ;WR/CS to high
+   ldaa #%10110100
    staa PORTE
+   nop
+   nop
+   nop
+   nop
 
-   jsr LongDelay
-
-   ;wait for busy
-port_wait:
-   ldaa PORTE
-   anda #%00000001
-   cmpa #%00000001
-   bne port_wait
-
-   ;set RD low
-   ldaa #%00001000
+   ldaa #%10100100
    staa PORTE
+   ;swi
 
-   jsr LongDelay
+   jsr waitForConversion
+
+   ;pull CS/RD down
+   ldaa #%00000100
+   staa PORTE
 
    ;read from pins
    ldaa PORTT
    staa HEXOUT
 
-   jsr LongDelay
+   ldaa #$FF
+   staa PORTE
 
-   ldaa #$FF               ;reset PORTE for writing
-   staa DDRE
    rts
 
 sendDAC:
    ldaa #$FF               ;Set PORTT for writing
    staa DDRT
-   ldaa #$00               ;Reset DAC
+   ldaa #$FF         ;set WR/CS to high
    staa PORTE
+
    jsr LongDelay
 
    ldd  HEXINPUT           ;send data to converter
    stab PORTT
-   ;ldaa #%00100000         ;Set CS/RESET to high
-   ;staa PORTE
+
    jsr LongDelay
 
-   ldaa #%00001100         ;Set WR/RESET to high
+   ldaa #%11011011         ;Set WR/CS low
    staa PORTE
-   ;swi
-   ;ldaa #$FF
-   ;staa PORTE
+
+   jsr LongDelay
+   ldaa #$FF         ;Bring them back high
+   staa PORTE
+
+   jsr waitForConversion
+
    rts
 
 LongDelay:
@@ -150,6 +164,8 @@ IFORMAT  DB  "Input Hex Number: ",0
 EFORMAT  DB  CR,LF,"Invalid Number",CR,LF,0
 DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
 RFORMAT  DB  "Recieved %X",CR,LF,0
+CFORMAT  DB  "Conversion Complete",CR,LF,0
+BFORMAT  DB  "Busy",CR,LF,0
 HEXINPUT DW  $00
 HEXOUT   DW  $00
 INBUF    DS  $03
