@@ -81,6 +81,7 @@ waitForConversion:
    beq complete
    ldd #BFORMAT
    jsr [PRINTF,PCR]
+   bra waitForConversion
 complete:
    ldd #CFORMAT
    jsr [PRINTF,PCR]
@@ -145,34 +146,19 @@ sendDAC:
    ldaa #$FF               ;set WR/CS to high
    staa PORTE
 
-   ;wait
-   nop
-   nop
-   nop
-   nop
 
    ldd  HEXINPUT           ;send data to converter
    stab PORTT
 
-   ;wait
-   nop
-   nop
-   nop
-   nop
 
    ldaa #%11011011         ;Set WR/CS low
    staa PORTE
-
-   nop
-   nop
-   nop
-   nop
-   
+  
    ldaa #$FF         ;Bring them back high
    staa PORTE
 
    ;wait for busy to clear
-   jsr waitForConversion
+   ;jsr waitForConversion
 
    rts
 
