@@ -119,6 +119,9 @@ InitalizeTimer:
 
 ;Called by Timer Interrupt
 IntTime:
+   jsr getADC
+   jsr filter
+   jsr sendDAC
    rti
 
 
@@ -210,6 +213,15 @@ sendDAC:
 
    rts
 
+filter:
+   ldaa HEXOUT       ;Load value we brought in
+   ldab POUT         ;Load previous Output
+
+
+
+   staa POUT         ;Store output for next cycle
+   staa HEXIN        ;Filtered Value to send Back Out
+   rts
 
 ;Variables
 DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
@@ -218,4 +230,4 @@ CFORMAT  DB  "Conversion Complete",CR,LF,0
 BFORMAT  DB  "Busy",CR,LF,0
 HEXINPUT DW  $00  ;DTA Input value to send
 HEXOUT   DW  $00  ;ATD Output value recieved
-INBUF    DS  $03  ;Buffer for user input
+POUT     DB  $00  ;Previous Output
