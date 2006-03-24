@@ -72,6 +72,9 @@ Main:
    ldaa #%10010000         ;Set PORTE to normal I/O mode
    staa PEAR
    jsr InitalizeTimer
+   ldaa #$FF
+   staa HEXINPUT
+   jsr sendDAC
 main_loop:
    wai
    bra main_loop
