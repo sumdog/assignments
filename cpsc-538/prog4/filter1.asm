@@ -71,12 +71,22 @@ Main:
    staa DDRE
    ldaa #%10010000         ;Set PORTE to normal I/O mode
    staa PEAR
-   jsr InitalizeTimer
-   ldaa #$FF
-   staa HEXINPUT
-   jsr sendDAC
+   ;jsr InitalizeTimer
 main_loop:
-   wai
+   ;jsr getADC
+   ;jsr sciReadNum
+   ;ldaa HEXOUT
+   ;staa HEXINPUT
+   ;ldd  #$FFFF
+   ;std HEXINPUT
+   ;staa HEXINPUT
+   ;stab HEXOUT
+   ;jsr sciDisplayNum
+   jsr getADC
+   ldd HEXOUT
+   tab
+   std HEXINPUT
+   jsr sendDAC
    bra main_loop
 
 ;--Called by Main procedure to start Timer
@@ -133,12 +143,12 @@ waitForConversion:
    anda #%00001000
    cmpa #%00001000
    beq complete
-   ldd #BFORMAT
-   jsr [PRINTF,PCR]
+   ;ldd #BFORMAT
+   ;jsr [PRINTF,PCR]
    bra waitForConversion
 complete:
-   ldd #CFORMAT
-   jsr [PRINTF,PCR]
+   ;ldd #CFORMAT
+   ;jsr [PRINTF,PCR]
    rts
 
 ;--Displays number recieved from ATD
