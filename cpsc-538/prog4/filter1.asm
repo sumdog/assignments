@@ -71,22 +71,9 @@ Main:
    staa DDRE
    ldaa #%10010000         ;Set PORTE to normal I/O mode
    staa PEAR
-   ;jsr InitalizeTimer
+   jsr InitalizeTimer
 main_loop:
-   ;jsr getADC
-   ;jsr sciReadNum
-   ;ldaa HEXOUT
-   ;staa HEXINPUT
-   ;ldd  #$FFFF
-   ;std HEXINPUT
-   ;staa HEXINPUT
-   ;stab HEXOUT
-   ;jsr sciDisplayNum
-   jsr getADC
-   ldd HEXOUT
-   tab
-   std HEXINPUT
-   jsr sendDAC
+   wai
    bra main_loop
 
 ;--Called by Main procedure to start Timer
@@ -223,9 +210,13 @@ sendDAC:
 
    rts
 
+;--Function to handle filtering of input
 filter:
    ldaa HEXOUT       ;Load value we brought in
-   ldab POUT         ;Load previous Output
+   tab
+   
+   
+   ldaa POUT         ;Load previous Output
 
 
 
@@ -236,8 +227,8 @@ filter:
 ;Variables
 DFORMAT  DB  CR,LF,"Sending %X",CR,LF,0
 RFORMAT  DB  "Recieved %X",CR,LF,0
-CFORMAT  DB  "Conversion Complete",CR,LF,0
-BFORMAT  DB  "Busy",CR,LF,0
+;CFORMAT  DB  "Conversion Complete",CR,LF,0
+;BFORMAT  DB  "Busy",CR,LF,0
 HEXINPUT DW  $00  ;DTA Input value to send
 HEXOUT   DW  $00  ;ATD Output value recieved
 POUT     DB  $00  ;Previous Output
