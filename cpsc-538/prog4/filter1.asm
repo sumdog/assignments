@@ -56,8 +56,14 @@ TEN     EQU  %10000000 ; Timer enable bit
 C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
-TCRE    EQU  %00001101
+;TCRE    EQU  %00001101
 
+
+;Prescaler / TC7 Compare Value 
+
+;10kHz / Prescale by 16 and compare to 50
+TCRE    EQU  %00001100
+CMP7    EQU  $32 
 
    ORG $0800
 
@@ -73,7 +79,7 @@ Main:
    staa PEAR
    jsr InitalizeTimer
 main_loop:
-   wai
+   ;wai
    bra main_loop
 
 ;--Called by Main procedure to start Timer
@@ -100,7 +106,7 @@ InitalizeTimer:
    staa TMSK2
 
    ;Set TC7 (p187) -- This adjusts our time interval
-   ldd  #$F424
+   ldd  #CMP7
    std  TC7
 
    ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
@@ -212,16 +218,39 @@ sendDAC:
 
 ;--Function to handle filtering of input
 filter:
-   ldaa HEXOUT       ;Load value we brought in
+   ldd   HEXOUT       ;Load value we brought in
    tab
+   ldaa #$00   
+
+   ;multiple current input by negative coeffcent
+   ldy #$FD26
+   emuls
+   std TMPF
    
+   ;multiple previous output by positive coeffecent
+   ldd POUT
+   ldy #$02DA
+   emuls
+
+   ;Add them together
+   ADDD TMPF
+
+   ;scale back down by 1000
+   ldx #$3E8
+   idiv
+
+   ;this will be previous out and current out
+   stx POUT
+   stx HEXINPUT
+
    
-   ldaa POUT         ;Load previous Output
+
+   ;ldaa POUT         ;Load previous Output
 
 
 
    staa POUT         ;Store output for next cycle
-   staa HEXIN        ;Filtered Value to send Back Out
+   std  HEXINPUT     ;Filtered Value to send Back Out
    rts
 
 ;Variables
@@ -231,4 +260,5 @@ RFORMAT  DB  "Recieved %X",CR,LF,0
 ;BFORMAT  DB  "Busy",CR,LF,0
 HEXINPUT DW  $00  ;DTA Input value to send
 HEXOUT   DW  $00  ;ATD Output value recieved
-POUT     DB  $00  ;Previous Output
+POUT     DW  $00  ;Previous Output
+TMPF     DW  $00  ;Temp 16-storage for formula
