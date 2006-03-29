@@ -28,7 +28,7 @@
 ;Define D-Bug 12 Function
 SETUVEC EQU  $F69A
 PRINTF  EQU  $F686
-GETCHAR EQU  $-------
+GETCHAR EQU  $F682
 
 ;ASCII constants
 CR      EQU  $0D
@@ -57,29 +57,7 @@ TEN     EQU  %10000000 ; Timer enable bit
 C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
-TCRE    EQU  %00001100 ; Prescale by 16 and enable Timer Compare 7
-
-
-;The following blocks contain
-; the sample rates and coefficents
-; needed for conversion at that rate.
-; Uncomment the revelant block of code 
-; in order to change sample rates
-
-;10kHz (Compare TC7 to 50)
-;CMP7    EQU  $32 
-;COX     EQU  $02DA
-;CONX    EQU  $FD27
-
-;20kHz
-;CMP7    EQU  $19
-;COX     EQU  $0356
-;CONX    EQU  $FCAB
-
-;50kHz
-;CMP7    EQU  $0A
-;COX     EQU  $03AB
-;CONX    EQU  $FC56
+TCRE    EQU  %00001000 ; Turn off prescaling and enable Timer Compare 7
 
 
    ORG $0800
@@ -94,7 +72,11 @@ Main:
    staa DDRE
    ldaa #%10010000         ;Set PORTE to normal I/O mode
    
+   ldd #$0000              ;Set Previous Output to 0 for
+   std POUT
+
    staa PEAR
+   jsr AskFreq
    jsr InitalizeTimer
 main_loop:
    ;wai
@@ -107,36 +89,46 @@ AskFreq:
    jsr [PRINTF,PCR]
    jsr [GETCHAR,PCR]
    
-   cmpb #$31
-   beq feq10
+   ;select correct block based on user input
+   ;cmpb #$31
+   ;beq feq10
    cmpb #$32
-   beq feq20
-   cmpb #$33
-   beq feq50
+   beq feq15
+   ;cmpb #$33
+   ;beq feq20
+   ;cmpb #$34
+   ;beq feq50
    
    ldd #EFORMAT
    jsr [PRINTF,PCR]
    bra AskFreq
    
-feq10:
-   ldda #$32
-   ldd #$02DA
-   ldx #$FD27
+;feq10:
+;   ldy #$0320
+;   ldd #$00C1
+;   ldx #$003F
+;   bra setfeq
+feq15:
+   ldy #$0215
+   ldd #$00D6
+   ldx #$00D6
    bra setfeq
-feq20:
-   ldda #$19
-   ldd #$0356
-   ldx #$FCAB
-   bra setfeq
-feq50:
-   ldaa #$0A
-   ldd #$03AB
-   ldx #$FC56
+;feq20:
+;   ldy #$0190
+;   ldd #$00E3
+;   ldx #$00E2
+;   bra setfeq
+;feq50:
+;   ldy #$00A0
+;   ldd #$00F8
+;   ldx #$00F8
 
 setfeq:
-   sta CMP7
+   sty CMP7
    std COX
    stx CONX
+   ldd #GFORMAT
+   jsr [PRINTF,PCR]
    rts
 
 
@@ -255,42 +247,42 @@ sendDAC:
 
 ;--Function to handle filtering of input
 filter:
-   ldd   SIGIN       ;Load value we brought in
-   tab               ;move high bits to low bits
+   ldab SIGIN       ;Load value we brought in
    ldaa #$00         ;zero out high bits
 
-   ;multiple current input by negative coeffcent
+   ;multiple current input by 1 - coeffcent
    ldy CONX
-   emuls
+   emul
    std TMPF
-   
-   ;multiple previous output by positive coeffecent
-   ldd POUT
+
+   ;multiple previous output by coeffecent
+   ldab POUT
+   ldaa #$00
    ldy COX
-   emuls
+   emul
 
    ;Add them together
-   ADDD TMPF
+   addd TMPF
 
-   ;scale back down by 1000
-   ldx #$3E8
-   idiv
+   
 
    ;this will be previous out and current out
-   stx POUT
-   stx SIGOUT
+   ; (storing only A divides by 256)
+   staa POUT
+   staa SIGOUT
 
    rts
 
 ;Variables
-SIGOUT  DW  $00  ;DTA Input value to send
-SIGIN   DW  $00  ;ATD Output value recieved
-POUT    DW  $00  ;Previous Output
+SIGOUT  DB  $00  ;DTA Input value to send
+SIGIN   DB  $00  ;ATD Output value recieved
+POUT    DB  $00  ;Previous Output
 TMPF    DW  $00  ;Temp 16-storage for formula
 
-AFORMAT DB "Frequency:",CR,LF,"1)10kHz",CR,LR,"2)20kHz",CR,LF,"3)50kHz",CR,LF,0
+AFORMAT DB "Frequency:",CR,LF,"1)10kHz",CR,LF,"2)15kHz",CR,LF,"3)20kHz",CR,LF,"4)50kHz",CR,LF,0
 EFORMAT DB "Invalid",CR,LF,0
-CMP7    DB $00
+GFORMAT DB "Starting Filter",CR,LF,0
+CMP7    DW $0000
 COX     DW $0000
 CONX    DW $0000
 
