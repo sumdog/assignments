@@ -1,10 +1,10 @@
-; Program #4a / CPSC-538 / Dumas
+; Program #4b / CPSC-538 / Dumas
 ;
 ;   written by Sumit Khanna
 ;
 ;   This program will use the AD7569
-;   to create a first-order, low-pass filter
-;   with a cutoff of 500Mhz
+;   to create a second-order, low-pass filter
+;   with a break frequency of 125Mhz
 ;
 ;
 ;   M68HC12B32 Pin    AD7569 Pins
@@ -266,9 +266,11 @@ filter:
 
    
 
-   ;this will be previous out and current out
-   ; (storing only A divides by 256)
+   ;this will store current previous out and 
+   ; move prior previous out 
+   ldab POUT
    staa POUT
+   stab PPOUT
    staa SIGOUT
 
    rts
@@ -276,7 +278,8 @@ filter:
 ;Variables
 SIGOUT  DB  $00  ;DTA Input value to send
 SIGIN   DB  $00  ;ATD Output value recieved
-POUT    DB  $00  ;Previous Output
+POUT    DB  $00  ;Previous Output (T-1)
+PPOUT   DB  $00  ;Previous Output (T-2)
 TMPF    DW  $00  ;Temp 16-storage for formula
 
 AFORMAT DB "Frequency:",CR,LF,"1)10kHz",CR,LF,"2)15kHz",CR,LF,"3)20kHz",CR,LF,"4)50kHz",CR,LF,0
