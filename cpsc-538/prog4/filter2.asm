@@ -26,11 +26,11 @@
 ;    in parallel
 ;   
 ;
+;  10kHz Sampling 
+;  (Prescaler of 32 / Timer Compare 25 ($19)
 
 ;Define D-Bug 12 Function
 SETUVEC EQU  $F69A
-PRINTF  EQU  $F686
-GETCHAR EQU  $F682
 
 ;ASCII constants
 CR      EQU  $0D
@@ -59,7 +59,7 @@ TEN     EQU  %10000000 ; Timer enable bit
 C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
-TCRE    EQU  %00001101 ; Turn off prescaling and enable Timer Compare 7
+TCRE    EQU  %00001101 ; Enable Timer Compare 7
 
 
    ORG $0800
@@ -79,7 +79,7 @@ Main:
 
    staa PEAR
    
-   ;initalize all values
+   ;initalize all values to zero
    ldaa #$00
    staa PIN
    staa POUT
@@ -246,8 +246,5 @@ SIGIN   DB  $00  ;ATD Output value recieved
 PIN     DB  $00  ;Previous Input
 POUT    DB  $00  ;Previous Output (T-1)
 PPOUT   DB  $00  ;Previous Output (T-2)
-TMPF    DW  $00  ;Temp 16-storage for formula
-TMPS    DW  $00  
-
-GFORMAT DB "Starting Filter",CR,LF,0
-CMP7    DW $0000
+TMPF    DW  $00  ;Temp 16-bit storage for formula
+TMPS    DW  $00  ;Temp 16-bit storage for formula

@@ -7,7 +7,7 @@
 ;   with a cutoff of 500Mhz
 ;
 ;   Can sample at 10Khz, 15kHz, 20kHz, 50Khz
-;
+;     (prompts user for input)
 ;
 ;   M68HC12B32 Pin    AD7569 Pins
 ;   --------------    -----------
@@ -67,6 +67,7 @@ TCRE    EQU  %00001101 ; Turn off prescaling and enable Timer Compare 7
 ;--Main Entry Point
 ;   * Set read/write modes for ports
 ;   * Set PORTE to be a normal (vs specalized) port
+;   * Prompt for Frequency
 ;   * Setup Timers
 ;   * Wait
 Main:
@@ -86,6 +87,7 @@ main_loop:
 
 
 ;--Sets frequency and coefficents
+;  (prompts for user input)
 AskFreq:
    ldd #AFORMAT
    jsr [PRINTF,PCR]
