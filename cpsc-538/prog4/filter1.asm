@@ -57,7 +57,7 @@ TEN     EQU  %10000000 ; Timer enable bit
 C7F     EQU  %10000000 ; Output compare 2 Flag
 C7I     EQU  C7F       ; Interrupt enable
 IOS7    EQU  %10000000 ; Select OC2
-TCRE    EQU  %00001000 ; Turn off prescaling and enable Timer Compare 7
+TCRE    EQU  %00001101 ; Turn off prescaling and enable Timer Compare 7
 
 
    ORG $0800
@@ -79,49 +79,49 @@ Main:
    jsr AskFreq
    jsr InitalizeTimer
 main_loop:
-   ;wai
+   wai
    bra main_loop
 
 
 ;--Sets frequency and coefficents
 AskFreq:
-   ;ldd #AFORMAT
-   ;jsr [PRINTF,PCR]
-   ;jsr [GETCHAR,PCR]
+   ldd #AFORMAT
+   jsr [PRINTF,PCR]
+   jsr [GETCHAR,PCR]
    
    ;select correct block based on user input
-   ;cmpb #$31
-   ;beq feq10
-   ;cmpb #$32
-   ;beq feq15
-   ;cmpb #$33
-   ;beq feq20
-   ;cmpb #$34
-   ;beq feq50
+   cmpb #$31
+   beq feq10
+   cmpb #$32
+   beq feq15
+   cmpb #$33
+   beq feq20
+   cmpb #$34
+   beq feq50
    
-   ;ldd #EFORMAT
-   ;jsr [PRINTF,PCR]
-   ;bra AskFreq
+   ldd #EFORMAT
+   jsr [PRINTF,PCR]
+   bra AskFreq
    
-;feq10:
-;   ldy #$0320
-;   lda #$C1
-;   ldb #$3F
-;   bra setfeq
-feq15:
-   ldy #$0215
-   lda #$D6
-   ldb #$D6
+feq10:
+   ldy #$0019
+   lda #$49
+   ldb #$1B
    bra setfeq
-;feq20:
-;   ldy #$0190
-;   ldd #$00E3
-;   ldx #$00E2
-;   bra setfeq
-;feq50:
-;   ldy #$00A0
-;   ldd #$00F8
-;   ldx #$00F8
+feq15:
+   ldy #$0010
+   lda #$51
+   ldb #$13
+   bra setfeq
+feq20:
+   ldy #$000C
+   lda #$55
+   ldb #$0F
+   bra setfeq
+feq50:
+   ldy #$0005
+   lda #$5D
+   ldb #$07
 
 setfeq:
    sty CMP7
@@ -170,26 +170,16 @@ InitalizeTimer:
 
 ;BEGIN Interurpt Functions---------------
 
-;Called by Timer Interrupt
+;--Called by Timer Interrupt
+; * Calls input function
+; * Runs filtering 
+; * Calls output function
 IntTime:
    jsr getADC
    jsr filter
    jsr sendDAC
    rti
 
-
-;--Checks busy flag on ATD and 
-;   only returns after busy flag
-;   is cleared (conversion is complete)
-waitForConversion:
-   ldaa PORTE
-   anda #%00001000
-   cmpa #%00001000
-   beq complete
-   bra waitForConversion
-complete:
-   rts
-   
 
 ;--Retrieves a voltage from the ATD
 ;   stores result in SIGIN
@@ -201,15 +191,16 @@ getADC:
    ldaa #%10110100
    staa PORTE
 
-   ;wait
-   nop
-   nop
-   nop
-   nop
 
    ;check busy
-   jsr waitForConversion
-
+waitForConversion:
+   ldaa PORTE
+   anda #%00001000
+   cmpa #%00001000
+   beq complete
+   bra waitForConversion
+complete:
+  
    ;pull CS/RD to low
    ldaa #%00000100
    staa PORTE
@@ -233,7 +224,7 @@ sendDAC:
    staa PORTE
 
 
-   ldd  SIGOUT           ;send data to converter
+   ldb  SIGOUT           ;send data to converter
    stab PORTT
 
 
@@ -247,8 +238,8 @@ sendDAC:
 
 ;--Function to handle filtering of input
 filter:
+
    ldab SIGIN       ;Load value we brought in
-   ;ldaa #$00         ;zero out high bits
 
    ;multiple current input by 1 - coeffcent
    ldaa CONX
@@ -257,20 +248,24 @@ filter:
 
    ;multiple previous output by coeffecent
    ldab POUT
-   ;ldaa #$00
    ldaa COX
    mul
 
    ;Add them together
    addd TMPF
 
+   ;scale back down by 100
+   ldx #$64
+   idiv
+
+   ;pull quoitent into D
+   pshx
+   puld
+
+   ;save output and previous value
+   stab POUT
+   stab SIGOUT
    
-
-   ;this will be previous out and current out
-   ; (storing only A divides by 256)
-   staa POUT
-   staa SIGOUT
-
    rts
 
 ;Variables
@@ -285,4 +280,3 @@ GFORMAT DB "Starting Filter",CR,LF,0
 CMP7    DW $0000
 COX     DB $00
 CONX    DB $00
-
