@@ -6,6 +6,8 @@
 ;   to create a second-order filter
 ;   with a break of 125Mhz
 ;
+;   Sampling at 10kHz   
+;
 ;
 ;   M68HC12B32 Pin    AD7569 Pins
 ;   --------------    -----------
@@ -76,60 +78,18 @@ Main:
    std POUT
 
    staa PEAR
-   jsr AskFreq
+   
+   ;initalize all values
+   ldaa #$00
+   staa PIN
+   staa POUT
+   staa PPOUT
+
    jsr InitalizeTimer
 main_loop:
    wai
    bra main_loop
 
-
-;--Sets frequency and coefficents
-AskFreq:
-   ldd #AFORMAT
-   jsr [PRINTF,PCR]
-   jsr [GETCHAR,PCR]
-   
-   ;select correct block based on user input
-   cmpb #$31
-   beq feq10
-   cmpb #$32
-   beq feq15
-   cmpb #$33
-   beq feq20
-   cmpb #$34
-   beq feq50
-   
-   ldd #EFORMAT
-   jsr [PRINTF,PCR]
-   bra AskFreq
-   
-feq10:
-   ldy #$0019
-   lda #$49
-   ldb #$1B
-   bra setfeq
-feq15:
-   ldy #$0010
-   lda #$51
-   ldb #$13
-   bra setfeq
-feq20:
-   ldy #$000C
-   lda #$55
-   ldb #$0F
-   bra setfeq
-feq50:
-   ldy #$0005
-   lda #$5D
-   ldb #$07
-
-setfeq:
-   sty CMP7
-   sta COX
-   stb CONX
-   ldd #GFORMAT
-   jsr [PRINTF,PCR]
-   rts
 
 
 ;--Called by Main procedure to start Timer
@@ -156,7 +116,7 @@ InitalizeTimer:
    staa TMSK2
 
    ;Set TC7 (p187) -- This adjusts our time interval
-   ldd  CMP7
+   ldd  #$0019
    std  TC7
 
    ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
@@ -239,45 +199,55 @@ sendDAC:
 ;--Function to handle filtering of input
 filter:
 
-   ldab SIGIN       ;Load value we brought in
-
-   ;multiple current input by 1 - coeffcent
-   ldaa CONX
+   ;first coefficent
+   ldab PIN
+   ldaa #$12
    mul
    std TMPF
 
-   ;multiple previous output by coeffecent
-   ldab POUT
-   ldaa COX
+   ;2nd coefficent scaled by 100 (10kHz)
+   ldaa POUT
+   ldab #$73
    mul
-
-   ;Add them together
    addd TMPF
+   std TMPF
+  
+   ;coefficent 3
+   ldaa PPOUT
+   ldab #$21
+   mul
+   std TMPS   
 
-   ;scale back down by 100
+   ;subtract
+   ldd TMPF
+   subd TMPS
+
+   ;scale by 100
    ldx #$64
    idiv
-
-   ;pull quoitent into D
    pshx
    puld
 
-   ;save output and previous value
-   stab POUT
+   ;set output
    stab SIGOUT
+
+   ;move everyting back one
+   ldaa POUT
+   stab POUT
+   staa PPOUT
+   ldaa SIGIN
+   staa PIN
    
    rts
 
 ;Variables
 SIGOUT  DB  $00  ;DTA Input value to send
 SIGIN   DB  $00  ;ATD Output value recieved
+PIN     DB  $00  ;Previous Input
 POUT    DB  $00  ;Previous Output (T-1)
 PPOUT   DB  $00  ;Previous Output (T-2)
 TMPF    DW  $00  ;Temp 16-storage for formula
+TMPS    DW  $00  
 
-AFORMAT DB "Frequency:",CR,LF,"1)10kHz",CR,LF,"2)15kHz",CR,LF,"3)20kHz",CR,LF,"4)50kHz",CR,LF,0
-EFORMAT DB "Invalid",CR,LF,0
 GFORMAT DB "Starting Filter",CR,LF,0
 CMP7    DW $0000
-COX     DB $00
-CONX    DB $00

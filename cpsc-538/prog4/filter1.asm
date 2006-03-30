@@ -6,6 +6,8 @@
 ;   to create a first-order, low-pass filter
 ;   with a cutoff of 500Mhz
 ;
+;   Can sample at 10Khz, 15kHz, 20kHz, 50Khz
+;
 ;
 ;   M68HC12B32 Pin    AD7569 Pins
 ;   --------------    -----------
