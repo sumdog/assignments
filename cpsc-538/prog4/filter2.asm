@@ -87,7 +87,6 @@ Main:
 
    jsr InitalizeTimer
 main_loop:
-   wai
    bra main_loop
 
 
@@ -116,7 +115,7 @@ InitalizeTimer:
    staa TMSK2
 
    ;Set TC7 (p187) -- This adjusts our time interval
-   ldd  #$0019
+   ldd  #$0064
    std  TC7
 
    ;Mask to enable TEN in TSCR (p153) (DO THIS LAST)
@@ -201,20 +200,20 @@ filter:
 
    ;first coefficent
    ldab PIN
-   ldaa #$12
+   ldaa #$08
    mul
    std TMPF
 
    ;2nd coefficent scaled by 100 (10kHz)
-   ldaa POUT
-   ldab #$73
+   ldab POUT
+   ldaa #$9C
    mul
    addd TMPF
    std TMPF
   
    ;coefficent 3
-   ldaa PPOUT
-   ldab #$21
+   ldab PPOUT
+   ldaa #$40
    mul
    std TMPS   
 
@@ -222,8 +221,7 @@ filter:
    ldd TMPF
    subd TMPS
 
-   ;scale by 100
-   ldx #$64
+   ldx #$0064
    idiv
    pshx
    puld

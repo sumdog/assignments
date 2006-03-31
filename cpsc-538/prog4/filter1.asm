@@ -82,7 +82,6 @@ Main:
    jsr AskFreq
    jsr InitalizeTimer
 main_loop:
-   wai
    bra main_loop
 
 
@@ -109,23 +108,23 @@ AskFreq:
    
 feq10:
    ldy #$0019
-   lda #$49
-   ldb #$1B
+   lda #$BA
+   ldb #$46
    bra setfeq
 feq15:
    ldy #$0010
-   lda #$51
-   ldb #$13
+   lda #$CF
+   ldb #$31
    bra setfeq
 feq20:
    ldy #$000C
-   lda #$55
-   ldb #$0F
+   lda #$DA
+   ldb #$26
    bra setfeq
 feq50:
    ldy #$0005
-   lda #$5D
-   ldb #$07
+   lda #$F0
+   ldb #$10
 
 setfeq:
    sty CMP7
@@ -259,16 +258,17 @@ filter:
    addd TMPF
 
    ;scale back down by 100
-   ldx #$64
-   idiv
+   ;ldx #$64
+   ;idiv
 
    ;pull quoitent into D
-   pshx
-   puld
+   ;pshx
+   ;puld
+   
 
    ;save output and previous value
-   stab POUT
-   stab SIGOUT
+   staa POUT
+   staa SIGOUT
    
    rts
 
