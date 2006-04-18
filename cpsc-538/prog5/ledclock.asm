@@ -92,6 +92,24 @@ InitalizeTimer:
    cli                   ; Unmask global interrupts
    rts
 
+;Adjusts and carry
+; X = Mem location of Adjust
+; Y = Mem location of cary
+; A = amount to break
+;
+;   example: mem[X] = 10
+;            mem[Y] = 12
+;                A  = 10
+;   returns: mem[X] = 0
+;            mem[Y] = 13
+AdjustWithCarry:
+	    cmpa 0,x
+	    bne adjustcontinue
+	    inc 0,y
+	    clr 0,x
+adjustcontinue:
+            rts
+
 
 ;BEGIN Interurpt Functions---------------
 
@@ -99,12 +117,12 @@ InitalizeTimer:
 IntTime:
    ldab ICOUNT                   ;4 Interrurpts = 1 second
    cmpb #$03                     ; so count and skip code
-   bge flash                     ; block for ICOUNT<3
+   bge secmark                    ; block for ICOUNT<3
    incb
    stab ICOUNT
-  bra flash_done
+   rti
  
-flash:
+secmark:
    ldab #$00                     ;Reset Interrurpt counter
    stab ICOUNT
 
@@ -115,3 +133,12 @@ flash:
    rti
 
 ;END Interurpt Functions---------------
+
+;Variables
+ICOUNT  DB $00	;Interrurpt counter (4 = 1 second)
+SECA    DB $00
+SECB    DB $00
+MINNA   DB $00
+MINNB   DB $00
+HOURA   DB $00
+HOURB   DB $00
