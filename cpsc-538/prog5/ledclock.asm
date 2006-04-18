@@ -31,24 +31,17 @@ Main:
   ldaa #$FF
   staa DDRA
   staa DDRB
-loop:
-  ldaa #%00000011
-  ldab #%00000011
-  ;ldaa #$FF
-  ;ldab #$FF
-  staa PORTA
-  stab PORTB
-
-  ;ldaa #$00
-  ;staa PORTA
-  ;staa PORTB
   
-  ;ldaa #%00000010
-  ;ldab #%00000001
-  ;staa PORTA
-  ;stab PORTB
+  ;initalize clock to 12:00:00
+  ldaa #$01
+  stab #$02
+  staa HOURA
+  staa HOURB
+  
+loop:
 
-;  ldaa #$F
+  jsr InitalizeTimer
+  wai
 
   bra loop
 
@@ -110,6 +103,17 @@ AdjustWithCarry:
 adjustcontinue:
             rts
 
+debugDisplayTime:
+   rts
+
+
+IncrementClock:
+   ldx #SECA
+   ldy #SECB
+   lda #$09
+   jsr AdjustWithCarry
+   rts
+
 
 ;BEGIN Interurpt Functions---------------
 
@@ -142,3 +146,4 @@ MINNA   DB $00
 MINNB   DB $00
 HOURA   DB $00
 HOURB   DB $00
+DFORMAT DB "%d%d:%d%d:%d%d",CR,LF,0
