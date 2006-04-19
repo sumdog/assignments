@@ -43,36 +43,93 @@ Main:
   stab HOURA
   staa HOURB
   
-
-
   jsr InitalizeTimer
+  
 loop:
 
-  ;ldaa #%01000000
-  ;ldab #%00000010
-  ;staa PORTA
-  ;stab PORTB
-  ;ldab #$00
-  ;stab PORTB
-
-  ;ldaa #%10000000
-  ;ldab #%00000001
-  ;staa PORTA
-  ;stab PORTB
-  ;ldab #$00
-  ;stab PORTB
-
-  ldab #%00000001
-  ldaa SECA
-  staa PORTA
-  stab PORTB
-  ldab #$00
-  stab PORTB  
-
+  jsr ledDisplayTime
+  
   bra loop
 
 
+ledDisplayTime:
 
+  ;digit 1 (second)
+  ldaa SECA
+  jsr numToBits
+  ldab #%00000001
+  staa PORTA
+  stab PORTB
+  ldab #$00
+  stab PORTB
+  
+  ;digit 2 (second)
+  ldaa SECB
+  jsr numToBits
+  ldab #%00000010
+  staa PORTA
+  stab PORTB
+  ldab #$00
+  stab PORTB
+  
+  ;digit 3 (minute)
+  
+  ;digit 4 (minute)
+  
+  ;digit 5 (hour)
+  
+  ;digit 6 (hour)
+  
+  rts
+
+
+numToBits:
+  ;cmpa #$00
+  ;jsr zero
+  cmpa #$01
+  beq one
+  cmpa #$02
+  beq two
+  cmpa #$03
+  beq three
+  cmpa #$04
+  beq four
+  cmpa #$05
+  beq five
+  cmpa #$06
+  beq six
+  cmpa #$07
+  beq seven
+  cmpa #$08
+  bge eight
+
+zero:
+  ldaa #%00000000
+  rts
+one:
+  ldaa #%10000000
+  rts
+two:
+  ldaa #%11000000
+  rts
+three:
+  ldaa #%11100000
+  rts
+four:
+  ldaa #%11110000
+  rts
+five:
+  ldaa #%11111000
+  rts
+six:
+  ldaa #%11111100
+  rts
+seven:
+  ldaa #%11111110
+  rts
+eight:
+  ldaa #%11111111
+  rts
 
 
 ;--Called by Main procedure to start Timer
@@ -178,8 +235,30 @@ IncrementClock:
    jsr AdjustWithCarry
 
    ;min to hour
+   tfx y,x
+   ldy #HOURA
+   ldaa #$06
+   jsr AdjustWithCarry
+   
+   ;check for day, else adjust hours
+   ldab HOURA
+   cmpb #$05
+   bge hours
+   ldaa #$00
+   staa SECA
+   staa SECB
+   staa MINNA
+   staa MINNB
+   staa HOURA
+   staa HOURB
+   rts
    
    ;hours
+hours:
+   tfx y,x
+   ldy #HOURB
+   ldaa #$0A
+   jsr AdjustWithCarry
 
    rts
 
