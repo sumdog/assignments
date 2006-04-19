@@ -6,6 +6,11 @@ PORTB  EQU   $0001
 
 ;D-bug12 functions
 SETUVEC EQU  $F69A
+PRINTF  EQU  $F686
+
+;ASCII constants
+CR      EQU  $0D
+LF      EQU  $0A
 
 ;Define Timer Location
 TIMER7  EQU  $10       ; Timer7 for D-Bug12 SetUserVector()
@@ -34,14 +39,35 @@ Main:
   
   ;initalize clock to 12:00:00
   ldaa #$01
-  stab #$02
-  staa HOURA
+  ldab #$02
+  stab HOURA
   staa HOURB
   
-loop:
+
 
   jsr InitalizeTimer
-  wai
+loop:
+
+  ;ldaa #%01000000
+  ;ldab #%00000010
+  ;staa PORTA
+  ;stab PORTB
+  ;ldab #$00
+  ;stab PORTB
+
+  ;ldaa #%10000000
+  ;ldab #%00000001
+  ;staa PORTA
+  ;stab PORTB
+  ;ldab #$00
+  ;stab PORTB
+
+  ldab #%00000001
+  ldaa SECA
+  staa PORTA
+  stab PORTB
+  ldab #$00
+  stab PORTB  
 
   bra loop
 
@@ -104,14 +130,57 @@ adjustcontinue:
             rts
 
 debugDisplayTime:
+   ldaa #$00
+   ldab SECA
+   pshd
+   ldab SECB
+   pshd
+   ldab MINNA
+   pshd
+   ldab MINNB
+   pshd
+   ldab HOURA
+   pshd
+   ldab HOURB
+   pshd
+   ldd #DFORMAT
+   jsr [PRINTF,PCR]
+   puld
+   puld
+   puld
+   puld
+   puld
+   puld
    rts
 
 
 IncrementClock:
-   ldx #SECA
-   ldy #SECB
-   lda #$09
+   ldaa SECA
+   inca
+   staa SECA
+
+   ;seconds
+   ldx  #SECA
+   ldy  #SECB
+   ldaa #$0A
    jsr AdjustWithCarry
+
+   ;sec to min
+   tfr  y,x
+   ldy  #MINNA
+   ldaa #$06
+   jsr AdjustWithCarry
+
+   ;minutes
+   tfr y,x
+   ldy #MINNB
+   ldaa #$0A
+   jsr AdjustWithCarry
+
+   ;min to hour
+   
+   ;hours
+
    rts
 
 
@@ -131,6 +200,8 @@ secmark:
    stab ICOUNT
 
    ;stuff here
+   jsr debugDisplayTime
+   jsr IncrementClock
 
    ldaa  #C7F                     ;Clear Interrupt Flag
    staa  TFLG1
