@@ -10,11 +10,6 @@ PEAR    EQU  $0A
 
 ;D-bug12 functions
 SETUVEC EQU  $F69A
-PRINTF  EQU  $F686
-
-;ASCII constants
-CR      EQU  $0D
-LF      EQU  $0A
 
 ;Define Timer Location
 TIMER7  EQU  $10       ; Timer7 for D-Bug12 SetUserVector()
@@ -36,6 +31,11 @@ TCRE    EQU  %00001101
 
   ORG $0800
 
+;--Entry point
+;  * setup ports
+;  * initalize clock to 12:00
+;  * start clock timer
+;  * loop: read buttons/display time
 Main:
   ;setup Port direction
   ldaa #$FF
@@ -55,12 +55,12 @@ Main:
   stab HOURA
   staa HOURB
   
+  ;start timer
   ldaa #$00
   staa ICOUNT
   jsr InitalizeTimer
   
 loop:
-
   jsr readButtons
   jsr ledDisplayTime  
 
@@ -68,16 +68,19 @@ loop:
 
 
 ;--Check for hour/minute button push
+;  * Keep track of key pressed/depressed
 readButtons:
   ldaa PORTE
   staa BTMP
   cmpa #$9F
   beq state_off
+
 state_on:
   ldaa KEYDOWN
   cmpa #$01
   beq button_skip
   bra button_continue
+
 state_off:
   ldaa KEYDOWN
   cmpa #$00
@@ -111,7 +114,9 @@ buttonMin:
 button_skip:
   rts
 
+
 ;--Set Ports for LED output
+;  * set each row of LED lights 
 ledDisplayTime:
 
    ;for(1 to 6; set appropiate light row)
@@ -147,10 +152,8 @@ led_done:
   rts
 
 ;--Sets number of bits for a number
-;  
+;   (lookup table)
 numToBits:
-  ;cmpa #$00
-  ;jsr zero
   cmpa #$01
   beq one
   cmpa #$02
@@ -233,7 +236,7 @@ InitalizeTimer:
    cli                   ; Unmask global interrupts
    rts
 
-;Adjusts and carry
+;--Adjusts and carry
 ; X = Mem location of Adjust
 ; Y = Mem location of cary
 ; A = amount to break
@@ -251,28 +254,11 @@ AdjustWithCarry:
 adjustcontinue:
             rts
 
-;--this was just eaier as it's own sub (called from IncrementClock)
-AdjustDay:
-   ldaa HOURA
-   cmpa #$05
-   bne no_day
-   ldaa HOURB
-   cmpa #$02
-   bne no_day
-   ldaa #$00
-   staa SECA
-   staa SECB
-   staa MINNA
-   staa MINNB
-   staa HOURA
-   staa HOURB
-no_day
-   rts
-
-
 
 ;--Ripples an increment throgh the clock
-; *does not actually increment anything*
+; * does not actually increment anything
+; * if incrementation is done externally, 
+;   this adjusts all other digits
 IncrementClock:
 
    ;for(1 to 6; set appropiate light row)
@@ -311,14 +297,26 @@ iclock_set:
    bra iclock_start_loop
 
 iclock_done:
-  jsr adjustDay
-  rts
 
+   ; check for date adjustment last
+   ; (when hour hits 25)
+   ldaa HOURA
+   cmpa #$05
+   bne no_day
+   ldaa HOURB
+   cmpa #$02
+   bne no_day
+   ldaa #$00
+   staa SECA
+   staa SECB
+   staa MINNA
+   staa MINNB
+   staa HOURA
+   staa HOURB
+no_day:
+   rts
 
-
-;BEGIN Interurpt Functions---------------
-
-;Called by Timer Interrupt
+;--Called by Timer Interrupt
 IntTime:
    ldaa ICOUNT                   ;4 Interrurpts = 1 second
    cmpa #$03                     ; so count and skip code
@@ -331,29 +329,24 @@ secmark:
    ldab #$00                     ;Reset Interrurpt counter
    stab ICOUNT
 
-   ;stuff here
+   ;increase low second by one and adjust
    ldaa SECA
    adda #$01
    staa SECA
    jsr IncrementClock
-   ;jsr debugDisplayTime
-
 
 intdone:
    ldaa  #C7F                     ;Clear Interrupt Flag
    staa  TFLG1
    rti
 
-;END Interurpt Functions---------------
-
 ;Variables
 ICOUNT  DB $00	;Interrurpt counter (4 = 1 second)
-BTMP    DB $00
-KEYDOWN DB $00
-SECA    DB $00
-SECB    DB $00
-MINNA   DB $00
-MINNB   DB $00
-HOURA   DB $00
-HOURB   DB $00
-DFORMAT DB "%d%d:%d%d:%d%d",CR,LF,0
+BTMP    DB $00  ;Temp var for readButtons function
+KEYDOWN DB $00  ;Hour/Minute button press state
+SECA    DB $00  ;Second (low digit)
+SECB    DB $00  ;Second (high digit)
+MINNA   DB $00  ;Minute (low digit)
+MINNB   DB $00  ;Minute (high digit)
+HOURA   DB $00  ;Hour (low digit)
+HOURB   DB $00  ;Hour (high digit)
