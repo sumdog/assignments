@@ -3,6 +3,8 @@ DDRA   EQU   $0002                  ;Sets data direction (read/write)
 DDRB   EQU   $0003
 PORTA  EQU   $0000                  ;Data Memory Mapped I/O
 PORTB  EQU   $0001
+PORTDLC EQU  $00FE
+DDRDLC  EQU  $00FF
 ;PORT E for control signals (hour/min buttons)
 PORTE   EQU  $08
 DDRE    EQU  $09
@@ -41,6 +43,7 @@ Main:
   ldaa #$FF
   staa DDRA
   staa DDRB
+  staa DDRDLC
 
 
   ;setup Port E  
@@ -137,6 +140,8 @@ led_start_loop:
    jsr numToBits
    staa PORTA
    stab PORTB
+   ldaa BNINE
+   staa PORTDLC
    ldaa #$00
    staa PORTB
    lslb
@@ -154,6 +159,7 @@ led_done:
 ;--Sets number of bits for a number
 ;   (lookup table)
 numToBits:
+  clr BNINE
   cmpa #$01
   beq one
   cmpa #$02
@@ -169,7 +175,9 @@ numToBits:
   cmpa #$07
   beq seven
   cmpa #$08
-  bge eight
+  beq eight
+  cmpa #$09
+  bge nine
 
 zero:
   ldaa #%00000000
@@ -195,6 +203,9 @@ six:
 seven:
   ldaa #%11111110
   rts
+nine:
+  ldaa #$FF
+  staa BNINE
 eight:
   ldaa #%11111111
   rts
@@ -303,7 +314,7 @@ iclock_done:
    ; check for date adjustment last
    ; (when hour hits 25)
    ldaa HOURA
-   cmpa #$05
+   cmpa #$04
    bne no_day
    ldaa HOURB
    cmpa #$02
@@ -343,6 +354,7 @@ intdone:
    rti
 
 ;Variables
+BNINE   DB $00  ;Store 9 to PDC LED
 ICOUNT  DB $00	;Interrurpt counter (4 = 1 second)
 BTMP    DB $00  ;Temp var for readButtons function
 KEYDOWN DB $00  ;Hour/Minute button press state
