@@ -3,6 +3,10 @@ DDRA   EQU   $0002                  ;Sets data direction (read/write)
 DDRB   EQU   $0003
 PORTA  EQU   $0000                  ;Data Memory Mapped I/O
 PORTB  EQU   $0001
+;PORT E for control signals (hour/min buttons)
+PORTE   EQU  $08
+DDRE    EQU  $09
+PEAR    EQU  $0A
 
 ;D-bug12 functions
 SETUVEC EQU  $F69A
@@ -33,56 +37,117 @@ TCRE    EQU  %00001101
   ORG $0800
 
 Main:
+  ;setup Port direction
   ldaa #$FF
   staa DDRA
   staa DDRB
-  
+
+
+  ;setup Port E  
+  ldaa #%10010000         ;Set PORTE to normal I/O mode
+  staa PEAR
+  ldaa #$00
+  staa DDRE
+
   ;initalize clock to 12:00:00
   ldaa #$01
   ldab #$02
   stab HOURA
   staa HOURB
   
+  ldaa #$00
+  staa ICOUNT
   jsr InitalizeTimer
   
 loop:
 
-  jsr ledDisplayTime
-  
+  jsr readButtons
+  jsr ledDisplayTime  
+
   bra loop
 
 
+;--Check for hour/minute button push
+readButtons:
+  ldaa PORTE
+  staa BTMP
+  cmpa #$9F
+  beq state_off
+state_on:
+  ldaa KEYDOWN
+  cmpa #$01
+  beq button_skip
+  bra button_continue
+state_off:
+  ldaa KEYDOWN
+  cmpa #$00
+  beq button_skip
+  ldaa #$00
+  staa KEYDOWN
+  bra button_skip
+
+button_continue:
+  ldaa #$01
+  staa KEYDOWN
+  ldaa BTMP
+  cmpa #$DF
+  beq buttonMin
+  cmpa #$BF
+  beq buttonHour
+  rts
+
+buttonHour:
+  ldaa HOURA
+  inca
+  staa HOURA
+  jsr IncrementClock
+  rts
+
+buttonMin:
+  ldaa MINNA
+  inca
+  staa MINNA
+  jsr IncrementClock
+button_skip:
+  rts
+
+;--Set Ports for LED output
 ledDisplayTime:
 
-  ;digit 1 (second)
-  ldaa SECA
-  jsr numToBits
-  ldab #%00000001
-  staa PORTA
-  stab PORTB
-  ldab #$00
-  stab PORTB
-  
-  ;digit 2 (second)
-  ldaa SECB
-  jsr numToBits
-  ldab #%00000010
-  staa PORTA
-  stab PORTB
-  ldab #$00
-  stab PORTB
-  
-  ;digit 3 (minute)
-  
-  ;digit 4 (minute)
-  
-  ;digit 5 (hour)
-  
-  ;digit 6 (hour)
+   ;for(1 to 6; set appropiate light row)
+
+   ;initalize loop
+   ldx #SECA
+   ldab #%00000001
+   ldaa #$06
+
+led_start_loop:
+   
+   ;check and save counter
+   cmpa #$00
+   beq led_done
+   psha   
+
+   ldaa 0,x
+   jsr numToBits
+   staa PORTA
+   stab PORTB
+   ldaa #$00
+   staa PORTB
+   lslb
+   inx
+
+   ;restore counter
+   pula
+   deca
+   bra led_start_loop
+
+led_done:
   
   rts
 
-
+;--Sets number of bits for a number
+;  
 numToBits:
   ;cmpa #$00
   ;jsr zero
@@ -186,64 +251,14 @@ AdjustWithCarry:
 adjustcontinue:
             rts
 
-debugDisplayTime:
-   ldaa #$00
-   ldab SECA
-   pshd
-   ldab SECB
-   pshd
-   ldab MINNA
-   pshd
-   ldab MINNB
-   pshd
-   ldab HOURA
-   pshd
-   ldab HOURB
-   pshd
-   ldd #DFORMAT
-   jsr [PRINTF,PCR]
-   puld
-   puld
-   puld
-   puld
-   puld
-   puld
-   rts
-
-
-IncrementClock:
-   ldaa SECA
-   inca
-   staa SECA
-
-   ;seconds
-   ldx  #SECA
-   ldy  #SECB
-   ldaa #$0A
-   jsr AdjustWithCarry
-
-   ;sec to min
-   tfr  y,x
-   ldy  #MINNA
-   ldaa #$06
-   jsr AdjustWithCarry
-
-   ;minutes
-   tfr y,x
-   ldy #MINNB
-   ldaa #$0A
-   jsr AdjustWithCarry
-
-   ;min to hour
-   tfx y,x
-   ldy #HOURA
-   ldaa #$06
-   jsr AdjustWithCarry
-   
-   ;check for day, else adjust hours
-   ldab HOURA
-   cmpb #$05
-   bge hours
+;--this was just eaier as it's own sub (called from IncrementClock)
+AdjustDay:
+   ldaa HOURA
+   cmpa #$05
+   bne no_day
+   ldaa HOURB
+   cmpa #$02
+   bne no_day
    ldaa #$00
    staa SECA
    staa SECB
@@ -251,37 +266,80 @@ IncrementClock:
    staa MINNB
    staa HOURA
    staa HOURB
+no_day
    rts
+
+
+
+;--Ripples an increment throgh the clock
+; *does not actually increment anything*
+IncrementClock:
+
+   ;for(1 to 6; set appropiate light row)
+
+   ;initalize loop
+   ldx #SECA
+   ldy #SECB
+   ldab #$06
+
+iclock_start_loop:
    
-   ;hours
-hours:
-   tfx y,x
-   ldy #HOURB
+   ;check loop
+   cmpb #$00
+   beq iclock_done
+
+   ;check if counter is even or odd
+   tfr b,a
+   anda #%00000001
+   cmpa #$00000001
+   beq iclock_odd
    ldaa #$0A
+   bra iclock_set
+
+iclock_odd:
+   ldaa #$06
+
+iclock_set:
+
    jsr AdjustWithCarry
 
-   rts
+   inx
+   iny
+
+   ;restore counter
+   decb
+   bra iclock_start_loop
+
+iclock_done:
+  jsr adjustDay
+  rts
+
 
 
 ;BEGIN Interurpt Functions---------------
 
 ;Called by Timer Interrupt
 IntTime:
-   ldab ICOUNT                   ;4 Interrurpts = 1 second
-   cmpb #$03                     ; so count and skip code
-   bge secmark                    ; block for ICOUNT<3
-   incb
-   stab ICOUNT
-   rti
+   ldaa ICOUNT                   ;4 Interrurpts = 1 second
+   cmpa #$03                     ; so count and skip code
+   beq  secmark                    ; block for ICOUNT<3
+   inca
+   staa ICOUNT
+   bra intdone
  
 secmark:
    ldab #$00                     ;Reset Interrurpt counter
    stab ICOUNT
 
    ;stuff here
-   jsr debugDisplayTime
+   ldaa SECA
+   adda #$01
+   staa SECA
    jsr IncrementClock
+   ;jsr debugDisplayTime
 
+
+intdone:
    ldaa  #C7F                     ;Clear Interrupt Flag
    staa  TFLG1
    rti
@@ -290,6 +348,8 @@ secmark:
 
 ;Variables
 ICOUNT  DB $00	;Interrurpt counter (4 = 1 second)
+BTMP    DB $00
+KEYDOWN DB $00
 SECA    DB $00
 SECB    DB $00
 MINNA   DB $00
