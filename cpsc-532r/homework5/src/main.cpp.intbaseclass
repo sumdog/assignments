@@ -1,0 +1,8 @@
+#include <stdlib.h>
+#include <time.h>
+#include "Int.hpp" 
+
+int main(int argc, char **argv) {
+  /* seed for random numbers */
+  srand(time(0));
+}
