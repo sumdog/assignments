@@ -236,22 +236,7 @@ InitalizeTimer:
    cli                   ; Unmask global interrupts
    rts
 
-;--Adjusts and carry
-; X = Mem location of Adjust
-; Y = Mem location of cary
-; A = amount to break
-;
-;   example: mem[X] = 10
-;            mem[Y] = 12
-;                A  = 10
-;   returns: mem[X] = 0
-;            mem[Y] = 13
-AdjustWithCarry:
-	    cmpa 0,x
-	    bne adjustcontinue
-	    inc 0,y
-	    clr 0,x
-adjustcontinue:
+
             rts
 
 
@@ -287,7 +272,24 @@ iclock_odd:
 
 iclock_set:
 
-   jsr AdjustWithCarry
+;(moved inline)
+;Adjusts and carry
+; X = Mem location of Adjust
+; Y = Mem location of cary
+; A = amount to break
+;
+;   example: mem[X] = 10
+;            mem[Y] = 12
+;                A  = 10
+;   returns: mem[X] = 0
+;            mem[Y] = 13
+AdjustWithCarry:
+	    cmpa 0,x
+	    bne adjustcontinue
+	    inc 0,y
+	    clr 0,x
+adjustcontinue:
+;end adjust and carry
 
    inx
    iny
