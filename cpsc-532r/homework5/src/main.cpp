@@ -3,31 +3,33 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include "DataSet.hpp"
-#include "CommLink.hpp"
+#include "PipeCommLink.hpp"
+#include "SocketCommLink.hpp"
 //#include "Templates.hpp"
 
 int main(int argc, char **argv) {
 
 
-  PipeComLink<int32_t> *com = new PipeComLink<int32_t>();
+  //ComLink<int32_t> *com = new PipeComLink<int32_t>();
+  ComLink<int32_t> *com = new SocketComLink<int32_t>();
   if(fork()) {
     com->setSide(PARENT);
     DataSet<int32_t> *ds = new DataSet<int32_t>(INT32_MAX,INT32_MIN,20);
     com->setDataSet(ds);
-    //ds->printDataSet();
-    com->sendDataSet(0,10);
-    ds->sortSet(11,20);
-    //ds->printDataSet();
+    com->sendDataSet(11,20);
+    //ds->sortSet(0,10);
+	//com->recoverSet(11,20);
+	ds->printDataSet();
   }
   else {
+	sleep(1);
     com->setSide(CHILD);
-    //com->setDataSet(ds);
     com->buildDataSet();
-    //ds->printDataSet();
+	com->getDataSet()->printDataSet();
     com->getDataSet()->sortSet(0,10);
-    com->sandDataSet(0,10);
+    com->sendDataSet(0,10);
+	 
+	  
   }
 
-  //DataSet<int64_t> *a = new DataSet<int64_t>(INT64_MAX,INT64_MIN,10); 
-  //a->printDataSet();
 }

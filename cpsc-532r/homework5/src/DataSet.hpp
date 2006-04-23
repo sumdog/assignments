@@ -18,19 +18,8 @@ public:
   void transmitDataSet(ofstream *stream, unsigned int start, unsigned int end);
   ~DataSet();
   void printDataSet();
-  void sortSet(unsigned int start, unsigned int end) {
-    qsort(&set[start],(end-start),sizeof(T),sortCmp);
-  }
-  void recollectset(ifstream *stream) {
-    unsigned int insize;
-    stream >> insize;
-    /*    T *newset = new T[insize+this->setsize];
-    for(unsigned int l=0, unsigned int r=0;
-	l < this->setsize || r < this->setsize;
-	) {
-      
-	}*/
-  }
+  void sortSet(unsigned int start, unsigned int end);
+  void recollectSet(unsigned int start, unsigned int end, ifstream *stream);
   
 private:
   T max;
@@ -64,6 +53,36 @@ DataSet<T>::DataSet(ifstream *stream) {
     *stream >>set[x]; 
   }
 
+}
+
+template <class T>
+void DataSet<T>::sortSet(unsigned int start, unsigned int end) {
+    qsort(&set[start],(end-start),sizeof(T),sortCmp);
+}
+
+template <class T>
+void DataSet<T>::recollectSet(unsigned int start, unsigned int end, ifstream *stream) {
+  unsigned int insize;
+  *stream >> insize;
+  
+  T *newset = new T[setsize];
+  T curin;
+  *stream >> curin;
+  unsigned int i=0, s=start, n=0;
+  for(; i<setsize ; i++) {
+      if(s<end && set[s] <= curin) {
+		  newset[i] = set[s++];
+	  }
+	  else if (curin < set[s]) {
+		  newset[i] = curin;
+		  if(n < insize) {
+			  *stream >> curin;
+			  n++;
+		  }
+	  }
+  }
+  delete[] set;
+  set = newset;
 }
 
 template <class T>
