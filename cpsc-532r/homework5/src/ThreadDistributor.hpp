@@ -4,10 +4,10 @@
 
 template <class C>
 class ThreadDistributor : public Distributor<C> {
-	public:
-		ThreadDistributor(ComLink<C> *c, unsigned int setsize);
-	private:
-		static void* child_thread(void *c);		
+public:
+  ThreadDistributor(ComLink<C> *c, unsigned int setsize);
+private:
+  static void* child_thread(void *c);		
 };
 
 template <class C>

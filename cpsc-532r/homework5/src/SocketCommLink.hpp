@@ -19,7 +19,7 @@ public:
 private:
   //server
   struct sockaddr_in *local_addr;
-  struct sockaddr *remote_addr;
+  struct sockaddr_in *remote_addr;
   socklen_t *sin_size;
   long server_sockfd;
   
@@ -36,25 +36,27 @@ SocketComLink<C>::SocketComLink() {
 
 template <class C>
 SocketComLink<C>::~SocketComLink() {
-  delete local_addr;
-  delete remote_addr;
+  //delete local_addr;
+  //delete remote_addr;
 }
 
 template <class C>
 void SocketComLink<C>::setSide(ComLinkSide_t c) {
   switch(c) {
   case PARENT:
-	  
-	local_addr = new sockaddr_in;
-    remote_addr = new sockaddr;
-  
+    
+    local_addr = new sockaddr_in;
+    remote_addr = new sockaddr_in;
+    server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    
     //serup socket structs
     local_addr->sin_family = AF_INET;
     local_addr->sin_port = htons(PORT);
-    memset(local_addr->sin_zero, '\0',8);
-    
-    server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
     local_addr->sin_addr.s_addr = INADDR_ANY;
+    memset(&(local_addr->sin_zero), '\0',8);
+    
+    
+    
     
     //bind to socket
     if( bind(server_sockfd,(struct sockaddr*) local_addr,sizeof(struct sockaddr)) != 0 ){
@@ -65,47 +67,39 @@ void SocketComLink<C>::setSide(ComLinkSide_t c) {
     
     //listen to port
     if( listen(server_sockfd, BACKLOG) != 0) {
-	  std::cerr << "Parent could not listen on port" << std::endl;
-	  exit(12);
-	  //throw std::string("Could Not Listen on Port");
+      std::cerr << "Parent could not listen on port" << std::endl;
+      exit(12);
+      //throw std::string("Could Not Listen on Port");
     }
     
     //only accept one connection
     //from the child process
+    //sin_size = new socklen_t;
     sin_size = new socklen_t;
+    *sin_size = sizeof(sockaddr_in);
     int fd = accept(server_sockfd,(struct sockaddr*) remote_addr,sin_size);
-    FILE *pfo = fdopen(server_sockfd,"w");
-    FILE *pfi = fdopen(server_sockfd,"r");
+    this->fin = fdopen(server_sockfd,"r");
+    //this->fout = this->fin;
     
-    this->stdfbo = new stdio_filebuf<char>(pfo,std::ios::out);
-    this->stdfbi = new stdio_filebuf<char>(pfi,std::ios::out);
-	
-    this->writer.std::ios::rdbuf(this->stdfbo);
-    this->reader.std::ios::rdbuf(this->stdfbi);
     
     break;
   case CHILD:
-	struct hostent *hostname = gethostbyname("localhost");
+    struct hostent *hostname = gethostbyname("localhost");
 		
-	client_addr = new sockaddr_in;
+    client_addr = new sockaddr_in;
     client_addr->sin_family = AF_INET;
-  	client_addr->sin_port = htons(PORT);
+    client_addr->sin_port = htons(PORT);
     client_addr->sin_addr = *((struct in_addr*)hostname->h_addr);
     memset(client_addr->sin_zero,'\0',8);
 	
     client_sockfd = socket(AF_INET, SOCK_STREAM, 0);
       
-  	  while(connect( client_sockfd, (struct sockaddr *)client_addr,sizeof(struct sockaddr)) == -1) {
-	  }	
+    while(connect( client_sockfd, (struct sockaddr *)client_addr,sizeof(struct sockaddr)) == -1) {
+    }	
 
-		FILE *cfo = fdopen(client_sockfd,"w");
-		FILE *cfi = fdopen(client_sockfd,"r");
-	
-		this->stdfbo = new stdio_filebuf<char>(cfo,std::ios::out);
-		this->stdfbi = new stdio_filebuf<char>(cfi,std::ios::out);
-	
-		this->writer.std::ios::rdbuf(this->stdfbo);
-		this->reader.std::ios::rdbuf(this->stdfbi);
+    this->fout = fdopen(client_sockfd,"w");
+    //this->fout = this->fin;
+
 
     break;
   } //end switch

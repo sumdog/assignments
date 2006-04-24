@@ -14,12 +14,11 @@ template <class T>
 class DataSet {
 public:
   DataSet(T max, T min, unsigned int size);
-  DataSet(ifstream *stream);
-  void transmitDataSet(ofstream *stream, unsigned int start, unsigned int end);
+  void transmitDataSet(FILE *stream);
   ~DataSet();
   void printDataSet();
-  void sortSet(unsigned int start, unsigned int end);
-  void recollectSet(unsigned int start, unsigned int end, ifstream *stream);
+  void sortSet();
+  void recollectSet(FILE *stream);
   
 private:
   T max;
@@ -27,7 +26,6 @@ private:
   T *set;
   unsigned int setsize;
   static int sortCmp(const void* a, const void*b) {
-    //    return  (*((*T)a) - *((*T)b) );
     if (*(T*)a > *(T*)b ) {
       return 1;
     }
@@ -40,73 +38,78 @@ private:
   }
 };
 
+
+
 template <class T>
-DataSet<T>::DataSet(ifstream *stream) {
-cout << "I'm recieveing\n";
-	unsigned int i;
-	*stream >> i;
-	cout << "T:" << i << endl;
-#if 0
-  /* get size of dataset */  
-  *stream >> setsize;
-cout << "recv setsize:" << setsize << endl;
-  set = new T[setsize];
-  
-  /* load set data */
-  for(unsigned int x=0; x< setsize; x++) {
-	  
-    *stream >>set[x]; 
-	  cout << "Getting:" << set[x] << endl;
-  }
-#endif
+void DataSet<T>::sortSet() {
+  qsort(&set[0],setsize,sizeof(T),sortCmp);
 }
 
 template <class T>
-void DataSet<T>::sortSet(unsigned int start, unsigned int end) {
-    qsort(&set[start],(end-start),sizeof(T),sortCmp);
-}
-
-template <class T>
-void DataSet<T>::recollectSet(unsigned int start, unsigned int end, ifstream *stream) {
+void DataSet<T>::recollectSet(FILE *stream) {
+  char buffer[128];
   unsigned int insize;
-  *stream >> insize;
+  fgets(&buffer[0],127,stream);
+  insize = atol(&buffer[0]);
   
-  T *newset = new T[setsize];
+  
+  T *newset = new T[setsize+insize];
   T curin;
-  *stream >> curin;
-  unsigned int i=0, s=start, n=0;
-  for(; i<setsize ; i++) {
-      if(s<end && set[s] <= curin) {
-		  newset[i] = set[s++];
-	  }
-	  else if (curin < set[s]) {
-		  newset[i] = curin;
-		  if(n < insize) {
-			  *stream >> curin;
-			  n++;
-		  }
-	  }
+  fgets(&buffer[0],127,stream);
+  if(sizeof(T) == sizeof(int32_t)) {
+    curin = atol(&buffer[0]);
   }
+  if(sizeof(T) == sizeof(int64_t)) {
+    curin = atoll(&buffer[0]);
+  }
+  
+  unsigned int localset = 0;
+  unsigned int remoteset = 0;
+  for(unsigned int x=0; x < setsize+insize; x++) {
+    if( curin >= set[localset] ){
+      newset[x] = set[localset];
+      if(localset < setsize-1) {
+	localset++;
+      }
+      
+    }
+    else if ( curin < set[localset] ) {
+      newset[x] = curin;
+      if(remoteset < insize) {
+	fgets(&buffer[0],127,stream);  
+	if(sizeof(T) == sizeof(int32_t)) {
+	  curin = atol(&buffer[0]);
+	}
+	if(sizeof(T) == sizeof(int64_t)) {
+	  curin = atoll(&buffer[0]);
+	}
+	remoteset++;
+      }
+      
+    }
+  }
+  
   delete[] set;
   set = newset;
+  setsize = setsize + insize;
+  
 }
 
 template <class T>
-void DataSet<T>::transmitDataSet(ofstream *stream, unsigned int start, unsigned int end) {
+void DataSet<T>::transmitDataSet(FILE *stream) {
   
-  cout << "I'm transmissing"<< start << "\t" << end << "\t" << setsize <<"\n";
-  *stream << 65 << endl;
-#if 0	
-  /* send size of set */
-  *stream << (end-start) << endl;
-  cout << "Do I get here?" << endl;
-	
+  fprintf(stream,"%u\n",setsize);
+  
   /* send data */
-  for(unsigned int x=start; x<end && x<setsize; x++) {
-    *stream << set[x] << endl;
-	cout << "Sending:" << set[x] << endl;
+  for(unsigned int x=0; x<setsize; x++) {
+    if(sizeof(T) == sizeof(int32_t)) {
+      fprintf(stream,"%d\n",set[x]);
+    }
+    if(sizeof(T) == sizeof(int64_t)) {
+      fprintf(stream,"%lld\n",set[x]);
+    }
   }
-#endif
+  
 }
 
 
@@ -116,7 +119,7 @@ DataSet<T>::DataSet(T mx, T mn, unsigned int size) {
   min = mn;
   set = new T[size];
   setsize = size;
-  srand(time(0));
+  
   for(unsigned int i=0; i<size; i++) {
     set[i] = (T) (mx * ((float)rand() / (float) (RAND_MAX)));
     /* if unsigned, randomly negate */

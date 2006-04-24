@@ -13,42 +13,34 @@ typedef enum ComLinkSide { PARENT = 0, CHILD = 1  } ComLinkSide_t;
 
 template <class C>
 class ComLink {
-
+  
 public:
   virtual void setSide(ComLinkSide_t c) = 0;
   void setDataSet(DataSet<C> *d);
   DataSet<C>* getDataSet();
-  void buildDataSet();
-  void sendDataSet(unsigned int start, unsigned int end);
-  virtual void recoverSet(unsigned int start, unsigned int end);
+  void sendDataSet();
+  virtual void recoverSet();
 protected:
   DataSet<C> *ds;
-  bool established,data,side;
-  ifstream reader;
-  ofstream writer;
-  stdio_filebuf<char> *stdfbi;
-  stdio_filebuf<char> *stdfbo;
+  FILE *fin;
+  FILE *fout;
 };
 
 
 template <class C>
-void ComLink<C>::sendDataSet(unsigned int start, unsigned int end) {
-  ds->transmitDataSet(&writer,start,end);
+void ComLink<C>::sendDataSet() {
+  ds->transmitDataSet(fout);
 }
 
-template <class C>
-void ComLink<C>::buildDataSet() {
-  ds = new DataSet<C>(&reader);
-}
 
 template <class C>
-void ComLink<C>::recoverSet(unsigned int start, unsigned int end) {
-	ds->recollectSet(start,end,&reader);
+void ComLink<C>::recoverSet() {
+  ds->recollectSet(fin);
 }
 
 template <class C>
 DataSet<C>* ComLink<C>::getDataSet() {
-	return ds;
+  return ds;
 }
 
 template <class C>
