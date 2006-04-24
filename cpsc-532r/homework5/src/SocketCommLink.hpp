@@ -5,8 +5,8 @@
 #include <netdb.h>
 #include <string>
 #include "CommLink.hpp"
-#define BACKLOG 5
-#define PORT 8549
+#define BACKLOG 20
+#define PORT 9900
 
 template <class C>
 class SocketComLink : public ComLink<C> {
@@ -62,28 +62,27 @@ void SocketComLink<C>::setSide(ComLinkSide_t c) {
     if( bind(server_sockfd,(struct sockaddr*) local_addr,sizeof(struct sockaddr)) != 0 ){
       std::cerr << "Parent could not bind to port" << std::endl;
       exit(11);
-      //throw std::string("Could Not Bind to Port");
     }
     
     //listen to port
     if( listen(server_sockfd, BACKLOG) != 0) {
       std::cerr << "Parent could not listen on port" << std::endl;
       exit(12);
-      //throw std::string("Could Not Listen on Port");
     }
     
     //only accept one connection
     //from the child process
-    //sin_size = new socklen_t;
     sin_size = new socklen_t;
     *sin_size = sizeof(sockaddr_in);
     int fd = accept(server_sockfd,(struct sockaddr*) remote_addr,sin_size);
-    this->fin = fdopen(server_sockfd,"r");
+
+    this->fin = fdopen(fd,"r+");
     this->fout = this->fin;
-    
+
     
     break;
   case CHILD:
+
     struct hostent *hostname = gethostbyname("localhost");
 		
     client_addr = new sockaddr_in;
@@ -97,7 +96,7 @@ void SocketComLink<C>::setSide(ComLinkSide_t c) {
     while(connect( client_sockfd, (struct sockaddr *)client_addr,sizeof(struct sockaddr)) == -1) {
     }	
 
-    this->fout = fdopen(client_sockfd,"w");
+    this->fout = fdopen(client_sockfd,"w+");
     this->fin = this->fout;
 
 

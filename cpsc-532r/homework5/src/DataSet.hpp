@@ -17,6 +17,7 @@ public:
   void transmitDataSet(FILE *stream);
   ~DataSet();
   void printDataSet();
+  void printDataSet(char *file);
   void sortSet();
   void recollectSet(FILE *stream);
   
@@ -49,9 +50,10 @@ template <class T>
 void DataSet<T>::recollectSet(FILE *stream) {
   char buffer[128];
   unsigned int insize;
-  fgets(&buffer[0],127,stream);
-  insize = atol(&buffer[0]);
-  
+
+  fgets(&buffer[0],128,stream);
+  insize = strtoul(&buffer[0],NULL,0);
+
   
   T *newset = new T[setsize+insize];
   T curin;
@@ -76,7 +78,7 @@ void DataSet<T>::recollectSet(FILE *stream) {
     else if ( curin < set[localset] ) {
       newset[x] = curin;
       if(remoteset < insize) {
-	fgets(&buffer[0],127,stream);  
+	fgets(&buffer[0],128,stream);  
 	if(sizeof(T) == sizeof(int32_t)) {
 	  curin = atol(&buffer[0]);
 	}
@@ -84,6 +86,7 @@ void DataSet<T>::recollectSet(FILE *stream) {
 	  curin = atoll(&buffer[0]);
 	}
 	remoteset++;
+
       }
       
     }
@@ -97,7 +100,7 @@ void DataSet<T>::recollectSet(FILE *stream) {
 
 template <class T>
 void DataSet<T>::transmitDataSet(FILE *stream) {
-  
+
   fprintf(stream,"%u\n",setsize);
   
   /* send data */
@@ -136,6 +139,20 @@ void DataSet<T>::printDataSet() {
   for(unsigned int x=0; x<setsize; x++) {
     cout << x << ":\t" << set[x] << endl;
   }
+}
+
+template <class T>
+void DataSet<T>::printDataSet(char *file) {
+  FILE *stream = fopen(file,"w");
+  for(unsigned int x=0; x<setsize; x++) {
+    if(sizeof(T) == sizeof(int32_t) ){
+      fprintf(stream,"%u:\t%d\n",x,set[x]);
+    }
+    if(sizeof(T) == sizeof(int64_t) ) {
+      fprintf(stream,"%u\t%lld\n",x,set[x]);
+    }
+  }
+  fclose(stream);
 }
 
 template <class T>
