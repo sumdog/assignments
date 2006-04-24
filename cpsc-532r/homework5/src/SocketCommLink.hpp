@@ -79,7 +79,7 @@ void SocketComLink<C>::setSide(ComLinkSide_t c) {
     *sin_size = sizeof(sockaddr_in);
     int fd = accept(server_sockfd,(struct sockaddr*) remote_addr,sin_size);
     this->fin = fdopen(server_sockfd,"r");
-    //this->fout = this->fin;
+    this->fout = this->fin;
     
     
     break;
@@ -98,7 +98,7 @@ void SocketComLink<C>::setSide(ComLinkSide_t c) {
     }	
 
     this->fout = fdopen(client_sockfd,"w");
-    //this->fout = this->fin;
+    this->fin = this->fout;
 
 
     break;
