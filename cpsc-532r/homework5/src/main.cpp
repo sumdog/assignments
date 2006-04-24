@@ -28,6 +28,15 @@ int main(int argc, char **argv) {
   int bitsize = atol(argv[2]);
   char *type = argv[3];
 
+  /*
+   *in a single proc, we'll have one dataset 
+   *of the total size. Otherwise, we'll have
+   *two datasets, i.e setsize/2
+   */
+  if(!strcmp(type,"single")) {
+    setsize = setsize/2;
+  }
+
   /* all the variables we need */
   ComLink<int32_t> *com32;
   Distributor<int32_t> *dis32;

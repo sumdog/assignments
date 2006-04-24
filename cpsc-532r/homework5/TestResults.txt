@@ -1,0 +1,39 @@
+cpsc-532r / Homework #5 / Harris
+
+Sumit Khanna
+
+The following is my program #5. Is is designed to sort a set of data, either in serial or in parallel. The process is split using either fork() which creates two full "heavyweight" processes or the pthreads API which simply creates a light weight process thread.
+
+The means of communication for parallel processing include pipes and sockets. Unfortunately I was unable to implement the Shared IPC requirement before the program deadline.  
+
+Since I have a person 64-bit machine, I designed the program to be able to handle both 32-bit and 64-bit integers to satisfy my own curiosity about the performance of  the x86_64 architecture. 
+
+Upon running the program, the user will see the following usage screen:
+
+cpsc532r-hw5 <setsize> [32|64] [single|forkpipe|forksock|threadpipe]
+
+The first argument, setsize, is the number of elements to randomly generate and sort.
+The second argument must either be a 32 or 64 and indicates the length of the integer.
+The third argument indicates the method used to distribute the datasets. 
+
+The following are times given in seconds for sorting 4,000,000 randomly generated numbers rounded to the nearest second. The test was preformed on an Intel Pentium D 2.8Ghz running Gentoo Linux x86_64 with 2GB of Ram.
+
+----------------------------------------------------------
+|        |          |   Single   |   Fork   |   Thread   |  
+|--------|------------------------------------------------
+|        | None     |   6 sec    |    -     |     --     |
+|        |------------------------------------------------
+| 32-Bit | Pipe     |     -      |  10 sec  |  10 sec    |
+|        |------------------------------------------------
+|        | Socket   |     -      |  10 sec  |     --     |
+|---------------------------------------------------------
+|        | None     |   2 sec    |    -     |     --     |
+|        |------------------------------------------------
+| 64-Bit | Pipe     |     -      |  2 sec   |   2 sec    |
+|        |------------------------------------------------
+|        | Socket   |     -      |  2 sec   |     --     |
+|---------------------------------------------------------
+
+I was unable to get threads working with sockets. In the fork(), a copy of the SocketComLink class is made, however when two threads try and share the same class, the listening socket blocks indefinitely for some reason.   
+
+The conclusion I came to from the results above is that the cost of interprocess communication through means of buffers such as pipes and sockets greatly reduces the effectiveness of sorting algorithm, enough so that it is more efficient to do the procedure in serial. If I had been able to get IPC and Threading without a communication layer functioning, there is a good chance their performance would have been greater than that of the single process implementation. 
