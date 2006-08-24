@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<application>
+  <head>
+    <title>Application for Revision to Candidacy</title>
+    <school>The Graduate School</school>
+    <university>The University of Tennessee at Chattanooga</university>
+  </head>
+  <form>
+    <information>
+      <name></name>
+      <utcid></utcid>
+      <address line="1"></address>
+      <address line="2"></address>
+      <phone></phone>
+      <program></program>
+      <graddate></graddate>
+      <studentsig><![CDATA[ **insert digital sig here** ]]></studentsig>
+    </information>
+    <courses>
+      <course action="delete" course="" title="" hours="" />
+      <course action="delete" course="" title="" hours="" />
+      <course action="delete" course="" title="" hours="" />
+      <course action="add" course="" title="" hours="" />
+      <course action="add" course="" title="" hours="" />
+      <course action="add" course="" title="" hours="" />
+    </courses>
+  </form>
+  <signatures>
+       <sig type="advisor" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="coordinator" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="director" date=""><![CDATA[  *digital signature* ]]></sig>
+  </signatures>
+  <footer>The Gradute School * Dept 5305 * (423)425-4666 * 615 McCallie Avenue * Chattanooga, TN 37403</footer>
+</application>
