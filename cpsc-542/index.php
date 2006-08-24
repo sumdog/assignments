@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Sumit's CPSC-542 Homework Page</title>
+  <title>Sumit Khanna's CPSC-542 Homework Page</title>
   <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
   <link rel="StyleSheet" href="main.css" type="text/css" />
 </head>
 <body>
 
-  <div id="titlebox">Sumit's CPSC-542 Homework Page</div>
+  <div id="titlebox">Sumit Khanna's <br />CPSC-542 Homework Page</div>
 
   <div id="contents">
     <table>
