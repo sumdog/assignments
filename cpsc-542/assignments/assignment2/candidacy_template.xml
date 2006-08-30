@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<application>
+    <information>
+      <name></name>
+      <utcid></utcid>
+      <address line="1"></address>
+      <address line="2"></address>
+      <phone></phone>
+      <degreetype></degreetype>
+      <major></major>
+      <concentration></concentration>
+      <graduationdate></graduationdate>
+      <utcemail></utcemail>
+    </information>
+    <courses>
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+    </courses>
+    <transfercourses>
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+    </transfercourses>
+    <exam required="" />
+    <totalhours></totalhours>
+    <signatures>
+       <sig type="applicant" date=""></sig>
+       <sig type="advisor" date=""></sig>
+       <sig type="applicant" date=""></sig>
+       <sig type="director" date=""></sig>
+       <sig type="dean" date=""></sig>
+    </signatures>
+</application>
