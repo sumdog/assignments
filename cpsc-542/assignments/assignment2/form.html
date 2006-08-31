@@ -9,31 +9,42 @@
 
 <form action="generateXML()">
   <div id="info">
-    <label for="name">Name</label>
-    <input type="text" size="50" name="name" id="name"/>
-    <br />
-    <label for="utcid">UTC ID</label>
-    <input type="text" size="50" name="utcid" id="utcid"/>
-    <br />
-    <input type="text" size="50" name="address1" />
-    <br />
-    <input type="text" size="50" name="address2" />
-    <br />
-    <input type="text" size="50" name="phone" />
-    <br />
-    <input type="radio" size="50" name="degreetype" value="0" />
-    <br />
-    <input type="radio" size="50" name="degreetype" value="1" />
-    <br />
-    <input type="radio" size="50" name="degreetype" value="2" />
-    <br />
-    <input type="text" size="50" name="major" />
-    <br />
-    <input type="text" size="50" name="concentration" />
-    <br />
-    <input type="text" size="50" name="graduationdate" />
-    <br />
-    <input type="text" size="50" name="utcemail" />
+   <table>
+    <tr>
+      <td><label for="name">Name</label></td>
+      <td><input type="text" size="50" name="name" id="name"/></td>
+      <td><label for="utcid">UTC ID</label></td>
+      <td><input type="text" size="50" name="utcid" id="utcid"/><td>
+    </tr>
+    <tr>
+      <td><label for="address1">Address</label></td>
+      <td><input type="text" size="50" name="address1" id="address1" /></td>
+      <td><label for="address2">Phone</label></td>
+      <td><input type="text" size="50" name="phone" id="phone" /></td>
+    </tr>
+    <tr>
+      <td><label for="address2">Address</label></td>
+      <td><input type="text" size="50" name="address2" id="address2" /></td>
+      <td><label for="utcemail">UTC E-mail</label></td>
+      <td><input type="text" size="50" name="utcemail" id="utcemail" /></td>
+    </tr>
+    <tr>
+      <td>Degree Type</td>
+      <td>
+        <input type="radio" size="50" name="degreetype" value="0" />
+        <input type="radio" size="50" name="degreetype" value="1" />
+        <input type="radio" size="50" name="degreetype" value="2" />
+      </td>
+      <td><label for="major">Major<label></td>
+      <td><input type="text" size="50" name="major" id="major"/></td>
+    </tr>
+    <tr>
+      <td><label for="concentration">Concentration</label></td>
+      <td><input type="text" size="50" name="concentration" id="concentration"/></td>
+      <td><label for="graduationdate">Graduation Date</label></td>
+      <td><input type="text" size="50" name="graduationdate" id="graduationdate"/></td>
+    </tr>
+   </table>
   </div>
   <div id="courses">
     <input type="text" size="20"  />
