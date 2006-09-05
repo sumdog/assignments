@@ -1,38 +1,69 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
+<!DOCTYPE application [
+<!ELEMENT application (information,courses,transfercourses,exam,totalhours,signatures)>
+<!ELEMENT information (name,utcid,address,address?,phone,degreetype,major,concentration,graduationdate,utcemail)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT utcid (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ATTLIST address line (1|2) "1">
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT degreetype (#PCDATA)>
+<!ATTLIST degreetype type (Master|Specialist|Doctor) #REQUIRED>
+<!ELEMENT major (#PCDATA)>
+<!ELEMENT concentration (#PCDATA)>
+<!ELEMENT graduationdate (#PCDATA)>
+<!ELEMENT utcemail (#PCDATA)>
+<!ELEMENT courses (course*)>
+<!ELEMENT course EMPTY>
+<!ATTLIST course term CDATA "">
+<!ATTLIST course hours CDATA "">
+<!ATTLIST course grade CDATA "">
+<!ATTLIST course department CDATA "">
+<!ATTLIST course course CDATA "">
+<!ATTLIST course title CDATA "">
+<!ELEMENT transfercourses (course*)>
+<!ELEMENT exam EMPTY>
+<!ATTLIST exam required (Yes|No) "Yes">
+<!ELEMENT totalhours (#PCDATA)>
+<!ELEMENT signatures (sig*)>
+<!ELEMENT sig (#PCDATA)>
+<!ATTLIST sig type (applicant|advisor|director|dean) #IMPLIED>
+<!ATTLIST sig date CDATA #IMPLIED>
+]>
 <application>
     <information>
-      <name></name>
-      <utcid></utcid>
-      <address line="1"></address>
-      <address line="2"></address>
-      <phone></phone>
-      <degreetype></degreetype>
-      <major></major>
-      <concentration></concentration>
-      <graduationdate></graduationdate>
-      <utcemail></utcemail>
+      <name/>
+      <utcid/>
+      <address line="1" />
+      <address line="2" />
+      <phone/>
+      <degreetype type="Master" />
+      <major/>
+      <concentration/>
+      <graduationdate/>
+      <utcemail/>
     </information>
     <courses>
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
     </courses>
     <transfercourses>
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
+       <course term="" hours="" grade="" department="" course="" title=""/>
     </transfercourses>
-    <exam required="" />
-    <totalhours></totalhours>
+    <exam required="Yes"/>
+    <totalhours/>
     <signatures>
-       <sig type="applicant" date=""></sig>
-       <sig type="advisor" date=""></sig>
-       <sig type="applicant" date=""></sig>
-       <sig type="director" date=""></sig>
-       <sig type="dean" date=""></sig>
+       <sig type="applicant" date=""/>
+       <sig type="advisor" date=""/>
+       <sig type="applicant" date=""/>
+       <sig type="director" date=""/>
+       <sig type="dean" date=""/>
     </signatures>
 </application>
