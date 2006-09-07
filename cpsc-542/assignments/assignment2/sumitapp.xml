@@ -23,7 +23,7 @@
   <!ATTLIST course title CDATA "">
   <!ELEMENT transfercourses (course*)>
   <!ELEMENT exam EMPTY>
-  <!ATTLIST exam required (Yes|No) "Yes">
+  <!ATTLIST exam required (yes|no) "yes">
   <!ELEMENT totalhours (#PCDATA)>
   <!ELEMENT signatures (sig*)>
   <!ELEMENT sig (#PCDATA)>
@@ -34,8 +34,8 @@
   <information>
     <name>Sumit Khanna</name>
     <utcid>kbv855</utcid>
-    <address line="123 Some Street "/>
-    <address line="Apt C"/>
+    <address line="1">123 Some Street</address>
+    <address line="2">Apt C</address>
     <phone>555-555-5555</phone>
     <degreetype type="Master"/>
     <major>Computer Science</major>

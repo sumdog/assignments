@@ -23,7 +23,7 @@
 	<!ATTLIST course title CDATA "">
 	<!ELEMENT transfercourses (course*)>
 	<!ELEMENT exam EMPTY>
-	<!ATTLIST exam required (Yes|No) "Yes">
+	<!ATTLIST exam required (yes|no) "yes">
 	<!ELEMENT totalhours (#PCDATA)>
 	<!ELEMENT signatures (sig*)>
 	<!ELEMENT sig (#PCDATA)>

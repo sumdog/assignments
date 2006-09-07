@@ -26,7 +26,7 @@
 	     . "  <!ATTLIST course title CDATA \"\">\n"
 	     . "  <!ELEMENT transfercourses (course*)>\n"
 	     . "  <!ELEMENT exam EMPTY>\n"
-	     . "  <!ATTLIST exam required (Yes|No) \"Yes\">\n"
+	     . "  <!ATTLIST exam required (yes|no) \"yes\">\n"
 	     . "  <!ELEMENT totalhours (#PCDATA)>\n"
 	     . "  <!ELEMENT signatures (sig*)>\n"
 	     . "  <!ELEMENT sig (#PCDATA)>\n"
@@ -37,8 +37,8 @@
 	     . "  <information>\n"
 	     . "    <name>" . $_POST["name"] . "</name>\n"
 	     . "    <utcid>" . $_POST["utcid"] . "</utcid>\n"
-	     . "    <address line=\"" . $_POST["address1"] . "\"/>\n"
-	     . "    <address line=\"" . $_POST["address2"] . "\"/>\n"
+	     . "    <address line=\"1\">" . $_POST["address1"] . "</address>\n"
+	     . "    <address line=\"2\">" . $_POST["address2"] . "</address>\n"
 	     . "    <phone>" . $_POST["phone"] . "</phone>\n"
 	     . "    <degreetype type=\"" . $_POST["degreetype"] . "\"/>\n"
 	     . "    <major>" . $_POST["major"] . "</major>\n"
@@ -69,5 +69,5 @@
        .  "  </signatures>\n"
        .  "</application>";
   header("Content-type: text/xml");
-  echo $xml;  
+  echo $xml;
 ?>
