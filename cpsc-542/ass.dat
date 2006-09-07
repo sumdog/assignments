@@ -1,2 +1,5 @@
 1a:assignments/assignment1/assignment1_a.xml:XML version of Application for Admission
-1b:assignments/assignment1/assignment1_b.xml:XML verison of Application for Revision  
+1b:assignments/assignment1/assignment1_b.xml:XML verison of Application for Revision 
+2a:assignments/assignment2/candidacy_template_with_dtd.xml:XML Application for Admission with DTD
+2b:assignments/assignment2/form.php:XHTML Form to create Application for Admission XML
+2c:assignments/assignment2/sumitapp.xml:My Application for Admission generated with form.php

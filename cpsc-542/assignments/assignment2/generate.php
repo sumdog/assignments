@@ -68,8 +68,6 @@
        .  "    <sig type=\"dean\" date=\"\"/>\n"
        .  "  </signatures>\n"
        .  "</application>";
-  $xml_doc = fopen("generated_xml.xml", "w");
-  fwrite($xml_doc, $xml);
-  fclose($xml_doc);
-  header("Location: generated_xml.xml");
+  header("Content-type: text/xml");
+  echo $xml;  
 ?>

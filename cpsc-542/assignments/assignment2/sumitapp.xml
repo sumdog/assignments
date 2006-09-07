@@ -32,33 +32,33 @@
 ]>
 <application>
   <information>
-    <name>Ryan Mauldin</name>
-    <utcid>bwh398</utcid>
-    <address line="3834 Cambridge Ln."/>
-    <address line=""/>
-    <phone>423-476-4214</phone>
+    <name>Sumit Khanna</name>
+    <utcid>kbv855</utcid>
+    <address line="123 Some Street "/>
+    <address line="Apt C"/>
+    <phone>555-555-5555</phone>
     <degreetype type="Master"/>
-    <major>Science</major>
-    <concentration>Computer Science</concentration>
-    <graduationdate>12/15/2007</graduationdate>
-    <utcemail>Ryan-Mauldin@utc.edu</utcemail>
+    <major>Computer Science</major>
+    <concentration>none</concentration>
+    <graduationdate>Summer 2007</graduationdate>
+    <utcemail>Sumit-nospam-Khanna00@utc.edu</utcemail>
   </information>
   <courses>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
+    <course term="Summer 2005" hours="3" grade="3.0" department="CPSC" course="544" title="Computer Network Security"/>
+    <course term="Fall 2005" hours="3" grade="3.0" department="CPSC" course="533" title="Advanced Compuer Arch"/>
+    <course term="Fall 2005" hours="3" grade="3.0" department="CPSC" course="550" title="Combination and Graphy Theory"/>
+    <course term="Spring 2006" hours="3" grade="3.0" department="CPSC" course="532" title="Advanced Topics in System Software"/>
+    <course term="Spring 2006" hours="3" grade="3.0" department="CPSC" course="538" title="Real-time Emb Systems"/>
   </courses>
   <transfercourses>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
-    <course term="Fall 07" hours="3" grade="A" department="CPSC" course="542" title="Structured Data Exchange"/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
   </transfercourses>
   <exam required="no"/>
-  <totalhours>30</totalhours>
+  <totalhours>15</totalhours>
   <signatures>
     <sig type="applicant" date=""/>
     <sig type="advisor" date=""/>
