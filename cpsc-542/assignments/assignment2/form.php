@@ -62,7 +62,7 @@
        <td><input type="text" size="3" name="hours<?=$x?>" id="hours<?=$x?>" /></td>
        <td><input type="text" size="4" name="grade<?=$x?>" id="grade<?=$x?>" /></td>
        <td><input type="text" size="20" name="dep<?=$x?>" id="dep<?=$x?>" /></td>
-       <td><input type="text" size="20" name="couse<?=$x?>" id="course<?=$x?>" /></td>
+       <td><input type="text" size="20" name="course<?=$x?>" id="course<?=$x?>" /></td>
        <td><input type="text" size="20" name="title<?=$x?>" id="title<?=$x?>" /></td>
       </tr>
       <?php } ?>
@@ -78,7 +78,7 @@
        <td><input type="text" size="3" name="thours<?=$x?>" id="thours<?=$x?>" /></td>
        <td><input type="text" size="4" name="tgrade<?=$x?>" id="tgrade<?=$x?>" /></td>
        <td><input type="text" size="20" name="tdep<?=$x?>" id="tdep<?=$x?>" /></td>
-       <td><input type="text" size="20" name="tcouse<?=$x?>" id="tcourse<?=$x?>" /></td>
+       <td><input type="text" size="20" name="tcourse<?=$x?>" id="tcourse<?=$x?>" /></td>
        <td><input type="text" size="20" name="ttitle<?=$x?>" id="ttitle<?=$x?>" /></td>
       </tr>
       <?php } ?>
