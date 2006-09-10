@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<application>
+  <information>
+    <name>Sumit Khanna</name>
+    <utcid>kbv855</utcid>
+    <address line="1">123 Some Street</address>
+    <address line="2">Apt C</address>
+    <phone>555-555-5555</phone>
+    <degreetype type="Master"/>
+    <major>Computer Science</major>
+    <concentration>none</concentration>
+    <graduationdate>2005-05-23</graduationdate>
+    <utcemail>Sumit-nospam-Khanna00@utc.edu</utcemail>
+  </information>
+  <courses>
+    <course term="Summer 2005" hours="3" grade="3.0" department="CPSC" course="544" title="Computer Network Security"/>
+    <course term="Fall 2005" hours="3" grade="3.0" department="CPSC" course="533" title="Advanced Compuer Arch"/>
+    <course term="Fall 2005" hours="3" grade="3.0" department="CPSC" course="550" title="Combination and Graphy Theory"/>
+    <course term="Spring 2006" hours="3" grade="3.0" department="CPSC" course="532" title="Advanced Topics in System Software"/>
+    <course term="Spring 2006" hours="3" grade="3.0" department="CPSC" course="538" title="Real-time Emb Systems"/>
+  </courses>
+  <transfercourses>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+    <course term="" hours="" grade="" department="" course="" title=""/>
+  </transfercourses>
+  <exam required="no"/>
+  <totalhours>15</totalhours>
+  <signatures>
+    <sig type="applicant" date=""/>
+    <sig type="advisor" date=""/>
+    <sig type="director" date=""/>
+    <sig type="dean" date=""/>
+  </signatures>
+</application>
