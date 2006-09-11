@@ -1,22 +1,22 @@
-<xml version="1.0">
-<xds:schema xmlns="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0"?>
+<xds:schema xmlns:xds="http://www.w3.org/2001/XMLSchema" targetNamespace="http://zog.utc.edu/~kbv855/cpsc-542/assignments/assignment7" elementFormDefault="qualified" >
 
- <xds:element name="information">
+<xds:element name="information">
    <xds:complexType>
       <xds:sequence>
-         <xds:element ref="Name" minOccurs="1" maxOccurs="1" type="xds:string" />
+                 <xds:element ref="Name" minOccurs="1" maxOccurs="1" type="xds:string" />
 		 <xds:element ref="utcid" minOccurs="1" maxOccurs="1" type="xds:string" />
 		 <xds:element ref="address" minOccurs="1" maxOccurs="2" type="xds:string">
 		   <xds:attribute name="line" type="xds:integer" use="required" />
-		 <xds:element>
+		 </xds:element>
 		 <xds:element ref="phone" type="xds:integer" />
-		 <xds:element ref="degreetype >
+		 <xds:element ref="degreetype">
 		   <xds:attribute name="type" use="required" type="xds:string" />
 		 </xds:element>
-		 <xds:element ref="major" minOccurs="1" maxOccurs="1" type="xds:string">
-		 <xds:element ref="concentration" minOccurs="1" maxOccurs="1" type="xds:string">
-		 <xds:element ref="graduationdate" minOccurs="1" maxOccurs="1" type="xds:date">
-		 <xds:element ref="utcemail" minOccurs="1" maxOccurs="1" type="xds:string">
+		 <xds:element ref="major" minOccurs="1" maxOccurs="1" type="xds:string" />
+		 <xds:element ref="concentration" minOccurs="1" maxOccurs="1" type="xds:string" />
+		 <xds:element ref="graduationdate" minOccurs="1" maxOccurs="1" type="xds:date" />
+		 <xds:element ref="utcemail" minOccurs="1" maxOccurs="1" type="xds:string" />
       </xds:sequence>
    </xds:complexType>
  </xds:element>
@@ -28,7 +28,6 @@
 	   <xds:attribute name="grade" type="xds:float" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="course" type="xds:int" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="title" type="xds:string" minOccurs="1" maxOccurs="1" />
-	</xds:element>
+    </xds:element>
  </xds:element>
-
 </xds:schema>
