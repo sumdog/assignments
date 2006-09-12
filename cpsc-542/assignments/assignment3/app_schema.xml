@@ -7,11 +7,15 @@
                  <xds:element ref="Name" minOccurs="1" maxOccurs="1" type="xds:string" />
 		 <xds:element ref="utcid" minOccurs="1" maxOccurs="1" type="xds:string" />
 		 <xds:element ref="address" minOccurs="1" maxOccurs="2" type="xds:string">
-		   <xds:attribute name="line" type="xds:integer" use="required" />
+		   <xds:complexType>
+		      <xds:attribute name="line" type="xds:integer" use="required" />
+		   </xds:complexType>
 		 </xds:element>
 		 <xds:element ref="phone" type="xds:integer" />
 		 <xds:element ref="degreetype">
-		   <xds:attribute name="type" use="required" type="xds:string" />
+	           <xds:complexType>
+		     <xds:attribute name="type" use="required" type="xds:string" />
+	           </xds:complexType>
 		 </xds:element>
 		 <xds:element ref="major" minOccurs="1" maxOccurs="1" type="xds:string" />
 		 <xds:element ref="concentration" minOccurs="1" maxOccurs="1" type="xds:string" />
@@ -20,14 +24,18 @@
       </xds:sequence>
    </xds:complexType>
  </xds:element>
- <xds:element name="courses" minOccurs="1">
+ <xds:element name="courses">
+   <xds:sequence>
     <xds:element name="course" minOccurs="1">
+        <xds:complexType> 
 	   <xds:attribute name="term" type="xds:string" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="hours" type="xds:int" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="department" type="xds:string" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="grade" type="xds:float" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="course" type="xds:int" minOccurs="1" maxOccurs="1" />
 	   <xds:attribute name="title" type="xds:string" minOccurs="1" maxOccurs="1" />
-    </xds:element>
+	</xds:complexType>
+  </xds:element>
+  </xds:sequence>
  </xds:element>
 </xds:schema>
