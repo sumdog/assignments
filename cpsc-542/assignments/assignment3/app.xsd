@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="application">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="information"/>
+        <xs:element ref="courses"/>
+        <xs:element ref="transfercourses"/>
+        <xs:element ref="exam"/>
+        <xs:element ref="totalhours"/>
+        <xs:element ref="signatures"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="information">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="utcid"/>
+        <xs:element ref="address"/>
+        <xs:element minOccurs="0" ref="address"/>
+        <xs:element ref="phone"/>
+        <xs:element ref="degreetype"/>
+        <xs:element ref="major"/>
+        <xs:element ref="concentration"/>
+        <xs:element ref="graduationdate"/>
+        <xs:element ref="utcemail"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="utcid" type="xs:string"/>
+  <xs:element name="address">
+    <xs:complexType mixed="true">
+      <xs:attribute name="line" default="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="phone" type="xs:string"/>
+  <xs:element name="degreetype">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="Master"/>
+            <xs:enumeration value="Specialist"/>
+            <xs:enumeration value="Doctor"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="major" type="xs:string"/>
+  <xs:element name="concentration" type="xs:string"/>
+  <xs:element name="graduationdate" type="xs:string"/>
+  <xs:element name="utcemail" type="xs:string"/>
+  <xs:element name="courses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="course"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="course">
+    <xs:complexType>
+      <xs:attribute name="term" default=""/>
+      <xs:attribute name="hours" default=""/>
+      <xs:attribute name="grade" default=""/>
+      <xs:attribute name="department" default=""/>
+      <xs:attribute name="course" default=""/>
+      <xs:attribute name="title" default=""/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transfercourses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="course"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exam">
+    <xs:complexType>
+      <xs:attribute name="required" default="yes">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="totalhours" type="xs:string"/>
+  <xs:element name="signatures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sig"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sig">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="applicant"/>
+            <xs:enumeration value="advisor"/>
+            <xs:enumeration value="director"/>
+            <xs:enumeration value="dean"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="date"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
