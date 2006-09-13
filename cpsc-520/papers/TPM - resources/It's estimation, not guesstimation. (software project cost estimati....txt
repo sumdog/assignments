@@ -1,0 +1,136 @@
+From: Mailer-Daemon@email-delivery.galegroup.com
+Date: September 12, 2006 6:45:48 PM EDT
+To: Sumit-Khanna@utc.edu
+Subject: It's estimation, not guesstimation. (software project cost estimati...
+
+InfoTrac Web: General BusinessFile Internat'l.
+
+AB The management-enforced process software developers use to estimate the
+  cost of a software development project is inefficient. Development projects
+  are often burdened with cost overruns because the cost estimation process is
+  poorly designed. Developers need funding from management and yet do not want
+  high costs to scare anyone away from the project. As a result, developers
+  often submit an estimate they know is inaccurate. Management can stop this
+  trend by not requiring an estimate until the developer understands what
+  needs to be built. Software projects should begin by allowing the developers
+  to interview end-users for specific product requirements; then the developer
+  can begin initial prototyping and provide a more accurate estimate. Phase
+  two involves formal prototyping and final implementation. Also, projects
+  that use release numbers often find the scope of the application remains
+  focused.
+AL Trade
+AT It's estimation, not guesstimation. (software project cost estimation)
+  (Mission Critical)(Column)
+AU Christine Comaford
+CT PC Week
+DE Software engineering_Prices and rates
+DE Software industry_Prices and rates
+DE Software
+DP Oct 23, 1995 v12 n42 p24(1)
+IC 51121 Software Publishers
+IC 7372 Prepackaged software
+IS n42
+LW p24(1)
+NA Column
+ND 20050809
+OT (software project cost estimation) (Mission Critical)(Column)
+PB Ziff Davis Media Inc.
+PT Magazine/Journal
+RM COPYRIGHT 2005 Gale Group
+SN 0740-1604
+SU Software engineering_Prices and rates
+SU Computer software industry_Prices and rates
+SU Prices and rates
+VO v12
+ZZ
+
+   Source:  PC Week, Oct 23, 1995 v12 n42 p24(1).
+
+    Title:  It's estimation, not guesstimation. (software project cost
+            estimation) (Mission Critical)(Column)
+   Author:  Christine Comaford
+
+ Abstract:  The management-enforced process software developers use to
+estimate the cost of a software development project is inefficient.
+Development projects are often burdened with cost overruns because the cost
+estimation process is poorly designed. Developers need funding from management
+and yet do not want high costs to scare anyone away from the project. As a
+result, developers often submit an estimate they know is inaccurate.
+Management can stop this trend by not requiring an estimate until the
+developer understands what needs to be built. Software projects should begin
+by allowing the developers to interview end-users for specific product
+requirements; then the developer can begin initial prototyping and provide a
+more accurate estimate. Phase two involves formal prototyping and final
+implementation. Also, projects that use release numbers often find the scope
+of the application remains focused.
+
+ Subjects:  Software engineering - Prices and rates
+            Computer software industry - Prices and rates
+ SIC code:  7372
+
+  Magazine Collection:  81E5886
+  Business Collection:  89Y5742
+Electronic Collection:  A17414108
+                   RN:  A17414108
+
+
+Full Text COPYRIGHT 1995 ZDNet
+
+When software developers mess things up, we don't go halfway--we really do it
+right. Take estimates, for example. The average estimation overrun is not 50
+percent or even 100 percent. When we screw up estimates, we do it 189 percent
+of the time. Yikes!
+
+Why? Two simple reasons: 1) What we estimate and what we build often have
+little in common, and 2) we estimate in a silly way. Either way, we're doomed
+before we start the prototype. You know the scenario: Management asks duration
+and cost. You estimate your best shot, knowing it is probably wrong. But you
+need to get funding and don't want to scare management away.The worst part is
+that we're getting used to this process. We're "OK" with unrealistic
+estimates--we don't even take them seriously anymore.
+
+As a group, we are increasingly OK with the fact that the vast majority of
+commercial software is delivered years after it is promised. So we get sloppy
+and accept this for our custom systems. Then we act puzzled when management
+brings in outsourcers to take over our duties.
+
+It all starts with management making us commit to an estimate before we
+understand what we are building. Until executives and middle management are
+ready for reality--which includes a period of uncertainty--we will not be able
+to bring projects in on time. What we need is to break the project into two
+parts. Phase one is a two- to three-week period where you work closely with
+the users to clarify their requirements, do preliminary prototyping, and yield
+an initial estimate. Phase two includes six to eight weeks of formal
+prototyping, where you have permission to adjust your initial estimation by 15
+percent, up or down. After that, you take 10 weeks or so to flesh it out and
+then do final testing.
+
+We know software will always be a chaotic process. But if you keep chasing the
+target, you'll never deploy. So the solution is to do product releases. If you
+need to, you can swap some uncoded Release 1 features for some suddenly urgent
+features slated for Release 2. This helps prevent scope creep.
+
+I don't like doing projects that are longer than six months or so. If you are
+building a huge system, break it into six-month subsystems. Then assign one or
+more people as systems integrators to tie all the subsystems together.
+
+Even component-based estimation can only get you so far. Start by counting how
+many forms, tables, feature groups, and queries you are building. Then adjust
+your component-based estimation for external factors that affect development.
+Add in the degree of reusability, standards, how complex processing is, how
+broad deployment is, tools used, whether you are doing distributed computing,
+and the degree of project politics.We empower our users.
+
+We empower our developers. Why don't we empower our project leaders? We hold
+them accountable, but we don't let them succeed. Management, are you
+listening?
+
+We're "OK" with unrealistic estimates--we don't even take them seriously
+anymore.
+
+Christine Comaford, president of Corporate Computing Inc., can be reached via
+MCI Mail (371-9004), CompuServe (74603,3664), the Internet
+(74603.3664@Compuserve.com), or fax (708-374-1124).
+
+                                -- End --
+
