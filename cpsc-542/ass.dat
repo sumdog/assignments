@@ -3,5 +3,6 @@
 2a:assignments/assignment2/candidacy_template_with_dtd.xml:XML Application for Admission with DTD
 2b:assignments/assignment2/form.php:XHTML Form to create Application for Admission XML
 2c:assignments/assignment2/sumitapp.xml:My Application for Admission generated with form.php
+2d:assignments/assignment2/assignment2_desc.htm:XML Description
 3a:assignments/assignment3/app.xsd:XML Schema file for Application for Admission
 3b:assignments/assignment3/sumitapp.xml:My Application modified to use XML Schema
