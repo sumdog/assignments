@@ -4,11 +4,11 @@
 <head>
   <title>Information Change</title>
   <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+  <script type="text/javascript" src="xml.js" />
 </head>
 <body>
-
 <h1>Information Change</h1>
-<form action="" method="post">
+<form>
   <h2>Name Change</h2>
   <div id="info">
    <table id="infotable">
@@ -20,107 +20,108 @@
     <tr>
       <td><label for="clast">Last</label></td>
       <td><input type="text" size="50" name="clast" id="clast" /></td>
+    </tr>
+    <tr>
       <td><label for="cmiddle">Middle</label></td>
       <td><input type="text" size="50" name="cmiddle" id="cmiddle" /></td>
+    </tr>
+    <tr>
       <td><label for="cfirst">First</label></td>
       <td><input type="text" size="50" name="cfirst" id="cfirst" /></td>
-      <td><label for="cmaiden">Middle</label></td>
+    </tr>
+    <tr>
+      <td><label for="cmaiden">Maiden</label></td>
       <td><input type="text" size="50" name="cmaiden" id="cmaiden" /></td>
-
+    </tr>
+    <tr><td><h3>New Name</h3></td></tr>
+    <tr>
+      <td><label for="nlast">Last</label></td>
+      <td><input type="text" size="50" name="nlast" id="nlast" /></td>
     </tr>
     <tr>
-      <td><label for="address2">Address</label></td>
-      <td><input type="text" size="50" name="address2" id="address2" /></td>
-      <td><label for="utcemail">UTC E-mail</label></td>
-      <td><input type="text" size="50" name="utcemail" id="utcemail" /></td>
+      <td><label for="nmiddle">Middle</label></td>
+      <td><input type="text" size="50" name="nmiddle" id="nmiddle" /></td>
     </tr>
     <tr>
-      <td>Degree Type</td>
-      <td>
-        <label for="Master">Master</label>
-        <input type="radio" size="50" name="degreetype" value="Master" id="Master" />
-        <label for="Specialist">Specialist</label>
-        <input type="radio" size="50" name="degreetype" value="Specialist" id="Specialist" />
-        <label for="Doctor">Doctor</label> 
-        <input type="radio" size="50" name="degreetype" value="Doctor" id="Doctor" />
-      </td>
-      <td><label for="major">Major</label></td>
-      <td><input type="text" size="50" name="major" id="major"/></td>
+      <td><label for="nfirst">First</label></td>
+      <td><input type="text" size="50" name="nfirst" id="nfirst" /></td>
     </tr>
     <tr>
-      <td><label for="concentration">Concentration</label></td>
-      <td><input type="text" size="50" name="concentration" id="concentration"/></td>
-      <td><label for="graduationdate">Graduation Date</label></td>
-      <td><input type="text" size="50" name="graduationdate" id="graduationdate"/></td>
+      <td><label for="nmaiden">Maiden</label></td>
+      <td><input type="text" size="50" name="nmaiden" id="nmaiden" /></td>
     </tr>
    </table>
   </div>
-  <h2>Courses</h2>
-  <div id="courses">
-    <table id="coursestable">
-    <tr><td>Term</td><td>Hours</td><td>Grade</td><td>Department</td><td>Course</td><td>Title</td></tr>
-      <?php for($x=0; $x<5; $x++) { ?>
-      <tr>
-       <td><input type="text" size="4" name="term<?=$x?>" id="term<?=$x?>" /></td>
-       <td><input type="text" size="3" name="hours<?=$x?>" id="hours<?=$x?>" /></td>
-       <td><input type="text" size="4" name="grade<?=$x?>" id="grade<?=$x?>" /></td>
-       <td><input type="text" size="20" name="dep<?=$x?>" id="dep<?=$x?>" /></td>
-       <td><input type="text" size="20" name="course<?=$x?>" id="course<?=$x?>" /></td>
-       <td><input type="text" size="20" name="title<?=$x?>" id="title<?=$x?>" /></td>
-      </tr>
-      <?php } ?>
-    </table><br />
-  </div>
-  <h2>Transfered Courses</h2>
-  <div id="tcourses">
-    <table id="tcoursestable">
-    <tr><td>Term</td><td>Hours</td><td>Grade</td><td>Department</td><td>Course</td><td>Title</td></tr>
-      <?php for($x=0; $x<5; $x++) { ?>
-      <tr>
-       <td><input type="text" size="4" name="tterm<?=$x?>" id="tterm<?=$x?>" /></td>
-       <td><input type="text" size="3" name="thours<?=$x?>" id="thours<?=$x?>" /></td>
-       <td><input type="text" size="4" name="tgrade<?=$x?>" id="tgrade<?=$x?>" /></td>
-       <td><input type="text" size="20" name="tdep<?=$x?>" id="tdep<?=$x?>" /></td>
-       <td><input type="text" size="20" name="tcourse<?=$x?>" id="tcourse<?=$x?>" /></td>
-       <td><input type="text" size="20" name="ttitle<?=$x?>" id="ttitle<?=$x?>" /></td>
-      </tr>
-      <?php } ?>
-    </table><br />
-  </div>
-  <div id="miscopts">
-    <br />
-    <label for="totalhours">Total Hours</label>
-    <input type="text" size="10" name="totalhours" id="totalhours" />
-    <br /><br />
-    <label for="examreq">Exam Required</label>
-    <select id="examreq" name="examreq">
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-  </div>
-  <h2>Signatures</h2>
-  <div id="sigs">
-    <table id="sigtabl">
-      <tr>
-         <td><label for="sigapp">Applicant</label></td>
-         <td><input type="text" name="sigapp" id="sigapp" size="20" /></td>
-      </tr>
-      <tr>
-         <td><label for="sigadv">Advisor</label></td>
-         <td><input type="text" name="sigadv" id="sigadv" size="20" /></td>
-      </tr>
-      <tr>
-         <td><label for="sigdir">Director</label></td>
-         <td><input type="text" name="sigdir" id="sigdir" size="20" /></td>
-      </tr>
-      <tr>
-         <td><label for="sigdean">Dean</label></td>
-         <td><input type="text" name="sigdean" id="sigdean" size="20" /></td>
-      </tr>
+  <div id="address">
+    <h2>Address Change</h2>
+    <table id="addresstable">
+    <tr>
+      <td><label for="addrutcid">UTC ID</label></td>
+      <td><input type="text" size="50" name="addrutcid" id="addrutcid"/></td>
+    </tr>
+    <tr><td><h3>Name</h3></td></tr>
+    <tr>
+      <td><label for="alast">Last</label></td>
+      <td><input type="text" size="50" name="alast" id="alast" /></td>
+    </tr>
+    <tr>
+      <td><label for="amiddle">Middle</label></td>
+      <td><input type="text" size="50" name="amiddle" id="amiddle" /></td>
+    </tr>
+    <tr>
+      <td><label for="afirst">First</label></td>
+      <td><input type="text" size="50" name="afirst" id="afirst" /></td>
+    </tr>
+    <tr>
+      <td><label for="amaiden">Middle</label></td>
+      <td><input type="text" size="50" name="amaiden" id="amaiden" /></td>
+    </tr>
+    <tr><td><h3>Permenant Address</h3></td></tr>
+    <tr>
+      <td><label for="perstreet">Street</label></td>
+      <td><input type="text" size="50" name="perstreet" id="perstreet" /></td>
+    </tr>
+    <tr>
+      <td><label for="percity">City</label></td>
+      <td><input type="text" size="50" name="percity" id="percity" /></td>
+    </tr>
+    <tr>
+      <td><label for="perstate">State</label></td>
+      <td><input type="text" size="50" name="perstate" id="perstate" /></td>
+    </tr>
+    <tr>
+      <td><label for="perzip">ZIP</label></td>
+      <td><input type="text" size="50" name="perzip" id="perzip" /></td>
+    </tr>
+    <tr>
+      <td><label for="perphone">Phone</label></td>
+      <td><input type="text" size="50" name="perphone" id="perphone" /></td>
+    </tr>
+    <tr><td><h3>Present Address</h3></td></tr>
+    <tr>
+      <td><label for="prestreet">Street</label></td>
+      <td><input type="text" size="50" name="prestreet" id="prestreet" /></td>
+    </tr>
+    <tr>
+      <td><label for="precity">City</label></td>
+      <td><input type="text" size="50" name="precity" id="precity" /></td>
+    </tr>
+    <tr>
+      <td><label for="prestate">State</label></td>
+      <td><input type="text" size="50" name="prestate" id="prestate" /></td>
+    </tr>
+    <tr>
+      <td><label for="prezip">ZIP</label></td>
+      <td><input type="text" size="50" name="prezip" id="prezip" /></td>
+    </tr>
+    <tr>
+      <td><label for="prephone">Phone</label></td>
+      <td><input type="text" size="50" name="prephone" id="prephone" /></td>
+    </tr>   
     </table>
   </div>
-
-  <p><input type="submit" value="Create XML" /></p>
+    
+  <p><input type="submit" value="Create XML" onclick="javascript:do_xml();" /></p>
 </form>
 
 </body>

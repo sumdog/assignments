@@ -31,8 +31,9 @@
 
             var xmldoc = http_request.responseXML;
             var root = xmldoc.getElementsByTagName('application').item(0);
+            document.write(xmldoc.responseText);
             
-            for (var iNode = 0; iNode < root.childNodes.length; iNode++) {
+            /*for (var iNode = 0; iNode < root.childNodes.length; iNode++) {
                var node = root.childNodes.item(iNode);
                for (i = 0; i < node.childNodes.length; i++) {
                   var sibl = node.childNodes.item(i);
@@ -50,7 +51,7 @@
                   }
                   addrow("mytable", arr);
                }
-            }
+            }*/
          } else {
             alert('There was a problem with the request.');
          }
