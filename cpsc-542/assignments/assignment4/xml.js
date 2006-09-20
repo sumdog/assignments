@@ -25,14 +25,44 @@
       http_request.send(null);
    }
 
+   function sendPost(url, data) {
+      http_request = false;
+      if (window.XMLHttpRequest) { // Mozilla, Safari,...
+         http_request = new XMLHttpRequest();
+         if (http_request.overrideMimeType) {
+            http_request.overrideMimeType('text/xml');
+         }
+      } else if (window.ActiveXObject) { // IE
+         try {
+            http_request = new ActiveXObject("Msxml2.XMLHTTP");
+         } catch (e) {
+            try {
+               http_request = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {}
+         }
+      }
+      if (!http_request) {
+         alert('Cannot create XMLHTTP instance');
+         return false;
+      }
+      http_request.onreadystatechange = alertContents;
+      http_request.open('POST', url, true);
+      http_request.send(data);
+   }
+
    function alertContents() {
       if (http_request.readyState == 4) {
          if (http_request.status == 200) {
 
             var xmldoc = http_request.responseXML;
             var root = xmldoc.getElementsByTagName('application').item(0);
-            document.write(xmldoc.responseText);
-            
+
+            //var pre = document.createElement('pre'); 
+            //pre.appendChild(document.createTextNode(http_request.responseText)); 
+            //document.body.appendChild(pre);
+            sendPost('http://zog.utc.edu/~ssmullen/cgi-bin/echoxml.pl',http_request.responseText)
+
+            //document.write(http_request.responseText); 
             /*for (var iNode = 0; iNode < root.childNodes.length; iNode++) {
                var node = root.childNodes.item(iNode);
                for (i = 0; i < node.childNodes.length; i++) {
