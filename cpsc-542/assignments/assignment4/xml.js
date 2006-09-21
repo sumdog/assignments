@@ -1,4 +1,3 @@
-//Taken from http://www.captain.at/howto-ajax-process-xml.php
    var http_request = false;
    function makeRequest(url, parameters) {
       http_request = false;
