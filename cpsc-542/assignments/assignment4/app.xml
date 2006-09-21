@@ -26,12 +26,14 @@
     <permanentaddr>
        <street></street>
        <city></city>
+       <state></state>
        <zip></zip>
        <phone></phone>
     </permanentaddr>
     <presentaddr>
        <street></street>
        <city></city>
+       <state></state>
        <zip></zip>
        <phone></phone>
     </presentaddr>

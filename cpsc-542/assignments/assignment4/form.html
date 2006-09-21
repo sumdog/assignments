@@ -4,11 +4,11 @@
 <head>
   <title>Information Change</title>
   <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
-  <script type="text/javascript" src="xml.js" />
+  <script type="text/javascript" src="xml.js"></script>
 </head>
 <body>
 <h1>Information Change</h1>
-<form>
+<form id="mainform" action="http://zog.utc.edu/~ssmullen/cgi-bin/echoxml.pl" method="post">
   <h2>Name Change</h2>
   <div id="info">
    <table id="infotable">
@@ -73,7 +73,7 @@
       <td><input type="text" size="50" name="afirst" id="afirst" /></td>
     </tr>
     <tr>
-      <td><label for="amaiden">Middle</label></td>
+      <td><label for="amaiden">Maiden</label></td>
       <td><input type="text" size="50" name="amaiden" id="amaiden" /></td>
     </tr>
     <tr><td><h3>Permenant Address</h3></td></tr>
@@ -120,8 +120,7 @@
     </tr>   
     </table>
   </div>
-    
-  <p><input type="button" name="button" value="GET XML" onclick="javascript:do_xml();" /></p>
+  <p><input type="hidden" name="val" id="val" /><input type="button" value="GET XML" onclick="do_xml()"   /></p>
 </form>
 
 </body>
