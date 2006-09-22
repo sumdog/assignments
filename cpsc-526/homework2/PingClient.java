@@ -4,6 +4,9 @@ import java.util.Calendar;
 
 public class PingClient implements Runnable {
 
+    /**
+     * program entry point.
+     */
     public static void main(String []args) {
         if(args.length != 2){
           System.err.println("Usage: PingClient hostname port");
@@ -18,18 +21,33 @@ public class PingClient implements Runnable {
      */
 	private DatagramSocket sock;
 	
+	/**
+	 * port to send and recieve pings on 
+	 */
 	private int port;
 	
+	/**
+	 * Internet address representation of hostname
+	 */
 	private InetAddress addr;
 	
+	/**
+	 * Record of sending times to calculuate delay
+	 */
 	private Calendar[] pingtimes;
 	
+	/**
+	 * creates an object to ping a <code>PingServer</code> ten times.
+	 *@param hostname network name or IP of server to ping
+	 *@param port port to send requests and listen for replies on
+	 */
 	public PingClient(String hostname, int port) {
 
        //initalize the class
 	   this.port = port;
 	   pingtimes = new Calendar[10];
 	   
+	   //determine hostname
 	   try{
 	     addr = InetAddress.getByName(hostname);
 	   }
@@ -40,17 +58,17 @@ public class PingClient implements Runnable {
 	
 	    try{
            sock = new DatagramSocket();
-	       //sock.connect( new InetSocketAddress(hostname,port) ); 
         }
         catch(SocketException se) {
-          //TODO: error reporting
-          System.err.println("Error Connecting to host");
+          System.err.println("Error Creating Socket");
           System.exit(3);
         }
         
+        //start our ping
         Thread t = new Thread(this);
         t.start();
         
+        //wait for replies
         while(true) {
            DatagramPacket p = new DatagramPacket(new byte[1024],1024);
            String line = "";
@@ -63,7 +81,10 @@ public class PingClient implements Runnable {
              System.exit(6);
            }
            
-           System.out.println(line);
+           //calculate the ms delay
+           long diff = Calendar.getInstance().getTimeInMillis() - pingtimes[ Integer.parseInt(line.split(" ")[1]) ].getTimeInMillis();
+           int seq = Integer.parseInt(line.split(" ")[1]);
+           System.out.println(diff);
         }
 	}
 	
@@ -74,9 +95,12 @@ public class PingClient implements Runnable {
 	   Calendar now = Calendar.getInstance();
 	   pingtimes[i] = now;
 	   
+	   //establish string to send
 	   String sndstring = "PING " + i + " " + 
-	     now.HOUR_OF_DAY +":"+now.MINUTE+":"+now.SECOND+"\r\n";
+	     now.get(now.HOUR_OF_DAY) +":"+now.get(now.MINUTE)
+	     +":"+now.get(now.SECOND)+"\r\n";
 	
+	   //send at one second intervals
 	   try{
 	     byte[] buf = sndstring.getBytes();
 	     DatagramPacket p = new DatagramPacket(buf, buf.length,addr,port);
