@@ -1,6 +1,8 @@
 import java.io.*;
 import java.net.*;
 import java.util.Calendar;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class PingClient implements Runnable {
 
@@ -36,6 +38,12 @@ public class PingClient implements Runnable {
 	 */
 	private Calendar[] pingtimes;
 	
+	
+	/*
+	 * Stores stats
+	 */
+	private long min, max, average, transmitted, recieved;
+	
 	/**
 	 * creates an object to ping a <code>PingServer</code> ten times.
 	 *@param hostname network name or IP of server to ping
@@ -46,6 +54,11 @@ public class PingClient implements Runnable {
        //initalize the class
 	   this.port = port;
 	   pingtimes = new Calendar[10];
+	   recieved = 0;
+	   transmitted = 0;
+	   min = Long.MAX_VALUE;
+	   max = 0;
+	   average = 0;
 	   
 	   //determine hostname
 	   try{
@@ -84,8 +97,26 @@ public class PingClient implements Runnable {
            //calculate the ms delay
            long diff = Calendar.getInstance().getTimeInMillis() - pingtimes[ Integer.parseInt(line.split(" ")[1]) ].getTimeInMillis();
            int seq = Integer.parseInt(line.split(" ")[1]);
-           System.out.println(diff);
+           recieved++;
+           if(diff > max) { max = diff; }
+           if(diff < min) { min = diff; }
+           average = average + diff;
+           String output = "Recieved Reply From: " + p.getAddress().getHostAddress() +" Seq: " + seq + " Time: " + diff+"ms";
+           System.out.println(output);
         }
+	}
+	
+	/**
+	 * Outputs ping stats and then exits program.
+	 */
+	public void outputStats() {
+	   
+	   DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();
+	   df.applyPattern("##.##");
+	   double per = (1.0 - ((double) recieved / (double) transmitted)) * 100;
+	   System.out.println(transmitted + " Packets Transmitted, " + recieved + " packets recieved, " + df.format(per) + "% packet loss");
+	   System.out.println("RTT min=" + min + "ms avg=" + average / transmitted + "ms max=" + max + "ms");
+       System.exit(0);
 	}
 	
 	public void run() {
@@ -105,6 +136,7 @@ public class PingClient implements Runnable {
 	     byte[] buf = sndstring.getBytes();
 	     DatagramPacket p = new DatagramPacket(buf, buf.length,addr,port);
 	     sock.send(p);
+	     transmitted++;
 	     Thread.sleep(1000);
 	   }
 	   catch(InterruptedException e) {
@@ -114,5 +146,13 @@ public class PingClient implements Runnable {
 	     System.exit(5);
 	   }
       }
+      
+      //after we're done sending, wait two seconds
+      // and then calculate the results
+      // *assume remaining packets are lost
+      //  after 2 second wait
+      try{ Thread.sleep(2000); }
+      catch(InterruptedException e) {};
+      outputStats();
 	}
 }	
