@@ -1,3 +1,11 @@
+/**
+  *This is a simple ping client designed to work with the ping 
+  *server given to us in Assignemnt #2 in cpsc-526. It sends 10 
+  *UDP ping requests, reports to the user when it recieves a response
+  *and terminates two seconds after sending the 10th ping after
+  *which it outputs stats about the ping requests.
+  *@author Sumit Khanna
+  */
 import java.io.*;
 import java.net.*;
 import java.util.Calendar;
