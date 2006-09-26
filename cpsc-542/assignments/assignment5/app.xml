@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet href="app.css" type="text/css"?>
+<application revision="11.10.05 YK">
+  <head>
+    <title>Application for Admission to Candidacy for the Degree</title>
+    <school>The Graduate School</school>
+    <university>The University of Tennessee at Chattanooga</university>
+  </head>
+  <form expiration="">
+    <information>
+      <name></name>
+      <utcid></utcid>
+      <address line="1"></address>
+      <address line="2"></address>
+      <phone></phone>
+      <degreetype></degreetype>
+      <major></major>
+      <concentration></concentration>
+      <utcemail></utcemail>
+    </information>
+    <courses>
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+    </courses>
+    <transfercourses>
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+       <course term="" hours="" grade="" department="" course="" title="" />
+    </transfercourses>
+    <exam required="" />
+    <totalhours></totalhours>
+    <signatures>
+       <sig type="applicant" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="advisor" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="applicant" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="director" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="dean" date=""><![CDATA[  *digital signature* ]]></sig>
+    </signatures>
+  </form>
+  <notes title="Direction for Completion of the Application for Admission to Candidacy for the Degree">
+    <note>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</note>
+    <note>List all teh courses completed as well as courses to be completed that will meet the requirements for the degree as specified by the catalog currently in effect</note>
+    <note>No course beyond the expected date of graduation and the six-year time limit for the degree should be included on this form.</note>
+    <note>Coursework for which a student has earned a grade of D or F is not accepted toward candidacy.</note>
+    <note>In order to be eligible for admission to candidacy, the student must have a B average (3.0 GPA) on all courses taken for graduate credit and have completed prerequisite and designated courses as required by the major department of school</note>
+    <note>All courses must be taken for graduate credit.</note>
+    <note>Any proposed change(s) in this approved program must be submitted on the Revision to Candidacy form and be approved by the advisor and the Director of the Graduate School.</note>
+    <note><b>Candidacy forms must be typed or word-processed.</b></note>
+    <note>Candidacy forms are to be completed after 9 hours and prior to the completion of more than 18 hours.</note>
+    <note>A maximum of nine hours of approved graduate credit earned in 400-level courses may be included in any master's degree program.</note>
+    <note><b>Courses listed on teh candidacy form that are substituted fora  required course should have the requried course listed in parenthesis on the same line as teh substituted couse.</b></note> 
+  </notes>
+  <footer>The Gradute School * Dept 5305 * (423)425-4666 * 615 McCallie Avenue * Chattanooga, TN 37403</footer>
+</application>

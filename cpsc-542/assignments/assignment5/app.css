@@ -1,0 +1,22 @@
+head {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+title {
+    font-size: large;
+    font-weight: bold;
+    display: block;
+    margin-top:20px;
+}
+
+school {
+    display: block;
+    font-weight: bold;
+}
+
+university {
+    display: block;
+    font-weight: bold underline;
+}
