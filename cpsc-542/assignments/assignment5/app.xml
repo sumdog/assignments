@@ -147,25 +147,46 @@
         <cell><xhtml:input id="totalhours" /></cell>
       </row>
     </otherinfo>
+    <subheading>Signatures</subheading>
     <signatures>
-       <sig type="applicant" date=""></sig>
-       <sig type="advisor" date=""></sig>
-       <sig type="applicant" date=""></sig>
-       <sig type="director" date=""></sig>
-       <sig type="dean" date=""></sig>
+       <row>
+         <cell><xhtml:label for="sigapplicant">Applicant</xhtml:label></cell>
+         <cell><xhtml:input id="sigapplicant" /></cell>
+         <cell><xhtml:label for="dateapplicant">Date</xhtml:label></cell>
+         <cell><xhtml:input id="dateapplicant" /></cell>
+       </row>
+       <row>
+         <cell><xhtml:label for="sigadvisor">Advisor</xhtml:label></cell>
+         <cell><xhtml:input id="sigadvisor" /></cell>
+         <cell><xhtml:label for="dateadvisor">Date</xhtml:label></cell>
+         <cell><xhtml:input id="dateadvisor" /></cell>
+       </row>
+       <row>
+         <cell><xhtml:label for="sigdirector">Director</xhtml:label></cell>
+         <cell><xhtml:input id="sigdirector" /></cell>
+         <cell><xhtml:label for="datedirector">Date</xhtml:label></cell>
+         <cell><xhtml:input id="datedirector" /></cell>
+       </row>
+       <row>
+         <cell><xhtml:label for="sigdean">Dean</xhtml:label></cell>
+         <cell><xhtml:input id="sigdeam" /></cell>
+         <cell><xhtml:label for="datedean">Date</xhtml:label></cell>
+         <cell><xhtml:input id="datedean" /></cell>
+       </row>
     </signatures>
-  <notes title="Direction for Completion of the Application for Admission to Candidacy for the Degree">
-    <note>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</note>
-    <note>List all teh courses completed as well as courses to be completed that will meet the requirements for the degree as specified by the catalog currently in effect</note>
-    <note>No course beyond the expected date of graduation and the six-year time limit for the degree should be included on this form.</note>
-    <note>Coursework for which a student has earned a grade of D or F is not accepted toward candidacy.</note>
-    <note>In order to be eligible for admission to candidacy, the student must have a B average (3.0 GPA) on all courses taken for graduate credit and have completed prerequisite and designated courses as required by the major department of school</note>
-    <note>All courses must be taken for graduate credit.</note>
-    <note>Any proposed change(s) in this approved program must be submitted on the Revision to Candidacy form and be approved by the advisor and the Director of the Graduate School.</note>
-    <note><b>Candidacy forms must be typed or word-processed.</b></note>
-    <note>Candidacy forms are to be completed after 9 hours and prior to the completion of more than 18 hours.</note>
-    <note>A maximum of nine hours of approved graduate credit earned in 400-level courses may be included in any master's degree program.</note>
-    <note><b>Courses listed on teh candidacy form that are substituted fora  required course should have the requried course listed in parenthesis on the same line as teh substituted couse.</b></note> 
-  </notes>
+  <boldheading>Direction for Completion of the Application for Admission to Candidacy for the Degree</boldheading>
+  <xhtml:ul> 
+    <xhtml:li>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</xhtml:li>
+    <xhtml:li>List all teh courses completed as well as courses to be completed that will meet the requirements for the degree as specified by the catalog currently in effect</xhtml:li>
+    <xhtml:li>No course beyond the expected date of graduation and the six-year time limit for the degree should be included on this form.</xhtml:li>
+    <xhtml:li>Coursework for which a student has earned a grade of D or F is not accepted toward candidacy.</xhtml:li>
+    <xhtml:li>In order to be eligible for admission to candidacy, the student must have a B average (3.0 GPA) on all courses taken for graduate credit and have completed prerequisite and designated courses as required by the major department of school</xhtml:li>
+    <xhtml:li>All courses must be taken for graduate credit.</xhtml:li>
+    <xhtml:li>Any proposed change(s) in this approved program must be submitted on the Revision to Candidacy form and be approved by the advisor and the Director of the Graduate School.</xhtml:li>
+    <xhtml:li><b>Candidacy forms must be typed or word-processed.</b></xhtml:li>
+    <xhtml:li>Candidacy forms are to be completed after 9 hours and prior to the completion of more than 18 hours.</xhtml:li>
+    <xhtml:li>A maximum of nine hours of approved graduate credit earned in 400-level courses may be included in any master's degree program.</xhtml:li>
+    <xhtml:li><b>Courses listed on teh candidacy form that are substituted fora  required course should have the requried course listed in parenthesis on the same line as teh substituted couse.</b></xhtml:li> 
+  </xhtml:ul>
   <footer>The Gradute School * Dept 5305 * (423)425-4666 * 615 McCallie Avenue * Chattanooga, TN 37403</footer>
 </application>

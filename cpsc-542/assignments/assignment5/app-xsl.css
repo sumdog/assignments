@@ -1,32 +1,31 @@
-head {
-    display: block;
+#heading {
     text-align: center;
     margin-bottom: 20px;
 }
 
-title {
+#title {
     font-size: x-large;
     font-weight: bold;
     display: block;
     margin-top:20px;
 }
 
-school {
+#school {
     display: block;
     font-weight: bold;
 }
 
-university {
+#university {
     display: block;
     font-weight: bold underline;
 }
 
-name {
+#name {
     width: 100px;
     border-bottom: 1px solid;
 }
 
-subheading {
+.subheading {
     font-weight: bold;
     font-size:large;
     text-align: center;
@@ -34,34 +33,14 @@ subheading {
     margin-bottom: 25px;
 }
 
-information, courses, transfercourses, otherinfo, signatures {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    margin-bottom: 30px;
-}
-
-row {
-    display: table-row;
-    width: 900px;
-}
-
-cell {
-    display: table-cell;
-    height: 15px;
-}
-
-footer {
+#footer {
     margin-top: 10px;
     text-align: center;
-    display: block;
     font-size: x-small;
 }
 
-boldheading {
+.boldheading {
     font-weight: bold;
     text-align: center;
-    display: block;
     margin-bottom: 15px;
 }
