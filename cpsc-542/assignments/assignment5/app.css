@@ -5,7 +5,7 @@ head {
 }
 
 title {
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
     display: block;
     margin-top:20px;
@@ -21,5 +21,45 @@ university {
     font-weight: bold underline;
 }
 
-notes {
+name {
+    width: 100px;
+    border-bottom: 1px solid;
 }
+
+subheading {
+    font-weight: bold;
+    font-size:large;
+    text-align: center;
+    display: block;
+    margin-bottom: 25px;
+}
+
+information, courses, transfercourses, otherinfo {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-bottom: 30px;
+}
+
+row {
+    display: table-row;
+    width: 900px;
+}
+
+cell {
+    display: table-cell;
+    /*width: 100px;*/
+    height: 15px;
+}
+
+notes {
+    list-style: disc;
+}
+
+note {
+    display: list-item;
+    list-style: disc;
+}
+
+

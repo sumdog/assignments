@@ -1,47 +1,159 @@
 <?xml version="1.0" ?>
 <?xml-stylesheet href="app.css" type="text/css"?>
-<application revision="11.10.05 YK">
+<application revision="11.10.05 YK" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <head>
     <title>Application for Admission to Candidacy for the Degree</title>
     <school>The Graduate School</school>
     <university>The University of Tennessee at Chattanooga</university>
   </head>
-  <form expiration="">
+    <subheading>Student Information</subheading>
     <information>
-      <name></name>
-      <utcid></utcid>
-      <address line="1"></address>
-      <address line="2"></address>
-      <phone></phone>
-      <degreetype></degreetype>
-      <major></major>
-      <concentration></concentration>
-      <utcemail></utcemail>
+      <row>
+        <cell><xhtml:label for="name">Name</xhtml:label></cell>
+        <cell><xhtml:input id="name" size="20" /></cell>
+        <cell><xhtml:label for="utcid">UTC ID</xhtml:label></cell>
+        <cell><xhtml:input id="utcid" size="20" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:label for="address1">Address</xhtml:label></cell>
+        <cell><xhtml:input id="address1" size="20" /></cell>
+        <cell><xhtml:label for="address2">Address2</xhtml:label></cell>
+        <cell><xhtml:input id="address2" size="20" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:label for="phone">Phone</xhtml:label></cell>
+        <cell><xhtml:input id="phone" size="20" /></cell>
+        <cell><xhtml:label for="degreetype">Degree Type</xhtml:label></cell>
+        <cell><xhtml:input id="degreetype" size="20" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:label for="major">Major</xhtml:label></cell>
+        <cell><xhtml:input id="major" size="20" /></cell>
+        <cell><xhtml:label for="concentration">Concentration</xhtml:label></cell>
+        <cell><xhtml:input id="concentration" size="20" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:label for="utcemail">UTC e-mail</xhtml:label></cell>
+        <cell><xhtml:input id="utcemail" size="20" /></cell>
+       </row>
     </information>
+    <subheading>Courses</subheading>
     <courses>
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
+      <row>
+        <cell><xhtml:label for="term" >Term</xhtml:label></cell>
+        <cell><xhtml:label for="hours" >Hours</xhtml:label></cell>
+        <cell><xhtml:label for="grade" >Grade</xhtml:label></cell>
+        <cell><xhtml:label for="department" >Department</xhtml:label></cell>
+        <cell><xhtml:label for="course" >Course</xhtml:label></cell>
+        <cell><xhtml:label for="title" >Title</xhtml:label></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term"  /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
     </courses>
+    <subheading>Transfered Courses</subheading>
     <transfercourses>
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
-       <course term="" hours="" grade="" department="" course="" title="" />
+      <row>
+        <cell><xhtml:label for="term" >Term</xhtml:label></cell>
+        <cell><xhtml:label for="hours" >Hours</xhtml:label></cell>
+        <cell><xhtml:label for="grade" >Grade</xhtml:label></cell>
+        <cell><xhtml:label for="department" >Department</xhtml:label></cell>
+        <cell><xhtml:label for="course" >Course</xhtml:label></cell>
+        <cell><xhtml:label for="title" >Title</xhtml:label></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term"  /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
+      <row>
+        <cell><xhtml:input id="term" /></cell>
+        <cell><xhtml:input id="hours" /></cell>
+        <cell><xhtml:input id="grade" /></cell>
+        <cell><xhtml:input id="department" /></cell>
+        <cell><xhtml:input id="course" /></cell>
+        <cell><xhtml:input id="title" /></cell>
+      </row>
     </transfercourses>
-    <exam required="" />
-    <totalhours></totalhours>
+    <otherinfo>
+      <row>
+        <cell><xhtml:label for="exam">Exam</xhtml:label></cell>
+        <cell><xhtml:select id="exam"><xhtml:option>Yes</xhtml:option><xhtml:option>No</xhtml:option></xhtml:select></cell>
+        <cell><xhtml:label for="totalhours">Total Hours</xhtml:label></cell>
+        <cell><xhtml:input id="totalhours" /></cell>
+      </row>
+    </otherinfo>
     <signatures>
-       <sig type="applicant" date=""><![CDATA[  *digital signature* ]]></sig>
-       <sig type="advisor" date=""><![CDATA[  *digital signature* ]]></sig>
-       <sig type="applicant" date=""><![CDATA[  *digital signature* ]]></sig>
-       <sig type="director" date=""><![CDATA[  *digital signature* ]]></sig>
-       <sig type="dean" date=""><![CDATA[  *digital signature* ]]></sig>
+       <sig type="applicant" date=""></sig>
+       <sig type="advisor" date=""></sig>
+       <sig type="applicant" date=""></sig>
+       <sig type="director" date=""></sig>
+       <sig type="dean" date=""></sig>
     </signatures>
-  </form>
   <notes title="Direction for Completion of the Application for Admission to Candidacy for the Degree">
     <note>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</note>
     <note>List all teh courses completed as well as courses to be completed that will meet the requirements for the degree as specified by the catalog currently in effect</note>
