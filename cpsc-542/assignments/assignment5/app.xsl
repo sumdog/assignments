@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <xsl:transform version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output omit-xml-declaration="no" method="html" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" />
 <xsl:template match="/">
   <html>
   <head>
