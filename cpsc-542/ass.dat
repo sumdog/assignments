@@ -11,3 +11,6 @@
 4c:assignments/assignment4/xml.js:Javascript Source Code for XHTML Form
 5a:assignments/assignment5/app.xml:XML Application for Admission with CSS (Firefox only)
 5b:assignments/assignment5/app.css:CSS for Application for Admission
+5c:assignments/assignment5/app-xsl.xml:Application for Admission with XSL
+5d:assignments/assignment5/app.xsl:Application for Admission XSL StyleSheet
+5e:assignments/assignment5/app-xsl.css:Application for Admission XSL version CSS 

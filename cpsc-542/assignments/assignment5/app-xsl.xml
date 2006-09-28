@@ -7,15 +7,15 @@
     <university>The University of Tennessee at Chattanooga</university>
   </head>
     <information>
-      <name></name>
-      <utcid></utcid>
-      <address line="1"></address>
-      <address line="2"></address>
-      <phone></phone>
-      <degreetype></degreetype>
-      <major></major>
-      <concentration></concentration>
-      <utcemail></utcemail>
+      <Name></Name>
+      <Utcid></Utcid>
+      <Address line="1"></Address>
+      <Address line="2"></Address>
+      <Phone></Phone>
+      <Degreetype></Degreetype>
+      <Major></Major>
+      <Concentration></Concentration>
+      <Utcemail></Utcemail>
     </information>
     <courses>
        <course term="" hours="" grade="" department="" course="" title="" />
@@ -34,11 +34,11 @@
     <exam required="" />
     <totalhours></totalhours>
     <signatures>
-       <sig type="applicant" date=""></sig>
-       <sig type="advisor" date=""></sig>
-       <sig type="applicant" date=""></sig>
-       <sig type="director" date=""></sig>
-       <sig type="dean" date=""></sig>
+       <sig type="Applicant" date=""></sig>
+       <sig type="Advisor" date=""></sig>
+       <sig type="Applicant" date=""></sig>
+       <sig type="Director" date=""></sig>
+       <sig type="Dean" date=""></sig>
     </signatures>
   <notes title="Direction for Completion of the Application for Admission to Candidacy for the Degree">
     <note>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</note>

@@ -44,3 +44,17 @@
     text-align: center;
     margin-bottom: 15px;
 }
+
+table {
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+#submit {
+    margin: auto;
+    display: block;
+    text-align: center;
+}

@@ -65,3 +65,9 @@ boldheading {
     display: block;
     margin-bottom: 15px;
 }
+
+#submit {
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+}

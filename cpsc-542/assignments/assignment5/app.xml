@@ -174,6 +174,7 @@
          <cell><xhtml:input id="datedean" /></cell>
        </row>
     </signatures>
+    <xhtml:input type="submit" id="submit" value="submit" />
   <boldheading>Direction for Completion of the Application for Admission to Candidacy for the Degree</boldheading>
   <xhtml:ul> 
     <xhtml:li>Prior to completing this from, consult with your advisor and refer to teh regulations for master's specialist, and doctoral degrees in the <i>Graduate Catalog</i> to assess your eligibilty for admission to candidacy.</xhtml:li>
