@@ -15,14 +15,20 @@
          <th>Section</th>
          <th>Day</th>
          <th>Begin</th>
+	 <th>Current</th>
+	 <th>Limit</th>
        </tr>
      <xsl:for-each select="Class">
+       <xsl:if test="Meetingtime/Room[ not(starts-with(text(),'EMCS'))]">
        <tr>
          <td><xsl:value-of select="Course" /></td>
 	 <td><xsl:value-of select="Section" /></td>
 	 <td><xsl:value-of select="Meetingtime/Day" /></td>
 	 <td><xsl:value-of select="Meetingtime/Begin" /></td>
+         <td><xsl:value-of select="Current" /></td>
+         <td><xsl:value-of select="Limit" /></td>
        </tr>
+       </xsl:if>
      </xsl:for-each>
      </table>
      
