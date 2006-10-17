@@ -2,6 +2,18 @@
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <xsl:output indent="yes" />
 <xsl:template match="/">
+<fo:root>
+  <fo:layout-master-set>
+     <fo:simple-page-master master-name="classes" page-width="8.5in" page-height="11in" margin="0.25in">
+     </fo:simple-page-master>
+  </fo:layout-master-set>
+  <fo:page-sequence master-reference="classes">
+     <fo:flow flow-name="xsl-region-body">
+     </fo:flow>
+  </fo:page-sequence>
+</fo:root>
+
+
   <html>
   <head>
     <title>Class Schedule</title>
