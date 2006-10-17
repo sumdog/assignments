@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?php 
+header("Content-type: text/xml");
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>";
+echo "<?xml-stylesheet href=\"{$_GET['stylesheet']}.xsl\" type=\"text/xsl\"?>";
+?>
 <qcrssch>
 <request>
   <status> </status>

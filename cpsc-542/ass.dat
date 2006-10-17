@@ -14,3 +14,12 @@
 5c:assignments/assignment5/app-xsl.xml:Application for Admission with XSL
 5d:assignments/assignment5/app.xsl:Application for Admission XSL StyleSheet
 5e:assignments/assignment5/app-xsl.css:Application for Admission XSL version CSS 
+6a:assignments/assignment6/ClassSchedule.xml:Original XML document
+6b:assignments/assignment6/1.xsl:XSL Transform #1 for table with courses, name, section, day and begin values
+6c:assignments/assignment6/ClassSchedule.php?stylesheet=1:HTML Table with Transform #1 applied
+6d:assignments/assignment6/2.xsl:XSL Transform #2 for courses that do not meet in EMCS, Holt, Fletcher or Hunter Halls
+6e:assignments/assignment6/ClassSchedule.php?stylesheet=2:HTML Table with Transform #2 applied 
+6f:assignments/assignment6/3.xsl:XSL Transform #3 for courses that are almost full, where current is 80% or more of limit
+6g:assignments/assignment6/ClassSchedule.php?stylesheet=3:HTML Table with Transform #3 applied
+6h:assignments/assignment6/4.xsl:XSL Transform #4 which produces XML in attribute normal format
+6i:assignments/assignment6/4.xml:XML with Transform #4 applied
