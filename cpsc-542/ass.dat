@@ -23,3 +23,6 @@
 6g:assignments/assignment6/ClassSchedule.php?stylesheet=3:HTML Table with Transform #3 applied
 6h:assignments/assignment6/4.xsl:XSL Transform #4 which produces XML in attribute normal format
 6i:assignments/assignment6/4.xml:XML with Transform #4 applied
+6j:assignments/assignment6/5.xsl:XML Transform #5 which produces XML-fo
+6k:assignments/assignment6/fo.xml:XML-Fo file generated from Transform #5
+6l:assignments/assignment6/classes.pdf:PDF file generated from XML-Fo

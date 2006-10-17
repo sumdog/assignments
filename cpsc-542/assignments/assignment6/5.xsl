@@ -5,15 +5,60 @@
 <fo:root>
   <fo:layout-master-set>
      <fo:simple-page-master master-name="classes" page-width="8.5in" page-height="11in" margin="0.25in">
+	    <fo:region-body margin="0.5in"/>
      </fo:simple-page-master>
   </fo:layout-master-set>
   <fo:page-sequence master-reference="classes">
      <fo:flow flow-name="xsl-region-body">
+	    <fo:table table-layout="fixed">
+		  <fo:table-column column-width="100px"/>
+		  <fo:table-column column-width="100px"/>
+		  <fo:table-column column-width="100px"/>
+		  <fo:table-column column-width="100px"/>
+		  <fo:table-header>
+			<fo:table-row>
+			  <fo:table-cell>
+			    <fo:block font-weight="bold">Name</fo:block>
+			  </fo:table-cell>
+			  <fo:table-cell>
+			    <fo:block font-weight="bold">Section</fo:block>
+			  </fo:table-cell>
+			  <fo:table-cell>
+			    <fo:block font-weight="bold">Day</fo:block>
+			  </fo:table-cell>
+			  <fo:table-cell>
+			    <fo:block font-weight="bold">Begin</fo:block>
+			  </fo:table-cell>
+			</fo:table-row>
+		  </fo:table-header>
+		  <fo:table-body>
+		  <xsl:for-each select="qcrssch/TimeTable/Term">
+			<xsl:for-each select="Class">
+				<fo:table-row>
+					<fo:table-cell>
+						<fo:block><xsl:value-of select="Course" /></fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<fo:block><xsl:value-of select="Section" /></fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<fo:block><xsl:value-of select="Meetingtime/Day" /></fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<fo:block><xsl:value-of select="Meetingtime/Begin" /></fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</xsl:for-each>
+		  </xsl:for-each>	
+		  </fo:table-body>
+		</fo:table>
      </fo:flow>
   </fo:page-sequence>
 </fo:root>
+</xsl:template>
+</xsl:transform>
 
-
+<!--
   <html>
   <head>
     <title>Class Schedule</title>
@@ -43,3 +88,4 @@
   </html>
 </xsl:template>
 </xsl:transform>
+-->
