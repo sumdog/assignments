@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Keys to a Successful Object-Oriented Project</TITLE>
+   <META NAME="description" CONTENT="Table of contents for Scott Nichol's pages">
+   <META NAME="keywords" CONTENT="middleware,client/server,3-tier,consultant,Scott Nichol">
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (WinNT; I) [Netscape]">
+   <META NAME="Author" CONTENT="Scott Nichol">
+   <META NAME="Description" CONTENT="Some of the most important things to do on an Object-Oriented project">
+   <META NAME="KeyWords" CONTENT="object-oriented,project management,software development,consultant,Scott Nichol">
+</HEAD>
+<BODY BACKGROUND="bluebar.gif">
+
+<TABLE><TR>
+<TD VALIGN=top><IMG SRC="duke5568.gif" WIDTH=104></TD>
+<TD>
+<H1>Keys to a Successful Object-Oriented Project</H1>
+
+<P>Best practices are the rage in software development project management.
+Rather than marching through a life-cycle methodology, a manager can create
+an environment of &quot;controlled chaos&quot;, combining the ability to
+react quickly to changing requirements and markets with the discipline
+provided by best practices to ensure the project is not far off track.
+This brief emphasizes best practices for projects using object-oriented
+(O-O) tools and languages, although several of the practices apply generally.
+This brief intentionally omits the obvious keys to success that apply to
+all projects, such as 
+
+<UL>
+<LI>Involve end users</LI>
+
+<LI>Secure management support</LI>
+
+<LI>Produce a clear and specific statement of requirements</LI>
+
+<LI>Plan</LI>
+
+<LI>Manage risk</LI>
+</UL></P>
+
+<P>Without these, other practices are of marginal value at best. There
+are many, many other best practices; those available from <A HREF="http://www.christine.com/">Christine
+Comaford</A> and <A HREF="http://www.construx.com/stevemcc/">Steve McConnell</A>
+are highly recommended (and cheap!).</P>
+
+<H3>The Envelope, Please</H3>
+
+<P>Without further delay, the keys to a successful object-oriented project,
+in no particular order, are
+
+<UL>
+<LI><A HREF="#success">Define success</A></LI>
+
+<LI><A HREF="#roles">Define all roles</A></LI>
+
+<LI><A HREF="#skills">Match skill sets to roles</A></LI>
+
+<LI><A HREF="#model">Model multiple system views</A></LI>
+
+<LI><A HREF="#frameworks">Create frameworks</A></LI>
+
+<LI><A HREF="#database">Don't short change database access</A></LI>
+
+<LI><A HREF="#distributed">Don't assume objects mean distributed objects</A></LI>
+
+<LI><A HREF="#explore">Explore and confirm feasibility</A></LI>
+
+<LI><A HREF="#milestones">Define frequent visible milestones</A></LI>
+
+<LI><A HREF="#repository">Store everything in a searchable, versioned repository</A></LI>
+</UL></P>
+
+<H4><A NAME="success"></A>Define Success</H4>
+
+<P>As soon as there is more than one person on a project, there is a chance
+that not everyone has the same idea of success. Specify success criteria
+early and refine them as the project progresses. You must also realize
+this is <I>not</I> a mission statement. It is one or more things you can
+measure about how the team completed the mission. Some possible success
+criteria are
+
+<UL>
+<LI>On-time delivery of all high- and medium-priority features</LI>
+
+<LI>Delivery of all high-priority features within ten percent of budget</LI>
+
+<LI>Initial defect report rate of fewer than five per week</LI>
+
+<LI>Creation of a reusable domain framework</LI>
+
+<LI>Creation of a reusable technical framework</LI>
+
+<LI>Productivity increase of 25 percent for the second phase of the project</LI>
+</UL></P>
+
+<P>Remember, you define success within the context of the culture of your
+organization, many of which are not progressive enough to appreciate the
+value of all these criteria. Choose your success criteria accordingly.
+Also, don't be afraid to choose multiple criteria, but if you do, prioritize
+them.</P>
+
+<H4><A NAME="roles"></A>Define All Roles</H4>
+
+<P>The roles on O-O projects are more-or-less a superset of those on other
+projects. Some of the overlapping roles, such as user interface designer
+and database architect, change little, if any, in the move to O-O. Many
+other roles, however, are new or changed, such as
+
+<UL>
+<LI><I>Business Analyst</I>, who should be fluent in Use Cases</LI>
+
+<LI><I>System Architect</I>, who may need to add distributed object or
+object database (ODBMS) technology to his or her repertoire</LI>
+
+<LI><I>System Designer</I>, who should be fluent in all O-O modeling techniques
+and processes, such as CRC, UML/OMT and Use Cases.</LI>
+
+<LI><I>Framework Designer</I>, who identifies patterns in the static and
+dynamic relationships between objects and understands how to structure
+code to exploit them.</LI>
+
+<LI><I>Framework Coder</I>, who fills in the lowest level of details in
+implementing all the classes for a framework. This is a software engineering
+role requiring a very good understanding of data structures, algorithms
+and the programming language in use.</LI>
+
+<LI><I>Application Designer</I>, who defines the user interface and program
+flow, identifies the frameworks that can be leveraged in fulfilling the
+requirements of an application and specifies the new application-specific
+objects and frameworks needed.</LI>
+
+<LI><I>Application Coder</I>, who creates the actual application.</LI>
+
+<LI><I>Tester</I>, who may or may not have a framework/application specialty,
+depending on whether the framework designer/coder teams are responsible
+for their own testing. Framework testers must be able to write code themselves.
+Testers must be well-versed in O-O modeling, too.</LI>
+
+<LI><I>Librarian</I>, who makes sure all the work is maintained in a repository
+and is readily available for reuse and review.</LI>
+</UL></P>
+
+<H4><A NAME="skills"></A>Match Skill Sets to Roles</H4>
+
+<P>Unless you have a team of clones, do <I>not</I> simply divide up the
+work in the project to spread around. This advice, while always good, is
+especially poignant for object-oriented projects because there is such
+a broad range of O-O skills, and because mentoring is such an important
+mode of knowledge transfer. For example, beginning O-O-ers are most productive
+assembling solutions from frameworks already created by veterans. They
+learn the programming language, but also a great deal about more advanced
+programming practices by seeing how the veterans have written their code.</P>
+
+<P>A common mistake is to put all the most talented and experienced developers
+together in the frameworks group. While there is no doubt that this group
+will tackle the most demanding tasks at the most minute level of technical
+detail, application development is not without its technical challenges.
+Testing, when done right, requires a great deal of technical expertise
+as well. Spreading around the technical ability increases the likelihood
+of getting high quality, high productivity work on all aspects of the project.</P>
+
+<P>Finally, don't skimp on professional training and mentoring, but be
+certain it's done in a timely manner. Don't send someone to a five-day
+intensive course on OMT modeling because you might want them to be a designer
+&quot;soon&quot;. Plan for the transitions of personnel to new roles and
+schedule training accordingly.</P>
+
+<H4><A NAME="model"></A>Model Multiple System Views</H4>
+
+<P>First, if you are working on a moderately sized project and aren't modeling,
+you're toast-on-a-stick. You'll long for the spaghetti produced using structured
+languages after you have a look at the disgusting dish that is object-oriented
+code written on the fly. The greatest benefit of object-oriented development
+is the richness of the modeling languages. Use all the different diagram
+types (static, dynamic, event, state), and use them at different levels
+of abstraction by partitioning groups of objects into packages. Also, do
+not be afraid to use structured analysis models where they make sense.
+If at some level of abstraction the system can be naturally modeled using
+a data flow diagram, create one. It will advance the understanding of the
+system that you and others have, and that's what modeling is all about.</P>
+
+<P>Do not forget that your models are ideal candidates for reuse. In fact,
+reuse at the model level is far more powerful than reuse at the code class
+level.</P>
+
+<H4><A NAME="frameworks"></A>Create Frameworks</H4>
+
+<P>Frameworks in coding are conceptually similar to packages in modeling,
+in that they consist of a group of related objects or frameworks. They
+provide a set of pre-wired interactions among objects. Unlike packages,
+however, frameworks are not intended to hide the details of the constituents.
+Those details are still available to clients that need to manipulate them.</P>
+
+<P>Leveraging a set of well-written, robust frameworks provides the productivity
+gains reported by the most successful object-oriented projects. Frameworks
+provide a tremendous amount of functionality to a programmer with very
+little manipulation, which is exactly what productivity is.</P>
+
+<H4><A NAME="database"></A>Don't Short Change Database Access</H4>
+
+<P>Database access is still part of object-oriented applications. While
+frameworks such as JDBC (Java), OLE DB/DAO (ActiveX) and dbtools (C++)
+standardize and simplify access to data, database access still accounts
+for a significant portion of the design and coding effort. Do not neglect
+this when scheduling, and beware the silver bullets. Even object databases
+(ODBMS), which alleviate a tremendous amount of the coding effort, do not
+eliminate the effort of designing transactions and integrity rules.</P>
+
+<H4><A NAME="distributed"></A>Don't Assume Objects Mean Distributed Objects</H4>
+
+<P>Supporting distributed objects is not a simple step from object-oriented
+design and coding. If you must support distributed objects, do not assume
+it will be a slam dunk. Account for the risk and do early feasibility tests
+to confirm architectural choices. If you don't have to support distributed
+objects, don't kill yourself trying to include them because they're cool
+or &quot;just a small incremental effort&quot;. Distributed object technology
+is becoming more powerful and easy to use; if you can wait until it's a
+requirement, you may be saving yourself a lot of unnecessary grief.</P>
+
+<H4><A NAME="explore"></A>Explore and Confirm Feasibility</H4>
+
+<P>Software development is a process of refinement. That process is never
+linear. Don't simply accept that, embrace it. Let developers explore new
+methods without betting the project on their success. Force them to confirm
+the feasibility of any way of doing things with which your team lacks experience.
+The combination provides a risk-managed way to advance the state-of-the-art
+within your shop, enabling solutions that otherwise would not be possible.</P>
+
+<H4><A NAME="milestones"></A>Define Frequent Visible Milestones</H4>
+
+<P>One of the side effects of creating frameworks in a rich modeling environment
+is the temptation to over-generalize and over-refine. Frequent milestones
+force commitment to delivery of <I>something</I>, so there is some urgency
+to reaching points of stability. Of course, the milestones also help you
+confirm that the project is on track from an external (feature) perspective.</P>
+
+<H4><A NAME="repository"></A>Store Everything in a Searchable, Versioned
+Repository</H4>
+
+<P>Ho-hum, this is pretty anti-climactic. Except that if you don't have
+a repository, a significant part of your project walks out the door every
+time a developer leaves the company (or leaves your team, for that matter).
+Starting with your first two-page Word document, put everything under source
+control (at least).</P>
+
+<P>For the sake of trying not to &quot;leak&quot; knowledge, you should
+also provide discussion group software to use in lieu of e-mail. First,
+this makes discussions public, so knowledge is shared. Second, it's much
+easier to archive, version and search. Notes is nice, but even newsgroups
+will do the job.</P>
+
+<P>
+<HR><I>Copyright &copy; 1996 <A HREF="mailto:snichol@computer.org">Scott
+Nichol</A>.<BR>
+4-Dec-96</I></P>
+</TD>
+</TR></TABLE>
+
+</BODY>
+</HTML>
