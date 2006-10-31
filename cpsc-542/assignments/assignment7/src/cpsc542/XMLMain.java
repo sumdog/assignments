@@ -6,9 +6,11 @@ import java.util.Hashtable;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import cpsc542.gui.ReportGenerator;
 import cpsc542.xml.AbstractParser;
+import cpsc542.xml.DOMParser;
 import cpsc542.xml.SAXEngine;
 import cpsc542.xml.TotalCreditData;
 
@@ -17,6 +19,8 @@ public class XMLMain {
 	private static File xmlfile;
 	
 	private static AbstractParser parser;
+	
+	private static TotalCreditData[] totals;
 
 	public static void main(String[] args) {
 		
@@ -34,12 +38,28 @@ public class XMLMain {
 			 }
 		}
 		
-		//now that we have the file, start parser
-		parser = new SAXEngine(xmlfile);
+		String[] parseroptions = {"SAX","DOM"};
+		switch(JOptionPane.showOptionDialog(new JFrame(),"Which parser do you want to use?",
+				"Choose Parser", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+				null, parseroptions, null)) {
+		case 0:
+			//now that we have the file, start parser
+			parser = new SAXEngine(xmlfile);
+			
+			//pull total credits
+			totals = parser.getTotalCredits();
+			totals = normalizeData(totals);
+			break;
+		case 1:
+			parser = new DOMParser(xmlfile);
+			totals = parser.getTotalCredits();
+			//totals = normalizeData(totals);
+			break;
+		case -1:
+			System.exit(0);
+		}
 		
-		//pull total credits
-		TotalCreditData[] totals = parser.getTotalCredits();
-		//totals = normalizeData(totals);
+
 		ReportGenerator r = new ReportGenerator(totals);
 	}
 
