@@ -1,0 +1,33 @@
+<project name="assignment7" default="jar" basedir=".">
+
+  <!--globals-->
+  <property name="src" value="./src" />
+  <property name="bin" value="./bin" />
+
+  <!--create bin directory-->
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${bin}" />
+  </target>
+
+  <!--compile all source files-->
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${bin}" debug="off" optimize="on"/>
+  </target>
+
+  <!--compile all souce files with debugging support-->
+  <target name="debug" depends="init">
+    <javac srcdir="${src}" destdir="${bin}" debug="on" optimize="off" />
+  </target>
+
+  <!--clean up compiled class files-->
+  <target name="clean">
+    <delete dir="${bin}" />
+  </target>
+
+  <target name="jar" depends="compile">
+     <jar destfile="./XMLParser.jar" basedir="${bin}" manifest="./manifest.txt" />
+  </target>
+    
+
+</project>

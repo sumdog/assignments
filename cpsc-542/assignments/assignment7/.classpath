@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/sumitkhanna/Documents/cvs/cpsc-542/assignments/assignment7/xercesImpl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

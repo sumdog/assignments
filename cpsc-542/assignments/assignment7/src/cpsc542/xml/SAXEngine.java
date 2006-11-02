@@ -128,7 +128,7 @@ class SAXHandler extends DefaultHandler {
 	
 	public void endElement(String uri, String name, String qName) {
 		state = CLEAR;
-		if(name.equals("Class")) {
+		if(name.equals("Class") && currentclass.startsWith("CPSC")) {
 			totals.add(new TotalCreditData(currentclass,current*hours));
 		}		
 	}

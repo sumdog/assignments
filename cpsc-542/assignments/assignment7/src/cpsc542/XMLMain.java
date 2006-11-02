@@ -1,3 +1,14 @@
+/*
+ * Assignment #7 - cpsc-542 - Professor Smullen
+ * 
+ *  A java program that uses both SAX and DOM APIs 
+ *  to calculate the total number of class hours
+ *  for CPSC courses from an XML file.
+ * 
+ *  @author Sumit Khanna
+ *  @author Feiqiong Liu
+ *  @author Ryan Mauldin 
+ */
 package cpsc542;
 
 import java.io.File;
@@ -10,18 +21,30 @@ import javax.swing.JOptionPane;
 
 import cpsc542.gui.ReportGenerator;
 import cpsc542.xml.AbstractParser;
-import cpsc542.xml.DOMParser;
+import cpsc542.xml.DOMEngine;
 import cpsc542.xml.SAXEngine;
 import cpsc542.xml.TotalCreditData;
 
-public class XMLMain {
+public class XMLMain { 
 
+	/*
+	 * XML data file.
+	 */
 	private static File xmlfile;
 	
+	/*
+	 * parser that has both SAX and DOM implementation.
+	 */
 	private static AbstractParser parser;
 	
+	/*
+	 * array that holds total number of credits.
+	 */
 	private static TotalCreditData[] totals;
 
+	/*
+	 * program entry point.
+	 */
 	public static void main(String[] args) {
 		
 		//get XML firename
@@ -38,6 +61,7 @@ public class XMLMain {
 			 }
 		}
 		
+		//present user with SAX/DOM option
 		String[] parseroptions = {"SAX","DOM"};
 		switch(JOptionPane.showOptionDialog(new JFrame(),"Which parser do you want to use?",
 				"Choose Parser", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
@@ -51,9 +75,9 @@ public class XMLMain {
 			totals = normalizeData(totals);
 			break;
 		case 1:
-			parser = new DOMParser(xmlfile);
+			parser = new DOMEngine(xmlfile);
 			totals = parser.getTotalCredits();
-			//totals = normalizeData(totals);
+			totals = normalizeData(totals);
 			break;
 		case -1:
 			System.exit(0);
@@ -63,6 +87,9 @@ public class XMLMain {
 		ReportGenerator r = new ReportGenerator(totals);
 	}
 
+	/*
+	 * combines the total scores of all classes with the same name.
+	 */
 	private static TotalCreditData[] normalizeData(TotalCreditData[] data) {
 		
 		Hashtable ht = new Hashtable();

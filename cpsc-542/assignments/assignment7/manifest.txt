@@ -1,0 +1,3 @@
+Main-Class: cpsc542.XMLMain
+Class-Path: xercesImpl.jar
+ 
