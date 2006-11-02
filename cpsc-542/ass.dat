@@ -26,3 +26,11 @@
 6j:assignments/assignment6/5.xsl:XML Transform #5 which produces XML-fo
 6k:assignments/assignment6/fo.xml:XML-Fo file generated from Transform #5
 6l:assignments/assignment6/classes.pdf:PDF file generated from XML-Fo
+7a:assignments/assignment7/XMLParser.jar:XML Parser and Report Generator (jar file)
+7b:assignments/assignment7/cpsc542_assignment7_source.zip:XML Parser and Report Generator (source code/zip)
+7c:assignments/assignment7/xercesImpl.jar:xerces DOM parser (jar/dependency)
+7d:assignments/assignment7/ClassSchedule.xml:XML Class Schedule File (data source)
+7e:assignments/assignment7/CPSC 542_Assignment7_WriteUp.doc:SAX and DOM write-up (Word Document)
+8a:assignments/assignment8/HamletSearch.java:Java Application to Search Hamlet XML file (java source file)
+8b:assignments/assignment8/blood.txt:Output from searching for "blood" (text file)
+8c:assignments/assignment8/hamlet.xml:Hamlet in XML
