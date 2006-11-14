@@ -31,6 +31,8 @@
 7c:assignments/assignment7/xercesImpl.jar:xerces DOM parser (jar/dependency)
 7d:assignments/assignment7/ClassSchedule.xml:XML Class Schedule File (data source)
 7e:assignments/assignment7/CPSC 542_Assignment7_WriteUp.doc:SAX and DOM write-up (Word Document)
-8a:assignments/assignment8/HamletSearch.java:Java Application to Search Hamlet XML file (java source file)
+8a:assignments/assignment8/HamletSearch.java:Java Application to Search Hamlet XML file using SAX2 (java source file)
 8b:assignments/assignment8/blood.txt:Output from searching for "blood" (text file)
 8c:assignments/assignment8/hamlet.xml:Hamlet in XML
+9a:assignments/assignment9/HamletSearch.java:Java Application to Search Hamlet XML file using DOM (java source file)
+9b:assignments/assignment9/blood.txt:Output from search for "blood" (text file)

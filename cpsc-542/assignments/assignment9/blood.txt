@@ -1,40 +1,40 @@
 Act: ACT I
-Scene: SCENE I.  Elsinore. A platform before the castle.
+Scene: FRANCISCO at his post. Enter to him BERNARDO
 Speaker: HORATIO
 Line: As stars with trains of fire and dews of blood,
 
 Act: ACT I
-Scene: SCENE III.  A room in Polonius' house.
+Scene: Enter LAERTES and OPHELIA
 Speaker: LAERTES
 Line: Hold it a fashion and a toy in blood,
 
 Act: ACT I
-Scene: SCENE III.  A room in Polonius' house.
+Scene: Enter LAERTES and OPHELIA
 Speaker: LORD POLONIUS
 Line: When the blood burns, how prodigal the soul
 
 Act: ACT I
-Scene: SCENE V.  Another part of the platform.
+Scene: Enter GHOST and HAMLET
 Speaker: Ghost
 Line: Would harrow up thy soul, freeze thy young blood,
 
 Act: ACT I
-Scene: SCENE V.  Another part of the platform.
+Scene: Enter GHOST and HAMLET
 Speaker: Ghost
 Line: To ears of flesh and blood. List, list, O, list!
 
 Act: ACT I
-Scene: SCENE V.  Another part of the platform.
+Scene: Enter GHOST and HAMLET
 Speaker: Ghost
-Line: Holds such an enmity with blood of ma
+Line: Holds such an enmity with blood of man
 
 Act: ACT I
-Scene: SCENE V.  Another part of the platform.
+Scene: Enter GHOST and HAMLET
 Speaker: Ghost
 Line: The thin and wholesome blood: so did it mine;
 
 Act: ACT II
-Scene: SCENE I.  A room in POLONIUS' house.
+Scene: Enter POLONIUS and REYNALDO
 Speaker: LORD POLONIUS
 Line: A savageness in unreclaimed blood,
 
@@ -54,42 +54,42 @@ Speaker: HAMLET
 Line: With this slave's offal: bloody, bawdy villain!
 
 Act: ACT III
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and Players
 Speaker: HAMLET
 Line: Whose blood and judgment are so well commingled,
 
 Act: ACT III
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and Players
 Speaker: HAMLET
 Line: you make it speak. 'Sblood, do you think I am
 
 Act: ACT III
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and Players
 Speaker: HAMLET
 Line: Contagion to this world: now could I drink hot blood,
 
 Act: ACT III
-Scene: SCENE III.  A room in the castle.
+Scene: Enter KING CLAUDIUS, ROSENCRANTZ, and GUILDENSTERN
 Speaker: KING CLAUDIUS
 Line: Were thicker than itself with brother's blood,
 
 Act: ACT III
-Scene: SCENE IV.  The Queen's closet.
+Scene: Enter QUEEN MARGARET and POLONIUS
 Speaker: QUEEN GERTRUDE
 Line: O, what a rash and bloody deed is this!
 
 Act: ACT III
-Scene: SCENE IV.  The Queen's closet.
+Scene: Enter QUEEN MARGARET and POLONIUS
 Speaker: HAMLET
 Line: A bloody deed! almost as bad, good mother,
 
 Act: ACT III
-Scene: SCENE IV.  The Queen's closet.
+Scene: Enter QUEEN MARGARET and POLONIUS
 Speaker: HAMLET
 Line: The hey-day in the blood is tame, it's humble,
 
 Act: ACT III
-Scene: SCENE IV.  The Queen's closet.
+Scene: Enter QUEEN MARGARET and POLONIUS
 Speaker: HAMLET
 Line: Will want true colour; tears perchance for blood.
 
@@ -99,47 +99,47 @@ Speaker: KING CLAUDIUS
 Line: Alas, how shall this bloody deed be answer'd?
 
 Act: ACT IV
-Scene: SCENE III.  Another room in the castle.
+Scene: Enter KING CLAUDIUS, attended
 Speaker: KING CLAUDIUS
 Line: For like the hectic in my blood he rages,
 
 Act: ACT IV
-Scene: SCENE IV.  A plain in Denmark.
+Scene: Enter FORTINBRAS, a Captain, and Soldiers, marching
 Speaker: HAMLET
 Line: Excitements of my reason and my blood,
 
 Act: ACT IV
-Scene: SCENE IV.  A plain in Denmark.
+Scene: Enter FORTINBRAS, a Captain, and Soldiers, marching
 Speaker: HAMLET
 Line: My thoughts be bloody, or be nothing worth!
 
 Act: ACT IV
-Scene: SCENE V.  Elsinore. A room in the castle.
+Scene: Enter QUEEN GERTRUDE, HORATIO, and a Gentleman
 Speaker: LAERTES
 Line: That drop of blood that's calm proclaims me bastard,
 
 Act: ACT IV
-Scene: SCENE V.  Elsinore. A room in the castle.
+Scene: Enter QUEEN GERTRUDE, HORATIO, and a Gentleman
 Speaker: LAERTES
 Line: Repast them with my blood.
 
 Act: ACT IV
-Scene: SCENE VII.  Another room in the castle.
+Scene: Enter KING CLAUDIUS and LAERTES
 Speaker: LAERTES
 Line: Where it draws blood no cataplasm so rare,
 
 Act: ACT V
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and HORATIO
 Speaker: PRINCE FORTINBRAS
 Line: So bloodily hast struck?
 
 Act: ACT V
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and HORATIO
 Speaker: HORATIO
 Line: But since, so jump upon this bloody question,
 
 Act: ACT V
-Scene: SCENE II.  A hall in the castle.
+Scene: Enter HAMLET and HORATIO
 Speaker: HORATIO
 Line: Of carnal, bloody, and unnatural acts,
 
