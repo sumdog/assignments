@@ -124,7 +124,9 @@ public class Server extends JFrame implements ActionListener {
 	boolean done = false;
 	while(!done)
 	    {
+
 		request_type = theServer.parse_RTSP_request(); //blocking
+
 		
 		if (request_type == SETUP)
 		    {
@@ -216,7 +218,7 @@ public class Server extends JFrame implements ActionListener {
 		    senddp = new DatagramPacket(packet_bits, packet_length, ClientIPAddr, RTP_dest_port);
 		    RTPsocket.send(senddp);
 
-		    //System.out.println("Send frame #"+imagenb);
+		    System.out.println("Send frame #"+imagenb);
 		    //print the header bitstream
 		    rtp_packet.printheader();
 
@@ -245,7 +247,7 @@ public class Server extends JFrame implements ActionListener {
 	try{
 	    //parse request line and extract the request_type:
 	    String RequestLine = RTSPBufferedReader.readLine();
-	    //System.out.println("RTSP Server - Received from Client:");
+	    System.out.println("RTSP Server - Received from Client:");
 	    System.out.println(RequestLine);
 
 	    StringTokenizer tokens = new StringTokenizer(RequestLine);
@@ -291,6 +293,7 @@ public class Server extends JFrame implements ActionListener {
 	catch(Exception ex)
 	    {
 		System.out.println("Exception caught: "+ex);
+		ex.printStackTrace();
 		System.exit(0);
 	    }
 	return(request_type);
