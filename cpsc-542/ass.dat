@@ -36,3 +36,5 @@
 8c:assignments/assignment8/hamlet.xml:Hamlet in XML
 9a:assignments/assignment9/HamletSearch.java:Java Application to Search Hamlet XML file using DOM (java source file)
 9b:assignments/assignment9/blood.txt:Output from search for "blood" (text file)
+10a:assignments/assignment10/HamletSearch.java:Application to Search Hamlet XML file using JDOM (java source file)
+10b:assignments/assignment10/report10.txt:Report on JDOM (text file)

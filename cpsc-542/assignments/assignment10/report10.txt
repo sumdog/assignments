@@ -1,0 +1,15 @@
+cpsc - 542 / assignment #10 / Sumit Khanna
+
+In this assignment I created a program similar to the previous two programs except using the JDOM parser instead of the DOM or SAX parser. With JDOM, I used the SAX backend, simply because it was in an example and I saw no significant difference between using either SAX or DOM as the JDOM backend.
+
+I like JDOM better because it has a built-in XPath revolver that helps narrow down entries in the tree. Other than that, JDOM feel just like DOM and requires the same types of iterative loops in order to pull information from an XML file.
+
+For this program to compile, you must have the jdom jar file in the class path. For it to run, both the jdom and jaxen jar files must be in the class path
+
+Compile:
+
+CLASSPATH=".:./jdom.jar:./jaxen-1.1-beta-11.jar" javac HamletSearch.java
+
+Run:
+
+CLASSPATH=".:./jdom.jar:./jaxen-1.1-beta-11.jar" java HamletSearch
