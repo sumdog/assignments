@@ -1,0 +1,56 @@
+From: Douglas-Jacobs@utc.edu
+Date: November 29, 2006 7:26:10 PM EST
+To: Douglas-Jacobs@utc.edu
+Subject: CPSC 520 Test 2 study guide
+
+The second test which will also be the final exam; this will be given December 12, from 2:00 to 4:00 PM. 
+
+
+
+The test will consists of a series of true or false questions, multiple choice questions, and fill in the blank type questions. There will also be a few short answer type questions. 
+
+
+
+The below study guide should be of some help in you preparation. 
+
+
+
+CPSC 520 Test 2 Study Guide
+
+
+
+Definition of Agile project management
+
+The non-traditional PM methods that are considered under Agile PM
+
+The history of the Agile Manifesto
+
+Objective of the Agile Manifesto
+
+Characteristics of Agile PM
+
+Extreme programming terms, team size, basic operations, and methodology
+
+Critical chain verses critical path
+
+Rational Unified process concepts, terms, support, resources, methodology
+
+Earned Value (EV), Planned Value (PV), and Actual Value (AV)
+
+Object Oriented Project Management, terms, basic operations, comparison to other systems, and methodology
+
+Six Sigma terms, philosophy, operation
+
+Eclipse Process Framework terms, methodology
+
+SCRUM terms, methodology, basic operations, and team size
+
+Data Warehouse concepts and operation
+
+Lean Project concepts and terms
+
+Class project PM methodology
+
+
+
+Dr. Jacobs
