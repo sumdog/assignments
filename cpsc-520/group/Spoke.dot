@@ -1,0 +1,66 @@
+digraph Spoke 
+	{
+		Project->"Software Solutions";
+		"Software Solutions"->Intergration;
+		Intergration->"Analysis (Web)";
+		Intergration->"Analysis (Database)";
+		Intergration->"Match Styles for Web Apps";
+		"Software Solutions"->Aggregation;
+		Aggregation->"Bug Fixes";
+		Aggregation->"Speed Analysis/Improvements";
+		Aggregation->"ODBC Interface";
+		"Software Solutions"->Development;
+		Development->"File Converstion Framework";
+		Development->"Check Image Printing";
+
+		Project->"System Management";
+		"System Management"->"Workstation Administration";
+
+		"Workstation Administration"->"Testing";
+		"Workstation Administration"->"Migration";
+		"Workstation Administration"->"WS Security";
+		"Workstation Administration"->"Deployment";
+
+		"System Management"->"Server Administration";
+		"Server Administration"->"Administration Manual";
+		"Administration Manual"->"Analyze System Enviroment"
+		"Administration Manual"->"Define Secenarios and Routines";
+                "Administration Manual"->"Prepare Templates";
+		"Prepare Templates"->"Troubleshooting";
+		"Prepare Templates"->"Performance Tuning";
+		"Prepare Templates"->"Hardware/Software Requests";
+
+		"Server Administration"->"Samba Server";
+		"Samba Server"->"File and Print";
+		"Samba Server"->"Windows Domain";
+		"Samba Server"->"Documentation";
+
+		"Server Administration"->"System Updates";
+		"Server Administration"->"Version Control";
+		"Server Administration"->"Backups";
+
+		Project->"Networking";
+		"Networking"->"Topology";
+
+		Project->Security;
+		"Security"->"Analysis and Inventory";
+		"Security"->"Mandatory Access Control";
+		"Mandatory Access Control"->"Security Clearances";
+		"Mandatory Access Control"->Authorization;
+		"Mandatory Access Control"->"Object Sensitivey Labeling";
+		"Security"->"Discretionary Access Control";
+		"Discretionary Access Control"->"Identification/Password Management";
+		"Discretionary Access Control"->"Access Control Lists";
+		"Security"->"Physical Security";
+		"Physical Security"->"Audit";
+		"Physical Security"->"Standard Procedures";
+		"Physical Security"->"Locks and Alarms";
+		"Physical Security"->"Workstations/Laptops";
+		"Physical Security"->"Storage";
+		"Physical Security"->"Off-site Laptops";
+		"Physical Security"->"Cable Layout";
+		"Physical Security"->"Off-site backup";
+		"Security"->"Security Features User Guide";
+
+
+	}
