@@ -1,0 +1,18 @@
+<html>
+<body>
+<h1>cpsc-542 / Assignment #11 / Sumit Khanna</h1>
+<p>The goal of this assignment is to compare the Java built-in SAX parser as compared to the xerces DOM parser to see which one performed better. For this experiment I modified two of the previous java assignments designed to parse a single Shakespeare play in XML format for a word or phrase. The modified programs perform as the originals, however they have the addition of outputting their execution times to standard error (System.err in Java). The program writes a single line to stderr in the following format:</p>
+
+<p>&lt;file name&gt;,&lt;execution time for SAX&gt;,&lt;execution time for DOM&gt;</p>
+
+<p>The test computer was a MacBook running Mac OS X 10.4.8 and version 1.5.0_06-112 of the Java Runtime. It has a 2.0Ghz Intel processor and 2GB of Ram</p>
+
+<p>Using a simple shell script, I iterate through each of the plays in XML format, discard the standard output and save the standard error to form a coma-separate file of benchmark data. The following is the result.</p>
+
+<br><br><img src="chart.png"><br><br>
+
+
+<p>The results indicate that the DOM standard is clearly a much more efficient way to parse XML and outperforms the SAX parser in every single search.</p>
+
+</body>
+</html>

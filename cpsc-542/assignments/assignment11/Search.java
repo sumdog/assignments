@@ -29,33 +29,41 @@ public class Search {
 	private static Date start,end;
 	
 	public static void main(String[] args) {
-		if(args.length != 3 ) {
+		if(args.length != 2 ) {
 			printUsage();
 		}
 				
-		if(args[0].equals("SAX")) {
-			search = new SAXSearch(new File(args[1]),args[2]);
-		}
-		else if(args[0].equals("DOM")) {
-			search = new DOMSearch(new File(args[1]),args[2]);
-		}
-		else {
-			printUsage();
-		}
+
+		System.err.print(new File(args[0]).getName()+",");
+		search = new SAXSearch(new File(args[0]),args[1]);
+		doSearch();
+		System.err.print(',');
+		search = new DOMSearch(new File(args[0]),args[1]);
+		doSearch();
+		System.err.print('\n');
 		
 		start = new Date();
 		search.processSearch();
 		end = new Date();
 		
-		System.err.println("Execution Time: " + (end.getTime() - start.getTime()) + "ms");
+		//System.err.println("Execution Time: " + (end.getTime() - start.getTime()) + "ms");
+	}
+	
+	private static void doSearch() {
+		start = new Date();
+		search.processSearch();
+		end = new Date();
+		System.err.print(end.getTime() - start.getTime());
 	}
 	
 	/*
 	 * prints program usage and exits with a return code of 1.
 	 */
 	public static void printUsage() {
-		System.out.println("\nUsage: java HamletSearch [SAX|DOM] <file> <phrase>");
+		System.out.println("\nUsage: java HamletSearch <file> <phrase>");
 		System.out.println("\t<phrase> - phrase to search for in Hamlet\n");
+		System.out.println("\nOutput: (coma seperated to stderr)");
+		System.out.println("<filename>,<execution time for SAX>,<execution time for DOM>\n");
 		System.exit(1);
 	}
 }
