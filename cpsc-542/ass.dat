@@ -39,7 +39,7 @@
 10a:assignments/assignment10/HamletSearch.java:Application to Search Hamlet XML file using JDOM (java source file)
 10b:assignments/assignment10/report10.txt:Report on JDOM (text file)
 11a:assignments/assignment11/Search.java:Search Driver (java source)
-11b:assignments/assignment11/AbstractSearch:Base Class for Search (java source)
+11b:assignments/assignment11/AbstractSearch.java:Base Class for Search (java source)
 11c:assignments/assignment11/DOMSearch.java:DOM Searcher (java source)
 11d:assignments/assignment11/SAXSearch.java:SAX Searcher (java source)
 11e:assignments/assignment11/runtest.sh:Test Case Generator (shell script)
