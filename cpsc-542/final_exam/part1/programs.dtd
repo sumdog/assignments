@@ -1,0 +1,16 @@
+<!ELEMENT tvShows (program+)>
+<!ELEMENT program (item,info)>
+<!ELEMENT item ((day|days),channel,startTime,endTime,showTitle)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT days (#PCDATA)>
+<!ELEMENT channel (#PCDATA)>
+<!ATTLIST channel name CDATA "">
+<!ATTLIST channel number CDATA "">
+<!ELEMENT startTime (#PCDATA)>
+<!ELEMENT endTime (#PCDATA)>
+<!ELEMENT showTitle (#PCDATA)>
+
+<!ELEMENT info (category,actor*,criticRating?)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT criticRating (#PCDATA)>
