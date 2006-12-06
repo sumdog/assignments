@@ -1,0 +1,280 @@
+{\rtf1\ansi\ansicpg1252\deff0\uc1{\fonttbl{\f0\fcharset0 Times New Roman;}}{\colortbl
+;}{\stylesheet{\s0\nowidctlpar\nooverflow\sl240\slmult1\f0\fs20\kerning28 Normal
+;}}\paperw12240\paperh15840\margt360\margl360\margr360\margb360\headery720\footery864
+\deftab720\pgnstart1\viewkind1\viewscale100\fet0{\*\docvar{ColorSet}{-1}}{\*\docvar
+{ColorPos}{-1}}{\*\docvar{StyleSet}{-1}}{\*\docvar{StylePos}{-1}}\pard\plain\pard\nowidctlpar\nooverflow\sl240\slmult1{\b\f0\lang1033\fs20\kerning28
+{\header\pard\nowidctlpar\nooverflow\sl240\slmult1\tqc\tx4320\tqr\tx8640\fs20\par
+}{\footer\pard\nowidctlpar\nooverflow\sl240\slmult1\tqc\tx4320\tqr\tx8640\fs20\par
+}Final Exam Review, 526\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 1.  CDMA -- 
+Code Division Multiple Access.   Refer to 6.5 on page 512.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 2.  CSMA/
+CA in IEEE 802.11 MAC -- (Carrier Sense Multiple Access with Collision Avoidance
+)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab Foreign
+ agents create COA (care-of address).  Network portion matches the foreign network
+.  Permanent address and foreign address.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 3.  IP registration
+ in Mobile IP -- \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28      Three
+ parts:\line\tab Agent discovery\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab Agent
+ advertisement -- agent advertises services with existing router discovery protocol
+\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+Home agent bit\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+Foreign agent bit\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+Registration required bit\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+M, G encapsulation bits\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+COA fields\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab Agent
+ solicitation -- node broadcasts solicitation message (see fig 6.22 on pg 548)\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab Registration
+ with home agent -- register and deregister COAs with home agent (mobile node or
+ foreign node) after rec COA:\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab 1
+.  After receiving foreign advert, mobile node sends IP registration message to 
+agent via UDP datagram on port 434.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab\tab
+Contains Home agent address (HA), permanent address for node (MA), requested lifetime
+, and 64-bit registration id.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab 2
+.  Foreign agent receives reg message and records MA, then sends a mobile IP reg
+ message (same stats as above) to 434 of \tab\tab\tab      home agent.  Foreign 
+agent knows to look for datagrams containing encapsulated datagrams destined for
+ MA.  \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab 3
+.  Home agent rec. reg request and checks for authenticity/correctness.  Home agent
+ binds mobile node\u8217\'92s MA with COA  \tab\tab\tab      (now datagrams arriving
+ at home agent to mobile node will be encapsulated and tunneled to COA).  Home agent
+ sends reg \tab\tab\tab      reply (contains HA, MA, {\i actual} reg lifetime, and
+ reg id.)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab 4
+.  Foreign agent receives the reg reply and then forwards it to the mobile node.
+\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab\tab **
+Deregistration of COA occurs automatically when mobile node leaves network.**\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab Indirect
+ routing of datagrams -- datagrams forwarded to mobile nodes via home agent.\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 4.  Handoffs
+ in GSM.  Handoff -- a mobile station changes its association from one base station
+ to another during a call.  (several reasons)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+1.  The old base station informs the visited MSC that a handoff is to be performed
+ and the BS(s) to which the mobile is to be handed off.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+2.  The visited MSC initiates path setup to the new BS, allocating the resources
+ need to carry the rerouted call, and signaling the new BS that a handoff is about
+ to occur.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+3.  The new BS allocates and activates a radio channel for use by the mobile.\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+4.  The new BS signals back to the visited MSC and the old BS that the visited informed
+ of the impending handoff.  The new BS provides all of the information that the 
+mobile will need to associate with the new BS.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+5.  The mobile is informed that it should perform a handoff.  Note that up until
+ this point, the mobile has been blissfully unaware that the network has been laying
+ the groundwork for a handoff.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+6.  The mobile and the new BS exchange one or more messages to fully activate the
+ new channel in the new BS.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+7.  The mobile sends a handoff complete message to the new BS, which is forwarded
+ up to the visited MSC.  The visited MSC then reroutes the on-going call to the 
+mobile via the new BS.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+8.  The resources allocated along the path to the old BS are then released.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 5.  \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 6.  See other
+ review; slide 5 chapter 7.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 7.  589\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 8.  RTSP -- 
+Real-time streaming protocol  (out of band)  SETUP OK PLAY PAUSE REWIND TEARDOWN
+\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 9.  589\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 10. Send 
+over TCP, not UDP.  (crappy);  Conceal packet loss with forward error correction
+ (FEC) -- redundant information;  3{\super rd}???\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 11. RTP Header
+ fields (normal total:  12 bytes; with 160-byte audio chunk, forms RTP packet):\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Payload
+ type:  7 bits.  Indicates type of audio or video encoding.  May change encoding
+ in middle of session.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Sequence
+ number:  16 bits.  Increases by 1 for each packet in sequence, and is used to detect
+ packet loss.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Timestamp
+ Field:  32 bits.  Can be used to remove packet jitter.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Synchronization
+ Source Identifier (SSRC):  32 bits.  Ids source of RTP stream.  NOT an IP address
+, but a randomly selected number \tab From source.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Miscellaneous
+ fields apparently use the remainder of the 12 bytes in the header.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28      RTP 
+usually runs on top of UDP.  \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 12. SIP -- 
+Session Initiation Protocol  see 603\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Provides
+ mechanisms for establishing calls over IP.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Mechanisms
+ for caller to determine the IP address of the callee.  (Needed due to changing 
+IP\u8217\'92s due to DHCP and multiple device use.)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 Mechanisms
+ for call management--adding media streams, encoding changes, new participants, 
+call transfer, holding.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 13. CDN Content
+ Distribution Networks -- CDN company installs many CDN servers throughout the Internet
+, and distributes customer data    \tab throughout, providing a cache for the customer
+\u8217\'92s clients.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 14. 4 Principles
+ of beyond best efforts.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\li720{\f0\lang1033\fs20\kerning28 1.  
+Packet classification allows a router to distinguish among packets belonging to 
+different classes of traffic.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+2.  It is desirable to provide a degree of isolation among traffic flows, so that
+ one flow is not adversely affected by another \tab\tab  misbehaving flow.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+3.  While providing isolation among flows, it is desirable to use resources as efficiently
+ as possible.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-270\li990{\f0\lang1033\fs20\kerning28
+4.  If sufficient resources will not always be available, a call admission process
+ is needed in which flows declare their QoS \tab    requirements and are then either
+ admitted to the network (at the required QoS) or blocked from the network (if the
+ required QoS cannot be provided by the network.)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 15.  FIFO
+ -- First in First out\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28        WFQ
+ -- Weighted Fair Queuing.  Like round robin, but some classes receive a larger 
+slice than others.  Return to 625 for calcs.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28        Leaky
+ bucket -- just read 625.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 16.  631\par
+}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28 17.  RSVP
+ -- Applications reserve bandwidth for their data flows.  637\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab 1.  Reservations
+ of bandwidth in multicast trees (unicast = degenerate case of multicast)\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1{\f0\lang1033\fs20\kerning28\tab 2.  Receiver
+ oriented -- receiver initiates and maintains the resoure reservation.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+18.  See latter slides on chapter 8\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+19.  SSL -- Secure Sockets Layer.  Begins with a \u8220\'93handshake phase\u8221
+\'94 that decides encryption algorithm, keys, and authenticates server to client
+.     (also authenticate client to server if needed)  Data transferred is then encrypted
+ according to handshake.  710-711 for 7 steps. See slide 74-75 chapter 8.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+20.   \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+21.  \tab\tab KDC -- Key Distribution Center -- symmetric key cryptography.  A single
+, trusted network entity with whom one has established a \tab\tab\tab shared secret
+ key.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+\tab\tab CA --  Certificate Authority -- public key cryptography.  CA certifies 
+that a public key belongs to an entity, and is trustworthy.\tab\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+\tab\tab PGP -- Pretty Good Privacy.  Software creates public key pair for a user
+.  Public key available via website or public key server.  \tab\tab\tab Private 
+key protected by password; password must be used every time the private key is accessed
+. \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+\tab\tab IPsec -- IP security:  a suite of security protocols on network layer.  
+AH, ESP; see 712-716, \par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+22.  Firewall def in text:  \u8220\'93A combination of hardware and software that
+ isolates an organization\u8217\'92s internal network from the Internet at large
+, allowing some packets to pass and blocking others.\u8221\'94  692\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li1080{\f0\lang1033\fs20\kerning28
+Packet Filtering -- examine datagram headers and apply filtering rules, usually 
+based on IP source/destination, TCP or UDP source and dest. Port, ICMP message type
+, Connection-initialization datagrams using TCP SYN or ACK bits.\par}
+
+\pard\nowidctlpar\nooverflow\sl240\slmult1\fi-360\li360{\f0\lang1033\fs20\kerning28
+\tab\tab Application Gateway -- 695}}
