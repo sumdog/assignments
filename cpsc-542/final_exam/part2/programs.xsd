@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="tvShows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="program"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="program">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="item"/>
+        <xs:element ref="info"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="day"/>
+          <xs:element ref="days"/>
+        </xs:choice>
+        <xs:element ref="channel"/>
+        <xs:element ref="startTime"/>
+        <xs:element ref="endTime"/>
+        <xs:element ref="showTitle"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="day" type="xs:string"/>
+  <xs:element name="days" type="xs:string"/>
+  <xs:element name="channel">
+    <xs:complexType mixed="true">
+      <xs:attribute name="name" default=""/>
+      <xs:attribute name="number" default=""/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startTime" type="xs:string"/>
+  <xs:element name="endTime" type="xs:string"/>
+  <xs:element name="showTitle" type="xs:string"/>
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="category"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="actor"/>
+        <xs:element minOccurs="0" ref="criticRating"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="category" type="xs:string"/>
+  <xs:element name="actor" type="xs:string"/>
+  <xs:element name="criticRating" type="xs:string"/>
+</xs:schema>

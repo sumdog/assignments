@@ -9,7 +9,6 @@
 <!ELEMENT startTime (#PCDATA)>
 <!ELEMENT endTime (#PCDATA)>
 <!ELEMENT showTitle (#PCDATA)>
-
 <!ELEMENT info (category,actor*,criticRating?)>
 <!ELEMENT category (#PCDATA)>
 <!ELEMENT actor (#PCDATA)>
