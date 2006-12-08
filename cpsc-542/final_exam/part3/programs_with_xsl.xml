@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="programs.xsl" type="text/xsl"?>
+<tvShows>
+  <program>
+    <item>
+	<day>Wednesday</day>
+	<channel name="Food" number="58"></channel>
+	<startTime>19:00</startTime>
+	<endTime>19:30</endTime>
+	<showTitle>Sara's Secrets</showTitle>
+    </item>
+    <info>
+	<category>How to</category>
+	<actor>Sara Moulten</actor>
+	<criticRating></criticRating>
+    </info>
+ </program>
+ <program>
+    <item>
+	<day>Wednesday</day>
+	<channel name="BBC" number="114"></channel>
+	<startTime>20:00</startTime>
+	<endTime>21:00</endTime>
+	<showTitle>Monarch of the Glen</showTitle>
+    </item>
+    <info>
+	<category>drama</category>
+	<actor>Alastair Mackenzie</actor>
+	<criticRating>***</criticRating>
+    </info>
+  </program>
+  <program>
+      <item>
+  	<day>Tuesday</day>
+  	<channel name="BBC" number="114"></channel>
+  	<startTime>22:00</startTime>
+  	<endTime>23:00</endTime>
+  	<showTitle>Dr. Who</showTitle>
+      </item>
+      <info>
+  	<category>drama</category>
+  	<actor>Christopher Eccleston</actor>
+  	<criticRating>****</criticRating>
+      </info>
+  </program>
+  <program>
+      <item>
+  	<days>Monday Tuesday Wednesday Thursday Friday</days>
+  	<channel name="CNBC" number="61"></channel>
+  	<startTime>7:00</startTime>
+  	<endTime>9:30</endTime>
+  	<showTitle>Squawk Box</showTitle>
+      </item>
+      <info>
+  	<category>news</category>
+      </info>
+  </program>
+  <program>
+      <item>
+  	<days>Monday Tuesday Wednesday Thursday Friday</days>
+  	<channel name="WTCI" number="5"></channel>
+  	<startTime>17:30</startTime>
+  	<endTime>18:00</endTime>
+  	<showTitle>As Time Goes By</showTitle>
+      </item>
+      <info>
+  	<category>comedy</category>
+  	<actor>Judi Dench</actor>
+  	<actor>Geoffrey Palmer</actor>
+  	<criticRating>****</criticRating>
+      </info>
+  </program>
+  <program>
+      <item>
+  	<day>Saturday</day>
+  	<channel name="GPTV" number="12"></channel>
+  	<startTime>21:00</startTime>
+  	<endTime>21:30</endTime>
+  	<showTitle>Are You Being Served</showTitle>
+      </item>
+      <info>
+  	<category>comedy</category>
+  	<actor>Mollie Sugden</actor>
+  	<actor>Frank Thornton</actor>
+  	<actor>John Inman</actor>
+  	<criticRating>****</criticRating>
+      </info>
+  </program>
+  <program>
+      <item>
+    	<days>Monday Tuesday Wednesday Thursday Friday</days>
+    	<channel name="WTCI" number="5"></channel>
+    	<startTime>17:00</startTime>
+    	<endTime>17:30</endTime>
+    	<showTitle>Are You Being Served</showTitle>
+      </item>
+      <info>
+    	<category>comedy</category>
+    	<actor>Mollie Sugden</actor>
+    	<actor>Frank Thornton</actor>
+    	<actor>John Inman</actor>
+    	<criticRating>****</criticRating>
+      </info>
+  </program>
+</tvShows> 
