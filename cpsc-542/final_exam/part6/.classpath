@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/sw/share/java/commons-codec/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/sumitkhanna/Documents/cvs/cpsc-542/final_exam/part6/xmlrpc-2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/sumitkhanna/Documents/cvs/cpsc-542/final_exam/part6/xmlrpc.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
