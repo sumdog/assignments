@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style>
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+}
+  </style>
+  <title>Chapter 1 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #1 Exercises 1.4, 1.5, 1.6, 1.9, 1.16<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<p class="question">1.4 Which of the functionalities listed below need to be supported by the operating system for the following two settings: (a) handheld devices and (b) real-time systems.<br />
+<ol>
+ <li>Batch programming</li>
+ <li>Virtual memory</li>
+ <li>Time sharing</li>
+</ol>
+
+<p class="answer">
+<b>Batch Processing</b><br />
+Batch processing, where several tasks are run in the background without human interaction, is necessary on handheld devices for scheduling tasks such as setting alarms. The user doesn't really see this as a creating a batch process thanks to the nice graphical user interface.
+<br/><br />
+In an embedded real-time system, there is no reason for batch processes since there is only one process and it runs sequentially. If the process contains a main while loop, a scheduler can be made, either by polling the clock or checking interrupts, to run certain procedures at given times to simulate batch processing.
+<br /><br />
+<b>Virtual Memory</b>
+Virtual Memory refers to using cheaper and larger non-volatile storage to extend the storage of the significantly faster, but smaller and more expensive physical memory through a process called paging. In a handheld, there is no need for virtual memory because very few handhelds have hard drives. Instead all program data and executables occupy the shared volatile memory built into the device. An example of this is a Palm device which only has internal memory/external SD cards but no disk devices.
+<br /><br />
+Virtual memory is also unnecessary on real-time embedded devices since these devices typically have a very small amount of memory, simple I/O and a unified stack and data space. 
+<br /><br />
+<b>Time Sharing</b>
+Time Sharing is what allows a single general purpose processor to run multiple tasks or "processes" simultaneously. In reality, the tasks are not running at the same time, but rather the operating system allows each task a given amount of time, typically a few microseconds. 
+<br />
+Until recently most handheld Palm devices did not support Time Sharing. They were purely event driven and single threaded. They used software interrupts for functions such as alarms. In more recent years, newer Palms support background threads, which have become essential for devices such as Smart Phones. Windows PocketPC (formerly WindowsCE) has always supported a multi-threaded environment more similar to their desktop operating system.
+<br />
+Time Sharing is not necessary on real-time embedded systems. Being "real-time," these systems typically have a single execution process that has dedicated control of the CPU.
+</p>
+<p class="question">1.5 Describe the differences between symmetric and asymmetric multiprocessing. What are three advantages and one disadvantage of multiprocessor systems?</p>
+ 
+<p class="answer">Asymmetric processing is where there are several specific CPUS each designed for individual tasks, for example if you had a dedicated CPU for disk I/O, one for memory access, one for graphics, etc... This type of system is typically found on older DEC systems.
+<br />
+Symmetric Multiprocessing is where a computer has two more identical CPUs. The operating system can then designate tasks to any of the available CPUs. For one single threaded application, there is very little advantage for using multiple processors as opposed to a single processor. The operating system can choose to offload its interrupt controls on the other CPU, giving the sole application more time, but the performance increase is minimal. Two or more applications that are single threaded can benefit because the operating system can schedule them to run on different processors. Multithreaded apps benefit the most because they can have independent threads of the same application run on different CPUs. 
+<br /><br />
+<b>Advantages</b><br />
+<ul>
+<li>Allows simultaneous execution of programs on separate CPUs allowing for a performance increase</li>
+<li>The operating system can use one processor dedicated to handling system interrupts</li>
+<li>Multi-processor servers and multi-core systems are becoming increasingly cheaper / cost-effective</li>
+</ul>
+<b>Disadvantages</b><br /> 
+<ul><li>Programming multi-threaded applications can be more difficult</li></ul>
+
+<p class="question">1.6 How do clustered systems differ from multiprocessor systems? What is required for two machines belonging to a cluster to cooperate to provide a highly available service?</p>
+
+<p class="answer">A cluster is a collection of standard computers or servers, couples together via a network or high speed interchange, in order to solve complex problems that can be broken down into several large manageable parts. The cluster can have multiprocessor systems within it, but the defining factor of a cluster versus a super-computer, is that there are individual computers.
+<br />
+For a cluster to be highly available, there must be redundancy and fault-tolerance. In a fault-tolerance system, if one system goes down it will not cause the current process to fail. This is achieved by using some level of redundancy for both the data and the processes.
+</p>
+
+
+</body>
+</html>
