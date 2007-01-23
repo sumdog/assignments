@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style>
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer {
+	color: green;
+}
+  </style>
+  <title>Chapter 2 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #2 Exercises 2.1, 2.2, 2.3, 2.4, 2.12<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<p class="question">2.1 The services and functions provided by an operating system can be divided into two main categories. Briefly describe the two categories and discuss how they differ.<br />
+
+<p class="answer">
+<b>1.)</b>
+One set of operating system services provides functions that are helpful to the user. These services include the user interface, program execution, I/O operations, file-system manipulation, communications, and error detection.
+<br/><br />
+<b>2.)</b>
+Another set of operating-system functions exists not for helping the user, but rather for ensuring the efficient operation of the system itself. Systems with multiple users can gain efficiency by sharing the computer resources among the users. This set of services includes resource allocation, accounting, and protection and security.
+<br /><br />
+</p>
+<p class="question">2.2 List five services provided by an operating system that are designed to make it more convenient for sers to use the computer system. </p>
+ 
+<p class="answer">
+<b>1.) User Interface: </b>
+Almost all operating systems have a user interface (UI). This interface can take several forms. One is a command-line interface (CLI), which uses text commands and a method for entering them. Another is a batch interface, in which commands and directives to control those commands are entered into files, and those files are executed. Most commonly, a graphical user interface (GUI) is used. Here, the interface is a window system with a pointing device to direct IO, choose from menus, and make selections and a keyboard to enter text. Some systems provide two or all three of these variations.
+<br /><br />
+<b>2.) Program Execution: </b>
+The system must be able to load a program into memory and to run that program. The program must be able to end its execution, either normally or abnormally (indicating error).
+<br /><br />
+<b>3.) I/O operations: </b>
+A running program may require I/O, which may involve a file or an I/O device. For specific devices, special functions may be desired (such as recording to a CD or DVD drive or blanking a CRT screen). For efficiency and protection, users usually cannot control I/O devices directly. Therefore, the operating system must provide a means to do I/O.
+<br /><br />
+<b>4.) File-system manipulation: </b>
+The file system is of particular interest. Obviously, programs need to read and write files and directories. They also need to create and delete them by name, search for a given file, and list file information. Finally, some programs include permissions management to allow or deny access to files or directories based on file ownership.
+<br /><br />
+<b>5.) Communications: </b>
+There are many circumstances in which one process needs to exchange information with another process. Such communication may occur between processes that are executing on the smae computer or between processes that are executing on different computer systems tied together by a computer network. Communications may be implemented via shared memory or through message passing, in which packets of information are moved between processes by the operating system.
+<br /></p>
+
+<p class="question">2.3 Describe three general methods for passing parameters to the operating system.</p>
+<p class="answer">
+<b>1.) </b>
+The simplest approach is the pass the parameters in registers.
+<br /><br />
+<b>2.) </b>
+In the case in which there are more parameters than registers. In these cases, the parameters are generally stored in a block, or table, in memory, and the address of the block is passed as a parameter in a register.
+<br /><br />
+<b>3.) </b>
+The final method involves the parameters being placed, or pushed, onto the stack bu the program and popped off the stack by the operating system.
+<br /><br />
+Some operating systems prefer the block or stack method, because those approaches do not limit the number of the length of the parameter being passed.
+</p>
+
+<p class="question">2.4) Describe how you could obtain a statistical profile of the amount of time spent by a program executing different sections of its code. Discuss the importance of obtaining such a statistical profile. 
+</p>
+<p class="answer">
+The most basic way to do this is to simple use the <i>time</i> command on a Linux system. By running <i>time</i> and then the program to execute, the user gets a simple list of execution times for a single program. This is great to get the speed of an entire program from start to finish, but then getting statistics on an entire set of algorithms would require the programmer to break each one into its own little program.
+<br/><br/>
+Another option is to use tools like <i>Valgrind</i>, which is a memory debugger capable of displaying all types of statistics about a program including memory leaks and invalid memory usage. Creating these models and profiles helps programs find bottlenecks in their software.
+</p>	
+
+<p class="question">2.12 What is the main advantage of the microkernel approach to system design? How do user programs and system services interact in a microkernel architecture? What are the disadvantages of using the microkernel approach?</p>
+
+<p class="answer">
+When I first started using Linux, the kernel source code was approximately a 6MB download. Not all of this source code was used to compile a custom kernel as the purpose of compiling a custom kernel was to only include the drivers one needed for a particular system. Over the years the size of the Linux Kernel, as with other operating systems such as FreeBSD, has grown considerably. <br/><br />
+The current Linux Kernel is over 20MB and that's not just due to new drivers, but many features added to the kernel itself such as preemption and tools such as the udev filesystem. The current Linux kernel configuration has options to disable many of these options to make a smaller kernel useful for embedding itself on small devices with limited resources.
+<br /><br />
+Micro-kernels typically have unnecessary features stripped from them to reduce their size and the amount of resources they utilize. Typically all Linux Kernel processes in a <i>ps -ef</i> list are surrounded in brackets. They include processes such as <i>[ksoftirqd/0]</i> and <i>[khelper]</i>. In a micro-kernel, these processes are removed and, if they need to be implemented, they are done is in user-space as regular applications and not kernel processes. This can help make the kernel smaller and utilize fewer resources, however if these services are reimplemented in user-space, they tend to run slower than they would at the kernel level. The advantage is that not all features of the service need be implement to save space and processing power.
+<br /><br />
+In Linux, a micro-kernel can be created by turning off features in the "Configure standard kernel features (for small systems)" menu. They include services such as the SLAB allocator (used to allocate memory on the SALB during boot), the eventpool system, ELF core dumps (useful for debugging), hotplug support and many others.
+</p>
+
+</body>
+</html>
