@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer {
+	color: green;
+}
+  </style>
+  <title>Chapter 3 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #3 Exercises 3.1, 3.2<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<p class="question"> 3.1 Describe the differences among short-term, meduim-term, and long-term scheduling</p>
+
+<p class="answer">Often, in a batch system, more processes are submitted than can be executed immediately. These processes are spooled to a mass-storage device where they are kept for later use. Then the long-term scheduler selects processes from this pool and loads them into memory for execution. This is how long-term scheduling works.</p>
+
+<p class="answer">When a process is ready to be executed, the short-term scheduler selects from among the ready processes and loads them into memory. This is how short-term scheduling works.</p>
+
+<p class="answer">Some operating systems, such as time-sharing systems, may introduce an additional, intermediate level of scheduling. The idea behind medium-term scheduling is that sometimes it can be advantageous to remove processes from memory and thus reduce the degree of multiprogramming. Later, the process can be reintroduced into memory, and its execution can be continued where it left off.</p>
+
+<p class="question"> 3.2 Describe the actions taken by a kernel to context-switch between processes. </p>
+                    
+<p class="answer">
+A context switch occurs when a current running process is stopped for either another process to start or an event (e.g an interrupt) needs to be handled. A mode switch between kernel and user-mode may sometimes, but not always, require a context switch. The stages to a context switch are as follows: 
+</p>                   
+
+<p class="answer">
+	<ol>
+		<li>a</li>
+	</ol>
+</p>
+
+</body>
+</html>
