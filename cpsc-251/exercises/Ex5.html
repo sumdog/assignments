@@ -24,9 +24,20 @@ Chapter #4 Exercises 4.1, 4.2, 4.6<br />
 
 <p class="question">4.1 Provide two programming examples in which multithreading does <i>not</i> provide better performance than a single-threaded program.</p>
 
+<p class="answer">There are several instances where multithreaded applications will not have a performance gain over single threaded applications. For any gain to occur with multithreaded applications, the problem that is trying to be solved must be able to be broken down into two or more parts that can be completed in parallel.</p>
+
+<p class="answer">Most problems such as sorting and searching are done using algorithms that are sequential and linear. Even programs such as video games are single threaded using a while loop to process all the game functions (determine positions, calculate AI moves, accept user input and render the frame) sequentially. This means that if a game is running at 60 frames per second, this entire while loop is being fully executed 60 times within a second.</p>
+
+<p class="answer">There are very few programs that lend themselves to requiring multiple threads. Media Players, Word Processors and most games work fine as single threaded applications. If an application must block for Input/Output, a multithreaded program can gain an advantage by allowing other tasks to be completed while the program waits for I/O. An example of this is Nero, the CD-writing program which uses a multithreaded approach to cd-writing to prevent dead-locks and reduce the delays in the program.</p>
+
+<p class="answer">Most games are single threaded, however when ID software released Quake III, it was the first 3D shooter that utilized multiple threads which gives it an advantage on SMP (multiple processor) architectures, which is why it’s used as a de-facto standard benchmarking application.</p>
 
 
 <p class="question">4.2 Describe the actions taken by a thread library to context switch between user level threads.</p>
+
+<p class="answer">A context switch between threads is very similar to a context switch between processes in which case the state of the process's registers are saved, the process's virtual memory map and program counter are saved (the process's u-area) and the new process is schedules and restored into the current context.</p>
+
+<p class="answer">The difference is that when switching to a new thread, the process's u-area doesn't need to be saved or restored. It is the same since both threads share the same memory address region and process data. The only thing that needs to be saved are the current thread's program counter, stack pointer and registers. Then the new threads counter, stack and registers are restored to complete the context switch.</p>
 
 <p class="question">4.6 As described in Section 4.5.2, Linux does not distinguish between processes and threads. Instead, Linux treats both in the same way, allowing a task to be more akin to a process or a thread depending on the set of flags passed to the clone() system call. However, many operating systems-such as Windows XP and Solaris-treat processes and threads differently. Typically, such systems use a notation wherein the data structure for a process contains pointers to the separate threads belonging to the process. Contrast these two approaches for modeling processes and threads within the kernel.
  Describe the actions taken by a thread library to context switch between user level threads.</p>
