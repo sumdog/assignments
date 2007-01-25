@@ -38,8 +38,18 @@ A context switch occurs when a current running process is stopped for either ano
 
 <p class="answer">
 	<ol>
-		<li>a</li>
+		<li><b>Save</b> the current context</li>
+		<ul>
+			<li>Data Registers (eax, ebx, etc. on Intel)</li>
+			<li>Flag Registers</li>
+			<li>The running process's U-Area</li>
+			<li>Information pertaining to processes virtual memory mapping</li>
+			<li>Stack and Program Counter (a.k.a Instruction Register) 
+		</ul>
+		<li><b>schedule()</b> the process that should run next based on priority/goodness values</li>
+		<li><b>switch_to()</b> the next process that needs to be run. When retuning from switch_to(), the system will be in an entirely new processes memory space. Its registers, flags, memory space and Program Counter are restored and the process is read to resume execution.</li> 
 	</ol>
+	<p style="font-size: small; margin-left: 30px;">Source: Dr. Harris's cpsc-532r/Advanced System Programming Notes.</p>
 </p>
 
 </body>
