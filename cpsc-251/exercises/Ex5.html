@@ -42,5 +42,30 @@ Chapter #4 Exercises 4.1, 4.2, 4.6<br />
 <p class="question">4.6 As described in Section 4.5.2, Linux does not distinguish between processes and threads. Instead, Linux treats both in the same way, allowing a task to be more akin to a process or a thread depending on the set of flags passed to the clone() system call. However, many operating systems-such as Windows XP and Solaris-treat processes and threads differently. Typically, such systems use a notation wherein the data structure for a process contains pointers to the separate threads belonging to the process. Contrast these two approaches for modeling processes and threads within the kernel.
  Describe the actions taken by a thread library to context switch between user level threads.</p>
 
+<p class="answer">In Windows, the thread is the basic unit of execution. One or
+more threads run in the context of the process. The scheduling code is
+implemented in the kernel. There is no single scheduler module or routine.</p>
+
+<p class="answer">The Linux kernel uses a process model rather than a threading
+model. The Linux kernel provides a lightweight process framework for creating
+threads. The actual thread implementation is in the user space. There are
+various threading libraries available in Linux.</p>
+
+<p class="answer">Kernel-level threads are implemented in the kernel using
+several tables (each task getting a table of threads). The kernel schedules
+each thread within the timeslice of each process.
+There is more overhead with switching in kernel-level threads over user-level,
+but Linux's kernel-level threads perform nearly as
+well as user-level threads.</p>
+
+<p class="answer">Linux can operate by using either entirely user-level or entierly kernel-level threads or a combination of both. Advantages for using kernel-level threads is that it's less
+likely for a thread to monopolize a timeslice. Also,
+I/O blocking is not a problem. If properly coded, the process can automatically
+take advantage of symmetric multi-processors systems, SMPs,
+as well and will run incrementally faster with each CPU added..
+
+</p>
+
+
 </body>
 </html>
