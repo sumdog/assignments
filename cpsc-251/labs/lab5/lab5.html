@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer {
+	color: green;
+}
+b {
+	color: blue;
+}
+  </style>
+  <title>Lab #5 - Introduction to Linux Commands</title>
+</head>
+<body>
+<h2>
+Lab #5 - Introduction to Linux Commands<br />
+cpsc-251 <br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a>
+</h2>
+<ol>
+  <li class="question">What Operating System (be specific – include version, kernel) is run on zog?</li>
+   <ul class="answer">
+	   <li>Red Hat Enterprise Linux AS release 4 (Nahant Update 4)</li>
+	   <li>linux 2.6.9-42.0.3.ELsmp</li>
+	</ul>
+  <li class="question">What is the command to change your password? What guidelines should you follow when choosing a password?</li>
+   <ul class="answer">
+	<li><b>passwd</b> will change the password (or <b>ldappasswd</b> on systems with LDAP authentication) </li>
+	<li>Passwords should contain letters and numbers, should not contain dictionary words and be at least eight characters long</li>
+	</ul>
+  <li class="question">What Linux command do you use to list detailed information about the files in your directory?</li>
+   <ul class="answer"><li><b>ls -la</b> will give a listing of all files, including hidden files, with all of the files information</li></ul>
+  <li class="question">How would you create a file named Test by typing the line<i>   abc  </i>at the keyboard?</li>
+   <ul class="answer"><li>You would type <i><b>echo "abc" &gt; Test</b></i></li></ul>
+  <li class="question">What commands are used with directories? What does each of these commands do?</li>
+   <ul class="answer">
+	   <li><b>mkdir</b> - makes a directory</li>
+	   <li><b>rmdir</b> - removes a directory if it is empty</li>
+	   <li><b>ls</b> - list the files in a directory</li>
+	   <li><b>rm -rf</b> - removes a non-empty directory</li>
+	</ul>
+  <li class="question">How to you copy files? Delete files?</li>
+   <ul class="answer">
+   	  <li><b>cp</b> - copies files</li>
+      <li><b>mv</b> - moves files</li>
+      <li><b>rm</b> - deletes files</li>
+   </ul>
+  <li class="question">How do you create filename aliases? Give examples to illustrate your answer.</li>
+   <ul class="answer">
+	  <li>The <b>ln</b> command creates links. A link can either be symbolic, which creates a file that points to another file, or it can be hard, where two files point to the same location on disk. </li>
+	</ul>
+  <li class="question">Create a java application program that will print:  Hello, World!  Compile your file and execute it.</li>
+   <ul class="answer"><li></li></ul>
+  <li class="question">Modify your program to use a java applet.  Compile your file and run it.</li>
+   <ul class="answer"><li></li></ul>
+</ol>
+</body>
+</html>

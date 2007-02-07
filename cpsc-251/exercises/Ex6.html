@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer {
+	color: green;
+}
+b {
+	color: black;
+}
+  </style>
+  <title>Chapter 21 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #21 Exercises 21.1, 21.4, 21.5<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Mjetton@unumprovidant.com">M. Jetton</a><br />
+</p>
+
+<p class="question"><b>21.1</b> What are the advantages and disadvantages of writing an operating system in a high-level language, such as C?</p>
+
+<p class="answer">There are many advantages of writing an operating system in a high level language. Higher level languages like C are easier to read and, with a good compiler, the code can be reduced more effectively using advanced compiler algorithms. The finished binary is typically more efficient than writing machine code. It is also easier to debug higher level languages since they can use symbols versus memory locations.</p>
+
+<p class="answer">Of course not everything can be written in a high level language. There are many low level instructions necessary for memory management that must be written in the machines native language. Therefore there is usually a thin layer of assembly between the lowest levels of the kernel and the high level code. </p>
+
+<p class="answer">Another disadvantage of using higher level languages to write operating systems involves the compiler itself. Buggy compilers can cause problems with making stable kernels, such as the controversial gcc 2.96 compiler released by Red Hat which was never endorsed by the GNU gcc team. A good compiler, such as Intel's icc compiler (a commercial application), creates much faster kernel code than gcc.</p>
+
+<p class="question"><b>21.4</b> Linux runs on a variety of hardware platforms. What steps must the Linux developers take to ensure that the system is portable to different processors and memory-management architectures, and to minimize the amount of architecture-specific kernel code?</p>
+
+<p class="answer"></p>
+
+<p class="question"><b>21.5</b> What are the advantages and disadvantages of making only some of the symbols defined inside a kernel accessible to a loadable kernel module?</p>
+
+<p class="answer">
+Modules are kernel objects and must be able to reference parts of the kernel just like any standard program references shared object libraries. As with any shared object, there must be data hiding so that the calling functions do not interfere with the internals of the library. In the same way, kernel modules can only have access to certain kernel data members so they do not interfere with the standard operation of the kernel. This increases stability and security for the kernel.
+</p>
+<p class="answer">
+The modules still have the flexibility to run all their code in kernel mode, giving them high priority and direct access to system resources, however the disadvantage is that they must still make calls to the kernel for thing such as input/ouput and memory management. Also since the locations of the symbols and the symbols included can change each time a system administrator recompiles the kernel, modules must also be recompiled for every new kernel. This can be difficult for propriety or <i>binary only</i> drivers that are not open source.
+</p>
+
+
+</body>
+</html>
