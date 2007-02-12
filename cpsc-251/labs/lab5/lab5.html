@@ -56,11 +56,14 @@ cpsc-251 <br />
   <li class="question">How do you create filename aliases? Give examples to illustrate your answer.</li>
    <ul class="answer">
 	  <li>The <b>ln</b> command creates links. A link can either be symbolic, which creates a file that points to another file, or it can be hard, where two files point to the same location on disk. </li>
+	  <li><b>ln -s original_file.txt link_to_file.txt</b> - creates a symbolic link to <b>original_file.txt</b>. The link can be deleted and the original file will be intact. Editing the link edits the original file. Deleting the original file removes the data, but the link will stay. It will become invalid.</li>
+	  <li><b>ln filea.txt fileb.txt</b> - creates a hard link. Both filea.txt and fileb.txt are names for the same file. Both must be deleted to free the space on disk.</li>
+	  <li>Only files can be hard linked. Directories can <b>not</b> be hard linked. Any file can have a symbolic link</li> 
 	</ul>
   <li class="question">Create a java application program that will print:  Hello, World!  Compile your file and execute it.</li>
-   <ul class="answer"><li></li></ul>
+   <ul class="answer"><li><a href="HelloWorld.java">HelloWorld.java</a></li></ul>
   <li class="question">Modify your program to use a java applet.  Compile your file and run it.</li>
-   <ul class="answer"><li></li></ul>
+   <ul class="answer"><li><a href="HelloWorldApplet.html">Hello World Applet</a></li></ul>
 </ol>
 </body>
 </html>
