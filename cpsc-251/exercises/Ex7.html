@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer  {
+	color: green;
+}
+  </style>
+  <title>Chapter 5 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #5 Exercises 5.4 cd, 5.5, 5.6, 5.10<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Mwjetton@comcast.net">Matt. 
+  Jetton</a><br />
+</p>
+
+<p class="question"><b>5.4 c,d</b> Consider the following set of processes, with the length of the CPU-burst time given in milliseconds:<br />
+	<table>
+		<tr><th>Process</th><th>Burst Time</th><th>Priority</th></tr>
+		<tr><td>P1</td><td>10</td><td>3</td></tr>
+		<tr><td>P2</td><td>1</td><td>1</td></tr>
+		<tr><td>P3</td><td>2</td><td>3</td></tr>
+		<tr><td>P4</td><td>1</td><td>4</td></tr>
+		<tr><td>P5</td><td>5</td><td>2</td></tr>
+	</table>
+<br />
+The processes are assumed to have arrived in the order P1, P2, P3, P4, P5, all at time 0.<br />
+<ol>
+	<li>What is the waiting time of each process for each of the scheduling algorithms in part a?</li>
+	<li>Which of the schedules in part a results in the minimal average waiting time (over all processes)?</li>
+</ol>
+</p>
+
+<p class="answer">Answer:
+<br>c. Waiting time (turnaround time minus burst time)
+
+<blockquote>
+	<table width="30%" border="0" class="answer" >
+  	<tr>    <td></td>    <td>FCFS</td>    <td>RR</td>    <td>SJF</td>    <td>Priority</td>  </tr>
+  	<tr>    <td>P1</td>    <td>0</td>    <td>9</td>    <td>9</td>    <td>6</td>  </tr>
+  	<tr>    <td>P2</td>    <td>10</td>    <td>1</td>    <td>0</td>    <td>0</td>  </tr>
+  	<tr>    <td>P3</td>    <td>11</td>    <td>5</td>    <td>2</td>    <td>16</td>  </tr>
+  	<tr>    <td>P4</td>    <td>13</td>    <td>3</td>    <td>1</td>    <td>18</td>  </tr>
+  	<tr>    <td>P5</td>    <td>14</td>    <td>9</td>    <td>4</td>    <td>1</td>  </tr>
+	</table>
+</blockquote>
+</br>
+</p>
+<p class="answer"><br>d. The shortest job first will result in the min ave wait time.</br></p>
+
+<p class="question"><b>5.5</b> Which of the following scheduling algorithms could result in starvation?
+
+<ol>
+ <li>First-come, first-served</li>
+ <li>Shortest job first</li>
+ <li>Round robin</li>
+ <li>Priority</li>
+</ol>
+</p>
+
+<p class="answer">Shortest job first and Priority based scheduling can both result in starvation</p>
+
+<p class="question"><b>5.6</b> Consider a variant of the RR scheduling algorithm where the entries in the ready queue are pointers to the PCBs.
+<ol>
+  <li>What would be the effect of putting two pointers to the same process in the ready queue?</li>
+  <li>What would be the major advantages and disadvantages of this scheme?</li>
+  <li>How would you modify the basic RR algorithm to achieve the same effect without the duplicate pointers?</li>
+</ol>
+</p>
+
+<p class="answer">Answer:
+<br>a. It would give that process more processing time.</br>
+<p class="answer">b. <blockquote class="answer" >Advantage: Larger jobs would be given more processing time.</br>
+<br>Disadvantage: Shorter jobs will not have as much processing time.</br></blockquote>
+<p class="answer">c. You would give the processes with higher priorities longer processing times.</br>
+</p>
+
+
+<p class="question"><b>5.10</b> Explain the differences in the degree to which the following scheduling algorithms discriminate in favor of short processes:
+
+<ol>
+  <li>FCFS</li>
+  <li>RR</li>
+  <li>Multilevel feedback queues</li>
+</ol>
+</p>
+
+<p class="answer">
+	<ol>
+		<li><b>FCFS</b> - if a short job arrives after a long job, it will have a longer wait time before it enters the running state</li>
+		<li><b>RR</b> - In round robin, all tasks are given equal time so short jobs have the same priority as any other job and will execute and finish quickly</li>
+		<li><b>Multilevel Feedback Queues</b> - apply different scheduling approaches to different processes based on if they are foreground processes (continually block for slow I/O from user input on keyboard/mouse) of if they're background processes (block for fast I/O from memory or disk). Because of their complex and dynamic nature, they are more favorable to short processes that execute quickly with minimal I/O over long processes that continually block.</li>
+	</ol>
+</p>
+
+</body>
+</html>
