@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	font-style: italic;
+	color: blue;
+}
+.answer  {
+	color: green;
+}
+  </style>
+  <title>Chapter 5 Exercises</title>
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #6 Exercises 6.1, 6.3, 6.4<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Mwjetton@comcast.net">Matt. 
+  Jetton</a><br />
+</p>
+
+<ul>
+	<li class="question"><b>6.1</b> The first known correct software solution to the critical-section problem for two processes was developed by Dekker. The two processes, P0 and P1, share the following variables:
+ <blockquote>
+	boolean flag[2]; /* initially false */
+	int turn;
+ </blockquote>
+	The structure of process Pi (i == 0 or 1) is shown in Figure 6.25; the other process is Pj (j == 1 or 0). Prove that the algorithm satisfies all three requirements for the critical-section problem.
+		<ul>
+			<li class="answer">The algorithm is mutually exclusive. By using the flag variables, it creates a locking mechanism that ensures that only one thread will be in the synchronized section at a time </li>
+			<li class="answer">Furthermore, By using the TTturn variable, the algorithm assures that each thread gets a turn to enter the critical section. Without it, one thread could continually enter the second and lock out the other thread</li>
+		</ul>
+	</li>
+	<li class="question"><b>6.3</b> What is the meaning of the term <i>busy waiting</i>? What other kinds of waiting are there in an operating system? Can busy waiting be avoided altogether? Explain your answer.
+		<ul>
+			<li class="answer">In <i>busy waiting</i>, a process blocks and holds the processor until it waits for an instruction to complete, such as making a request from memory or disk. An alternative is for the task to yield the processor back to the operating system so that it can schedule another task to run. Typically if the task request some type of blocking I/O (memory or disk) and interrupt is sent to the operating system when the operation is complete and it will load that process back into the running state so it can complete its operation.</li>
+		</ul>
+	</li>
+	<li class="question"><b>6.4</b> Explain why spinlocks are not appropriate for single-processor systems yet are often used in multiprocessor systems.
+		<ul>
+			<li class="answer">A spinlock is essentially a while look that keeps looping until a condition is met. They're great for quick tasks with minimal wait. For long task, the spin locks will continually be swapped out and in by the scheduler, essentially polling for a resource instead of waiting for an interrupt. On a single processor system, this can be very costly since only one process can run at a time and the process running the spinlock must be swapped in each time to poll. On a multi-processor systems, the spinning thread can be moved to another processor. Spinlocks can be avoided if there is a hardware based interrupt support that prevents the need for polling. </li>
+		</ul>
+	</li>
+				
+</ul>
+
+</body>
+</html>
