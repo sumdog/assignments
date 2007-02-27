@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://zog.utc.edu/~tws117/GroupWork/Ex9.html -->
+<?xml version="1.0" encoding="UTF-8"?><HTML lang=en xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Chapter 7 Exercises</TITLE>
+<STYLE type=text/css>#headinfo {
+	FONT-WEIGHT: bold
+}
+.question {
+	COLOR: blue
+}
+.answer {
+	FONT-WEIGHT: bold; COLOR: green; FONT-STYLE: italic
+}
+B {
+	COLOR: black
+}
+</STYLE>
+
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2900.3020" name=GENERATOR></HEAD>
+<BODY>
+<P id=headinfo>Group #1<BR>Chapter #7 Exercises 7.4, 7.5<BR><A 
+href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</A> and <A 
+href="mailto:Mwjetton@comcast.net">Matt Jetton</A><BR></P>
+<P class=question><B>7.4</B> Compare the circular-wait scheme with the 
+deadlock-avoidance schemes (like the banker’s algorithm) with respect to the 
+following issues: <BR>a)Runtime Overheads<BR>b)System Throughput </P>
+<P class=answer>Answer: <BR>- Runtime overheads tend to increase with the use of 
+deadlock-avoidance schemes because they have to keep up with several data 
+structures in order to do their job. <BR>- System throughput can be reduced when 
+using the circular-wait scheme because it does not allow for as many resouses to 
+be used concurrently like the banker's algorithm. </P>
+<P class=question><B>7.5</B> In a real computer system, neither the resources 
+available nor the demands of processes for resources are consistent over long 
+periods (months). Resources break or are replaced, new processes come and go, 
+new resources are bought and added to the system. If deadlock is controlled by 
+the banker’s algorithm, which of the following changes can be made safely 
+(without introducing the possibility of deadlock), and underwhat 
+circumstances?</P>
+<P class=question>a) Increase Available (new resources added).<BR>b) Decrease 
+Available (resource permanently removed from system)<BR>c) Increase Max for one 
+process (the process needs more resources than allowed, it may want more)<BR>d) 
+Decrease Max for one process (the process decides it does not need that many 
+resources)<BR>e) Increase the number of processes.<BR>f) Decrease the number of 
+processes.</P>
+<P class=answer>Answer: <BR>a) Increase Available (new resources added). - This 
+is always safe. <BR>b) Decrease Available (resource permanently removed from 
+system) - This is only safe if in decreasing the resources does not make Max 
+exceed the available resources.<BR>c) Increase Max for one process (the process 
+needs more resources than allowed, it may want more) - This is only safe if Max 
+does not increase above the amount of available resources.<BR>d) Decrease Max 
+for one process (the process decides it does not need that many resources) - 
+This is always safe.<BR>e) Increase the number of processes. - This is always 
+safe.<BR>f) Decrease the number of processes. - This is always 
+safe.<BR></P></BODY></HTML>

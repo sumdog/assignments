@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 8 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #8 Exercises 8.1, 8.3, 8.5, 8.7<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Mwjetton@comcast.net">Matt Jetton</a><br />
+</p>
+
+<p class="question"><b>8.1</b>Explain the difference between internal and external 
+fragmentation.</p>
+<p class="answer">Answer: <br>
+Internal fragmentation occurs in paging when a block is allocated that is larger than the data it 
+must contain.  This applies to paging, since pages are fixed size.<br>
+
+External fragmentation occurs when variable size blocks are allocated and deallocated in a free 
+storage area.  Small regions of unallocated space will occur between allocated regions.  The small 
+unallocated spaces will be too small to satisfy storage requests, and thus will be wasted.
+</p>
+
+
+<p class="question"><b>8.3</b>Given five memory partitions of 100 KB, 500 KB, 200 KB, 300 KB, and 
+600 KB (in order), how would each of the first-fit, best-fit, and worst-fit algorithms place 
+processes of 212 KB, 417 KB, 112 KB, and 426 KB (in order)? Which algorithm makes the most 
+efficient use of memory?
+
+</p>
+
+<p class="answer">
+Best fit is the most efficent in this scenario because none have to wait and more memory can be used.<br>
+Answer: <br>First-fit:
+
+212K to 500K partition, 417K to 600K partition, 112K to 288K partition (Left over from 212K to 500K mapping), 
+
+426K Has to Wait<br>
+
+Best-fit:
+
+212K to 300K partition, 417K to 500K partition, 112K to 200K partition, 426K to 600K partition<br>
+
+Worst-fit:
+
+212K to 600K partition, 417K to 500K partition, 112K to 388K partition, 426K Has to wait<br>
+
+
+</p> 
+
+<p class="question"><b>8.5</b>Compare the main memory organization schemes of contiguous-memory allocation, pure segmentation, and pure paging with respect to the following:
+  <ol class="question">
+    <li>external fragmentation</li>
+    <li>internal fragmentation</li> 
+    <li>ability to share code across processes</li>
+  </ol>
+</p>
+<p class="answer"> 
+  <ol class="answer">
+    <li><b>Contiguous-memory</b> - in this scheme, since memory is allocated on contiguous blocks, gaps are left as old processes die and new ones are created leading to external fragmentation. It doesn't allow processes to share code since its internal segments are non-contiguous</li>
+    <li><b>Pure Segmentation</b> - code is allocated contiguously in physical memory causing external fragmentation as old processes are replaced by new ones. Two or more processes however can share code (same code but different data segments) useful for forking and shared object libraries.</li> 
+    <li><b>Pure Paging</b> - Does not have external fragmentation but has internal fragmentation as space can be wasted if allocation doesn't use an entire page. Page sizes are typically small (2k to 4k) to minimize wasted space. Code can be shared across processes.</li>
+  </ol>
+</p> 
+
+<p class="question"><b>8.7</b> - Compare paging with segmentation with respect to the amount of memory required by the address translation structures in order to convert virtual addresses to physical addresses.
+</p>
+
+<p class="answer">Paging takes up more overhead than segmentation. With segmentation, two hardware registers are typically used to control the base for a given process and the offset to its virtual memory address space. Paging requires a page table with one entry per page to direct it to the physical address of where the page is located in memory. 
+</p>
+
+
+</body>
+</html>
