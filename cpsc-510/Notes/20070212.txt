@@ -1,0 +1,80 @@
+Chapter 5 Topics
+* Introduction
+	* Imperative languages are abstractions of von Neumann architecture
+		* Memory
+		* Processor
+	* Variables characterized by attributes 
+* Names
+	* Design issues for names:
+		* Maximum length?
+			* If too short, they can not be connotative
+			* Language examples:
+				* FORTRAN 1: maximum 6
+				* COBOL: maximum 30
+				* FORTRAN 90 and ANSI C: maximum 31
+				* First version of BASIC had maximum of 1
+				* Ada and Java: no limit, and all are significant
+				* C++: no limit, but implementations often impose one
+		* Are connector characters allowed?
+			* Examples: underscore _ in C, minus - in Cobol
+			* Pascal, Modula-2 and FORTRAN 77 don't allow
+			* Others do 
+		* Are names case sensitive? 
+			* Disadvantage: readability (names that look alike are different)
+			* Worse in C++ and Java because predefined names are mixed case (e.g. IndexOutOfBoundsException)
+			* C, C++ and Java names are case sensitive
+		* Are special words reserved words or keywords?
+			* An aid to readability; used to delimit or separate statement clauses
+			* A keyword is a word that is special only in certain contents, e.g. in Fortran
+				* Real VarName (Real is a data type followed with a name making Real a keyword)
+				* Read = 3.4 (Real is a variable)
+			* A reserved word is a special word that cannot be used as a user-defined name
+* Variables
+	* A variable is an abstraction of a memory cell
+	* Variables can be characterized as a sextuple of attributes:
+		* Name
+			* Not all variables have names 
+		* Address 	- the memory address with which is is associated
+			* A variable may have different addresses at different times during execution
+				* Example: a function with a local variable that changes upon each call to the function
+			* A variable may have different addresses at different places in a program
+			* If two variable names can be used to access the same memory location, they are called aliases
+			* Aliases are created via pointers, reference variables, C and C++ unions
+			* Aliases are harmful to readability (program readers must remember all of them)
+		* Value - the contents of the location with which the variable is associated
+			* Abstract memory - the physical cell or collection of cells associated with a variable 
+		* Type - determines the range of values of variables and sets the operations that are defined for values of that type; in the case of floating point, they also determine the precision.
+		* Lifetime
+		* Scope
+* Concept of Binding
+	* The l-value of a variable is its address
+	* The r-value of a variable is its value
+	* A binding is an association, such as between an attribute and an entity, or between an operation and a symbol.
+	* Binding Time - the time at which binding an address takes place.
+		* Language design time -- bind operator symbols such as plus (+) to operators
+		* Language implementation time -- bind floating point type to representation
+		* Compile time -- bind a variable to a type in C or Java
+		* Load time -- bind a FORTRAN 77 variable to a memory cell (or a C static variable) 
+		* Runtime -- bind a nonstatic local variable to a memory cell.
+	* Static & Dynamic 
+		* Static - bind first occurs before run time and remains unchanged throughout program execution
+		* Dynamic - 
+	* Type Binding 
+		* How is type specified?
+		* When does the binding take place?
+		* If static, the type may be specified by either an explicit or implicit declaration. 
+	* Dynamic Type Binding (Javascript and PHP)
+* Type Checking
+* Strong Typing
+* Type Compatibility
+* Scope and Lifetime
+* Referencing Environments
+* Named Constants
+
+
+
+
+
+
+
+

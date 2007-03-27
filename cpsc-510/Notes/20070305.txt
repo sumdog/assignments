@@ -1,0 +1,40 @@
+Control Structure
+	* A control structure is a control statement and the statements whose execution it controls
+	* Design question: should a control structure have multiple entries? (goto)
+Fortran I
+	* Arithmetic IF was a 3-way selector
+		...
+	* General Form:
+		if control_expression
+			then clause
+			else clause
+	* Design Issues:
+		* What is the form and type of the control expression?
+		* How are the then and else clauses specified?
+		* How should the meaning of nested selectors be specified? 
+Cobol (two way selector):
+	* General form
+		IF condition
+			(statement {statement}| [NEXT SENTENCE])
+			[ELSE (statement {statement} | [NEXT SENTENCE]]
+	* Example
+		IF HOURS > 40
+			PERFORM OVERTIME-PAY
+		ELSE
+			PERFORM REGULAR-PAY
+	* "if" not required in Cobol. It could be left out as long as else is down there
+Fortran (two way selector)
+	* IF(boolean_expr) statement
+	* Problem: can select only a single statement; to select more, a GOTO must be used as in the following example
+		IF (.NOT. condition) GOTO 20
+			...
+		20 CONTINUE
+	* Negative logic is bad for readability 
+	* This problem was solved in FORTRAN 77
+	* Most later languages allow compounds for the selectable segment of their single-way selectors
+Algol (two way selector):
+	* ALGOL 60
+		if (boolean_expr)
+			then statement (then clause)
+			else statement (else clause)
+			

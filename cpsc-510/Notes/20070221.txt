@@ -1,0 +1,47 @@
+* Array Initialization 
+	* Some languages all ow initialization at the time of storage allocation
+		* C, C++, Java, C#
+			int list [] = { 4,5,7,83 }
+		* Character strings C/C++
+			char name[] = "bob";
+		* Array of string in C and C++
+			char *names [] = {"Bob", "Jake","Joe"};
+		* Java initialization os String objects
+			String[] names = {"bob","Jake","joe"};
+* Array Slicing 
+	* ...
+* Implementation of Arrays
+	* Access function maps subscript expressions to an address in the array
+	* Access functions for single-dimensioned arrays: address(list[k]) = address (list[lower_bound]) + ((k-lower_bound)*element_size)
+* Compiler-Time Descriptors
+	* Singe: Array, Element Type, Index Type, Lower bound, Upper Bound, Address
+	* Multi: Array, Element Type, Index Time. Number of Dimensions, Index Range 1 ... Index Range n, Address
+* Associative Arrays
+	* An associative array is unordered collection of data elements that are indexed by an equal number of vales called keys
+		* User defined keys must be stored
+	* Design issues: What is the form of references to elements
+* Definition of Record in COBOL
+	* COBOL uses level numbers to show nested records; others use recursive definition
+		01 EMP-REC.
+			02 EMP-NAME.
+				05 FIRST PIC X(20).
+				05 MID PIC X(10).
+				05 LAST PICX(20).
+			02 HOURLY-RATE PIC 99V99
+* Operations on Records
+	* Assignment is very common if the types are identical
+	* Ada allows record comparison
+	* Ada records can be initialized with aggregate literals
+	* COBOL provides MOVE CORRESPONDING
+		* Copies a field of the source record to the corresponding field in the target record
+* Evaluations and Comparison to Arrays
+	* Straight forward and safe design 
+	* Records can be heterogeneous where as Arrays are a single type
+	* Access to array elements is much slower because subscripts are dynamic (field names are static/fixed-width)
+* Implementation of Record Type
+	* Field1 = {} Data .. Field2 = {} Data
+* Union Types
+	* A union is a type whose variables are allowed to store different type values at different times during execution
+	* Design Issues
+		* Should type checking be required?
+		* Should unions be embedded in records?

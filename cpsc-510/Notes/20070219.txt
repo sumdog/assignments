@@ -1,0 +1,106 @@
+Computer Programming Language
+Chapter 6 - Data Types
+
+* Introduction
+	* A data type is a connection of data objects and predefined operations 
+	* descriptor - collection of attributes on variable
+	* object - represents an instance of user defined (abstract data) type
+	* One design issue for all data type: What operations are defined and how are they specified?
+* Primitive Data Types
+	* Almost all programming languages provide a set of primitive data types
+	* Primitive data type: Those not defined in terms of other data types
+	* Some primitive data types are merely reflections of the hardware
+	* Others require little non-hardware support
+	* Integer
+		* Almost always an exact reflection of the hardware so mapping is trivial
+		* There may be as many as eight different integer types in a language
+		* Java's signed integer size: byte, short, int, long
+	* Floating Point
+		* Model real numbers, but only as approximations 
+		* Languages for scientific use support at least two floating-point types (e.g., float and double; sometimes more)
+		* Usually exactly like the hardware, but not always
+		* IEEE Floating-Point Standard 754
+	* Decimal
+		* For business applications (money)
+			* Essential for COBOL
+			* C# offers a decimal data type
+		* Store a fixed number of decimal digits
+		* Advantage: accuracy
+		* Disadvantages: limited range, wastes memory
+	* Boolean
+		* Simplest of all
+		* Range of two, true/false
+		* Could be implement as bits, but often as byes
+	* Characters 
+		* Stored as numeric codings.
+		* Most commonly used coding: ASCII
+		* An Alternative, 16-bit: Unicode
+			* Includes characters from most natural languages
+			* Originally used in Java
+			* C# and JavaScript also support Unicode
+	* Character String Types
+		* Values are sequences of characters
+		* Design issues:
+			* Is it a primitive type or just a special kind of array?
+			* Should the length of strings be static or dynamic?
+		* Typical operations:
+			* Assignment and Copying 
+			* Comparison (=,>,etc.)
+			* Concatenation
+			* Substring reference
+			* Pattern matching 
+		* C and C++
+			* Not primitive 
+			* User char arrays and a library of functions that provide operations
+		* SNOBOL4 (a string manipulation language)
+			* Primitive 
+			* Many operations, including elaborate pattern matching
+		* Java
+			* Primitive via the String class
+		* Character Length String Options
+			* Static: COBOL, Java's String class
+			* Limited Dynamic Length: C and C++
+				* In C-based language, a special character is used to indicate the end of the string's characters, rather than maintaining the length
+			* Dynamic (no maximum): SNOBOL4, Perl, JavaScript
+			* Ada supports all three string length options 
+		* Character String Type Evaluation 
+			* Aids to writability 
+			* As a primitive type with static length, they are inexpensive to provide--why not have them?
+			* Dynamic length is nice, but is it worth the expense?
+		* Character String Implementation
+			* Static length: compile-time descriptor
+			* Limited dynamic length: may need a run-time descriptor for length (but not in C and C++)
+			* Dynamic length: need run-time descriptor; allocate/de-allocate is the bigest implementation problem
+		*Enumerated Type
+			* ...
+		* Arrays
+			* Array Design Issues
+				* What types are legal for subscripts?
+				* Are subscripting expressions in element references range checked?
+				* When are subscripts ranges bound?
+				* When does allocation take place?
+				* What is the maximum number of subscripts?
+				* Can array objects be initialized?
+				* Are any kind of slices allowed? 
+			* Indexing (or subscripting) is a mapping from indices to elements
+				array_name(index_value_list) -> an element
+			* Index Syntax
+				* FORTRAN, PL/I, Ada uses parentheses 
+					* Ada explicitly uses parentheses to show uniformity between array references and function calls because both are mappings
+			* Array Index (Subscript) Types
+				* FORTRAN, C: integer only
+				* Pascal: any ordinary type (integer, boolean, char, enumeration) 
+				* Ada: integer or enumeration (includes Boolean and char)
+				* Java: integer types only
+				* C, C++, Perl and Fortran do not specify range checking
+				* JAVA, ML C# specify range checking
+			* Subscript Binding and Array Categories
+				* Static subscript ranges are statically bound and storage allocation is static (before run-time)
+					* Advantage: efficiency (no dynamic allocation)
+				* Fixed static-dynamic: subscript ranges are statically bound, but the allocation is done at declaration time
+					* Advantage: space efficiency 
+				* Stack-dynamic: subscript ranges are dynamically bound and the storage allocation is dynamic (done at run-time)
+					* Advantage: flexibility (the size of an array need not be known until the array is to be used)
+				* ...
+				* Heap-dynamic : ...
+				

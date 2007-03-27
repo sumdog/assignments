@@ -1,0 +1,37 @@
+Chapter 12 
+	* Introduction
+		* Many object-oriented programming (OOP) languages
+		* Some support procedural and data-oriented programming (e.g Ada and C++)
+		* Some support functional program (e.g. CLOS)
+		* Newer languages do not support other paradigms but use their imperative structures (e.g. Java and C#)
+		* Some are pure OOP (e.g. Smalltalk)
+	* Object-Oriented Programming
+		* Abstract Data Types
+			* Abstraction 
+			* Encapsulation
+		* Inheritance
+			* Inheritance is the central theme in OOP and languages that support it
+		* Polymorphism
+			* Called Dynamic Binding in the text
+	* Design Issue for Object-Oriented Languages
+		* Inheritance
+			* Productivity increases can come from reuse
+				* ADTs are difficult to reuse
+				* All ADTs are independent and at the same level
+			* Inheritance allows new classes defined in terms of existing ones, i.e., by allowing them to inherit common parts
+			* Inheritance addresses both of the above concerns--reuse ADTs after minor changes and define classes in a hierarchy 
+		* Object Orientated Concepts 
+			* ADTs are called classes
+			* Class instances are called .....
+			...
+			* Calls to methods are called messages
+			* The entire collection of methods of an object is called its message protocol or message interface
+			* Messages have two parts--a method name and the destination object
+			* In the simplest case, a class inherits all of the entities of its parent
+	* Support for Object-Oriented Programming in Smalltalk
+	* Support for Object-Oriented Programming in C++
+	* Support for Object-Oriented Programming Java
+	* Support for Object-Oriented Programming C#
+	* Support for Object-Oriented Programming Ada 95
+	* The Object model of JavaScript
+	* Implementation of Object-Oriented Constructs 

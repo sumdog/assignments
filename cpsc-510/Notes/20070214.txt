@@ -1,0 +1,81 @@
+Chapter 5 Part 2 - Sebest
+Names, Bindings, Type Checking and Scope 
+
+* Category of Variables by Lifetimes
+	* Stack dynamic --Storage bindings are created for variables when their declaration statements are elaborated. 
+	* ...
+	* Explicit heap-dynamic -- Allocated and deallocated by explicit directives, specified by the programmer, which take effect during execution. 
+	* Referenced only through pointers or references, e.g. dynamic objects in C++ (via new and delete), all objects in Java
+	* Advantages: provides for dynamic storage management
+	* Disadvantage: inefficient and unreliable 
+* Type Checking - ensuring that the operands of an operator are of compatible types
+	* Operands and operators should include subprograms and assignments
+	* A compatible type is
+		* legal for the operator 
+		* implicitly converted (coerced) by compiler generated code, to a legal type
+		* Example: 1 + 2.5 
+			* Some languages promote the 1 from Integer to a Float (coercion of the data type)
+			* Some will throw an error
+		* If all type binds are static, nearly all type checking can be static
+		* If type bindings are dynamic, type checking must be dynamic 
+		* A programming language is strongly typed if type errors are always detected
+* Strong Typing - allows the detection of the misuses of variables that result in type errors
+	* Language Examples:
+		* FORTRAN 77 i not; parameters, EQUIVALENCE
+		* Pascal is not: variant records
+		* C and C++ are not: parameters type checking can be avoided; unions are not type checked
+		* Ada is, almost (UNCHECKED CONVERSION is loophole) (Java is similar)
+		* Coercion weakens strong typing (C++ vs Ada)
+		* Java has half the assignment coercions of C++, its strong typing is far less effective than Ada
+* Name Type Compatibility 
+	* Name type compatibility means variables have compatible types if they are in either the same declaration or in declarations that use the same type name
+	* Examples from Pascal
+	type
+		AType = array[1...10] of char,
+		Range = 1..10;
+	var
+		v1, v2 : Atype;
+		v3, v4 : array[1..10] of char
+		v5, v6 : array[Range] of char;
+* Easy to implement but highly restrictive:
+	* Subranges of integer types are not compatible with integer types
+	* Formal parameters must be the same type as their corresponding actual parameters (Pascal)
+* Variable Attributes: Scope
+	* The scope of a variable is the range of statements over which it is visible
+	* The nonlocal variables of a program unit are those that visible but not declared there
+	* The scope rules of a language determine how references...
+* Static Scope
+	* Based on program text
+	* To connect a name references to a variable, you (or the compiler) must find the declaration
+	* Search process: search declarations, first locally, then in increasingly larger enclosing scopes, until one is found for the given name
+	* Enclosing types...
+	* Variables can be hidden from a unit by having a "closer" variable with the same name
+	* C++ and Ada allow access to these "hidden" variables
+		* In Ada: unit name
+		* In C++: class_name::name
+* Blocks
+	* A method for creating static scopes inside program units--from ALGOL 60
+	* Examples:
+		C and C++: for (...) {
+			int index;
+				...
+			}
+		Ada: declare LCL : FLOAT:
+			begin
+				...
+			end
+		}
+* Evaluation of Static Scoping
+	* Assume MAIN calls A and B
+	A calls C and D
+	B calls A and E
+		Main
+			-A
+				-C
+				-D
+			-B
+				-E
+* Referencing Environment - collection of all the names that are visible in a statement
+	* ...
+* Named Constants - bound to a value when it is bound to storage
+	* 

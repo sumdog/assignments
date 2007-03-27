@@ -1,0 +1,56 @@
+Chapter 10 Topics
+
+General Semantics of Calls and Returns
+	* The subprogram call and return operations of a language are together called its subprogram linkage
+	* A subprogram call has numerous actions associated with it
+		* Parameter passing methods
+		* Static local variables 
+		* Execution status of calling program
+		* Transfer of control
+		* Subprogram nesting
+"Simple" Subprograms: Call Semantics
+	* Save the execution status of caller
+	* Carry out the parameter-passing process
+	* Pass the return address to the callee
+	* Transfer control to the callee
+	* If pass-by-value-result parameters are used, move the current values of those parameters to their corresponding actual parameters
+	* If it is a function, move the functional value to a place the caller can get it
+	* Restore the execution status of the caller
+	* Transfer control back to the caller
+
+Stack-Dynamic Activation Record
+	* The activation record format is static, but its size may be dynamic
+	* The ....
+
+An Example: C Function
+
+void sub(float total, int part) {
+  int list[4];
+  float sum;
+}
+
+
+Displays
+	* An alternative to static chains
+	* Static links are stored in a single array called a display
+	* The contents of the display at any given time is a list of addresses of the accessible activation record instances 
+
+Blocks
+	* Blocks are user-specified local scopes for variables
+	* An example in C
+		{ int temp;
+		temp = list[upper]l
+		list[upper] = list[lower];
+		list[lower] = temp
+		}
+Implementing Blocks
+	* Two Methods
+		1. Treat blocks as parameter-less subprograms that are always called from the same location
+			- Eve
+		2. ...
+
+Implementing Dynamic Scoping
+	* Deep Access: non-local references are found by searching the activation record instances on the dynamic chain
+	* Shallow Access: put locals in a central place
+		* One stack for each variable name
+		* Central table with an entry for each variable name
