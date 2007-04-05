@@ -15,7 +15,7 @@
 
 int main(int argc, char **argv) {
 	
-	MemoryManagerUnit *mmu = new SimpleMemory(512,0);
+	//MemoryManagerUnit *mmu = new SimpleMemory(512,0);
 	Scheduler *s = new RoundRobinScheduler();
 	Process *p1 = new Process("processes/1.proc");
 	Process *p2 = new Process("processes/2.proc");

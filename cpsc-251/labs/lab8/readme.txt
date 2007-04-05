@@ -18,7 +18,4 @@ g++ src/*.cpp -o vos
 To Run:
 ./vos
 
-Sample Output: 
-<insert here>
-
 *note, C++ iostream classes are not reentrant so output may be garbled. Running it multiple times will eventually produce this output.  
