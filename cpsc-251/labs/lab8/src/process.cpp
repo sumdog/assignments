@@ -98,7 +98,7 @@ Process::Process(string s) {
 							  break;
 						}
 					}
-					delete t;
+					delete[] t;
 					firstline = false;
 				}
 				else {
