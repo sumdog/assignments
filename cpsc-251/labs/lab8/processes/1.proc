@@ -1,0 +1,7 @@
+ix86,1024,512,012345
+alloc a 8
+alloc b 16
+alloc d 128
+free b
+alloc l 256
+free a

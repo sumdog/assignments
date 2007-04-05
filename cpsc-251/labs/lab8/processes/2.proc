@@ -1,0 +1,7 @@
+ix86,4096,1024,0135
+alloc i 512
+alloc b 128
+alloc q 16
+free b
+free q
+free i

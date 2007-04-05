@@ -1,0 +1,8 @@
+ix86,1024,512,0123456789
+alloc j 256
+alloc k 512
+alloc r 128
+free r
+alloc k 16
+alloc f 256
+free j
