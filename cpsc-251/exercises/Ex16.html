@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 14 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #2<br />
+Chapter #14 14.5, 14.6<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<ul>
+	<li class="question"><b>14.5</b> Discuss the strengths and weaknesses of implementing an access matrix using access lists that are associated with objects.</li>
+	  <ul>
+		<li class="answer">The advantage gained is that access control is directly associated with an object allowed for precise and localized access control. The disadvantage is that this access control must be check for individual objects each time they are accessed which cause a higher level over overhead.App</li>
+	  </ul>
+	<li class="question"><b>14.6</b> Discuss the strengths and weaknesses of implementing an access matrix using capabilities that are associated with domains.</li>
+	  <ul>
+		<li class="answer">  In this implementation a capability list for a domain is a list of objects together with the operations allowed on those object. Possession of a capability on the capability list means that access is allowed. However the capability list is never directly accessible to a process executing in that domain. Rather the capability list itself is a protected object, maintained by the operating system and accessed by the user only indirectly. With all the capabilities secure, the objects they protect are also secure against unauthorized access.</li>
+		<li class="answer">A weakness is that access-rights information for a particular domain is not localized, which means that determining the set of access rights for each domain is difficult. Also, every access to the object must be checked, requiring a search of the access list. In a large system with long access lists, this search can be time consuming.</li>
+	  </ul>
+</ul>
+
+
+
+</body>
+</html>

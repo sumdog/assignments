@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 16 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #2<br />
+Chapter #16 16.7, 16.12, 16.14<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<ul>
+	<li class="question"><b>16.7</b> Name servers are organized in a hierarchical manner. What is the purpose of using a hierarchical organization?</li>
+	  <ul>
+		<li class="answer"> </li>
+	  </ul>
+	<li class="question"><b>16.12</b> Consider a distributed system with two sites, A and B. Consider whether site A can distinguish among the following:
+		<ul>
+			<li class="question"><b>a</b> B goes down.</li>
+			<li class="question"><b>b</b> The link between A and B goes down.</li>
+			<li class="question"><b>c</b> B is extremely overloaded and its response time is 100 times longer than normal.</li>
+		</ul>
+	  <ul>
+		<li class="answer">A can not distinguish between B going down and the link going down unless there is an alternative form of communication between A and B. Many companies that need to insure redundancy use backups such as ISDN/BRI and in such cases, A would be able to determine if B is down or if the link is just down. If B is overloaded, A will still be able to tell that B is up because B would still respond to A's requests, they would just be heavily delayed.</li>
+	  </ul>
+	<li class="question"><b>16.14</b> What use is an address-resolution protocol? Why is it better to use such a protocol than to make each host read each packet to determine that packet’s destination? Does a token-passing network need such a protocol? Explain your answer.</li>
+	  <ul>
+		<li class="answer"> </li>
+	  </ul>
+</ul>
+
+
+
+</body>
+</html>

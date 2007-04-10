@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 12 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #2<br />
+Chapter #12 Exercises 12.2 de, 12.10<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Jason-Johnston@utc.edu">Jason Johnston</a><br />
+</p>
+
+<p class="question"><b>12.2</b> Suppose that a disk drive has 5000 cylinders, numbered 0 to 4999. The drive is currently serving a request at cylinder 143, and the previous request was at cylinder 125. The queue of pending requests, in FIFO order, is 86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130  Starting from the current head position, what is the total distance (in cylinders) that the disk arm moves to satisfy all the pending requests, for each of the following disk-scheduling algorithms?</p>
+<p class="answer">
+	<ul class="answer">
+		<li><b>d LOCK</b> - The sequence is 143, 913, 948, 1022, 1470, 1509, 1750, 1774, 4999, 130, 86. (Total Distance: 9769)</li>
+		<li><b>e C-SCAN</b> - The sequence is 143, 913, 948, 1022, 1470, 1509, 1750, 1774, 4999, 86, 130. (Total Distance: 9813)</li> 
+	</ul>
+</p>
+
+<p class="question"><b>12.10</b> Compare the throughput achieved by a RAID Level 5 organization with that achieved by a RAID Level 1 organization for the following:
+<ol class="question"><li> Read operations on single blocks </li><li>Read operations on multiple contiguous blocks</li></ol>
+</p>
+<p class="answer">RAID 1 simply mirrors a disk while RAID 3 combines every disk into one continues logical volume while sacrificing one disk to use as a parity disk. RAID 5 is exactly like RAID 3 except it distributes the parity slice between every disk in the volume (to avoid excess read/writes on the parity disk causing it to fail first).</p>
+
+<p class="answer">RAID 5 will provide better throughput for contiguous reads because requests can be pulled simultaneous from three or more disks. RAID 1 is very similar, however it can only "stripe" reads from at most two disks. As long as the RAID 5 is setup on an interface that allows for simultaneous I/O requests (SCSI, SATA or Parallel IDE with multiple controllers), the read performance of RAID 5 will surpass that of RAID 1. It's distribution of parity data and the storage capacity of size * (n-1) where n is the number of disks in the array makes RAID 5 the most economical of the major RAID configurations.</p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 15 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #2<br />
+Chapter #15 15.3, 15.5, 15.7<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Cary-McDevitt@utc.edu">Cary McDevitt</a><br />
+</p>
+
+<ul>
+	<li class="question"><b>15.3</b> The list of all passwords is kept within the operating system. Thus, if a user manages to read this list, password protection is no longer provided. Suggest a scheme that will avoid this problem. (Hint: Use different internal and external representations.)</li>
+	  <ul>
+		<li class="answer">Linux solves this problem by keeping a file called <i>/etc/passwd</i> which stores basic user data such as usernames, home directories, etc. and another file called <i>/etc/shadow</i> which stores encrypted password and is only readable by the root user which authentication programs run as. Other solutions include using an LDAP directory which contains a database of user information and encrypted password.</li>
+	  </ul>
+	<li class="question"><b>15.5</b> An experimental addition to UNIX allows a user to connect a watchdog program to a file. The watchdog is invoked whenever a program requests access to the file. The watchdog then either grants or denies access to the file. Discuss two pros and two cons of using watchdogs for security.</li>
+	  <ul>
+		<li class="answer"> </li>
+	  </ul>
+	<li class="question"><b>15.7</b> Discuss a means by which managers of systems connected to the Internet could have designed their systems to limit or eliminate the damage done by a worm. What are the drawbacks of making the change that you suggest?</li>
+	  <ul>
+		<li class="answer">There are a multitude of things a system administration can do. First and foremost setting up both software and hardware firewalls to only allow incoming connections on the services that will be used on the server. The disadvantage to this is that any new services require modifications to firewall tables before they can be accessed.</li>
+		<li class="answer">Next, the services that are accessible to the outside world should be <i>hardened</i> meaning that they should not be allowed to run as root (run as underprivileged). If it is possible, they should also be run either in a chroot environment or on a system with SELinux policies enabled. The disadvantage to SELinux is that granting the service access to other parts of the system can become a hassle. Chroot environments can easily become an administration nightmare when it comes to security updates and propagating them through each of the individual chroots. </li>
+	  </ul>
+</ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Chapter 9 Exercises</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Group #1<br />
+Chapter #9 Exercises 9.5, 9.8, 9.10<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> and <a href="mailto:Jason-Johnston@utc.edu">Jason Johnston</a><br />
+</p>
+
+<p class="question"><b>9.5</b> Assume we have a demand-paged memory. The page table is held in registers. It takes 8 milliseconds to service a page fault if an empty page is available or the replaced page is not modified, and 20 milliseconds if the replaced page is modified. Memory access time is 100 nanoseconds. Assume that the page to be replaced is modified 70 percent of the time. What is the maximum acceptable page-fault rate for an effective access time of no more than 200 nanoseconds?</p>
+<p class="answer">
+	20 ms = (1-P) * 1ms + (.3P) * 8 ms + (.7P) * 20 ms<br/>
+	0.1 = -0.1 * P + 2400 P + 14000 P<br />
+	P = 0.000006
+</p>
+
+<p class="question"><b>9.8</b> Discuss situations under which the most frequently used page-replacement algorithm generates fewer page faults than the least recently used  page replacement algorithm. Also discuss under what circumstance does the opposite holds.</p>
+<p class="answer">If we had a very simple computer system which can only hold three pages in memory, and if page 1 is accessed followed by page 2, page 2 again and then page 1, then page two would be dropped in favor of page one to be held in memory using the frequently used page-replacement algorithm. In the LRU algorithm, page one would be dropped in favor of holding page 2.</p>
+
+<p class="question"><b>9.10</b> Consider a demand-paging system with the following time-measured utilizations:
+
+<ol>
+<li>CPU utilization 20%</li>
+<li>Paging disk 97.7%</li>
+<li>Other I/O devices 5%</li>
+</ol>
+
+Which (if any) of the following will (probably) improve CPU utilization?<br />
+Explain your answer.<br />
+
+<ol>
+<li>Install a faster CPU.</li>
+<li>Install a bigger paging disk.</li>
+<li>Increase the degree of multiprogramming.</li>
+<li>Decrease the degree of multiprogramming.</li>
+<li>Install more main memory.</li>
+<li>Install a faster hard disk or multiple controllers with multiple hard disks.</li>
+<li>Add prepaging to the page fetch algorithms.</li>
+<li>Increase the page size.</li>
+</ol>
+</p>
+
+<p class="answer">The CPU isn't even at 1/4 of full utilization so a faster one will not increase performance. The swap disk is at maximum capacity so increasing its size will increase performance. Increasing the degree of parallel programming will help only if the system has multiple CPUs. Decreasing the about of parallelism will help if the system has a single CPI. More main memory would help by alleviating some of the burden carried by the page file. The Disk is only being utilized 5% of the time, so faster hard drives/controllers will not significantly affect performance.</p>
+
+
+</body>
+</html>
