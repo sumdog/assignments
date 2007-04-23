@@ -31,17 +31,19 @@ Chapter #17 17.1, 17.2, 17.3<br />
 </p>
 
 <ul>
-	<li class="question"><b>17.1</b> </li>
+	<li class="question"><b>17.1</b> What are the benefits of a DFS when compared to a file system in a centralized system?</li>
 	  <ul>
-		<li class="answer"></li>
+		<li class="answer">A DFS allows for the data to be stored on multiple machines accross a network, which removes the stipulation that data be moved to a central location in order to be accessed. A DFS system can also allow for faster access and retrieval time if the requested data is spread across multiple machines.</li>
 	  </ul>
-	<li class="question"><b>17.2</b></li>
+	<li class="question"><b>17.2</b> Which of the example DFSs discussed in this chapter would handle a large, multi-client database application most efficiently? Explain your answer.</li>
 	  <ul>
-		<li class="answer"> </li>
+		<li class="answer">I think the best DFS for this system would be the NFS, specifically the VFS V4. Being fundamentally different from other NFS versions it allows for client-side caching. It is also in a stateful format, meaning that it maintains the state of the client session from the time the file is opened to when it is closed. Overall the V4 has better capability to adjust to varying traffic loads on the network.</li>
 	  </ul>
-	<li class="question"><b>17.3</b></li>
+	<li class="question"><b>17.3</b> Discuss whether AFS and NFS provide the following: (a) location transparency and (b) location independence.</li>
 	  <ul>
-		<li class="answer"> </li>
+		<li class="answer"> NFS is simply a UNIX version of the SMB/CIFS protocol (used by Windows for basic file sharing). It provides a standard way to share parts of a UNIX file system using hostname/ip addresses for authorization. Each system is them responsible for their own permissions; typically based on shared UID information provided historically by NIS/YP. It provides no form of encryption and is a direct client/server application.</li>
+		<li class="answer">AFS or the Andrew File System is a network protocol and an actual filesystem format. It provides the ability for information to be distributed between multiple servers and provides mechanisms for data redundancy. I can also be used with ACLs, Kerberos and LDAP for strong authentication.</li>
+		<li class="answer">AFS both provides both locational transparency and location independence. NFS provides neither.</li>
 	  </ul>
 </ul>
 

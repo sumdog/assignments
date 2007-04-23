@@ -33,7 +33,7 @@ Chapter #16 16.7, 16.12, 16.14<br />
 <ul>
 	<li class="question"><b>16.7</b> Name servers are organized in a hierarchical manner. What is the purpose of using a hierarchical organization?</li>
 	  <ul>
-		<li class="answer"> </li>
+		<li class="answer">A hierarchical structure is used due to the way that the name servers are contacted. For instance if the name bob.cs.utc.edu was requested the kernel of the system would issue a request to the name server for the edu domain, asking for the address of the name server for utc.edu. The name server for the edu domain must be at a known address, so that it can be queried. Then the edu name server returns the address of the host on which the utc.edu name server resides. The kernel on the system the queries the name server at this address and asks about cs.utc.edu. Then an address is returns; and a request to that address for bob.cs.utc.edu now returns an Internet address host-id for that host.</li>
 	  </ul>
 	<li class="question"><b>16.12</b> Consider a distributed system with two sites, A and B. Consider whether site A can distinguish among the following:
 		<ul>
@@ -46,7 +46,11 @@ Chapter #16 16.7, 16.12, 16.14<br />
 	  </ul>
 	<li class="question"><b>16.14</b> What use is an address-resolution protocol? Why is it better to use such a protocol than to make each host read each packet to determine that packet’s destination? Does a token-passing network need such a protocol? Explain your answer.</li>
 	  <ul>
-		<li class="answer"> </li>
+		<li class="answer">  If a system needs to send data to another system withing a network, the kernel generates an address resolution protocol pack containing the IP address of the destination system. That packet is then distrubuted throughout the network.</li>
+
+          <li>The ARP protocol is more efficient than having each host read each packet individually. Only the the system whose IP address matches the IP address fo the ARP request responds and sends back its medium access control address.</li>
+
+          <li>A token passing network would not need an ARP because the tokens are continuously circulating throughout the system. Adding new sites to a token passing network is less likely to cause a large performance decrease than on an Ethernet network.</li>
 	  </ul>
 </ul>
 

@@ -37,7 +37,8 @@ Chapter #15 15.3, 15.5, 15.7<br />
 	  </ul>
 	<li class="question"><b>15.5</b> An experimental addition to UNIX allows a user to connect a watchdog program to a file. The watchdog is invoked whenever a program requests access to the file. The watchdog then either grants or denies access to the file. Discuss two pros and two cons of using watchdogs for security.</li>
 	  <ul>
-		<li class="answer"> </li>
+		<li class="answer">A watchdog program would be able to tell whether access to a file was permitted, or if the file was attempting to be accessed illegally. If the access was not allowed the watchdog could alert the system of the type of false access and tell the system how to respond.</li>
+		<li class="answer">A problem is that some watchdog systems would not be able to identify new methods of intrusion. Also the watchdog may generate false positives and not allow access to the file when it should be, or it may produce false negatives and allow access to the file when it shouldn't have been<li>
 	  </ul>
 	<li class="question"><b>15.7</b> Discuss a means by which managers of systems connected to the Internet could have designed their systems to limit or eliminate the damage done by a worm. What are the drawbacks of making the change that you suggest?</li>
 	  <ul>

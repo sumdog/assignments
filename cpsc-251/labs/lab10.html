@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+#headinfo {
+  font-weight: bold;	
+}
+.question {
+	color: blue;
+}
+.answer {
+	color: green;
+	font-style: italic;
+	font-weight: bold;
+}
+b {
+	color: black;
+}
+
+ </style>
+<title>Lab #10 - cpsc-251 - Sumit Khanna</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p id="headinfo">Lab #10<br />
+<a href="mailto:Sumit-Khanna@utc.edu">Sumit Khanna</a> <br />
+</p>
+
+<p class="question">Follow these directions to experiment with the Java client-server classes and the C++ thread program.  Prepare an html document with the answers to the questions and store it on your zog account and include a reference to it on your portfolio page.</p>
+
+<ul>
+	<li class="question">Logon with the standard account</li>
+	  <ul>
+		<li class="question">Create a folder in My Documents named cs251.  How do you create this folder? Does the type of file system impact how you create this folder?  Are you allowed to create a folder in any place on this machine?  If not, why not?</li>
+		<li class="answer">Use <i>mkdir</i> to create the folder. The type of file system doesn't affect what command is used to create it since the filesystem type is abstracted through the <acronym title="[Vritual File System]">VFS</acronym> layer. Due to security permissions, by default the only location a standard user can create files is his or her home director or the <i>/tmp</i> directory.</li>
+		<li class="question">
+		    Copy <a href="http://zog.utc.edu/~ssmullen/251/Assignments/Lab%20Exercises/prob15-1.zip">this zipped java program</a> to your My Documents/cs251 folder.  Compile the three classes.  What does the Server class do?  What does the Connection class do?  What does the Client class do?
+		</li>
+		<li class="answer">
+		</li>
+		<li class="question">
+		    Copy <a href="http://zog.utc.edu/~ssmullen/251/Assignments/Lab%20Exercises/CreateThread.cpp"this zipped C program</a> to your My Documents/cs251 folder.  Compile the program. What does the CreateThread program do?
+		</li>
+		<li class="answer">
+		</li>
+	  </ul>
+  	<li class="question">Logon to a machine that you have an Administrator account on and create a lowly user account, userA</li>
+  	  <ul>
+  		<li class="question">How do you, as Administrator, create a user account? How do you set the permissions?</li>
+  		    <li class=answer"">Use <i>useradd -k userA</i> to create an account and home directory. To give the user permission to a file or directory, you would user <i>chown userA:users &lt;filename&gt;</li> to give them ownership and <i>chmod 644 &lt;filename&gt;</i> to give them write permission and everyone else read permission.</li>
+  		<li class="question">Logon as userA.  Can you run the java classes and C program from step 1?  What restrictions does this account have compared to your account?</li>
+   		<li class="question">The user that you assigned the account userA to has lost the password for the account.  What can the Administrator do?</li>
+   		<li class=answer"">The password can be reset using <i>passwd &lt;username&ht;</i>. The password can not be retrieved as it is encrypted using a one-way hashing algorithm such as MD5 or SHA1. The password <b>can</b> be retrieved using libcrack if a weak algorithm is used such as DES.</li>
+  	  </ul>
+  	<li class="question">Logon with the standard account</li>
+  	  <ul>
+  		<li class="question"> Open 2 command windows, change to the directory where you stored the java program in step 1. Start Server in one window, start Client in the other window. What is executing in each of these command windows? What is the connection between the two command windows? </li>
+  		<li class="answer">Both windows are executing separate instances of the shell. Both shells are independent. The network program communicates because of the socket link it has made through the networking layer of the operating system.</li>
+  		<li class="question">What is the ip address of your machine? How do you determine this?</li>
+  		    <li class="answer">Run the command <i>ifconfig</i> to determine the IP address. Mine is 192.168.69.52</li>
+		<li class="question">What is the MAC address of your machine? How do you determine this? Why doesn’t the Socket constructor use the MAC address?</li>
+		<li class="answer">00:03:47:A0:77:81 is my MAC address. This is also determined by running <i>ifconfig</i>. The MAC address is used in the level 2 layer of the ANSI network protocol stack (Data Link). Applications do not send commands to their layer directly. Instead they communicate with the Transport Layer (TCP/UDP) which is layer 4 of the ANSI protocol stack.</li>
+  	  </ul>
+</ul>
+
+
+
+</body>
+</html>
