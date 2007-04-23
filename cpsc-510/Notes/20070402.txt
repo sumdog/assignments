@@ -1,0 +1,20 @@
+Chapter 15
+* Introduction
+	* The design of the imperative languages is based directly on the von Neumann architecture
+		* Efficiency is the primary concert, rather than the suitability of the language for software development
+	* The design of function languages is based on mathematical function
+* Mathematics Function
+	* A mathematical function is a mapping of members of one set, called a domain, to another set, called a range set
+	* A lambda expression specifies the parameter(s) and the mapping of a function in the following form
+		...
+	* Lambda expression describe nameless function
+	* Lambda expression are applied to parameter(s) by placing the parameter(s) after the expression
+		e.g. (lambda(x) X * X * X) (2)
+		which evaluates to 2
+* Functional From
+	* a higher-order function, or functional form is one that either takes functions as parameters or yields a function as a result 
+* Function Composition 
+	* A functional form that takes two functions as parameters....
+* Apply-to-all
+	* A functional from that takes a single function as a parameter and yields a list of values obtained by applying the given function to each element of a list of parameters
+	

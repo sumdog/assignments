@@ -1,0 +1,60 @@
+Who crated ML? When?
+	* ML stands for Meta Language
+	* Developed by Robin Milner and others at Edinburgh University in the mid-1970's
+	* Several versions have appeared since then and a popular package is Standard ML of New Jersey (SML) developed by Apple and McQueen at Princeton and Bell Labs in the late 1980s
+
+What languages influences the syntax?
+	* LIPS
+	* Some impact from Pascal / C
+
+What rules are used to define ML names?
+	* Similar to C
+		* First character must be alphabetic 
+		* ...
+What kind of variable typing is used in ML?
+	* ML is unusual among functional languages in that it uses static types and strong typing
+	* Data type determined by inference rather than deceleration 
+
+What data types are available?
+	* Built in:
+		* Integer (int)
+		* Floating points (real)
+		* Boolean (bool)
+		* Character (char)
+		* String (string)
+	* Also allows tuples and lists and user defined data types
+
+Tuples
+	* A Tuple is a sequence of objects of mixed type.
+	* Some tuples:
+		* (2,"Andrew") : int * string
+		* (true,3.5,"X") : bool * real * string
+		* ((4.2),(5,3)) : (x * x) * (x * x)
+	
+Lists
+	* A list in ML is like a linked list in C or PASCAL but without the complexities of pointers.
+	* A list is a sequence of items of the same type
+	* There are two list constructors, the empty list nil and the cons operator ::
+	* The :: operator takes an item on the left of a list on the right to give a list one longer than the original
+	* Examples
+		* nil				[]
+		* 1::nil	 		[1]
+		* 2::(1::nil)		[2,1]
+		* 3::(2::(1::nil)))	[3,2,1]
+
+Functions (Operators)
+	* ML has a fairly standard set of mathematical and string function. Here are a few of them:
+		+ integer or real addition
+		- integer or real subtraction
+		* integer or real multiplication
+		/ real division
+		div integer division (e.g. 27 div 10 is 2)
+		mod remainder (e.g. 27 mod 10 is 7)
+		^ string concatenation
+
+Expressions and assignment statements
+	* Expressions can be written in infix or name (args) form and are terminated by a semicolon. For example; 
+		4+6;
+		functionName(s,t);
+	* 'Variables' are bound to values by the val function:
+		val x = 45
