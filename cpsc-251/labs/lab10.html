@@ -13,7 +13,6 @@
 }
 .answer {
 	color: green;
-	font-style: italic;
 	font-weight: bold;
 }
 b {
@@ -39,21 +38,22 @@ b {
 		<li class="question">
 		    Copy <a href="http://zog.utc.edu/~ssmullen/251/Assignments/Lab%20Exercises/prob15-1.zip">this zipped java program</a> to your My Documents/cs251 folder.  Compile the three classes.  What does the Server class do?  What does the Connection class do?  What does the Client class do?
 		</li>
-		<li class="answer">
+		<li class="answer">Server starts a listening socket and waits for a connection. When a connection occurs, it starts the Connection class object which responds to the request. The Client connects to the server and prints the output from its response.
 		</li>
 		<li class="question">
 		    Copy <a href="http://zog.utc.edu/~ssmullen/251/Assignments/Lab%20Exercises/CreateThread.cpp"this zipped C program</a> to your My Documents/cs251 folder.  Compile the program. What does the CreateThread program do?
 		</li>
-		<li class="answer">
+		<li class="answer">It creates 40 threads.
 		</li>
 	  </ul>
   	<li class="question">Logon to a machine that you have an Administrator account on and create a lowly user account, userA</li>
   	  <ul>
   		<li class="question">How do you, as Administrator, create a user account? How do you set the permissions?</li>
-  		    <li class=answer"">Use <i>useradd -k userA</i> to create an account and home directory. To give the user permission to a file or directory, you would user <i>chown userA:users &lt;filename&gt;</li> to give them ownership and <i>chmod 644 &lt;filename&gt;</i> to give them write permission and everyone else read permission.</li>
+  		    <li class="answer">Use <i>useradd -k userA</i> to create an account and home directory. To give the user permission to a file or directory, you would user <i>chown userA:users &lt;filename&gt;</i> to give them ownership and <i>chmod 644 &lt;filename&gt;</i> to give them write permission and everyone else read permission.</li>
   		<li class="question">Logon as userA.  Can you run the java classes and C program from step 1?  What restrictions does this account have compared to your account?</li>
+  		<li class="answer">The Java program can run from a regular user account since it uses ports in the high range that aren't reserved for the Administrator. The C program will fine as well in a regular user account, although only on a Windows computer or on Linux when compiled against the Wine libraries (Wine is a re-implementation of C++ API in Linux). The regular user in both Windows and Linux can not install programs and can only write to certain parts of the disk.</li>
    		<li class="question">The user that you assigned the account userA to has lost the password for the account.  What can the Administrator do?</li>
-   		<li class=answer"">The password can be reset using <i>passwd &lt;username&ht;</i>. The password can not be retrieved as it is encrypted using a one-way hashing algorithm such as MD5 or SHA1. The password <b>can</b> be retrieved using libcrack if a weak algorithm is used such as DES.</li>
+   		<li class="answer">The password can be reset using <i>passwd &lt;username&ht;</i>. The password can not be retrieved as it is encrypted using a one-way hashing algorithm such as MD5 or SHA1. The password <b>can</b> be retrieved using libcrack if a weak algorithm is used such as DES.</li>
   	  </ul>
   	<li class="question">Logon with the standard account</li>
   	  <ul>
@@ -64,6 +64,33 @@ b {
 		<li class="question">What is the MAC address of your machine? How do you determine this? Why doesn’t the Socket constructor use the MAC address?</li>
 		<li class="answer">00:03:47:A0:77:81 is my MAC address. This is also determined by running <i>ifconfig</i>. The MAC address is used in the level 2 layer of the ANSI network protocol stack (Data Link). Applications do not send commands to their layer directly. Instead they communicate with the Transport Layer (TCP/UDP) which is layer 4 of the ANSI protocol stack.</li>
   	  </ul>
+  	<li class="question">Working with another classmate (I did this by myself)</li>
+        <ul>
+            <li class="question">Select one of you to run the server program and the other to run the client program: Modify your programs to have the appropriate ip addresses.  What are the appropriate ip addresses for the Server and Client classes?</li>
+            <li class="answer">The server does not need to be modified. The client needs to be modified to connect to the new IP. In my case it connects to 192.168.42.52.</li>
+            <li class="question">Compile and run your modified programs.  Explain what is happening when one of you executes the server and the other the client.  How does this compare with your execution of both classes on one machine from step 3?</li>
+            <li class="answer">The execution of the client and server is exactly the same. There is no difference. When executing them on the same computer, they still communication through a socket in the network layer of the operating system. The operating system may chose to turn off error correct and flow control to increase efficiency since no data loss can occur, but other than that the execution is exactly the same. </li>
+            <li class="question">Swap server and client roles.  What do you need to modify in your programs to do this.  Why?</li>
+            <li class="answer">Once again, only the Client needs to be modified. It needs to be given the IP address of the computer the server is being run on.</li>
+        </ul>
+  	<li class="question">Upload your java programs to your zog account  (Note:  zog’s ip address can be obtained using host zog)</li>
+        <ul>
+            <li class="question">Explain how to use vi to modify the ip address referenced in the Socket constructor so that it is 127.0.0.1.</li>
+            <li class="answer">Run <i>vi Client.java</i>, use <i>i</i> to go into insert mode. Use the arrow keys to navigate to the correct line. Make the change and then hit <i>&lt;esc&gt;:wq</i> to save the file and exit the editor.</li>
+            <li class="question">Execute the Server and Client classes using 1 telnet session.  Explain how to run both classes in one session.</li>
+            <li class="answer">Use the command <i>java Server &amp;; java Client</i> which will start the server is the background.</li>
+            <li class="question">You may need to change the port number (6155) referenced in the Socket constructor.  Why?</li>
+            <li class="answer">Another instance of the server may all ready be bound to that port. Only one process can bind and listen to a port at a time.</li>
+            <li class="question">Execute the Server and Client classes using 2 telnet sessions.  Explain how to run both classes, one per session.</li>
+            <li class="answer">In the first telnet window, run <i>java Server</i> and then in the second one run <i>java Client</i></li>
+        </ul>
+  	<li class="question">Move your Client, Server and Connection Java classes to a subdirectory of your public_html directory</li>
+        <ul>
+            <li class="question">Set the file permissions (chmod) on the Client file so that someone browsing to this file cannot read, modify or execute it.  Explain how you set these permissions.  Test your settings by using a browser to browse to the file.</li>
+            <li class="answer">Use the command <i>chmod 000 Client.java</i></li>
+            <li class="question">Set the file permissions on the Client file so that someone browsing to this file cannot read or modify it but can execute it.  Explain how you set these permissions.  Test your settings by using a browser to browse to the file.</li>
+            <li class="answer">Use the command <i>chmod 111 Client.java</i></li>
+        </ul>
 </ul>
 
 
